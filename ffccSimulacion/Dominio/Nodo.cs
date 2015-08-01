@@ -26,7 +26,8 @@ namespace ffccSimulacion.Dominio
             anteriores.Add(relacion);
         }
 
-        public void agregarRelacionSiguiente(Relacion relacion){
+        public void agregarRelacionSiguiente(Relacion relacion)
+        {
             siguientes.Add(relacion);
         }
 
