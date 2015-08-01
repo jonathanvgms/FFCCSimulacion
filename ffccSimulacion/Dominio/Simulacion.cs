@@ -209,7 +209,7 @@ namespace ffccSimulacion.Dominio
 
         private void actualizarSiguienteServicio(out int siguienteSalida, out Servicio siguienteServicio)
         {
-            /*Actualiza las variables siguienteSalida y siguienteServicio con los valores del proximo servicio a salir.*/
+            /*Actualiza las variables siguienteSalida y siguienteServicio con los valores del proximo servicio a salir.  */
             siguienteServicio = servicios.First();
             siguienteSalida = siguienteServicio.proximoHorarioSalida();
             foreach (Servicio servicio in servicios)
