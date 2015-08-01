@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Meta.Numerics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=67d25c65a6631347, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Meta.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Dominio\Coche.cs" />
     <Compile Include="Dominio\Estacion.cs" />
+    <Compile Include="Dominio\Fdp.cs" />
     <Compile Include="Dominio\Formacion.cs" />
     <Compile Include="Dominio\Incidente.cs" />
     <Compile Include="Dominio\Nodo.cs" />
