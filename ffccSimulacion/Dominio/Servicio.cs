@@ -20,7 +20,7 @@ namespace ffccSimulacion.Dominio
 
         List<Parada> paradas; //Estaciones en las que para la formacion.
 
-        public Formacion formacion; //Formacion que prestara este servicio.
+        public Formacion formacion; //Formacion que prestara este servicio. //TODO cambiar por una lista de formaciones.
 
         List<int> programacion; //Tiempos de salida de la terminal.
 

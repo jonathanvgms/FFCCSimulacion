@@ -10,7 +10,7 @@ namespace ffccSimulacion.Dominio
     {
         int idTraza;
         List<Relacion> relaciones;
-        List<Nodo> nodos;
+        List<Nodo> nodos; //TODO Hacer solamente una lista de servicios.
 
         public Traza()
         {

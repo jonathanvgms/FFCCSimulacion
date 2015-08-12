@@ -15,7 +15,7 @@ namespace ffccSimulacion.Dominio
         /*Datos para ejecucion.*/
         Traza traza;
         
-        List<Servicio> servicios;
+        List<Servicio> servicios; //TODO esto estaria en la traza
 
         public Simulacion(int id)
         {
@@ -35,7 +35,7 @@ namespace ffccSimulacion.Dominio
             //Estacion estacion4 = new Estacion();
             //Estacion estacion5 = new Estacion();
 
-            traza.agregarNodo(estacion1);
+            traza.agregarNodo(estacion1); //TODO la traza tiene una lista de servicios, no de nodos
             traza.agregarNodo(estacion2);
             traza.agregarNodo(estacion3);
             /*traza.agregarNodo(estacion4);
@@ -48,14 +48,14 @@ namespace ffccSimulacion.Dominio
             /*Relacion relacion3 = new Relacion(estacion3, estacion4);
             Relacion relacion4 = new Relacion(estacion4, estacion5);
             */
-            traza.relacionarNodos(relacion1);
+            traza.relacionarNodos(relacion1);//TODO la traza tiene una lista de servicios, no de nodos
             traza.relacionarNodos(relacion2);
             /*traza.relacionarNodos(relacion3);
             traza.relacionarNodos(relacion4);
             */
             /*CARGAR SERVICIOS*/
             /*Se buscan en la Base de Datos todos los servicios correspondientes a la idSimulacion y se configuran apropiadamente.*/
-            servicios = new List<Servicio>();
+            servicios = new List<Servicio>(); //TODO esto esta en la traza
 
             Servicio servicio1 = new Servicio(estacion1, estacion3);
             /*Servicio servicio2 = new Servicio(estacion5, estacion1);
@@ -86,8 +86,8 @@ namespace ffccSimulacion.Dominio
             servicio4.agregarParada(estacion2, false);
             servicio4.agregarParada(estacion1, true);
             */
-            List<int> programacion1 = new List<int>();
-            for (int i = 0; i < 100; i += 10)
+            List<int> programacion1 = new List<int>(); //TODO cambiar por frecuencia
+            for (int i = 0; i < 100; i += 10)//TODO cambiar por la frecuencia de la ABM
             {
                 int horario = i;
                 programacion1.Add(horario);
