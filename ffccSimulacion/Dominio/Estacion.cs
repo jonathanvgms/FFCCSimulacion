@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Estacion : Nodo
+    public class Estacion : Nodo
     {
         int genteEsperando;
         int ultimaAtencion;

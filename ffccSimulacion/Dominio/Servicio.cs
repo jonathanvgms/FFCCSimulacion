@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Servicio
+    public class Servicio
     {
-        public Nodo desde; //Terminal de donde sale la formacion.
+        private Nodo _desde; //Terminal de donde sale la formacion.
         
-        public Nodo hasta; //Terminal hacia la que va la formacion.
+        private Nodo _hasta; //Terminal hacia la que va la formacion.
+
+        private List<Relacion> _relaciones;
 
         struct Parada
         {
@@ -18,18 +20,49 @@ namespace ffccSimulacion.Dominio
             public bool para;
         }
 
-        List<Parada> paradas; //Estaciones en las que para la formacion.
+        private List<Parada> _paradas; //Estaciones en las que para la formacion.
 
-        public Formacion formacion; //Formacion que prestara este servicio. //TODO cambiar por una lista de formaciones.
+        private Formacion _formacion; //Formacion que prestara este servicio. //TODO cambiar por una lista de formaciones.
 
-        List<int> programacion; //Tiempos de salida de la terminal.
+        private List<int> _programacion; //Tiempos de salida de la terminal.
 
         public Servicio(Nodo terminalInicial, Nodo terminalFinal)
         {
-            desde = terminalInicial;
-            hasta = terminalFinal;
-            paradas = new List<Parada>();
-            programacion = new List<int>();
+            _desde = terminalInicial;
+            _hasta = terminalFinal;
+            _relaciones = new List<Relacion>();
+            _paradas = new List<Parada>();
+            _programacion = new List<int>();
+        }
+
+        public Nodo Desde
+        {
+            get { return _desde; }
+            set { _desde = value; }
+        }
+
+        public Nodo Hasta
+        {
+            get { return _hasta; }
+            set { _hasta = value; }
+        }
+
+        public List<Relacion> Relaciones
+        {
+            get { return _relaciones; }
+            set { _relaciones = value; }
+        }
+
+        public Formacion Formacion
+        {
+            get { return _formacion; }
+            set { _formacion = value; }
+        }
+
+        public List<int> Programacion
+        {
+            get { return _programacion; }
+            set { _programacion = value; }
         }
 
         public void agregarParada(Nodo nodo, bool para)
@@ -37,12 +70,12 @@ namespace ffccSimulacion.Dominio
             Parada parada = new Parada();
             parada.nodo = nodo;
             parada.para = para;
-            paradas.Add(parada);
+            _paradas.Add(parada);
         }
 
         public void agregarHorarioSalida(int horarioSalida)
         {
-            programacion.Add(horarioSalida);
+            _programacion.Add(horarioSalida);
             //No es necesario ordenar, devuelvo el menor luego.
         }
 
@@ -50,7 +83,7 @@ namespace ffccSimulacion.Dominio
         {
             foreach (int horarioSalida in programacionSalida)
             {
-                programacion.Add(horarioSalida);
+                _programacion.Add(horarioSalida);
             }
             //No es necesario ordenar, devuelvo el menor luego.
         }
@@ -58,9 +91,9 @@ namespace ffccSimulacion.Dominio
         public int proximoHorarioSalida()
         {
             //Obtiene la proxima salida para este servicio.
-            if (programacion.Count != 0)
+            if (_programacion.Count != 0)
             {
-                return programacion.Min();
+                return _programacion.Min();
             }
 
             return 1000;
@@ -69,14 +102,26 @@ namespace ffccSimulacion.Dominio
         public void removerSalida(int salida)
         {
             //Remueve de la programacion una salida ya utilizada.
-            programacion.Remove(salida);
+            _programacion.Remove(salida);
+        }
+
+        public Relacion relacionEntre(Nodo nodoInicial, Nodo nodoFinal)
+        {
+            foreach (Relacion relacion in _relaciones)
+            {
+                if (relacion.relaciona(nodoInicial, nodoFinal))
+                {
+                    return relacion;
+                }
+            }
+            throw new ApplicationException("No se encontró relacion entre nodos.");
         }
 
         public Nodo proximoNodo(Nodo nodoActual)
         {
             foreach (Relacion proximaRelacion in nodoActual.siguientes)
             {
-                foreach (Parada parada in paradas)
+                foreach (Parada parada in _paradas)
                 {
                     if (proximaRelacion.siguiente == parada.nodo)
                     {
@@ -86,7 +131,7 @@ namespace ffccSimulacion.Dominio
             }
             foreach (Relacion proximaRelacion in nodoActual.anteriores)
             {
-                foreach (Parada parada in paradas)
+                foreach (Parada parada in _paradas)
                 {
                     if (proximaRelacion.anterior == parada.nodo)
                     {

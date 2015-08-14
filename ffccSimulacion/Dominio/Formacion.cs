@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Formacion
+    public class Formacion
     {
         List<Coche> coches;
         public Formacion()

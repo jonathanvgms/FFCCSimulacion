@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Nodo
+    public class Nodo
     {
         /*Representa todo elemento que forma una traza
          *Se relacionan entre si a travez de una lista de Relacion siguientes y otra de anteriores

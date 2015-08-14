@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Coche
+    public class Coche
     {
         public int pasajerosSentados;
         public int pasajerosParados;

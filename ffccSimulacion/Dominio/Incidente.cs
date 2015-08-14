@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Incidente
+    public class Incidente
     {
         int probabilidadOcurrencia;
         int tiempoDemora;

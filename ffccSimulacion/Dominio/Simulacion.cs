@@ -14,8 +14,6 @@ namespace ffccSimulacion.Dominio
 
         /*Datos para ejecucion.*/
         Traza traza;
-        
-        List<Servicio> servicios; //TODO esto estaria en la traza
 
         public Simulacion(int id)
         {
@@ -35,28 +33,13 @@ namespace ffccSimulacion.Dominio
             //Estacion estacion4 = new Estacion();
             //Estacion estacion5 = new Estacion();
 
-            traza.agregarNodo(estacion1); //TODO la traza tiene una lista de servicios, no de nodos
-            traza.agregarNodo(estacion2);
-            traza.agregarNodo(estacion3);
-            /*traza.agregarNodo(estacion4);
-            traza.agregarNodo(estacion5);*/
-
             /*CARGAR RELACIONES*/
             /*Se buscan en la Base de Datos todos los servicios correspondientes a la idSimulacion y se obtienen sus propiedades.*/
             Relacion relacion1 = new Relacion(estacion1, estacion2);
             Relacion relacion2 = new Relacion(estacion2, estacion3);
             /*Relacion relacion3 = new Relacion(estacion3, estacion4);
-            Relacion relacion4 = new Relacion(estacion4, estacion5);
-            */
-            traza.relacionarNodos(relacion1);//TODO la traza tiene una lista de servicios, no de nodos
-            traza.relacionarNodos(relacion2);
-            /*traza.relacionarNodos(relacion3);
-            traza.relacionarNodos(relacion4);
-            */
-            /*CARGAR SERVICIOS*/
-            /*Se buscan en la Base de Datos todos los servicios correspondientes a la idSimulacion y se configuran apropiadamente.*/
-            servicios = new List<Servicio>(); //TODO esto esta en la traza
-
+            Relacion relacion4 = new Relacion(estacion4, estacion5);*/
+            
             Servicio servicio1 = new Servicio(estacion1, estacion3);
             /*Servicio servicio2 = new Servicio(estacion5, estacion1);
             Servicio servicio3 = new Servicio(estacion1, estacion5);
@@ -67,6 +50,12 @@ namespace ffccSimulacion.Dominio
             servicio1.agregarParada(estacion3, true);
             //servicio1.agregarParada(estacion4, true);
             //servicio1.agregarParada(estacion5, true);
+
+            servicio1.Relaciones.Add(relacion1);
+            servicio1.Relaciones.Add(relacion2);
+
+            traza.ServiciosOtorgados.Add(servicio1);
+
             /*
             servicio2.agregarParada(estacion5, true);
             servicio2.agregarParada(estacion4, true);
@@ -121,11 +110,7 @@ namespace ffccSimulacion.Dominio
             }
             servicio1.agregarProgramacionSalida(programacion4);
             */
-            servicios.Add(servicio1);
-            /*servicios.Add(servicio2);
-            servicios.Add(servicio3);
-            servicios.Add(servicio4);
-            */
+            
             /*CARGAR FORMACIONES*/
             /*Se buscan en la Base de Datos todas las formaciones correspondientes a cada servicio.idServicio y se obtienen sus propiedades*/
             Formacion formacion1 = new Formacion();
@@ -133,7 +118,7 @@ namespace ffccSimulacion.Dominio
             Formacion formacion3 = new Formacion();
             Formacion formacion4 = new Formacion();
             */
-            servicio1.formacion = formacion1;
+            servicio1.Formacion = formacion1;
             /*servicio1.formacion = formacion2;
             servicio1.formacion = formacion3;
             servicio1.formacion = formacion4;
@@ -172,16 +157,16 @@ namespace ffccSimulacion.Dominio
             Console.WriteLine("tiempoActual={0} | tiempoFinal={1}", tiempoActual, tiempoFinal);
             while (tiempoActual < tiempoFinal)
             {
-                Nodo nodoActual = servicioActual.desde; //Empiezo en la terminal.
+                Nodo nodoActual = servicioActual.Desde; //Empiezo en la terminal.
                 int tiempoFormacionActual = tiempoActual; //El tren sale a la hora indicada en la programacion del servicio.
                 //TODO atencion en la terminal.
 
                 //ATENCION DE UN SERVICIO
-                while (nodoActual != servicioActual.hasta)
+                while (nodoActual != servicioActual.Hasta)
                 {
                     Nodo nodoSiguiente = servicioActual.proximoNodo(nodoActual); //Busco el siguiente nodo en el recorrido.
 
-                    Relacion relacionSiguiente = traza.relacionEntre(nodoActual, nodoSiguiente); //Obtengo el camino a recorrer hasta el proximo nodo.
+                    Relacion relacionSiguiente = servicioActual.relacionEntre(nodoActual, nodoSiguiente); //Obtengo el camino a recorrer hasta el proximo nodo.
 
                     int tiempoViaje = relacionSiguiente.calcularTiempoViaje(); //La relacion me indica el tiempo de viaje.
                     
@@ -191,7 +176,7 @@ namespace ffccSimulacion.Dominio
 
                     int tiempoInicioAtencion = tiempoLlegadaProximoNodo; //Si no hay demoras en la estacion, el tiempo de atencion sera el de llegada, si hay demoras se actualiza.
                     
-                    int tiempoAtencion = nodoSiguiente.atenderFormacion(servicioActual.formacion, ref tiempoInicioAtencion);
+                    int tiempoAtencion = nodoSiguiente.atenderFormacion(servicioActual.Formacion, ref tiempoInicioAtencion);
 
                     nodoActual = nodoSiguiente; //Actualizo el nodo que será el inicial en la siguiente iteracion.
                     
@@ -210,9 +195,9 @@ namespace ffccSimulacion.Dominio
         private void actualizarSiguienteServicio(out int siguienteSalida, out Servicio siguienteServicio)
         {
             /*Actualiza las variables siguienteSalida y siguienteServicio con los valores del proximo servicio a salir. */
-            siguienteServicio = servicios.First();
+            siguienteServicio = traza.ServiciosOtorgados.First();
             siguienteSalida = siguienteServicio.proximoHorarioSalida();
-            foreach (Servicio servicio in servicios)
+            foreach (Servicio servicio in traza.ServiciosOtorgados)
             {
                 int salidaAux = servicio.proximoHorarioSalida();
                 if (salidaAux < siguienteSalida)

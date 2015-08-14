@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    class Relacion
+    public class Relacion
     {
         /*Relaciona un unico nodo inicial con un unico nodo siguiente.
          *Contiene indicadores propios del transito entre un nodo y otro.
