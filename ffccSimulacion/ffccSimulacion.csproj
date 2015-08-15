@@ -37,7 +37,9 @@
       <HintPath>.\Meta.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +57,9 @@
       <DependentUpon>frmABMCoche.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Coche.cs" />
+    <Compile Include="Dominio\DataBase\ClasesJoins\Formacion_X_Coche.cs" />
+    <Compile Include="Dominio\DataBase\DataBaseManager.cs" />
+    <Compile Include="Dominio\Enumeraciones.cs" />
     <Compile Include="Dominio\Estacion.cs" />
     <Compile Include="Dominio\Fdp.cs" />
     <Compile Include="Dominio\Formacion.cs" />

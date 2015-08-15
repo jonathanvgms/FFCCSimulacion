@@ -1,28 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
+    [Table(Name = "Coches")]
     public class Coche
     {
-        public int pasajerosSentados;
-        public int pasajerosParados;
-        public int cantidadAsientos;
-        public int capacidadLegal;
-        public int capacidadMaxima;
+        private string _modelo;
+        private int _isLocomotora;
+        private TipoConsumo _tipoConsumo;
+        private int _consumoMovimiento;
+        private int _consumoParado;
+        private int _pasajerosSentados;
+        private int _pasajerosParados;
+        private int _cantidadAsientos;
+        private int _capacidadLegal;
+        private int _capacidadMaxima;
 
-        public Coche(int cantidadAsientos, int capacidadLegal, int capacidadMaxima)
+        /*El constructor huevo es necesario para el correcto mapeo de la clase en LINQ al igual que las propiedades publicas*/
+        public Coche() { }
+
+        public Coche(string modelo,bool esunalocomotora,TipoConsumo tipo,int consumoMov,int consumoPa,int cantidadAsientos, int capacidadLegal, int capacidadMaxima)
         {
             if (cantidadAsientos <= capacidadLegal && capacidadLegal <= capacidadMaxima)
             {
-                pasajerosSentados = 0;
-                pasajerosParados = 0;
-                this.cantidadAsientos = cantidadAsientos;
-                this.capacidadLegal = capacidadLegal;
-                this.capacidadMaxima = capacidadMaxima;
+                _pasajerosSentados = 0;
+                _pasajerosParados = 0;
+                _modelo = modelo;
+                IsLocomotora = esunalocomotora;
+                _tipoConsumo = tipo;
+                _consumoMovimiento = consumoMov;
+                _consumoParado = consumoPa;
+                _cantidadAsientos = cantidadAsientos;
+                _capacidadLegal = capacidadLegal;
+                _capacidadMaxima = capacidadMaxima;
             }
             else
             {
@@ -30,19 +45,96 @@ namespace ffccSimulacion.Dominio
             }
         }
 
+        [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int Id { get; set; }
+
+        [Column(Name = "Modelo", DbType = "varchar(100)", CanBeNull = false)]
+        public string Modelo
+        {
+            get { return _modelo; }
+            set { _modelo = value; }
+        }
+
+        [Column(Name = "EsLocomotora", DbType = "int", CanBeNull = false)]
+        public bool IsLocomotora
+        {
+            get { return _isLocomotora == 1; }
+            set 
+            { 
+                if (value)
+                    _isLocomotora = 1; 
+                else 
+                    _isLocomotora = 0; 
+            }
+        }
+
+        [Column(Name = "TipoConsumo", DbType = "int", CanBeNull = false)]
+        public TipoConsumo TipoConsumo
+        {
+            get { return _tipoConsumo; }
+            set { _tipoConsumo = value; }
+        }
+
+        [Column(Name = "ConsumoMovimiento", DbType = "int", CanBeNull = false)]
+        public int ConsumoMovimiento
+        {
+            get { return _consumoMovimiento; }
+            set { _consumoMovimiento = value; }
+        }
+
+        [Column(Name = "ConsumoParado", DbType = "int", CanBeNull = false)]
+        public int ConsumoParado
+        {
+            get { return _consumoParado; }
+            set { _consumoParado = value; }
+        }
+
+        [Column(Name = "CantidadAsientos", DbType = "int", CanBeNull = false)]
+        public int CantidadAsientos
+        {
+            get { return _cantidadAsientos; }
+            set { _cantidadAsientos = value; }
+        }
+
+        [Column(Name = "MaximoLegalPasajeros", DbType = "int", CanBeNull = false)]
+        public int CapacidadLegal
+        {
+            get { return _capacidadLegal; }
+            set { _capacidadLegal = value; }
+        }
+
+        [Column(Name = "CapacidadMaximaPasajeros", DbType = "int", CanBeNull = false)]
+        public int CapacidadMaxima
+        {
+            get { return _capacidadMaxima; }
+            set { _capacidadMaxima = value; }
+        }
+
+        public int PasajerosSentados
+        {
+            get { return _pasajerosSentados; }
+            set { _pasajerosSentados = value; }
+        }
+
+        public int PasajerosParados
+        {
+            get { return _pasajerosParados; }
+            set { _pasajerosParados = value; }
+        }
+
         public int asientosRestantes()
         {
-            return cantidadAsientos - pasajerosSentados;
+            return _cantidadAsientos - _pasajerosSentados;
         }
 
         public int capacidadLegalRestante()
         {
-            return capacidadLegal - pasajerosSentados - pasajerosParados;
+            return _capacidadLegal - _pasajerosSentados - _pasajerosParados;
         }
 
         public int capacidadMaximaRestante()
         {
-            return capacidadMaxima - pasajerosSentados - pasajerosParados;
+            return _capacidadMaxima - _pasajerosSentados - _pasajerosParados;
         }
 
         public int recibir(int pasajerosASubir)
@@ -60,7 +152,7 @@ namespace ffccSimulacion.Dominio
                 pasajerosASentar = exceso;
             }
             exceso -= pasajerosASentar;
-            pasajerosSentados += pasajerosASentar;
+            _pasajerosSentados += pasajerosASentar;
 
             //EL RESTO DE LOS PASAJEROS VAN PARADOS HASTA LA CAPACIDAD LEGAL
             int pasajerosAEntrar;
@@ -73,7 +165,7 @@ namespace ffccSimulacion.Dominio
                 pasajerosAEntrar = exceso;
             }
             exceso -= pasajerosAEntrar;
-            pasajerosParados += pasajerosAEntrar;
+            _pasajerosParados += pasajerosAEntrar;
 
             //EL RESTO DE LOS PASAJEROS VAN PARADOS HASTA LA CAPACIDAD MAXIMA
             if (exceso >= capacidadMaximaRestante())
@@ -85,7 +177,7 @@ namespace ffccSimulacion.Dominio
                 pasajerosAEntrar = exceso;
             }
             exceso -= pasajerosAEntrar;
-            pasajerosParados += pasajerosAEntrar;
+            _pasajerosParados += pasajerosAEntrar;
 
             //EL RESTO DE LOS PASAJEROS NO PODRA ENTRAR
             return exceso;

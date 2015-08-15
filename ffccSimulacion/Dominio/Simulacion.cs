@@ -127,7 +127,7 @@ namespace ffccSimulacion.Dominio
             /*Se buscan en la Base de Datos todos los coches correspondientes a cada formacion.idFormacion y se obtienen sus propiedades.*/
             for (int i = 0; i < 5; i++)
             {
-                formacion1.agregarCoche(new Coche(30, 50, 100));
+                formacion1.agregarCoche(new Coche("", false, TipoConsumo.Disel, 0, 0, 30, 50, 100));
             }
             /*
             for (int i = 0; i < 5; i++)
