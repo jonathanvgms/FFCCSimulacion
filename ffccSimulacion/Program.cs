@@ -16,9 +16,6 @@ namespace ffccSimulacion
         [STAThread]
         static void Main()
         {
-            DataBaseManager db = new DataBaseManager();
-            db.PruebasBD();
-
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());

@@ -14,8 +14,8 @@ namespace ffccSimulacion.Dominio.DataBase.ClasesJoins
         private int _idFormacion;
         private int _idCoche;
         private EntityRef<Coche> _unCoche;
-        //private EntityRef<Formacion> _unaFormacion;
 
+        /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
         public Formacion_X_Coche() { }
 
         [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]

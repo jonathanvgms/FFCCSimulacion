@@ -15,15 +15,17 @@ namespace ffccSimulacion.Dominio
         private string _nombreFormacion;
         private EntitySet<Formacion_X_Coche> _auxCoches_LINQ;
         private List<Coche> _coches = new List<Coche>();
-        private bool _inicializoCoches = false;
 
-        public Formacion() { }
+        /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
+        public Formacion() {  }
 
         public Formacion(string nombre)
         {
             _nombreFormacion = nombre;
             _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
         }
+
+        #region Propiedades
 
         [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]
         public int Id { get; set; }
@@ -42,27 +44,31 @@ namespace ffccSimulacion.Dominio
             set { _auxCoches_LINQ.Assign(value); }
         }
 
-        /*Es vez de poner un "set" a esta propiedad hay que usar la funcion de abajo "agregarCoche"*/
+        /*Es vez de poner un "set" a esta propiedad hay que usar la funcion de abajo "agregarCoche" para mantener la consistencia con la clase
+         que se utiliza como vinculo entre la formacion y los coches*/
         public List<Coche> Coches
         {
             get 
             {
-                /*Tienen que pasar al menos una vez dentro del if para que se cargue los coches que vienen desde la base*/
-                if (!_inicializoCoches)
+                if (_coches.Count==0)
                 {
-                    _inicializoCoches = true;
-                    foreach (Formacion_X_Coche fc in AuxCoches_LINQ.ToList<Formacion_X_Coche>())
+                    foreach (Formacion_X_Coche fc in _auxCoches_LINQ.ToList<Formacion_X_Coche>())
                         _coches.Add(fc.UnCoche);
                 }
                 return _coches; 
             }
         }
 
+        #endregion
+
+        #region Metodos
+
         public void agregarCoche(Coche coche)
         {
             /*Es necesario esto para poder guardar luego los nuevos coches que se vallan agregando a una formacion ya existente*/
             Formacion_X_Coche fc = new Formacion_X_Coche();
             fc.UnCoche = coche;
+            fc.IdFormacion = this.Id;
             _auxCoches_LINQ.Add(fc);
 
             _coches.Add(coche);
@@ -132,5 +138,7 @@ namespace ffccSimulacion.Dominio
 
             return exceso; //Se retorna la cantidad de gente que no pudo subir.
         }
+
+        #endregion
     }
 }

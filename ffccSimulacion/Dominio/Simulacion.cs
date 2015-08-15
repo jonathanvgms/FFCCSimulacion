@@ -27,9 +27,9 @@ namespace ffccSimulacion.Dominio
 
             /*CARGAR ESTACIONES*/
             /*Se buscan en la Base de Datos todas las estaciones correspondientes a traza.idTraza y se obtienen sus propiedades*/
-            Estacion estacion1 = new Estacion();
-            Estacion estacion2 = new Estacion();
-            Estacion estacion3 = new Estacion();
+            Estacion estacion1 = new Estacion("Estacion1");
+            Estacion estacion2 = new Estacion("Estacion2");
+            Estacion estacion3 = new Estacion("Estacion3");
             //Estacion estacion4 = new Estacion();
             //Estacion estacion5 = new Estacion();
 
@@ -53,6 +53,11 @@ namespace ffccSimulacion.Dominio
 
             servicio1.Relaciones.Add(relacion1);
             servicio1.Relaciones.Add(relacion2);
+
+            servicio1.Desde = estacion1;
+            servicio1.Hasta = estacion3;
+
+            servicio1.ConfigurarEstaciones();
 
             traza.ServiciosOtorgados.Add(servicio1);
 
@@ -113,7 +118,7 @@ namespace ffccSimulacion.Dominio
             
             /*CARGAR FORMACIONES*/
             /*Se buscan en la Base de Datos todas las formaciones correspondientes a cada servicio.idServicio y se obtienen sus propiedades*/
-            Formacion formacion1 = new Formacion();
+            Formacion formacion1 = new Formacion("FormacionPrueba");
             /*Formacion formacion2 = new Formacion();
             Formacion formacion3 = new Formacion();
             Formacion formacion4 = new Formacion();

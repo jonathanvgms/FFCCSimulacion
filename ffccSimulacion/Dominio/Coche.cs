@@ -21,7 +21,7 @@ namespace ffccSimulacion.Dominio
         private int _capacidadLegal;
         private int _capacidadMaxima;
 
-        /*El constructor huevo es necesario para el correcto mapeo de la clase en LINQ al igual que las propiedades publicas*/
+        /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
         public Coche() { }
 
         public Coche(string modelo,bool esunalocomotora,TipoConsumo tipo,int consumoMov,int consumoPa,int cantidadAsientos, int capacidadLegal, int capacidadMaxima)
@@ -44,6 +44,8 @@ namespace ffccSimulacion.Dominio
                 throw new ApplicationException("Error de configuración de Coche.");
             }
         }
+
+        #region Propiedades
 
         [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]
         public int Id { get; set; }
@@ -122,6 +124,10 @@ namespace ffccSimulacion.Dominio
             set { _pasajerosParados = value; }
         }
 
+        #endregion
+
+        #region Metodos
+
         public int asientosRestantes()
         {
             return _cantidadAsientos - _pasajerosSentados;
@@ -182,5 +188,7 @@ namespace ffccSimulacion.Dominio
             //EL RESTO DE LOS PASAJEROS NO PODRA ENTRAR
             return exceso;
         }
+
+        #endregion
     }
 }

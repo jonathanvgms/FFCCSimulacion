@@ -12,8 +12,9 @@ namespace ffccSimulacion.Dominio
         int ultimaAtencion;
         int tiempoComprometido; //TODO Analizar si no es necesario manejar una lista de tiempos comprometidos.
         List<Incidente> incidentesPosibles;
-        public Estacion()
+        public Estacion(string nombreEst)
         {
+            this.nombre = nombreEst;
             genteEsperando = 0;
             ultimaAtencion = 0;
             tiempoComprometido = 0;

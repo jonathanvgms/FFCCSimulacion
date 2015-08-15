@@ -65,6 +65,64 @@ namespace ffccSimulacion.Dominio
             set { _programacion = value; }
         }
 
+        /*A partir de la lista de relaciones definidas para el servicio se configuran las distitnas estaciones*/
+        public void ConfigurarEstaciones()
+        {
+            Relacion r;
+            Nodo nodoRelacion;
+
+            /*Se cargan todas las relaciones siguientes de los nodos. Se recorre de atras para adelante*/
+            Nodo nodoActual = this.Desde;
+            while (nodoActual != null)
+            {
+                nodoRelacion = nodoActual;
+                while(nodoRelacion != this.Hasta)
+                {
+                    r = BuscarRelacionSiguiente(nodoRelacion);
+                    nodoActual.agregarRelacionSiguiente(r);
+                    nodoRelacion = r.siguiente;
+                }
+
+                if (nodoActual != this.Hasta)
+                {
+                    r = BuscarRelacionSiguiente(nodoActual);
+                    nodoActual = r.siguiente;
+                }
+                else
+                    nodoActual = null;
+            }
+
+            nodoActual = this.Hasta;
+            while(nodoActual != null)
+            {
+                nodoRelacion = nodoActual;
+                while(nodoRelacion != this.Desde)
+                {
+                    r = BuscarRelacionAnterior(nodoRelacion);
+                    nodoActual.agregarRelacionAnterior(r);
+                    nodoRelacion = r.anterior;
+                }
+
+                if (nodoActual != this.Desde)
+                {
+                    r = BuscarRelacionAnterior(nodoActual);
+                    nodoActual = r.anterior;
+                }
+                else
+                    nodoActual = null;
+            }
+        }
+
+        public Relacion BuscarRelacionSiguiente(Nodo n)
+        {
+            return Relaciones.Where(x => x.anterior == n).FirstOrDefault();
+        }
+
+        public Relacion BuscarRelacionAnterior(Nodo n)
+        {
+            return Relaciones.Where(x => x.siguiente == n).FirstOrDefault();
+        }
+
         public void agregarParada(Nodo nodo, bool para)
         {
             Parada parada = new Parada();

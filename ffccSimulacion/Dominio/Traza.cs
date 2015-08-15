@@ -10,7 +10,7 @@ namespace ffccSimulacion.Dominio
     {
         private int _idTraza;
         private string _nombre;
-        private List<Servicio> _serviciosOtorgados;
+        private List<Servicio> _serviciosOtorgados=new List<Servicio>();
         //List<Relacion> relaciones;
         //List<Nodo> nodos; //TODO Hacer solamente una lista de servicios.
 
