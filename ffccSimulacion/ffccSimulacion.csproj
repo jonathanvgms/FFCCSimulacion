@@ -50,10 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Coche\frmABMCoche.cs">
+    <Compile Include="ABMCoche\frmABMCoche.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Coche\frmABMCoche.Designer.cs">
+    <Compile Include="ABMCoche\frmABMCoche.Designer.cs">
       <DependentUpon>frmABMCoche.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Coche.cs" />
@@ -63,16 +63,20 @@
     <Compile Include="Dominio\Estacion.cs" />
     <Compile Include="Dominio\Fdp.cs" />
     <Compile Include="Dominio\Formacion.cs" />
+    <Compile Include="Dominio\IEventoAEvento.cs" />
     <Compile Include="Dominio\Incidente.cs" />
+    <Compile Include="Dominio\IEstrategiaDeSimulador.cs" />
+    <Compile Include="Dominio\ITiempoComprometido.cs" />
     <Compile Include="Dominio\Nodo.cs" />
     <Compile Include="Dominio\Relacion.cs" />
     <Compile Include="Dominio\Servicio.cs" />
     <Compile Include="Dominio\Simulacion.cs" />
+    <Compile Include="Dominio\TiempoComprometido.cs" />
     <Compile Include="Dominio\Traza.cs" />
-    <Compile Include="Estacion\frmABMEstacion.cs">
+    <Compile Include="ABMEstacion\frmABMEstacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estacion\frmABMEstacion.Designer.cs">
+    <Compile Include="ABMEstacion\frmABMEstacion.Designer.cs">
       <DependentUpon>frmABMEstacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -81,39 +85,40 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Incidente\frmABMIncidente.cs">
+    <Compile Include="ABMIncidente\frmABMIncidente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Incidente\frmABMIncidente.Designer.cs">
+    <Compile Include="ABMIncidente\frmABMIncidente.Designer.cs">
       <DependentUpon>frmABMIncidente.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicio\frmABMServicio.cs">
+    <Compile Include="ABMServicio\frmABMServicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicio\frmABMServicio.Designer.cs">
+    <Compile Include="ABMServicio\frmABMServicio.Designer.cs">
       <DependentUpon>frmABMServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Simulador\frmRealizarSimulacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Simulador\frmRealizarSimulacion.Designer.cs">
       <DependentUpon>frmRealizarSimulacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Traza\frmABMTraza.cs">
+    <Compile Include="ABMTraza\frmABMTraza.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Traza\frmABMTraza.Designer.cs">
+    <Compile Include="ABMTraza\frmABMTraza.Designer.cs">
       <DependentUpon>frmABMTraza.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Coche\frmABMCoche.resx">
+    <EmbeddedResource Include="ABMCoche\frmABMCoche.resx">
       <DependentUpon>frmABMCoche.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estacion\frmABMEstacion.resx">
+    <EmbeddedResource Include="ABMEstacion\frmABMEstacion.resx">
       <DependentUpon>frmABMEstacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Incidente\frmABMIncidente.resx">
+    <EmbeddedResource Include="ABMIncidente\frmABMIncidente.resx">
       <DependentUpon>frmABMIncidente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,13 +130,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Servicio\frmABMServicio.resx">
+    <EmbeddedResource Include="ABMServicio\frmABMServicio.resx">
       <DependentUpon>frmABMServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Simulador\frmRealizarSimulacion.resx">
       <DependentUpon>frmRealizarSimulacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Traza\frmABMTraza.resx">
+    <EmbeddedResource Include="ABMTraza\frmABMTraza.resx">
       <DependentUpon>frmABMTraza.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
