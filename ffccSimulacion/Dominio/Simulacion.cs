@@ -3,23 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ffccSimulacion.Dominio;
+using ffccSimulacion.Dominio.DataBase;
 
 namespace ffccSimulacion.Dominio
 {
-    class Simulacion
+    class Simulacion 
     {
         /*Datos a persistir.*/
-        int idSimulacion;
+        private int _idSimulacion;
+
+        public int IdSimulacion
+        {
+            get { return _idSimulacion; }
+            set { _idSimulacion = value; }
+        }
         int tiempoFinal;
 
         /*Datos para ejecucion.*/
         Traza traza;
+        
+        private IEstrategiaDeSimulador estrategiaDeSimulacion;
+
+        public IEstrategiaDeSimulador EstrategiaDeSimulacion
+        {
+            get { return estrategiaDeSimulacion; }
+            set { estrategiaDeSimulacion = value; }
+        }
+
+        public Simulacion (int idSimulacion, IEstrategiaDeSimulador estrategiaDeSimulacion)
+        {
+            EstrategiaDeSimulacion = estrategiaDeSimulacion;
+            IdSimulacion = idSimulacion;
+        }
 
         public Simulacion(int id)
         {
             /*CARGAR SIMULACION*/
-            /*Se busca en la Base de Datos la simulacion segun idSimulacion y se obtienen sus propiedades*/
-            idSimulacion = id;
+            /*Se busca en la Base de Datos la simulacion segun idSimulacion y se obtienen sus propiedades*/            
             tiempoFinal = 100;
             /*CARGAR TRAZA*/
             /*Se busca en la Base de Datos la traza segun idSimulacion y se obtienen sus propiedades*/
@@ -151,12 +172,15 @@ namespace ffccSimulacion.Dominio
 
         }
 
-        public void ejecutarSimulacion(){
+        public void EjecutarSimulacion()
+        {
+            EstrategiaDeSimulacion.EjecutarSimulacion(traza);
+
             //VARIABLES DE SALIDA
             //TODO variables de salida
 
             //EJECUCION
-            int tiempoActual;
+            /*int tiempoActual;
             Servicio servicioActual;
             actualizarSiguienteServicio(out tiempoActual, out servicioActual); //Actualiza el tiempo actual a partir del primer servicio a prestar.
             Console.WriteLine("tiempoActual={0} | tiempoFinal={1}", tiempoActual, tiempoFinal);
@@ -194,7 +218,7 @@ namespace ffccSimulacion.Dominio
 
                 Console.WriteLine("tiempoActual={0}", tiempoActual);
             }
-            //TODO faltan las variables de salida
+            //TODO faltan las variables de salida*/
         }
 
         private void actualizarSiguienteServicio(out int siguienteSalida, out Servicio siguienteServicio)

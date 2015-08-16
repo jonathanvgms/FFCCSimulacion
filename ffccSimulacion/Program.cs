@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using ffccSimulacion.Dominio;
 using ffccSimulacion.Dominio.DataBase;
 
@@ -18,9 +18,14 @@ namespace ffccSimulacion
         {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            Simulacion s = new Simulacion(1);
-            s.ejecutarSimulacion();
+            //Application.Run(new Form1());            
+
+            
+            Simulacion simulador = new Simulacion(1);
+            simulador.EstrategiaDeSimulacion = new TiempoComprometido(0, 100);
+            simulador.EjecutarSimulacion();
+            //Simulacion s = new Simulacion(1);
+            //s.EjecutarSimulacion();
         }
     }
 }
