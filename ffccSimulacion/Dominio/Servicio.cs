@@ -8,15 +8,15 @@ namespace ffccSimulacion.Dominio
 {
     public class Servicio
     {
-        private Nodo _desde; //Terminal de donde sale la formacion.
-        
-        private Nodo _hasta; //Terminal hacia la que va la formacion.
+        private Estacion _desde; //Terminal de donde sale la formacion.
+
+        private Estacion _hasta; //Terminal hacia la que va la formacion.
 
         private List<Relacion> _relaciones;
 
         struct Parada
         {
-            public Nodo nodo;
+            public Estacion nodo;
             public bool para;
         }
 
@@ -26,7 +26,7 @@ namespace ffccSimulacion.Dominio
 
         private List<int> _programacion; //Tiempos de salida de la terminal.
 
-        public Servicio(Nodo terminalInicial, Nodo terminalFinal)
+        public Servicio(Estacion terminalInicial, Estacion terminalFinal)
         {
             _desde = terminalInicial;
             _hasta = terminalFinal;
@@ -35,13 +35,13 @@ namespace ffccSimulacion.Dominio
             _programacion = new List<int>();
         }
 
-        public Nodo Desde
+        public Estacion Desde
         {
             get { return _desde; }
             set { _desde = value; }
         }
 
-        public Nodo Hasta
+        public Estacion Hasta
         {
             get { return _hasta; }
             set { _hasta = value; }
@@ -69,10 +69,10 @@ namespace ffccSimulacion.Dominio
         public void ConfigurarEstaciones()
         {
             Relacion r;
-            Nodo nodoRelacion;
+            Estacion nodoRelacion;
 
             /*Se cargan todas las relaciones siguientes de los nodos. Se recorre de atras para adelante*/
-            Nodo nodoActual = this.Desde;
+            Estacion nodoActual = this.Desde;
             while (nodoActual != null)
             {
                 nodoRelacion = nodoActual;
@@ -113,17 +113,17 @@ namespace ffccSimulacion.Dominio
             }
         }
 
-        public Relacion BuscarRelacionSiguiente(Nodo n)
+        public Relacion BuscarRelacionSiguiente(Estacion n)
         {
             return Relaciones.Where(x => x.anterior == n).FirstOrDefault();
         }
 
-        public Relacion BuscarRelacionAnterior(Nodo n)
+        public Relacion BuscarRelacionAnterior(Estacion n)
         {
             return Relaciones.Where(x => x.siguiente == n).FirstOrDefault();
         }
 
-        public void agregarParada(Nodo nodo, bool para)
+        public void agregarParada(Estacion nodo, bool para)
         {
             Parada parada = new Parada();
             parada.nodo = nodo;
@@ -163,7 +163,7 @@ namespace ffccSimulacion.Dominio
             _programacion.Remove(salida);
         }
 
-        public Relacion relacionEntre(Nodo nodoInicial, Nodo nodoFinal)
+        public Relacion relacionEntre(Estacion nodoInicial, Estacion nodoFinal)
         {
             foreach (Relacion relacion in _relaciones)
             {
@@ -175,9 +175,9 @@ namespace ffccSimulacion.Dominio
             throw new ApplicationException("No se encontró relacion entre nodos.");
         }
 
-        public Nodo proximoNodo(Nodo nodoActual)
+        public Estacion proximoNodo(Estacion nodoActual)
         {
-            foreach (Relacion proximaRelacion in nodoActual.siguientes)
+            foreach (Relacion proximaRelacion in nodoActual.Siguientes)
             {
                 foreach (Parada parada in _paradas)
                 {
@@ -187,7 +187,7 @@ namespace ffccSimulacion.Dominio
                     }
                 }
             }
-            foreach (Relacion proximaRelacion in nodoActual.anteriores)
+            foreach (Relacion proximaRelacion in nodoActual.Anteriores)
             {
                 foreach (Parada parada in _paradas)
                 {

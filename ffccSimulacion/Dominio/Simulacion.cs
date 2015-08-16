@@ -48,9 +48,9 @@ namespace ffccSimulacion.Dominio
 
             /*CARGAR ESTACIONES*/
             /*Se buscan en la Base de Datos todas las estaciones correspondientes a traza.idTraza y se obtienen sus propiedades*/
-            Estacion estacion1 = new Estacion("Estacion1");
-            Estacion estacion2 = new Estacion("Estacion2");
-            Estacion estacion3 = new Estacion("Estacion3");
+            Estacion estacion1 = new Estacion("Estacion1", 50, 200, TipoFDP.Normal);
+            Estacion estacion2 = new Estacion("Estacion2", 50, 200, TipoFDP.Normal);
+            Estacion estacion3 = new Estacion("Estacion3", 50, 200, TipoFDP.Normal);
             //Estacion estacion4 = new Estacion();
             //Estacion estacion5 = new Estacion();
 

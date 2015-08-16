@@ -11,15 +11,15 @@ namespace ffccSimulacion.Dominio
         /*Relaciona un unico nodo inicial con un unico nodo siguiente.
          *Contiene indicadores propios del transito entre un nodo y otro.
          */
-        public Nodo anterior;
-        public Nodo siguiente;
+        public Estacion anterior;
+        public Estacion siguiente;
 
         int distancia;
         int velocidadPromedio;
         int tiempoViaje;
         List<Incidente> incidentesPosibles = new List<Incidente>();
 
-        public Relacion(Nodo nodoAnterior, Nodo nodoSiguiente)
+        public Relacion(Estacion nodoAnterior, Estacion nodoSiguiente)
         {
             anterior = nodoAnterior;
             siguiente = nodoSiguiente;
@@ -28,7 +28,8 @@ namespace ffccSimulacion.Dominio
             tiempoViaje = 10;
         }
 
-        public Relacion(Nodo nodoAnterior, Nodo nodoSiguiente, int tiempoViaje){
+        public Relacion(Estacion nodoAnterior, Estacion nodoSiguiente, int tiempoViaje)
+        {
             anterior = nodoAnterior;
             siguiente = nodoSiguiente;
             distancia = 0;
@@ -41,7 +42,7 @@ namespace ffccSimulacion.Dominio
             incidentesPosibles.Add(incidentePosible);
         }
 
-        public bool relaciona(Nodo nodoInicial, Nodo nodoFinal)
+        public bool relaciona(Estacion nodoInicial, Estacion nodoFinal)
         {
             //TODO Revisar si la relacion es bidireccional.
             if ((anterior == nodoInicial && siguiente == nodoFinal) || (anterior == nodoFinal && siguiente == nodoInicial))
@@ -64,7 +65,7 @@ namespace ffccSimulacion.Dominio
             {
                 if (incidentePosible.Ocurre())
                 {
-                    totalDemora += incidentePosible.CalcularDemora();
+                    totalDemora += incidentePosible.TiempoDemora;
                 }
             }
             return totalDemora;

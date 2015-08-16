@@ -68,14 +68,14 @@ namespace ffccSimulacion.Dominio
 
             while (tiempoActual < TiempoFinal)
             {
-                Nodo nodoActual = servicioActual.Desde; //Empiezo en la terminal.
+                Estacion nodoActual = servicioActual.Desde; //Empiezo en la terminal.
                 int tiempoFormacionActual = tiempoActual; //El tren sale a la hora indicada en la programacion del servicio.
                 //TODO atencion en la terminal.
 
                 //ATENCION DE UN SERVICIO
                 while (nodoActual != servicioActual.Hasta)
                 {
-                    Nodo nodoSiguiente = servicioActual.proximoNodo(nodoActual); //Busco el siguiente nodo en el recorrido.
+                    Estacion nodoSiguiente = servicioActual.proximoNodo(nodoActual); //Busco el siguiente nodo en el recorrido.
 
                     Relacion relacionSiguiente = servicioActual.relacionEntre(nodoActual, nodoSiguiente); //Obtengo el camino a recorrer hasta el proximo nodo.
 

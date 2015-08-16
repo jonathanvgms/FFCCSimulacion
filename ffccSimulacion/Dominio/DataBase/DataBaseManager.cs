@@ -25,23 +25,6 @@ namespace ffccSimulacion.Dominio.DataBase
             get { return _dataContext; }
         }
 
-        #region Formaciones y Coches
-
-        /*obtiene una lista de todas las formaciones existentes en la bd*/
-        public List<Formacion> GetAllFormaciones()
-        {
-            return (from formaciones in _dataContext.GetTable<Formacion>()
-                    select formaciones).ToList<Formacion>();
-        }
-
-        /*obtiene una formacion especifica a paritr de su id en la base*/
-        public Formacion GetFormacionById(int id_formacion)
-        {
-            return (from formaciones in _dataContext.GetTable<Formacion>()
-                    where formaciones.Id == id_formacion
-                    select formaciones).FirstOrDefault();
-        }
-
         /*Esta funciona permite guarda cualquier modificacion que se le haga a un objeto traido de la bd. Es el update*/
         public int GuardarModificacionesObjeto()
         {
@@ -56,6 +39,28 @@ namespace ffccSimulacion.Dominio.DataBase
                 MessageBox.Show(e.Source);
                 return -1;
             }
+        }
+
+        #region Formaciones y Coches
+
+        /*obtiene una lista de todas las formaciones existentes en la bd*/
+        public List<Formacion> GetAllFormaciones()
+        {
+            List<Formacion> todaFormacion = (from formaciones in _dataContext.GetTable<Formacion>()
+                                             select formaciones).ToList<Formacion>();
+            foreach (Formacion f in todaFormacion)
+                f.CargarCochesDeLaFormacion();
+            return todaFormacion;
+        }
+
+        /*obtiene una formacion especifica a paritr de su id en la base*/
+        public Formacion GetFormacionById(int id_formacion)
+        {
+            Formacion f = (from formaciones in _dataContext.GetTable<Formacion>()
+                           where formaciones.Id == id_formacion
+                           select formaciones).FirstOrDefault();
+            f.CargarCochesDeLaFormacion();
+            return f;
         }
 
         /*Guarda una formacion nueva en la bd junto con las relaciones entre dicha formacion y los coches que la componen*/
@@ -186,6 +191,141 @@ namespace ffccSimulacion.Dominio.DataBase
         }
 
 #endregion
+
+        #region Incidentes
+
+        public List<Incidente> GetTodosLosIncidentes()
+        {
+            return (from incidentes in _dataContext.GetTable<Incidente>()
+                    select incidentes).ToList<Incidente>();
+        }
+
+        public Incidente GetIncidenteById(int id_incidente)
+        {
+            return (from incidentes in _dataContext.GetTable<Incidente>()
+                    where incidentes.Id == id_incidente
+                    select incidentes).FirstOrDefault();
+        }
+
+        public int GuardarNuevoIncidente(Incidente unIncidente)
+        {
+            try
+            {
+                _dataContext.GetTable<Incidente>().InsertOnSubmit(unIncidente);
+                _dataContext.SubmitChanges();
+                return unIncidente.Id;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int BorrarUnIncidente(int id_incidente)
+        {
+            try
+            {
+                Incidente i = this.GetIncidenteById(id_incidente);
+                _dataContext.GetTable<Incidente>().DeleteOnSubmit(i);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int BorrarJoinEstacionIncidente(int id_estacion_X_incidente)
+        {
+            try
+            {
+                Estacion_X_Incidente ei = (from eiJoins in _dataContext.GetTable<Estacion_X_Incidente>()
+                                           where eiJoins.Id == id_estacion_X_incidente
+                                           select eiJoins).FirstOrDefault();
+                _dataContext.GetTable<Estacion_X_Incidente>().DeleteOnSubmit(ei);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int GuardarJoinEstacionIncidente(Estacion unaEstacion = null)
+        {
+            return GuardarModificacionesObjeto();
+        }
+
+        #endregion
+
+        #region Estaciones
+
+        public List<Estacion> GetTodasLasEstaciones()
+        {
+            List<Estacion> todasEstaciones = (from estaciones in _dataContext.GetTable<Estacion>()
+                                               select estaciones).ToList<Estacion>();
+            foreach (Estacion e in todasEstaciones)
+                e.CargarIncidentesPosibles();
+            
+            return todasEstaciones;
+        }
+
+        public Estacion GetEstacionById(int id_estacion)
+        {
+            Estacion e = (from estaciones in _dataContext.GetTable<Estacion>()
+                          where estaciones.Id == id_estacion
+                          select estaciones).FirstOrDefault();
+            e.CargarIncidentesPosibles();
+            return e;
+        }
+
+        public int GuardarNuevaEstacion(Estacion unaEstacion)
+        {
+            try
+            {
+                Estacion estAux = new Estacion(unaEstacion.Nombre, unaEstacion.PersonasEsperandoMin, unaEstacion.PersonasEsperandoMax, unaEstacion.FDPEstacion);
+                _dataContext.GetTable<Estacion>().InsertOnSubmit(estAux);
+
+                foreach (Estacion_X_Incidente ei in unaEstacion.AuxIncidentes_LINQ.ToList<Estacion_X_Incidente>())
+                    ei.Id_Estacion = estAux.Id;
+
+                estAux.AuxIncidentes_LINQ = unaEstacion.AuxIncidentes_LINQ;
+                _dataContext.SubmitChanges();
+                return estAux.Id;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int BorrarUnaEstacion(int id_estacion)
+        {
+            try
+            {
+                Estacion e = this.GetEstacionById(id_estacion);
+                foreach (Estacion_X_Incidente ei in e.AuxIncidentes_LINQ.ToList<Estacion_X_Incidente>())
+                    this.BorrarJoinEstacionIncidente(ei.Id);
+
+                _dataContext.GetTable<Estacion>().DeleteOnSubmit(e);
+                _dataContext.SubmitChanges();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        #endregion
 
         /*Esta funcion la utilizo para hacer pruebas contra la base. No se usa en el modelo*/
         public void PruebasBD()

@@ -48,20 +48,21 @@ namespace ffccSimulacion.Dominio
          que se utiliza como vinculo entre la formacion y los coches*/
         public List<Coche> Coches
         {
-            get 
-            {
-                if (_coches.Count==0)
-                {
-                    foreach (Formacion_X_Coche fc in _auxCoches_LINQ.ToList<Formacion_X_Coche>())
-                        _coches.Add(fc.UnCoche);
-                }
-                return _coches; 
-            }
+            get { return _coches; }
         }
 
         #endregion
 
         #region Metodos
+
+        public void CargarCochesDeLaFormacion()
+        {
+            if (_coches.Count == 0)
+            {
+                foreach (Formacion_X_Coche fc in _auxCoches_LINQ.ToList<Formacion_X_Coche>())
+                    _coches.Add(fc.UnCoche);
+            }
+        }
 
         public void agregarCoche(Coche coche)
         {
