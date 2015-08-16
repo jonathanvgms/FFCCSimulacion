@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ffccSimulacion.Dominio;
 using ffccSimulacion.Dominio.DataBase;
+using System.Windows.Forms;
 
 namespace ffccSimulacion
 {
@@ -16,16 +17,12 @@ namespace ffccSimulacion
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());            
-
-            
+            /*Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());         */   
             Simulacion simulador = new Simulacion(1);
             simulador.EstrategiaDeSimulacion = new TiempoComprometido(0, 100);
-            simulador.EjecutarSimulacion();
-            //Simulacion s = new Simulacion(1);
-            //s.EjecutarSimulacion();
+            simulador.EjecutarSimulacion();   
         }
     }
 }

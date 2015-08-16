@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ffccSimulacion.Coche
 {
-    public partial class frmABMCoche : Form
+    public partial class frmABMCocheNuevo : Form
     {
-        public frmABMCoche()
+        public frmABMCocheNuevo()
         {
             InitializeComponent();
+        }
+
+        private void btnCocheNuevoCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

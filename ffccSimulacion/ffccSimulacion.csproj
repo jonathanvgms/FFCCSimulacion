@@ -50,11 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABMCoche\frmABMCoche.cs">
+    <Compile Include="ABMCoche\frmABMCocheNuevo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMCoche\frmABMCoche.Designer.cs">
-      <DependentUpon>frmABMCoche.cs</DependentUpon>
+    <Compile Include="ABMCoche\frmABMCocheNuevo.Designer.cs">
+      <DependentUpon>frmABMCocheNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Coche.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Formacion_X_Coche.cs" />
@@ -112,14 +112,17 @@
     <Compile Include="ABMTraza\frmABMTraza.Designer.cs">
       <DependentUpon>frmABMTraza.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ABMCoche\frmABMCoche.resx">
-      <DependentUpon>frmABMCoche.cs</DependentUpon>
+    <EmbeddedResource Include="ABMCoche\frmABMCocheNuevo.resx">
+      <DependentUpon>frmABMCocheNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMEstacion\frmABMEstacion.resx">
       <DependentUpon>frmABMEstacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMIncidente\frmABMIncidente.resx">
       <DependentUpon>frmABMIncidente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
