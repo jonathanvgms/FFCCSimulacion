@@ -16,6 +16,7 @@ namespace ffccSimulacion
         public Form1()
         {
             InitializeComponent();
+
         }
     }
 }
