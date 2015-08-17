@@ -56,12 +56,12 @@ namespace ffccSimulacion.Dominio
 
             /*CARGAR RELACIONES*/
             /*Se buscan en la Base de Datos todos los servicios correspondientes a la idSimulacion y se obtienen sus propiedades.*/
-            Relacion relacion1 = new Relacion(estacion1, estacion2);
-            Relacion relacion2 = new Relacion(estacion2, estacion3);
+            Relacion relacion1 = new Relacion(estacion1, estacion2, 0, 1, 10, 1);
+            Relacion relacion2 = new Relacion(estacion2, estacion3, 0, 1, 10, 1);
             /*Relacion relacion3 = new Relacion(estacion3, estacion4);
             Relacion relacion4 = new Relacion(estacion4, estacion5);*/
-            
-            Servicio servicio1 = new Servicio(estacion1, estacion3);
+
+            Servicio servicio1 = new Servicio("Servicio1", estacion1, estacion3);
             /*Servicio servicio2 = new Servicio(estacion5, estacion1);
             Servicio servicio3 = new Servicio(estacion1, estacion5);
             Servicio servicio4 = new Servicio(estacion5, estacion1);*/

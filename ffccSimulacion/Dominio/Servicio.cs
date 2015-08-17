@@ -1,38 +1,53 @@
-﻿using System;
+﻿using ffccSimulacion.Dominio.DataBase.ClasesJoins;
+using System;
 using System.Collections.Generic;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
+    [Table(Name = "Servicios")]
     public class Servicio
     {
+        private string _nombre;
         private Estacion _desde; //Terminal de donde sale la formacion.
-
         private Estacion _hasta; //Terminal hacia la que va la formacion.
-
-        private List<Relacion> _relaciones;
-
+        private EntitySet<Relacion> _relaciones;
+        private List<Parada> _paradas; //Estaciones en las que para la formacion.
+        private Formacion _formacion; //Formacion que prestara este servicio. //TODO cambiar por una lista de formaciones.
+        private List<int> _programacion; //Tiempos de salida de la terminal.
+        
         struct Parada
         {
             public Estacion nodo;
             public bool para;
         }
 
-        private List<Parada> _paradas; //Estaciones en las que para la formacion.
+        public Servicio() { }
 
-        private Formacion _formacion; //Formacion que prestara este servicio. //TODO cambiar por una lista de formaciones.
-
-        private List<int> _programacion; //Tiempos de salida de la terminal.
-
-        public Servicio(Estacion terminalInicial, Estacion terminalFinal)
+        public Servicio(string nom, Estacion terminalInicial, Estacion terminalFinal)
         {
+            _nombre = nom;
             _desde = terminalInicial;
             _hasta = terminalFinal;
-            _relaciones = new List<Relacion>();
+            _relaciones = new EntitySet<Relacion>();
             _paradas = new List<Parada>();
             _programacion = new List<int>();
+        }
+
+        #region Propiedades
+
+        [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int Id { get; set; }
+
+        [Column(Name = "Nombre", DbType = "varchar(100)", CanBeNull = false)]
+        public string Nombre
+        {
+            get { return _nombre; }
+            set { _nombre = value; }
         }
 
         public Estacion Desde
@@ -47,10 +62,11 @@ namespace ffccSimulacion.Dominio
             set { _hasta = value; }
         }
 
+        [Association(Storage = "_relaciones", OtherKey = "Id_Servicio", ThisKey = "Id", IsForeignKey = true)]
         public List<Relacion> Relaciones
         {
-            get { return _relaciones; }
-            set { _relaciones = value; }
+            get { return _relaciones.ToList<Relacion>(); }
+            set { _relaciones.Assign(value); }
         }
 
         public Formacion Formacion
@@ -64,6 +80,10 @@ namespace ffccSimulacion.Dominio
             get { return _programacion; }
             set { _programacion = value; }
         }
+
+        #endregion
+
+        #region Metodos
 
         /*A partir de la lista de relaciones definidas para el servicio se configuran las distitnas estaciones*/
         public void ConfigurarEstaciones()
@@ -80,13 +100,13 @@ namespace ffccSimulacion.Dominio
                 {
                     r = BuscarRelacionSiguiente(nodoRelacion);
                     nodoActual.agregarRelacionSiguiente(r);
-                    nodoRelacion = r.siguiente;
+                    nodoRelacion = r.Siguiente;
                 }
 
                 if (nodoActual != this.Hasta)
                 {
                     r = BuscarRelacionSiguiente(nodoActual);
-                    nodoActual = r.siguiente;
+                    nodoActual = r.Siguiente;
                 }
                 else
                     nodoActual = null;
@@ -100,27 +120,70 @@ namespace ffccSimulacion.Dominio
                 {
                     r = BuscarRelacionAnterior(nodoRelacion);
                     nodoActual.agregarRelacionAnterior(r);
-                    nodoRelacion = r.anterior;
+                    nodoRelacion = r.Anterior;
                 }
 
                 if (nodoActual != this.Desde)
                 {
                     r = BuscarRelacionAnterior(nodoActual);
-                    nodoActual = r.anterior;
+                    nodoActual = r.Anterior;
                 }
                 else
                     nodoActual = null;
             }
         }
 
+        /*Dada una estacion retorna aquella relacion donde dicha estacion es la estacion anterior*/
         public Relacion BuscarRelacionSiguiente(Estacion n)
         {
-            return Relaciones.Where(x => x.anterior == n).FirstOrDefault();
+            return Relaciones.Where(x => x.Anterior == n).FirstOrDefault();
         }
 
         public Relacion BuscarRelacionAnterior(Estacion n)
         {
-            return Relaciones.Where(x => x.siguiente == n).FirstOrDefault();
+            return Relaciones.Where(x => x.Siguiente == n).FirstOrDefault();
+        }
+
+        /*A partir de la lista de relaciones retorna aquella estacion que es el origen del servicio*/
+        public Estacion BuscarEstacionDesde()
+        {
+            Relacion relacionActual = Relaciones.First();
+            Estacion estacionActual = relacionActual.Anterior;
+            while (relacionActual != null)
+            {
+                relacionActual = BuscarRelacionAnterior(estacionActual);
+                estacionActual = relacionActual.Anterior;
+            }
+
+            return estacionActual;
+        }
+
+        public Estacion BuscarEstacionHasta()
+        {
+            Relacion relacionActual = Relaciones.First();
+            Estacion estacionActual = relacionActual.Siguiente;
+            while (relacionActual != null)
+            {
+                relacionActual = BuscarRelacionSiguiente(estacionActual);
+                estacionActual = relacionActual.Siguiente;
+            }
+
+            return estacionActual;
+        }
+
+        public void CargarParadas()
+        {
+            Estacion estacionActual = Desde;
+            agregarParada(estacionActual, true);
+            Relacion relacionActual = BuscarRelacionSiguiente(estacionActual);
+            while (estacionActual != Hasta)
+            {
+                estacionActual = relacionActual.Siguiente;
+                agregarParada(estacionActual, relacionActual.Estacion_Sig_Es_Parada == 1);
+                relacionActual = BuscarRelacionSiguiente(estacionActual);
+            }
+            relacionActual = BuscarRelacionAnterior(Hasta);
+            agregarParada(Hasta, relacionActual.Estacion_Sig_Es_Parada == 1);
         }
 
         public void agregarParada(Estacion nodo, bool para)
@@ -129,6 +192,15 @@ namespace ffccSimulacion.Dominio
             parada.nodo = nodo;
             parada.para = para;
             _paradas.Add(parada);
+        }
+
+        /*Esta funcion configura todos los campos que no vienen por base y que dependen del conjunto de relaciones definido para el servicio*/
+        public void ConfigurarServicio()
+        {
+            this.Desde = BuscarEstacionDesde();
+            this.Hasta = BuscarEstacionHasta();
+            ConfigurarEstaciones();
+            CargarParadas();
         }
 
         public void agregarHorarioSalida(int horarioSalida)
@@ -181,7 +253,7 @@ namespace ffccSimulacion.Dominio
             {
                 foreach (Parada parada in _paradas)
                 {
-                    if (proximaRelacion.siguiente == parada.nodo)
+                    if (proximaRelacion.Siguiente == parada.nodo)
                     {
                         return parada.nodo;
                     }
@@ -191,7 +263,7 @@ namespace ffccSimulacion.Dominio
             {
                 foreach (Parada parada in _paradas)
                 {
-                    if (proximaRelacion.anterior == parada.nodo)
+                    if (proximaRelacion.Anterior == parada.nodo)
                     {
                         return parada.nodo;
                     }
@@ -199,5 +271,8 @@ namespace ffccSimulacion.Dominio
             }
             throw new ApplicationException("Error de configuración de nodos del servicio.");
         }
+
+#endregion
+
     }
 }

@@ -16,7 +16,7 @@ namespace ffccSimulacion.Dominio
         private int _personasEsperandoMin;
         private int _personasEsperandoMax;
         private TipoFDP _fdpEstacion;
-        private EntitySet<Estacion_X_Incidente> _auxIncidentes_LINQ;
+        private EntitySet<Estacion_X_Incidente> _auxIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>();
         private List<Relacion> _anteriores;
         private List<Relacion> _siguientes;
         private int _genteEsperando = 0;
