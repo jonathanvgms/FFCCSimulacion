@@ -28,6 +28,12 @@ namespace ffccSimulacion.Dominio
 
         public Servicio() { }
 
+        public Servicio(string nom)
+        {
+            _nombre = nom;
+            _relaciones = new EntitySet<Relacion>();
+        }
+
         public Servicio(string nom, Estacion terminalInicial, Estacion terminalFinal)
         {
             _nombre = nom;

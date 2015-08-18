@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace ffccSimulacion.Dominio.DataBase
 {
+    /*NOTAS:
+     - Todos los metodos de guardar retornar en casos exitos el id del objeto y en caso contrario -1
+     - Todos los metodos borrar retorna 1 si fue exitoso o -1 en caso contrario*/
     public class DataBaseManager
     {
         private string _cadenaConexion = ConfigurationManager.ConnectionStrings["ffcc_SimuladorTrazas"].ConnectionString;
@@ -25,12 +28,12 @@ namespace ffccSimulacion.Dominio.DataBase
             get { return _dataContext; }
         }
 
-        /*Esta funciona permite guarda cualquier modificacion que se le haga a un objeto traido de la bd. Es el update*/
+        /*Esta funciona permite guarda cualquier modificacion que se le haga a un objeto traido de la bd, asi como tambien permite agregar cualquier nuevo join
+         de cualquier clase. Es el update*/
         public int GuardarModificacionesObjeto()
         {
             try
             {
-
                 _dataContext.SubmitChanges();
                 return 1;
             }
@@ -114,12 +117,6 @@ namespace ffccSimulacion.Dominio.DataBase
                 MessageBox.Show(e.Source);
                 return -1;
             }
-        }
-
-        /*Guarda la relacion entre una formacion existente y un coche existente. Sirve para agregar coches una una formacion determinada*/
-        public int GuardarJoinFormacionCoche(Formacion unaFormacion = null)
-        {
-            return GuardarModificacionesObjeto();
         }
 
         /*Borra la relacion entre una formacion y un coche sin eliminar a ninguno de los dos*/
@@ -256,11 +253,6 @@ namespace ffccSimulacion.Dominio.DataBase
             }
         }
 
-        public int GuardarJoinEstacionIncidente(Estacion unaEstacion = null)
-        {
-            return GuardarModificacionesObjeto();
-        }
-
         #endregion
 
         #region Estaciones
@@ -316,6 +308,91 @@ namespace ffccSimulacion.Dominio.DataBase
                 _dataContext.GetTable<Estacion>().DeleteOnSubmit(e);
                 _dataContext.SubmitChanges();
 
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        #endregion
+
+        #region Relacion (relacion entre las estaciones y los servicios)
+
+        public int BorrarRelacion(int id_relacion)
+        {
+            try
+            {
+                Relacion r = (from relaciones in _dataContext.GetTable<Relacion>()
+                              where relaciones.Id == id_relacion
+                              select relaciones).FirstOrDefault();
+                _dataContext.GetTable<Relacion>().DeleteOnSubmit(r);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        #endregion
+
+        #region Servicios
+
+        public List<Servicio> GetTodosLosServicios()
+        {
+            List<Servicio> ls = (from servicios in _dataContext.GetTable<Servicio>()
+                                select servicios).ToList<Servicio>();
+
+            foreach (Servicio s in ls)
+                s.ConfigurarServicio();
+            return ls;
+        }
+
+        public Servicio GetServicioById(int id_servicio)
+        {
+            Servicio unServicio = (from servicios in _dataContext.GetTable<Servicio>()
+                                   where servicios.Id == id_servicio
+                                   select servicios).FirstOrDefault();
+            unServicio.ConfigurarServicio();
+            return unServicio;
+        }
+
+        public int GuardarNuevoServicio(Servicio unServicio)
+        {
+            try
+            {
+                Servicio auxServicio = new Servicio(unServicio.Nombre);
+                _dataContext.GetTable<Servicio>().InsertOnSubmit(auxServicio);
+                _dataContext.SubmitChanges();
+
+                foreach (Relacion r in unServicio.Relaciones)
+                    r.Id_Servicio = auxServicio.Id;
+
+                auxServicio.Relaciones = unServicio.Relaciones;
+                _dataContext.SubmitChanges();
+                return auxServicio.Id;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int BorrarServicio(int id_servicio)
+        {
+            try
+            {
+                Servicio s = GetServicioById(id_servicio);
+                foreach (Relacion r in s.Relaciones)
+                    BorrarRelacion(r.Id);
+                _dataContext.GetTable<Servicio>().DeleteOnSubmit(s);
+                _dataContext.SubmitChanges();
                 return 1;
             }
             catch (Exception e)
