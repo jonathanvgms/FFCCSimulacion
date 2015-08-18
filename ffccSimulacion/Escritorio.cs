@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ffccSimulacion.Coche;
+using ffccSimulacion.ABMCoche;
 
 namespace ffccSimulacion
 {
-    public partial class Form1 : Form
+    public partial class Escritorio : Form
     {
-        public Form1()
+        public Escritorio()
         {
             InitializeComponent();
 

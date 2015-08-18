@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ffccSimulacion.Traza
+namespace ffccSimulacion.ABMTraza
 {
     public partial class frmABMTraza : Form
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ffccSimulacion.Incidente
+namespace ffccSimulacion.ABMIncidente
 {
     public partial class frmABMIncidente : Form
     {

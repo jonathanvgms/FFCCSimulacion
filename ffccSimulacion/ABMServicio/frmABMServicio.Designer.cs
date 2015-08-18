@@ -1,4 +1,4 @@
-﻿namespace ffccSimulacion.Servicio
+﻿namespace ffccSimulacion.ABMServicio
 {
     partial class frmABMServicio
     {
@@ -68,9 +68,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(63, 10);
+            this.textBox1.Location = new System.Drawing.Point(94, 10);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 1;
             // 
             // label2
@@ -257,7 +257,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(16, 384);
+            this.button4.Location = new System.Drawing.Point(12, 427);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 7;
@@ -266,7 +266,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(173, 427);
+            this.button5.Location = new System.Drawing.Point(289, 427);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 8;
@@ -275,7 +275,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(279, 427);
+            this.button6.Location = new System.Drawing.Point(208, 427);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 9;
