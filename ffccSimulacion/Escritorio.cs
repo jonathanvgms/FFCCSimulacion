@@ -16,7 +16,6 @@ namespace ffccSimulacion
         public Escritorio()
         {
             InitializeComponent();
-
-        }
+        }        
     }
 }
