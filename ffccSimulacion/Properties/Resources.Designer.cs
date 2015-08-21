@@ -59,25 +59,5 @@ namespace ffccSimulacion.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _25965919_Train_underground_tram_isolated_icon_Stock_Vector {
-            get {
-                object obj = ResourceManager.GetObject("25965919-Train-underground-tram-isolated-icon-Stock-Vector", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _25965919_Train_underground_tram_isolated_icon_Stock_Vector1 {
-            get {
-                object obj = ResourceManager.GetObject("25965919-Train-underground-tram-isolated-icon-Stock-Vector1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

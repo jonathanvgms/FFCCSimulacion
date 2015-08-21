@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Escritorio));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.simulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cocheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.simulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +51,7 @@
             this.trazaToolStripMenuItem,
             this.servicioToolStripMenuItem,
             this.formaciónToolStripMenuItem,
+            this.estaciónToolStripMenuItem,
             this.cocheToolStripMenuItem,
             this.incidenteToolStripMenuItem,
             this.ayudaToolStripMenuItem,
@@ -59,9 +62,18 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // simulaciónToolStripMenuItem
+            // 
+            this.simulaciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("simulaciónToolStripMenuItem.Image")));
+            this.simulaciónToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.simulaciónToolStripMenuItem.Name = "simulaciónToolStripMenuItem";
+            this.simulaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
+            this.simulaciónToolStripMenuItem.Text = "Simulación";
+            this.simulaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // trazaToolStripMenuItem
             // 
-            this.trazaToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.trazaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("trazaToolStripMenuItem.Image")));
             this.trazaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.trazaToolStripMenuItem.Name = "trazaToolStripMenuItem";
             this.trazaToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
@@ -70,7 +82,7 @@
             // 
             // servicioToolStripMenuItem
             // 
-            this.servicioToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.servicioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("servicioToolStripMenuItem.Image")));
             this.servicioToolStripMenuItem.Name = "servicioToolStripMenuItem";
             this.servicioToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.servicioToolStripMenuItem.Text = "Servicio";
@@ -78,15 +90,23 @@
             // 
             // formaciónToolStripMenuItem
             // 
-            this.formaciónToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.formaciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("formaciónToolStripMenuItem.Image")));
             this.formaciónToolStripMenuItem.Name = "formaciónToolStripMenuItem";
             this.formaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.formaciónToolStripMenuItem.Text = "Formación";
             this.formaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // estaciónToolStripMenuItem
+            // 
+            this.estaciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("estaciónToolStripMenuItem.Image")));
+            this.estaciónToolStripMenuItem.Name = "estaciónToolStripMenuItem";
+            this.estaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
+            this.estaciónToolStripMenuItem.Text = "Estación";
+            this.estaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // cocheToolStripMenuItem
             // 
-            this.cocheToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.cocheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cocheToolStripMenuItem.Image")));
             this.cocheToolStripMenuItem.Name = "cocheToolStripMenuItem";
             this.cocheToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.cocheToolStripMenuItem.Text = "Coche";
@@ -94,7 +114,7 @@
             // 
             // incidenteToolStripMenuItem
             // 
-            this.incidenteToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.incidenteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("incidenteToolStripMenuItem.Image")));
             this.incidenteToolStripMenuItem.Name = "incidenteToolStripMenuItem";
             this.incidenteToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.incidenteToolStripMenuItem.Text = "Incidente";
@@ -102,25 +122,16 @@
             // 
             // ayudaToolStripMenuItem
             // 
-            this.ayudaToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.ayudaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ayudaToolStripMenuItem.Image")));
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             this.ayudaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // simulaciónToolStripMenuItem
-            // 
-            this.simulaciónToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
-            this.simulaciónToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.simulaciónToolStripMenuItem.Name = "simulaciónToolStripMenuItem";
-            this.simulaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.simulaciónToolStripMenuItem.Text = "Simulación";
-            this.simulaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.salirToolStripMenuItem.Image = global::ffccSimulacion.Properties.Resources._25965919_Train_underground_tram_isolated_icon_Stock_Vector1;
+            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.salirToolStripMenuItem.Text = "Salir";
@@ -153,6 +164,7 @@
         private System.Windows.Forms.ToolStripMenuItem incidenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estaciónToolStripMenuItem;
 
 
 
