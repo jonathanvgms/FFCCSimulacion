@@ -38,9 +38,7 @@
             this.Buscar = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,7 +48,8 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.Buscar.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -131,7 +130,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listBox4);
+            this.tabPage1.Controls.Add(this.checkedListBox2);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
@@ -146,9 +145,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.checkedListBox1);
             this.tabPage2.Controls.Add(this.listBox2);
-            this.tabPage2.Controls.Add(this.listBox1);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label5);
@@ -162,15 +160,6 @@
             this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(533, 393);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(102, 23);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "Borrar Servicio";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
@@ -179,19 +168,11 @@
             this.listBox2.Size = new System.Drawing.Size(373, 459);
             this.listBox2.TabIndex = 12;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(429, 84);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(373, 303);
-            this.listBox1.TabIndex = 11;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(482, 32);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(320, 20);
+            this.textBox2.Size = new System.Drawing.Size(319, 20);
             this.textBox2.TabIndex = 8;
             // 
             // label4
@@ -269,13 +250,21 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Listado Trazas";
             // 
-            // listBox4
+            // checkedListBox1
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(202, 72);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(372, 420);
-            this.listBox4.TabIndex = 5;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(429, 87);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(372, 304);
+            this.checkedListBox1.TabIndex = 14;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(202, 72);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(372, 424);
+            this.checkedListBox2.TabIndex = 6;
             // 
             // frmABMTraza
             // 
@@ -317,12 +306,11 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

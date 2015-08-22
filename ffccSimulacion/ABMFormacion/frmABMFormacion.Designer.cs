@@ -55,13 +55,13 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button11 = new System.Windows.Forms.Button();
             this.listBox6 = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -140,7 +140,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(207, 316);
+            this.button7.Location = new System.Drawing.Point(207, 355);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(90, 23);
             this.button7.TabIndex = 28;
@@ -195,7 +195,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(405, 72);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(280, 238);
+            this.listBox1.Size = new System.Drawing.Size(280, 277);
             this.listBox1.TabIndex = 22;
             // 
             // listBox2
@@ -203,7 +203,7 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(17, 72);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(280, 238);
+            this.listBox2.Size = new System.Drawing.Size(280, 277);
             this.listBox2.TabIndex = 21;
             // 
             // label7
@@ -238,7 +238,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(525, 334);
+            this.button6.Location = new System.Drawing.Point(525, 362);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(90, 23);
             this.button6.TabIndex = 20;
@@ -310,7 +310,7 @@
             this.listBox3.FormattingEnabled = true;
             this.listBox3.Location = new System.Drawing.Point(702, 90);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(245, 238);
+            this.listBox3.Size = new System.Drawing.Size(245, 264);
             this.listBox3.TabIndex = 10;
             // 
             // listBox4
@@ -318,7 +318,7 @@
             this.listBox4.FormattingEnabled = true;
             this.listBox4.Location = new System.Drawing.Point(370, 90);
             this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(245, 238);
+            this.listBox4.Size = new System.Drawing.Size(245, 264);
             this.listBox4.TabIndex = 9;
             // 
             // label4
@@ -329,33 +329,6 @@
             this.label4.Size = new System.Drawing.Size(94, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Coches Existentes";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1, 435);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(900, 435);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(819, 435);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -395,6 +368,33 @@
             this.label9.Size = new System.Drawing.Size(119, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Listado de Formaciones";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1, 435);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(900, 435);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(819, 435);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Aceptar";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // frmABMFormacion
             // 

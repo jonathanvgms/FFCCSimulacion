@@ -90,6 +90,8 @@
             this.button11 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -338,6 +340,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.checkedListBox2);
             this.tabPage1.Controls.Add(this.label12);
@@ -373,7 +376,7 @@
             this.checkedListBox2.FormattingEnabled = true;
             this.checkedListBox2.Location = new System.Drawing.Point(690, 64);
             this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(284, 409);
+            this.checkedListBox2.Size = new System.Drawing.Size(284, 379);
             this.checkedListBox2.TabIndex = 24;
             // 
             // label12
@@ -585,6 +588,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button12);
             this.tabPage2.Controls.Add(this.label23);
             this.tabPage2.Controls.Add(this.checkedListBox1);
             this.tabPage2.Controls.Add(this.label22);
@@ -622,7 +626,7 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(838, 83);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(284, 409);
+            this.checkedListBox1.Size = new System.Drawing.Size(284, 364);
             this.checkedListBox1.TabIndex = 11;
             // 
             // label22
@@ -689,6 +693,24 @@
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(321, 459);
             this.listBox2.TabIndex = 10;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(690, 449);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(111, 23);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "Aceptar Formación";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(838, 453);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(111, 23);
+            this.button12.TabIndex = 13;
+            this.button12.Text = "Aceptar Formación";
+            this.button12.UseVisualStyleBackColor = true;
             // 
             // frmABMServicio
             // 
@@ -784,5 +806,7 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button12;
     }
 }
