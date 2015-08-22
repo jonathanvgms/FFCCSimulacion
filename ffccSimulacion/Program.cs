@@ -17,12 +17,12 @@ namespace ffccSimulacion
         [STAThread]
         static void Main()
         {
-            /*Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());         */   
-            Simulacion simulador = new Simulacion(1);
-            simulador.EstrategiaDeSimulacion = new TiempoComprometido(0, 100);
-            simulador.EjecutarSimulacion();   
+            Application.Run(new Escritorio());         
+            //Simulacion simulador = new Simulacion(1);
+            //simulador.EstrategiaDeSimulacion = new TiempoComprometido(0, 100);
+            //simulador.EjecutarSimulacion();   
         }
     }
 }

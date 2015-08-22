@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ffccSimulacion.Estacion
+namespace ffccSimulacion.ABMEstacion
 {
     public partial class frmABMEstacion : Form
     {

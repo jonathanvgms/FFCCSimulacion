@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ffccSimulacion.Coche
+namespace ffccSimulacion.ABMCoche
 {
-    public partial class frmABMCocheNuevo : Form
+    public partial class frmABMCoche : Form
     {
-        public frmABMCocheNuevo()
+        public frmABMCoche()
         {
             InitializeComponent();
         }
@@ -21,5 +21,7 @@ namespace ffccSimulacion.Coche
         {
             Close();
         }
+
+        
     }
 }
