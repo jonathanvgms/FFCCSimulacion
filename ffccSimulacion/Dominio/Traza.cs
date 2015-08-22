@@ -1,90 +1,77 @@
-﻿using System;
+﻿using ffccSimulacion.Dominio.DataBase.ClasesJoins;
+using System;
 using System.Collections.Generic;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
+    [Table(Name = "Trazas")]
     public class Traza
     {
-        private int _idTraza;
         private string _nombre;
-        private List<Servicio> _serviciosOtorgados=new List<Servicio>();
-        //List<Relacion> relaciones;
-        //List<Nodo> nodos; //TODO Hacer solamente una lista de servicios.
+        private EntitySet<Traza_X_Servicio> _auxServicios_LINQ = new EntitySet<Traza_X_Servicio>();
+        private List<Servicio> _serviciosOtorgados = new List<Servicio>();
 
         public Traza() { }
 
-        public int IdTraza
+        public Traza(string nombre)
         {
-            get { return _idTraza; }
-            set { _idTraza = value; }
+            _nombre = nombre;
         }
 
+        #region Propiedades
+
+        [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]
+        public int Id { get; set; }
+
+        [Column(Name = "Nombre", DbType = "varchar(100)", CanBeNull = false)]
         public string Nombre
         {
             get { return _nombre; }
             set { _nombre = value; }
         }
 
+        [Association(Storage = "_auxServicios_LINQ", OtherKey = "Id_Traza", ThisKey = "Id", IsForeignKey = true)]
+        public EntitySet<Traza_X_Servicio> AuxServicios_LINQ
+        {
+            get { return _auxServicios_LINQ; }
+            set { _auxServicios_LINQ.Assign(value); }
+        }
+
         public List<Servicio> ServiciosOtorgados
         {
             get { return _serviciosOtorgados; }
-            set { _serviciosOtorgados = value; }
         }
 
-        /*public Traza()
-        {
-            relaciones = new List<Relacion>();
-            nodos = new List<Nodo>();
-        }*/
+        #endregion
 
-        /*public void agregarNodo(Nodo nodo)
-        {
-            nodos.Add(nodo);
-        }*/
+        #region Metodos
 
-        /*public void relacionarNodos(Relacion relacion)
+        public void CargarLosServicios()
         {
-            //A partir de una relacion, chequea que los nodos pertenezcan a la traza, y agrega la relacion a la lista de relaciones.
-            if (nodos.Contains(relacion.anterior) && nodos.Contains(relacion.siguiente))
+            if(_serviciosOtorgados.Count==0)
             {
-                relaciones.Add(relacion);
-
-                relacion.anterior.agregarRelacionSiguiente(relacion);
-                relacion.siguiente.agregarRelacionAnterior(relacion);
-            }
-            else
-            {
-                throw new ApplicationException("Las estaciones relacionadas no pertenecen a la traza.");
-            }
-        }*/
-
-        /*public void relacionarNodos(Nodo nodoInicial, Nodo nodoFinal)
-        {
-            //A partir de dos nodos, chequea que  pertenezcan a la traza, crea una relacion y la agrega a la lista de relaciones.
-            if (nodos.Contains(nodoInicial) && nodos.Contains(nodoFinal))
-            {
-                Relacion relacion = new Relacion(nodoInicial, nodoFinal);
-                relaciones.Add(relacion);
-            }
-            else
-            {
-                throw new ApplicationException("Las estaciones relacionadas no pertenecen a la traza.");
-            }
-        }*/
-
-        /*public Relacion relacionEntre(Nodo nodoInicial, Nodo nodoFinal)
-        {
-            foreach (Relacion relacion in relaciones)
-            {
-                if (relacion.relaciona(nodoInicial, nodoFinal))
+                foreach (Traza_X_Servicio ts in _auxServicios_LINQ)
                 {
-                    return relacion;
+                    ts.UnServicio.ConfigurarServicio();
+                    _serviciosOtorgados.Add(ts.UnServicio);
                 }
             }
-            throw new ApplicationException("No se encontró relacion entre nodos.");
-        }*/
+        }
+
+        public void AgregarServicio(Servicio unServicio)
+        {
+            Traza_X_Servicio ts = new Traza_X_Servicio();
+            ts.Id = this.Id;
+            ts.UnServicio = unServicio;
+
+            _serviciosOtorgados.Add(unServicio);
+        }
+
+        #endregion
     }
 }

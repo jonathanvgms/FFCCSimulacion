@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    interface IEstrategiaDeSimulador
+    public interface IEstrategiaDeSimulador
     {
-        void EjecutarSimulacion(Traza traza);
+        void EjecutarSimulacion();
     }
 }

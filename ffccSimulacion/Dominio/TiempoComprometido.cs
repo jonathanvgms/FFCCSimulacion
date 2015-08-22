@@ -9,6 +9,17 @@ namespace ffccSimulacion.Dominio
     class TiempoComprometido : ITiempoComprometido
     {
         private int _tiempoInicial;
+        private int _tiempoFinal;
+        private Traza _traza;
+
+        public TiempoComprometido(int tiempoInicial, int tiempoFinal,Traza unaTraza)
+        {
+            TiempoInicial = tiempoInicial;
+            TiempoFinal = tiempoFinal;
+            Traza = unaTraza;
+        }
+
+        #region Propiedades
 
         public int TiempoInicial
         {
@@ -16,15 +27,11 @@ namespace ffccSimulacion.Dominio
             set { _tiempoInicial = value; }
         }
 
-        private int _tiempoFinal;
-
         public int TiempoFinal
         {
             get { return _tiempoFinal; }
             set { _tiempoFinal = value; }
         }
-
-        private Traza _traza;
         
         public Traza Traza
         {
@@ -32,32 +39,16 @@ namespace ffccSimulacion.Dominio
             set { _traza = value; }
         }
 
-        private Servicio _servicio;
+        #endregion
 
-        public Servicio Servicio
-        {
-            get { return _servicio; }
-            set { _servicio = value; }
-        }
+        #region Metodos
 
-        public TiempoComprometido(int tiempoInicial, int tiempoFinal)
-        {
-            TiempoInicial = 0;
-
-            TiempoFinal = 100;
-
-            //Traza = traza;
-
-            //Servicio = servicio;
-        }
-        
-        public void EjecutarSimulacion(Traza traza)
+        public void EjecutarSimulacion()
         {
             //VARIABLES DE SALIDA
             //TODO variables de salida
 
             //EJECUCION
-            Traza = traza;
             int tiempoActual;
             Formacion formacionActual;
             Servicio servicioActual;
@@ -121,5 +112,7 @@ namespace ffccSimulacion.Dominio
             }
             siguienteServicio.removerSalida(siguienteSalida); //Al haber usado el horario siguienteSalida lo remuevo del servicio.
         }
+
+        #endregion
     }
 }

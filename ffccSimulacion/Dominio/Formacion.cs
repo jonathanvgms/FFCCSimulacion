@@ -37,7 +37,7 @@ namespace ffccSimulacion.Dominio
             set { _nombreFormacion = value; }
         }
 
-        [Association(Storage = "_auxCoches_LINQ", OtherKey = "IdFormacion", ThisKey = "Id")]
+        [Association(Storage = "_auxCoches_LINQ", OtherKey = "IdFormacion", ThisKey = "Id", IsForeignKey = true)]
         public EntitySet<Formacion_X_Coche> AuxCoches_LINQ
         {
             get { return _auxCoches_LINQ; }
@@ -60,19 +60,22 @@ namespace ffccSimulacion.Dominio
             if (_coches.Count == 0)
             {
                 foreach (Formacion_X_Coche fc in _auxCoches_LINQ.ToList<Formacion_X_Coche>())
-                    _coches.Add(fc.UnCoche);
+                    for (int i = 0; i < fc.VecesCocheRepetido; i++)
+                        _coches.Add(fc.UnCoche);
             }
         }
 
-        public void agregarCoche(Coche coche)
+        public void agregarCoche(Coche coche,int vecesRepetido)
         {
             /*Es necesario esto para poder guardar luego los nuevos coches que se vallan agregando a una formacion ya existente*/
             Formacion_X_Coche fc = new Formacion_X_Coche();
             fc.UnCoche = coche;
+            fc.VecesCocheRepetido = vecesRepetido;
             fc.IdFormacion = this.Id;
             _auxCoches_LINQ.Add(fc);
 
-            _coches.Add(coche);
+            for (int i = 0; i < vecesRepetido;i++ )
+                _coches.Add(coche);
         }
 
         /*Esta funcion retorna una nueva instancia de formacion exactamente igual a si misma. CLONA LA FORMACION*/

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    interface ITiempoComprometido : IEstrategiaDeSimulador
+    public interface ITiempoComprometido : IEstrategiaDeSimulador
     {
     }
 }

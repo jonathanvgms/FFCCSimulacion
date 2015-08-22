@@ -394,11 +394,173 @@ namespace ffccSimulacion.Dominio.DataBase
             try
             {
                 Servicio s = GetServicioById(id_servicio);
+
                 foreach (Relacion r in s.Relaciones)
                     BorrarRelacion(r.Id);
+
+                foreach (Servicio_X_Formacion sf in s.AuxCoches_LINQ)
+                    BorrarJoinServicioFormacion(sf.Id);
+
                 _dataContext.GetTable<Servicio>().DeleteOnSubmit(s);
                 _dataContext.SubmitChanges();
                 return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int BorrarJoinServicioFormacion(int id_join_servicio_formacion)
+        {
+            try
+            {
+                Servicio_X_Formacion sf = (from joins in _dataContext.GetTable<Servicio_X_Formacion>()
+                                           where joins.Id == id_join_servicio_formacion
+                                           select joins).FirstOrDefault();
+                _dataContext.GetTable<Servicio_X_Formacion>().DeleteOnSubmit(sf);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        #endregion
+
+        #region Trazas
+
+        public List<Traza> GetTodasLasTrazas()
+        {
+            List<Traza> listaTrazas = (from trazas in _dataContext.GetTable<Traza>()
+                                        select trazas).ToList<Traza>();
+            foreach (Traza t in listaTrazas)
+                t.CargarLosServicios();
+
+            return listaTrazas;
+        }
+
+        public Traza GetTrazaById(int id_traza)
+        {
+            Traza t = (from trazas in _dataContext.GetTable<Traza>()
+                       where trazas.Id == id_traza
+                       select trazas).FirstOrDefault();
+            t.CargarLosServicios();
+            return t;
+        }
+
+        public int BorrarJoinTrazaServicio(int id_join_TrazaServicio)
+        {
+            try
+            {
+                Traza_X_Servicio ts = (from joins in _dataContext.GetTable<Traza_X_Servicio>()
+                                       where joins.Id == id_join_TrazaServicio
+                                       select joins).FirstOrDefault();
+                _dataContext.GetTable<Traza_X_Servicio>().DeleteOnSubmit(ts);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int BorrarTraza(int id_traza)
+        {
+            try
+            {
+                Traza t = (from trazas in _dataContext.GetTable<Traza>()
+                           where trazas.Id == id_traza
+                           select trazas).FirstOrDefault();
+
+                foreach (Traza_X_Servicio ts in t.AuxServicios_LINQ)
+                    BorrarJoinTrazaServicio(ts.Id);
+
+                _dataContext.GetTable<Traza>().DeleteOnSubmit(t);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int GuardarNuevaTraza(Traza unaTraza)
+        {
+            try
+            {
+                Traza auxTraza = new Traza(unaTraza.Nombre);
+                _dataContext.GetTable<Traza>().InsertOnSubmit(auxTraza);
+                _dataContext.SubmitChanges();
+
+                foreach (Traza_X_Servicio ts in unaTraza.AuxServicios_LINQ)
+                    ts.Id_Traza = auxTraza.Id;
+
+                auxTraza.AuxServicios_LINQ = unaTraza.AuxServicios_LINQ;
+                _dataContext.SubmitChanges();
+                return auxTraza.Id;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        #endregion
+
+        #region Simulaciones
+
+        public List<Simulacion> GetTodasLasSimulaciones()
+        {
+            List<Simulacion> listaSimulaciones = (from simulaciones in _dataContext.GetTable<Simulacion>()
+                                                  select simulaciones).ToList<Simulacion>();
+            foreach (Simulacion s in listaSimulaciones)
+                s.ConfigurarSimulador();
+
+            return listaSimulaciones;
+        }
+
+        public Simulacion GetSimulacionById(int id_simulacion)
+        {
+            Simulacion s = (from simulaciones in _dataContext.GetTable<Simulacion>()
+                            where simulaciones.Id == id_simulacion
+                            select simulaciones).FirstOrDefault();
+            s.ConfigurarSimulador();
+            return s;
+        }
+
+        public int BorrarSimulacion(int id_simulacion)
+        {
+            try
+            {
+                Simulacion s = GetSimulacionById(id_simulacion);
+                _dataContext.GetTable<Simulacion>().DeleteOnSubmit(s);
+                _dataContext.SubmitChanges();
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
+        public int GuardarNuevaSimulacion(Simulacion unaSimulacion)
+        {
+            try
+            {
+                _dataContext.GetTable<Simulacion>().InsertOnSubmit(unaSimulacion);
+                _dataContext.SubmitChanges();
+                return unaSimulacion.Id;
             }
             catch (Exception e)
             {

@@ -105,7 +105,7 @@ namespace ffccSimulacion.Dominio
         {
             Relacion r;
             Estacion nodoRelacion;
-
+            
             /*Se cargan todas las relaciones siguientes de los nodos. Se recorre de atras para adelante*/
             Estacion nodoActual = this.Desde;
             while (nodoActual != null)
@@ -146,6 +146,16 @@ namespace ffccSimulacion.Dominio
                 else
                     nodoActual = null;
             }
+
+            /*Se cargan las listas de incidentes de cada estacion de atras para adelante*/
+            nodoActual = this.Desde;
+            while(nodoActual!=this.Hasta)
+            {
+                nodoActual.CargarIncidentesPosibles();
+                r = BuscarRelacionSiguiente(nodoActual);
+                nodoActual = r.Siguiente;
+            }
+            this.Hasta.CargarIncidentesPosibles();
         }
 
         /*Dada una estacion retorna aquella relacion donde dicha estacion es la estacion anterior*/
@@ -214,7 +224,10 @@ namespace ffccSimulacion.Dominio
             if(FormacionesDisponibles.Count==0)
             {
                 foreach (Servicio_X_Formacion sf in _auxFormaciones_LINQ.ToArray<Servicio_X_Formacion>())
+                {
+                    sf.UnaFormacion.CargarCochesDeLaFormacion();
                     _formacionesDisponibles.Add(sf.UnaFormacion);
+                }
             }
         }
 

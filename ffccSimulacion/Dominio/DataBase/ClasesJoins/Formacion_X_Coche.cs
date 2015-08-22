@@ -13,10 +13,13 @@ namespace ffccSimulacion.Dominio.DataBase.ClasesJoins
     {
         private int _idFormacion;
         private int _idCoche;
+        private int _vecesCocheRepetido;//Indica cuantas veces esta presenta en la formacion el coche
         private EntityRef<Coche> _unCoche;
 
         /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
         public Formacion_X_Coche() { }
+
+        #region Propiedades
 
         [Column(Name = "Id", DbType = "int", IsPrimaryKey = true, IsDbGenerated = true)]
         public int Id { get; set; }
@@ -35,11 +38,20 @@ namespace ffccSimulacion.Dominio.DataBase.ClasesJoins
             set { _idCoche = value; }
         }
 
+        [Column(Name = "VecesRepetido", DbType = "int", CanBeNull = false)]
+        public int VecesCocheRepetido
+        {
+            get { return _vecesCocheRepetido; }
+            set { _vecesCocheRepetido = value; }
+        }
+
         [Association(Storage = "_unCoche", OtherKey = "Id", ThisKey = "IdCoche", IsForeignKey = true)]
         public Coche UnCoche
         {
             get { return _unCoche.Entity; }
             set { _unCoche.Entity = value; }
         }
+
+        #endregion
     }
 }

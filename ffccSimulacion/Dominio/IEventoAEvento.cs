@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Dominio
 {
-    interface IEventoAEvento : IEstrategiaDeSimulador
+    public interface IEventoAEvento : IEstrategiaDeSimulador
     {
     }
 }
