@@ -39,15 +39,14 @@
             this.Buscar = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.Buscar.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,9 +74,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.Size = new System.Drawing.Size(102, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Servicios";
+            this.label2.Text = "Listado de Servicios";
             // 
             // textBox1
             // 
@@ -149,7 +148,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button6);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.label4);
@@ -166,22 +164,14 @@
             this.tabPage2.Text = "Buscar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // button6
             // 
-            this.listView1.Location = new System.Drawing.Point(9, 32);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(373, 170);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Listado Trazas";
+            this.button6.Location = new System.Drawing.Point(388, 32);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(100, 23);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "Borrar Traza";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
@@ -225,23 +215,22 @@
             this.button5.Text = "Agregar Servicio";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // label3
             // 
-            this.button6.Location = new System.Drawing.Point(388, 32);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Borrar Traza";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Listado Trazas";
             // 
-            // button7
+            // listView1
             // 
-            this.button7.Location = new System.Drawing.Point(388, 302);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 23);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Guardar Traza";
-            this.button7.UseVisualStyleBackColor = true;
+            this.listView1.Location = new System.Drawing.Point(9, 32);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(373, 170);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // frmABMTraza
             // 
@@ -284,6 +273,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button7;
     }
 }

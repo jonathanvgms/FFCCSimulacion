@@ -56,6 +56,12 @@
     <Compile Include="ABMCoche\frmABMCoche.Designer.cs">
       <DependentUpon>frmABMCoche.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABMFormacion\frmABMFormacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMFormacion\frmABMFormacion.Designer.cs">
+      <DependentUpon>frmABMFormacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dominio\Coche.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Estacion_X_Incidente.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Formacion_X_Coche.cs" />
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABMEstacion\frmABMEstacion.resx">
       <DependentUpon>frmABMEstacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABMFormacion\frmABMFormacion.resx">
+      <DependentUpon>frmABMFormacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABMIncidente\frmABMIncidente.resx">
       <DependentUpon>frmABMIncidente.cs</DependentUpon>
