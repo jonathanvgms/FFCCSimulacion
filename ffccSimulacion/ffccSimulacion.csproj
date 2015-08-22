@@ -65,6 +65,7 @@
     <Compile Include="Dominio\Coche.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Estacion_X_Incidente.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Formacion_X_Coche.cs" />
+    <Compile Include="Dominio\DataBase\ClasesJoins\Servicio_X_Formacion.cs" />
     <Compile Include="Dominio\DataBase\DataBaseManager.cs" />
     <Compile Include="Dominio\Enumeraciones.cs" />
     <Compile Include="Dominio\Estacion.cs" />

@@ -75,6 +75,12 @@ namespace ffccSimulacion.Dominio
             _coches.Add(coche);
         }
 
+        /*Esta funcion retorna una nueva instancia de formacion exactamente igual a si misma. CLONA LA FORMACION*/
+        public Formacion ClonarFormacion()
+        {
+            return (Formacion)this.MemberwiseClone();
+        }
+
         public int pasajerosSentados()
         {
             int pasajerosSentados = 0;

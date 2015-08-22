@@ -59,10 +59,11 @@ namespace ffccSimulacion.Dominio
             //EJECUCION
             Traza = traza;
             int tiempoActual;
-
+            Formacion formacionActual;
             Servicio servicioActual;
 
             actualizarSiguienteServicio(out tiempoActual, out servicioActual); //Actualiza el tiempo actual a partir del primer servicio a prestar.
+            formacionActual = servicioActual.GetFormacionRandom(); //Se asigna la formacion que realizara el servicio actual
 
             Console.WriteLine("tiempoActual={0} | tiempoFinal={1}", tiempoActual, TiempoFinal);
 
@@ -87,7 +88,7 @@ namespace ffccSimulacion.Dominio
 
                     int tiempoInicioAtencion = tiempoLlegadaProximoNodo; //Si no hay demoras en la estacion, el tiempo de atencion sera el de llegada, si hay demoras se actualiza.
 
-                    int tiempoAtencion = nodoSiguiente.atenderFormacion(servicioActual.Formacion, ref tiempoInicioAtencion);
+                    int tiempoAtencion = nodoSiguiente.atenderFormacion(formacionActual, ref tiempoInicioAtencion);
 
                     nodoActual = nodoSiguiente; //Actualizo el nodo que será el inicial en la siguiente iteracion.
 
@@ -97,6 +98,7 @@ namespace ffccSimulacion.Dominio
                 }
 
                 actualizarSiguienteServicio(out tiempoActual, out servicioActual); //Actualiza el tiempo actual a partir del proximo servicio a prestar.
+                formacionActual = servicioActual.GetFormacionRandom(); //Se asigna la formacion que realizara el servicio actual
 
                 Console.WriteLine("tiempoActual={0}", tiempoActual);
             }

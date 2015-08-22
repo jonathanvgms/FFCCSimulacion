@@ -144,7 +144,7 @@ namespace ffccSimulacion.Dominio
             Formacion formacion3 = new Formacion();
             Formacion formacion4 = new Formacion();
             */
-            servicio1.Formacion = formacion1;
+            servicio1.AgregarFormacionDispoble(formacion1);
             /*servicio1.formacion = formacion2;
             servicio1.formacion = formacion3;
             servicio1.formacion = formacion4;

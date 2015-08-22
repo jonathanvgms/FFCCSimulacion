@@ -373,7 +373,12 @@ namespace ffccSimulacion.Dominio.DataBase
                 foreach (Relacion r in unServicio.Relaciones)
                     r.Id_Servicio = auxServicio.Id;
 
+                foreach (Servicio_X_Formacion sf in unServicio.AuxCoches_LINQ)
+                    sf.Id_Servicio = auxServicio.Id;
+
                 auxServicio.Relaciones = unServicio.Relaciones;
+                auxServicio.AuxCoches_LINQ = unServicio.AuxCoches_LINQ;
+
                 _dataContext.SubmitChanges();
                 return auxServicio.Id;
             }
