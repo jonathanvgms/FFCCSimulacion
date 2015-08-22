@@ -70,6 +70,7 @@
             this.simulaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.simulaciónToolStripMenuItem.Text = "Simulación";
             this.simulaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.simulaciónToolStripMenuItem.Click += new System.EventHandler(this.simulaciónToolStripMenuItem_Click);
             // 
             // trazaToolStripMenuItem
             // 

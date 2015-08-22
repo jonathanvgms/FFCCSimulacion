@@ -8,6 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ffccSimulacion.ABMCoche;
+using ffccSimulacion.ABMEstacion;
+using ffccSimulacion.ABMFormacion;
+using ffccSimulacion.ABMIncidente;
+using ffccSimulacion.ABMServicio;
+using ffccSimulacion.ABMTraza;
+using ffccSimulacion.Simulador;
 
 namespace ffccSimulacion
 {
@@ -16,6 +22,11 @@ namespace ffccSimulacion
         public Escritorio()
         {
             InitializeComponent();
+        }
+
+        private void simulaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }        
     }
 }
