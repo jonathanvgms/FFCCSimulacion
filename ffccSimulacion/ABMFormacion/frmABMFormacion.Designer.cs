@@ -62,6 +62,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -76,11 +78,13 @@
             this.tabControl1.Location = new System.Drawing.Point(1, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(978, 417);
+            this.tabControl1.Size = new System.Drawing.Size(1155, 417);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox5);
+            this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.textBox4);
             this.tabPage1.Controls.Add(this.textBox3);
             this.tabPage1.Controls.Add(this.label10);
@@ -97,7 +101,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(970, 391);
+            this.tabPage1.Size = new System.Drawing.Size(1147, 391);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Crear";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -105,7 +109,7 @@
             // textBox4
             // 
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(851, 111);
+            this.textBox4.Location = new System.Drawing.Point(1011, 120);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(100, 20);
@@ -114,7 +118,7 @@
             // textBox3
             // 
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(851, 83);
+            this.textBox3.Location = new System.Drawing.Point(1011, 92);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 20);
@@ -123,16 +127,16 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(708, 114);
+            this.label10.Location = new System.Drawing.Point(868, 123);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(103, 13);
+            this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 31;
-            this.label10.Text = "Cantidad de Coches";
+            this.label10.Text = "Total de Coches";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(708, 83);
+            this.label8.Location = new System.Drawing.Point(868, 92);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(130, 13);
             this.label8.TabIndex = 29;
@@ -150,11 +154,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(402, 56);
+            this.label1.Location = new System.Drawing.Point(554, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Coches Seleccionados";
+            this.label1.Text = "Formacíon";
             // 
             // textBox1
             // 
@@ -174,26 +178,26 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(315, 216);
+            this.button4.Location = new System.Drawing.Point(385, 217);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(118, 23);
             this.button4.TabIndex = 24;
-            this.button4.Text = "<--";
+            this.button4.Text = "Borrar de Formación";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(315, 169);
+            this.button5.Location = new System.Drawing.Point(385, 169);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(118, 23);
             this.button5.TabIndex = 23;
-            this.button5.Text = "-->";
+            this.button5.Text = "Agregar a Formación";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(405, 72);
+            this.listBox1.Location = new System.Drawing.Point(557, 72);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(280, 277);
             this.listBox1.TabIndex = 22;
@@ -380,7 +384,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(900, 435);
+            this.button2.Location = new System.Drawing.Point(1081, 435);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -389,18 +393,35 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(819, 435);
+            this.button3.Location = new System.Drawing.Point(1000, 435);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
             this.button3.Text = "Aceptar";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // textBox5
+            // 
+            this.textBox5.Enabled = false;
+            this.textBox5.Location = new System.Drawing.Point(420, 124);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 35;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(352, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(49, 13);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Cantidad";
+            // 
             // frmABMFormacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 461);
+            this.ClientSize = new System.Drawing.Size(1160, 467);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -454,5 +475,7 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.ListBox listBox6;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label11;
     }
 }
