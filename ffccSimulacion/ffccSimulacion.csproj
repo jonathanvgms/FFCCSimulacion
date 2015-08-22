@@ -175,10 +175,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\25965919-Train-underground-tram-isolated-icon-Stock-Vector.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\25965919-Train-underground-tram-isolated-icon-Stock-Vector1.jpg" />
+    <Content Include="Resources\iconoPrueba.jpg" />
+    <Content Include="Resources\SIMUL.AR.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
