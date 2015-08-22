@@ -79,7 +79,7 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Name = "frmBuscarSimulacion";
-            this.Text = "Buscar Simulación";
+            this.Text = "Cargar Simulación";
             this.ResumeLayout(false);
             this.PerformLayout();
 

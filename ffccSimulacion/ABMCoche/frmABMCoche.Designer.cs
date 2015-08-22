@@ -66,21 +66,26 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 19);
+            this.label1.Location = new System.Drawing.Point(385, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 13);
             this.label1.TabIndex = 0;
@@ -88,7 +93,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(520, 16);
+            this.textBox1.Location = new System.Drawing.Point(520, 68);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 1;
@@ -103,7 +108,7 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(381, 51);
+            this.groupBox1.Location = new System.Drawing.Point(381, 115);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 151);
             this.groupBox1.TabIndex = 2;
@@ -190,7 +195,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(378, 223);
+            this.label5.Location = new System.Drawing.Point(378, 307);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 0;
@@ -198,21 +203,21 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(520, 216);
+            this.textBox4.Location = new System.Drawing.Point(520, 300);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(200, 20);
             this.textBox4.TabIndex = 1;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(520, 254);
+            this.textBox5.Location = new System.Drawing.Point(520, 347);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(200, 20);
             this.textBox5.TabIndex = 1;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(520, 293);
+            this.textBox6.Location = new System.Drawing.Point(520, 393);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(200, 20);
             this.textBox6.TabIndex = 1;
@@ -249,6 +254,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -284,7 +290,7 @@
             this.groupBox2.Controls.Add(this.radioButton4);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(28, 100);
+            this.groupBox2.Location = new System.Drawing.Point(197, 117);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(385, 151);
             this.groupBox2.TabIndex = 11;
@@ -370,28 +376,28 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(167, 384);
+            this.textBox9.Location = new System.Drawing.Point(336, 401);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(233, 20);
             this.textBox9.TabIndex = 7;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(167, 346);
+            this.textBox10.Location = new System.Drawing.Point(336, 363);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(233, 20);
             this.textBox10.TabIndex = 8;
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(167, 306);
+            this.textBox11.Location = new System.Drawing.Point(336, 323);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(233, 20);
             this.textBox11.TabIndex = 9;
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(167, 43);
+            this.textBox12.Location = new System.Drawing.Point(336, 60);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(233, 20);
             this.textBox12.TabIndex = 10;
@@ -399,7 +405,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 387);
+            this.label11.Location = new System.Drawing.Point(194, 404);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(122, 13);
             this.label11.TabIndex = 3;
@@ -408,7 +414,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 349);
+            this.label12.Location = new System.Drawing.Point(194, 366);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 13);
             this.label12.TabIndex = 4;
@@ -417,7 +423,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 313);
+            this.label13.Location = new System.Drawing.Point(194, 330);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(107, 13);
             this.label13.TabIndex = 5;
@@ -426,7 +432,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(29, 46);
+            this.label14.Location = new System.Drawing.Point(198, 63);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(42, 13);
             this.label14.TabIndex = 6;
@@ -434,9 +440,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.listBox1);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.label1);
@@ -450,30 +456,13 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(772, 497);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Buscar";
+            this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 406);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Borrar Coche";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(7, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(336, 381);
-            this.listBox1.TabIndex = 3;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(378, 296);
+            this.label6.Location = new System.Drawing.Point(378, 396);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 13);
             this.label6.TabIndex = 5;
@@ -482,11 +471,67 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(378, 257);
+            this.label7.Location = new System.Drawing.Point(378, 350);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "Capacidad Máxima Legal";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(15, 39);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(336, 446);
+            this.listBox1.TabIndex = 3;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.listBox2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(772, 497);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Eliminar";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(524, 30);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Borrar Coche";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(182, 30);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(336, 446);
+            this.listBox2.TabIndex = 5;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(182, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Coches Existentes";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(94, 13);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Coches Existentes";
             // 
             // frmABMCoche
             // 
@@ -508,6 +553,8 @@
             this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -553,8 +600,12 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox listBox2;
     }
 }
