@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,3 +19,30 @@ namespace ffccSimulacion.ABMFormacion
         }
     }
 }
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ffccSimulacion.ABMFormacion
+{
+    public partial class frmABMFormacion : Form
+    {
+        public frmABMFormacion()
+        {
+            InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.pnlFormacion.Controls.Clear();
+        }
+    }
+}
+>>>>>>> origin/master

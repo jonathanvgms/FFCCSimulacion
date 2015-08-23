@@ -19,9 +19,7 @@ namespace ffccSimulacion.ABMCoche
 
         private void btnCocheNuevoCancelar_Click(object sender, EventArgs e)
         {
-            Close();
-        }
-
-        
+            this.pnlCoche.Controls.Clear();
+        }        
     }
 }

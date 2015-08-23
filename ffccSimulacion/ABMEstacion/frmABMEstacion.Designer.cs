@@ -33,6 +33,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -45,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -62,19 +64,19 @@
             this.label12 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.pnlEstacion = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.pnlEstacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 460);
+            this.button2.Location = new System.Drawing.Point(14, 461);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -83,16 +85,17 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(965, 460);
+            this.button3.Location = new System.Drawing.Point(976, 461);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(77, 23);
             this.button3.TabIndex = 3;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(881, 460);
+            this.button4.Location = new System.Drawing.Point(892, 461);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(78, 23);
             this.button4.TabIndex = 3;
@@ -104,7 +107,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 12);
+            this.tabControl1.Location = new System.Drawing.Point(14, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1040, 446);
@@ -125,6 +128,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Crear";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(573, 40);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(301, 319);
+            this.checkedListBox1.TabIndex = 19;
             // 
             // label1
             // 
@@ -241,6 +252,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(725, 43);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(301, 319);
+            this.checkedListBox2.TabIndex = 20;
             // 
             // label11
             // 
@@ -396,31 +415,23 @@
             this.button7.Text = "Borrar Estación";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // pnlEstacion
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(573, 40);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(301, 319);
-            this.checkedListBox1.TabIndex = 19;
-            // 
-            // checkedListBox2
-            // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(725, 43);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(301, 319);
-            this.checkedListBox2.TabIndex = 20;
+            this.pnlEstacion.Controls.Add(this.tabControl1);
+            this.pnlEstacion.Controls.Add(this.button2);
+            this.pnlEstacion.Controls.Add(this.button4);
+            this.pnlEstacion.Controls.Add(this.button3);
+            this.pnlEstacion.Location = new System.Drawing.Point(75, 46);
+            this.pnlEstacion.Name = "pnlEstacion";
+            this.pnlEstacion.Size = new System.Drawing.Size(1068, 497);
+            this.pnlEstacion.TabIndex = 5;
             // 
             // frmABMEstacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 487);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1365, 708);
+            this.Controls.Add(this.pnlEstacion);
             this.Name = "frmABMEstacion";
             this.Text = "Estación";
             this.tabControl1.ResumeLayout(false);
@@ -434,6 +445,7 @@
             this.groupBox2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pnlEstacion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -476,5 +488,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.CheckedListBox checkedListBox2;
+        public System.Windows.Forms.Panel pnlEstacion;
     }
 }
