@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlSimulador = new System.Windows.Forms.Panel();
+            this.listBox2 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -43,15 +44,12 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.pnlSimulador.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSimulador
             // 
-            this.pnlSimulador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSimulador.AutoSize = true;
             this.pnlSimulador.Controls.Add(this.listBox2);
             this.pnlSimulador.Controls.Add(this.label4);
             this.pnlSimulador.Controls.Add(this.textBox3);
@@ -67,10 +65,18 @@
             this.pnlSimulador.Controls.Add(this.textBox2);
             this.pnlSimulador.Controls.Add(this.textBox1);
             this.pnlSimulador.Controls.Add(this.label1);
-            this.pnlSimulador.Location = new System.Drawing.Point(-1, 33);
+            this.pnlSimulador.Location = new System.Drawing.Point(12, 12);
             this.pnlSimulador.Name = "pnlSimulador";
             this.pnlSimulador.Size = new System.Drawing.Size(888, 383);
             this.pnlSimulador.TabIndex = 14;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(631, 21);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(247, 290);
+            this.listBox2.TabIndex = 29;
             // 
             // label4
             // 
@@ -98,12 +104,14 @@
             // 
             // button5
             // 
+            this.button5.AccessibleDescription = "";
             this.button5.Location = new System.Drawing.Point(132, 355);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(120, 23);
             this.button5.TabIndex = 24;
             this.button5.Text = "Cargar Simulacion";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -131,6 +139,7 @@
             this.button2.TabIndex = 21;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -140,6 +149,7 @@
             this.button1.TabIndex = 20;
             this.button1.Text = "Limpiar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -191,19 +201,11 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Nombre";
             // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(631, 21);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(247, 290);
-            this.listBox2.TabIndex = 29;
-            // 
             // frmRealizarSimulacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 418);
+            this.ClientSize = new System.Drawing.Size(909, 405);
             this.Controls.Add(this.pnlSimulador);
             this.Name = "frmRealizarSimulacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -211,6 +213,7 @@
             this.pnlSimulador.ResumeLayout(false);
             this.pnlSimulador.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

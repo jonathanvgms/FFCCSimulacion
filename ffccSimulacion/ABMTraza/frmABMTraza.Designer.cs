@@ -37,7 +37,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,12 +50,12 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.button8 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.pnlTraza = new System.Windows.Forms.Panel();
             this.Buscar.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.pnlTraza.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +94,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(5, 547);
+            this.button2.Location = new System.Drawing.Point(12, 549);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -101,16 +103,17 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(744, 547);
+            this.button3.Location = new System.Drawing.Point(755, 553);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(663, 547);
+            this.button4.Location = new System.Drawing.Point(674, 553);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 5;
@@ -122,7 +125,7 @@
             this.Buscar.Controls.Add(this.tabPage1);
             this.Buscar.Controls.Add(this.tabPage2);
             this.Buscar.Controls.Add(this.tabPage3);
-            this.Buscar.Location = new System.Drawing.Point(5, 12);
+            this.Buscar.Location = new System.Drawing.Point(12, 14);
             this.Buscar.Name = "Buscar";
             this.Buscar.SelectedIndex = 0;
             this.Buscar.Size = new System.Drawing.Size(818, 533);
@@ -143,6 +146,14 @@
             this.tabPage1.Text = "Crear";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(202, 72);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(372, 424);
+            this.checkedListBox2.TabIndex = 6;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.checkedListBox1);
@@ -159,6 +170,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(429, 87);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(372, 304);
+            this.checkedListBox1.TabIndex = 14;
             // 
             // listBox2
             // 
@@ -250,31 +269,23 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Listado Trazas";
             // 
-            // checkedListBox1
+            // pnlTraza
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(429, 87);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(372, 304);
-            this.checkedListBox1.TabIndex = 14;
-            // 
-            // checkedListBox2
-            // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(202, 72);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(372, 424);
-            this.checkedListBox2.TabIndex = 6;
+            this.pnlTraza.Controls.Add(this.Buscar);
+            this.pnlTraza.Controls.Add(this.button2);
+            this.pnlTraza.Controls.Add(this.button3);
+            this.pnlTraza.Controls.Add(this.button4);
+            this.pnlTraza.Location = new System.Drawing.Point(38, 28);
+            this.pnlTraza.Name = "pnlTraza";
+            this.pnlTraza.Size = new System.Drawing.Size(840, 588);
+            this.pnlTraza.TabIndex = 7;
             // 
             // frmABMTraza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 573);
-            this.Controls.Add(this.Buscar);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(960, 667);
+            this.Controls.Add(this.pnlTraza);
             this.Name = "frmABMTraza";
             this.Text = "Traza";
             this.Buscar.ResumeLayout(false);
@@ -284,6 +295,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pnlTraza.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -312,5 +324,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox checkedListBox2;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        public System.Windows.Forms.Panel pnlTraza;
     }
 }

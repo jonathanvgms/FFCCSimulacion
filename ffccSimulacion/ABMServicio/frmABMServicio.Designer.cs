@@ -55,6 +55,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -90,8 +92,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.pnlServicio = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -100,6 +101,7 @@
             this.groupBox4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.pnlServicio.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -302,7 +304,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(3, 546);
+            this.button4.Location = new System.Drawing.Point(14, 546);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 7;
@@ -311,16 +313,17 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1063, 546);
+            this.button5.Location = new System.Drawing.Point(1074, 546);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 8;
             this.button5.Text = "Cancelar";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(982, 546);
+            this.button6.Location = new System.Drawing.Point(993, 546);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 9;
@@ -332,7 +335,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 12);
+            this.tabControl1.Location = new System.Drawing.Point(14, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1137, 528);
@@ -361,6 +364,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Crear";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(690, 449);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(111, 23);
+            this.button7.TabIndex = 11;
+            this.button7.Text = "Aceptar Formación";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -612,6 +624,15 @@
             this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(838, 453);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(111, 23);
+            this.button12.TabIndex = 13;
+            this.button12.Text = "Aceptar Formación";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -694,33 +715,23 @@
             this.listBox2.Size = new System.Drawing.Size(321, 459);
             this.listBox2.TabIndex = 10;
             // 
-            // button7
+            // pnlServicio
             // 
-            this.button7.Location = new System.Drawing.Point(690, 449);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(111, 23);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Aceptar Formación";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(838, 453);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(111, 23);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Aceptar Formación";
-            this.button12.UseVisualStyleBackColor = true;
+            this.pnlServicio.Controls.Add(this.tabControl1);
+            this.pnlServicio.Controls.Add(this.button4);
+            this.pnlServicio.Controls.Add(this.button6);
+            this.pnlServicio.Controls.Add(this.button5);
+            this.pnlServicio.Location = new System.Drawing.Point(100, 62);
+            this.pnlServicio.Name = "pnlServicio";
+            this.pnlServicio.Size = new System.Drawing.Size(1164, 584);
+            this.pnlServicio.TabIndex = 11;
             // 
             // frmABMServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 572);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(1385, 732);
+            this.Controls.Add(this.pnlServicio);
             this.Name = "frmABMServicio";
             this.Text = "Servicio";
             this.groupBox1.ResumeLayout(false);
@@ -738,6 +749,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pnlServicio.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -808,5 +820,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button12;
+        public System.Windows.Forms.Panel pnlServicio;
     }
 }

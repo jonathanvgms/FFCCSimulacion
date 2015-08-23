@@ -16,5 +16,10 @@ namespace ffccSimulacion.ABMEstacion
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.pnlEstacion.Controls.Clear();
+        }
     }
 }

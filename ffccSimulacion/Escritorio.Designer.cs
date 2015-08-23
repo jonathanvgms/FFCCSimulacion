@@ -39,6 +39,7 @@
             this.incidenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlEscritorio = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(938, 98);
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStrip1.Size = new System.Drawing.Size(1207, 98);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,6 +82,7 @@
             this.trazaToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.trazaToolStripMenuItem.Text = "Traza";
             this.trazaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.trazaToolStripMenuItem.Click += new System.EventHandler(this.trazaToolStripMenuItem_Click);
             // 
             // servicioToolStripMenuItem
             // 
@@ -88,6 +91,7 @@
             this.servicioToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.servicioToolStripMenuItem.Text = "Servicio";
             this.servicioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.servicioToolStripMenuItem.Click += new System.EventHandler(this.servicioToolStripMenuItem_Click);
             // 
             // formaciónToolStripMenuItem
             // 
@@ -96,6 +100,7 @@
             this.formaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.formaciónToolStripMenuItem.Text = "Formación";
             this.formaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.formaciónToolStripMenuItem.Click += new System.EventHandler(this.formaciónToolStripMenuItem_Click);
             // 
             // estaciónToolStripMenuItem
             // 
@@ -104,6 +109,7 @@
             this.estaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.estaciónToolStripMenuItem.Text = "Estación";
             this.estaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.estaciónToolStripMenuItem.Click += new System.EventHandler(this.estaciónToolStripMenuItem_Click);
             // 
             // cocheToolStripMenuItem
             // 
@@ -112,6 +118,7 @@
             this.cocheToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.cocheToolStripMenuItem.Text = "Coche";
             this.cocheToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.cocheToolStripMenuItem.Click += new System.EventHandler(this.cocheToolStripMenuItem_Click);
             // 
             // incidenteToolStripMenuItem
             // 
@@ -120,6 +127,7 @@
             this.incidenteToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.incidenteToolStripMenuItem.Text = "Incidente";
             this.incidenteToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.incidenteToolStripMenuItem.Click += new System.EventHandler(this.incidenteToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -137,16 +145,31 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // pnlEscritorio
+            // 
+            this.pnlEscritorio.AutoSize = true;
+            this.pnlEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlEscritorio.Location = new System.Drawing.Point(0, 98);
+            this.pnlEscritorio.Name = "pnlEscritorio";
+            this.pnlEscritorio.Size = new System.Drawing.Size(1207, 603);
+            this.pnlEscritorio.TabIndex = 1;
             // 
             // Escritorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 608);
+            this.ClientSize = new System.Drawing.Size(1207, 701);
+            this.Controls.Add(this.pnlEscritorio);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1223, 740);
             this.Name = "Escritorio";
-            this.Text = "SIMULADOR";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NOMBRE PENDIENTE";
+            this.SizeChanged += new System.EventHandler(this.redimencionarEscritorio);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -166,6 +189,7 @@
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estaciónToolStripMenuItem;
+        public System.Windows.Forms.Panel pnlEscritorio;
 
 
 

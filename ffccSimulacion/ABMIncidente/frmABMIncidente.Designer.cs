@@ -56,10 +56,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.pnlInicidente = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.pnlInicidente.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -141,7 +143,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 386);
+            this.button1.Location = new System.Drawing.Point(15, 389);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -150,16 +152,17 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(642, 386);
+            this.button2.Location = new System.Drawing.Point(654, 389);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 24);
             this.button2.TabIndex = 3;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(561, 386);
+            this.button3.Location = new System.Drawing.Point(573, 389);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 24);
             this.button3.TabIndex = 3;
@@ -171,7 +174,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 12);
+            this.tabControl1.Location = new System.Drawing.Point(15, 15);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(714, 368);
@@ -348,15 +351,23 @@
             this.listBox2.Size = new System.Drawing.Size(304, 303);
             this.listBox2.TabIndex = 6;
             // 
+            // pnlInicidente
+            // 
+            this.pnlInicidente.Controls.Add(this.tabControl1);
+            this.pnlInicidente.Controls.Add(this.button1);
+            this.pnlInicidente.Controls.Add(this.button3);
+            this.pnlInicidente.Controls.Add(this.button2);
+            this.pnlInicidente.Location = new System.Drawing.Point(12, 12);
+            this.pnlInicidente.Name = "pnlInicidente";
+            this.pnlInicidente.Size = new System.Drawing.Size(743, 429);
+            this.pnlInicidente.TabIndex = 5;
+            // 
             // frmABMIncidente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 418);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(768, 451);
+            this.Controls.Add(this.pnlInicidente);
             this.Name = "frmABMIncidente";
             this.Text = "Incidente";
             this.tabControl1.ResumeLayout(false);
@@ -366,6 +377,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pnlInicidente.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -400,5 +412,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ListBox listBox2;
+        public System.Windows.Forms.Panel pnlInicidente;
     }
 }

@@ -66,20 +66,22 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.pnlCoche = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.pnlCoche.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -224,7 +226,7 @@
             // 
             // btnCocheNuevoLimpiar
             // 
-            this.btnCocheNuevoLimpiar.Location = new System.Drawing.Point(3, 541);
+            this.btnCocheNuevoLimpiar.Location = new System.Drawing.Point(15, 545);
             this.btnCocheNuevoLimpiar.Name = "btnCocheNuevoLimpiar";
             this.btnCocheNuevoLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnCocheNuevoLimpiar.TabIndex = 3;
@@ -233,7 +235,7 @@
             // 
             // btnCocheNuevoAceptar
             // 
-            this.btnCocheNuevoAceptar.Location = new System.Drawing.Point(621, 541);
+            this.btnCocheNuevoAceptar.Location = new System.Drawing.Point(633, 545);
             this.btnCocheNuevoAceptar.Name = "btnCocheNuevoAceptar";
             this.btnCocheNuevoAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnCocheNuevoAceptar.TabIndex = 4;
@@ -242,7 +244,7 @@
             // 
             // btnCocheNuevoCancelar
             // 
-            this.btnCocheNuevoCancelar.Location = new System.Drawing.Point(708, 541);
+            this.btnCocheNuevoCancelar.Location = new System.Drawing.Point(720, 545);
             this.btnCocheNuevoCancelar.Name = "btnCocheNuevoCancelar";
             this.btnCocheNuevoCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCocheNuevoCancelar.TabIndex = 5;
@@ -255,7 +257,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 12);
+            this.tabControl1.Location = new System.Drawing.Point(15, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(780, 523);
@@ -459,6 +461,15 @@
             this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(12, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(94, 13);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Coches Existentes";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -498,6 +509,15 @@
             this.tabPage3.Text = "Eliminar";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(182, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Coches Existentes";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(524, 30);
@@ -515,33 +535,23 @@
             this.listBox2.Size = new System.Drawing.Size(336, 446);
             this.listBox2.TabIndex = 5;
             // 
-            // label15
+            // pnlCoche
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(182, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 13);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "Coches Existentes";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 23);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(94, 13);
-            this.label16.TabIndex = 8;
-            this.label16.Text = "Coches Existentes";
+            this.pnlCoche.Controls.Add(this.tabControl1);
+            this.pnlCoche.Controls.Add(this.btnCocheNuevoLimpiar);
+            this.pnlCoche.Controls.Add(this.btnCocheNuevoCancelar);
+            this.pnlCoche.Controls.Add(this.btnCocheNuevoAceptar);
+            this.pnlCoche.Location = new System.Drawing.Point(29, 29);
+            this.pnlCoche.Name = "pnlCoche";
+            this.pnlCoche.Size = new System.Drawing.Size(811, 583);
+            this.pnlCoche.TabIndex = 7;
             // 
             // frmABMCoche
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 571);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.btnCocheNuevoCancelar);
-            this.Controls.Add(this.btnCocheNuevoAceptar);
-            this.Controls.Add(this.btnCocheNuevoLimpiar);
+            this.ClientSize = new System.Drawing.Size(855, 626);
+            this.Controls.Add(this.pnlCoche);
             this.Name = "frmABMCoche";
             this.Text = "Coche";
             this.groupBox1.ResumeLayout(false);
@@ -555,6 +565,7 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pnlCoche.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -607,5 +618,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox2;
+        public System.Windows.Forms.Panel pnlCoche;
     }
 }
