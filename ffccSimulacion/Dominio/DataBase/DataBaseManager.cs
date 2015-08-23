@@ -71,23 +71,54 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             try
             {
-                /*se crea una formacion auxiliar para poder guardar por separado primero la formacion y luego las relaciones con los coches.
-                 en caso contrario fallaria por error de FK*/
-                Formacion auxFormacion = new Formacion(unaFormacion.NombreFormacion);
-
-                /*Aca se guarda unicamente la formacion para que la base autogenere el Id de la misma necesario para la FK*/
-                _dataContext.GetTable<Formacion>().InsertOnSubmit(auxFormacion);
+                List<Formacion_X_Coche> listaCoches = unaFormacion.AuxCoches_LINQ.ToList<Formacion_X_Coche>();
+                unaFormacion.BlanquearListaParaSave();
+                _dataContext.GetTable<Formacion>().InsertOnSubmit(unaFormacion);
                 _dataContext.SubmitChanges();
 
-                /*se asigna el id de la formacion que se guardo a las relaciones ente los coches*/
-                foreach (Formacion_X_Coche fc in unaFormacion.AuxCoches_LINQ.ToList<Formacion_X_Coche>())
-                    fc.IdFormacion = auxFormacion.Id;
+                foreach(Formacion_X_Coche fc in listaCoches)
+                {
+                    fc.IdFormacion = unaFormacion.Id;
+                    _dataContext.GetTable<Formacion_X_Coche>().InsertOnSubmit(fc);
+                }
+                _dataContext.SubmitChanges();
+                return unaFormacion.Id;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
 
-                /*Se guardan las relaciones entre la formacion y los coches*/
-                auxFormacion.AuxCoches_LINQ = unaFormacion.AuxCoches_LINQ;
+        public int GuardarModificacionesFormacion(Formacion unaFormacion)
+        {
+            try
+            {
+                List<Formacion_X_Coche> listaCoches = unaFormacion.AuxCoches_LINQ.ToList<Formacion_X_Coche>();
+                unaFormacion.BlanquearListaParaSave();
                 _dataContext.SubmitChanges();
 
-                return auxFormacion.Id;
+                foreach (Formacion_X_Coche fc in listaCoches)
+                {
+                    if (fc.Id != 0)
+                    {
+                        Formacion_X_Coche auxFC = (from joins in _dataContext.GetTable<Formacion_X_Coche>() where joins.Id == fc.Id select joins).FirstOrDefault();
+                        auxFC.IdCoche = fc.IdCoche;
+                        auxFC.IdFormacion = fc.IdFormacion;
+                        auxFC.VecesCocheRepetido = fc.VecesCocheRepetido;
+                        auxFC.UnCoche = fc.UnCoche;
+                        _dataContext.SubmitChanges();
+                    }
+                    else
+                    {
+                        fc.IdFormacion = unaFormacion.Id;
+                        _dataContext.GetTable<Formacion_X_Coche>().InsertOnSubmit(fc);
+                        _dataContext.SubmitChanges();
+                    }
+                }
+
+                return 1;
             }
             catch (Exception e)
             {
@@ -101,15 +132,30 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             try
             {
-                Formacion unaFormacion = (from fcs in _dataContext.GetTable<Formacion>()
-                                        where fcs.Id == id_formacion
-                                        select fcs).FirstOrDefault();
+                DataContext dc = new DataContext(_cadenaConexion);
+                Formacion unaFormacion = (from fcs in dc.GetTable<Formacion>()
+                                          where fcs.Id == id_formacion
+                                          select fcs).FirstOrDefault();
 
                 foreach (Formacion_X_Coche fc in unaFormacion.AuxCoches_LINQ.ToList<Formacion_X_Coche>())
-                    BorrarJoinFormacionCoche(fc.Id);
+                {
+                    DataContext dc2 = new DataContext(_cadenaConexion);
+                    Formacion_X_Coche fc2 = (from joins in dc2.GetTable<Formacion_X_Coche>()
+                                             where joins.Id == fc.Id
+                                             select joins).FirstOrDefault();
+                    dc2.GetTable<Formacion_X_Coche>().DeleteOnSubmit(fc2);
+                    dc2.SubmitChanges();
+                    dc2.Dispose();
+                }
 
-                _dataContext.GetTable<Formacion>().DeleteOnSubmit(unaFormacion);
-                _dataContext.SubmitChanges();
+                dc.Dispose();
+                dc = new DataContext(_cadenaConexion);
+                unaFormacion = (from fcs in dc.GetTable<Formacion>()
+                                where fcs.Id == id_formacion
+                                select fcs).FirstOrDefault();
+                dc.GetTable<Formacion>().DeleteOnSubmit(unaFormacion);
+                dc.SubmitChanges();
+                dc.Dispose();
                 return 1;
             }
             catch (Exception e)
@@ -574,7 +620,61 @@ namespace ffccSimulacion.Dominio.DataBase
         /*Esta funcion la utilizo para hacer pruebas contra la base. No se usa en el modelo*/
         public void PruebasBD()
         {
+            int id_objeto;
+            int resultado = 0;
+            /*Prueba Guardar nuevo Coche*/
+            /*Coche LocomotoraNuevo = new Coche("LocoQueen", true, TipoConsumo.Disel, 50, 20, 0, 0, 0);
+            id_objeto = GuardarNuevoCoche(LocomotoraNuevo);
+            Coche CocheNuevo = new Coche("CocheFredie", false, TipoConsumo.Disel, 0, 0, 50, 80, 150);
+            id_objeto = GuardarNuevoCoche(CocheNuevo);*/
 
+            /*Recuperar un coche existente, modificarlo y volverlo a guardar*/
+            /*Coche cocheExistente = GetCocheById(4);
+            cocheExistente.Modelo = "Locomotora Mod1";
+            id_objeto = GuardarModificacionesObjeto();*/
+
+            /*Crear un coche para luego eliminarlo*/
+            /*Coche CocheParaEliminar = new Coche("Coche Elimina", true, TipoConsumo.Disel, 50, 20, 0, 0, 0);
+            id_objeto = GuardarNuevoCoche(CocheParaEliminar);
+            resultado = BorrarCoche(id_objeto);*/
+
+            /*Se crea una nueva formacion, se le asignan coches y se guardan en la bd, opcionalmente se la puede borrar la formacion*/
+            /*Formacion nuevaFormacion = new Formacion("FormacionPruebas");
+
+            Coche Locomotora = GetCocheById(4);
+            Coche VagonComun = GetCocheById(5);
+            nuevaFormacion.agregarCoche(Locomotora, 1);
+            nuevaFormacion.agregarCoche(VagonComun, 5);
+
+            id_objeto = GuardarNuevaFormacion(nuevaFormacion);*/
+
+            //BorrarFormacion(id_objeto);
+
+            /*Obtener un formacion a partir de un ID, agregar un coche existente a la formacion y guardar*/
+            /*Coche cocheExistente = GetCocheById(7);
+            Formacion formacionExistente = GetFormacionById(41);
+            formacionExistente.agregarCoche(cocheExistente, 2);
+
+            GuardarModificacionesFormacion(formacionExistente);*/
+            
+            /*Se crea 2 incidentes y se guardan en la bd*/
+            /*Incidente nuevoIncidente1 = new Incidente("Via Cortada", "se corto una via", 20, 10);
+            Incidente nuevoIncidente2 = new Incidente("Piquite", "gente se manifiesta sobre las vias", 20, 10);
+            GuardarNuevoIncidente(nuevoIncidente1);
+            GuardarNuevoIncidente(nuevoIncidente2);*/
+
+            /*Se crea incidente para borrarlo despues*/
+            /*Incidente nuevoIncidente3 = new Incidente("IncidenteElimina", "", 20, 10);
+            id_objeto = GuardarNuevoIncidente(nuevoIncidente3);
+            BorrarUnIncidente(id_objeto);*/
+
+            /*Se crea una estacion, se le asignan 2 incidentes existentes y se guarda en la bd*/
+            /*Incidente incidente1 = GetIncidenteById(1);
+            Incidente incidente2 = GetIncidenteById(2);
+            Estacion nuevaEstacion = new Estacion("EstacionPirulito", 100, 300, TipoFDP.Normal);
+            nuevaEstacion.AgregarIncidente(incidente1);
+            nuevaEstacion.AgregarIncidente(incidente2);
+            GuardarNuevaEstacion(nuevaEstacion);*/
         }
     }
 }

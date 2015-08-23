@@ -13,7 +13,7 @@ namespace ffccSimulacion.Dominio
     public class Formacion
     {
         private string _nombreFormacion;
-        private EntitySet<Formacion_X_Coche> _auxCoches_LINQ;
+        private EntitySet<Formacion_X_Coche> _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
         private List<Coche> _coches = new List<Coche>();
 
         /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
@@ -22,7 +22,7 @@ namespace ffccSimulacion.Dominio
         public Formacion(string nombre)
         {
             _nombreFormacion = nombre;
-            _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
+            //_auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
         }
 
         #region Propiedades
@@ -65,6 +65,11 @@ namespace ffccSimulacion.Dominio
             }
         }
 
+        public void BlanquearListaParaSave()
+        {
+            _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
+        }
+
         public void agregarCoche(Coche coche,int vecesRepetido)
         {
             /*Es necesario esto para poder guardar luego los nuevos coches que se vallan agregando a una formacion ya existente*/
@@ -72,7 +77,7 @@ namespace ffccSimulacion.Dominio
             fc.UnCoche = coche;
             fc.VecesCocheRepetido = vecesRepetido;
             fc.IdFormacion = this.Id;
-            _auxCoches_LINQ.Add(fc);
+            AuxCoches_LINQ.Add(fc);
 
             for (int i = 0; i < vecesRepetido;i++ )
                 _coches.Add(coche);

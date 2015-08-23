@@ -17,9 +17,11 @@ namespace ffccSimulacion
         [STAThread]
         static void Main()
         {
+            /*DataBaseManager db = new DataBaseManager();
+            db.PruebasBD();*/
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Escritorio());         
+            Application.Run(new Escritorio());
             //Simulacion simulador = new Simulacion(1);
             //simulador.EstrategiaDeSimulacion = new TiempoComprometido(0, 100);
             //simulador.EjecutarSimulacion();   

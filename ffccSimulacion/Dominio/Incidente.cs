@@ -17,8 +17,10 @@ namespace ffccSimulacion.Dominio
 
         public Incidente() { }
 
-        public Incidente(int ocurrencia, int demora)
+        public Incidente(string nombre,string descripcion,int ocurrencia, int demora)
         {
+            _nomreIncidente = nombre;
+            _descripcion = descripcion;
             _probabilidadOcurrencia = ocurrencia;
             _tiempoDemora = demora;
         }
