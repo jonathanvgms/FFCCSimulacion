@@ -62,7 +62,7 @@ namespace ffccSimulacion.Dominio.DataBase
             Formacion f = (from formaciones in _dataContext.GetTable<Formacion>()
                            where formaciones.Id == id_formacion
                            select formaciones).FirstOrDefault();
-            f.CargarCochesDeLaFormacion();
+            //f.CargarCochesDeLaFormacion();
             return f;
         }
 
@@ -330,7 +330,7 @@ namespace ffccSimulacion.Dominio.DataBase
             Estacion e = (from estaciones in _dataContext.GetTable<Estacion>()
                           where estaciones.Id == id_estacion
                           select estaciones).FirstOrDefault();
-            e.CargarIncidentesPosibles();
+            //e.CargarIncidentesPosibles();
             return e;
         }
 
@@ -471,25 +471,93 @@ namespace ffccSimulacion.Dominio.DataBase
             return unServicio;
         }
 
+        public int GuardarMoficicacionesServicio(Servicio unServicio) 
+        {
+            if (unServicio.Id == 0) return -1;
+            try
+            {
+                List<Relacion> listaRelaciones = unServicio.Relaciones.ToList<Relacion>();
+                List<Servicio_X_Formacion> listaFormaciones = unServicio.AuxFormaciones_LINQ.ToList<Servicio_X_Formacion>();
+                unServicio.LimpiarListaLINQParaPoderGuardar();
+
+                _dataContext.SubmitChanges();
+
+                foreach(Relacion r in listaRelaciones)
+                {
+                    if(r.Id!=0)
+                    {
+                        Relacion rAux = (from relaciones in _dataContext.GetTable<Relacion>() where relaciones.Id == r.Id select relaciones).FirstOrDefault();
+                        rAux.Id_Estacion_Anterior = r.Id_Estacion_Anterior;
+                        rAux.Id_Estacion_Siguiente = r.Id_Estacion_Siguiente;
+                        rAux.Id_Servicio = r.Id_Servicio;
+                        rAux.TiempoViaje = r.TiempoViaje;
+                        rAux.VelocidadPromedio = r.VelocidadPromedio;
+                        rAux.Estacion_Sig_Es_Parada = r.Estacion_Sig_Es_Parada;
+                        rAux.Distancia = r.Distancia;
+                        rAux.Anterior = r.Anterior;
+                        rAux.Siguiente = r.Siguiente;
+                        _dataContext.SubmitChanges();
+                    }
+                    else
+                    {
+                        r.Id_Servicio = unServicio.Id;
+                        _dataContext.GetTable<Relacion>().InsertOnSubmit(r);
+                        _dataContext.SubmitChanges();
+                    }
+                }
+
+                foreach(Servicio_X_Formacion sf in listaFormaciones)
+                {
+                    if(sf.Id!=0)
+                    {
+                        Servicio_X_Formacion sfAux = (from joins in _dataContext.GetTable<Servicio_X_Formacion>() where joins.Id == sf.Id select joins).FirstOrDefault();
+                        sfAux.Id_Formacion = sf.Id_Formacion;
+                        sfAux.Id_Servicio = sf.Id_Servicio;
+                        sfAux.UnaFormacion = sf.UnaFormacion;
+                        _dataContext.SubmitChanges();
+                    }
+                    else
+                    {
+                        sf.Id_Servicio = unServicio.Id;
+                        _dataContext.GetTable<Servicio_X_Formacion>().InsertOnSubmit(sf);
+                        _dataContext.SubmitChanges();
+                    }
+                }
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
         public int GuardarNuevoServicio(Servicio unServicio)
         {
             try
             {
-                Servicio auxServicio = new Servicio(unServicio.Nombre);
-                _dataContext.GetTable<Servicio>().InsertOnSubmit(auxServicio);
+                List<Relacion> listaRelaciones = unServicio.Relaciones.ToList<Relacion>();
+                List<Servicio_X_Formacion> listaFormaciones = unServicio.AuxFormaciones_LINQ.ToList<Servicio_X_Formacion>();
+                unServicio.LimpiarListaLINQParaPoderGuardar();
+
+                _dataContext.GetTable<Servicio>().InsertOnSubmit(unServicio);
                 _dataContext.SubmitChanges();
 
-                foreach (Relacion r in unServicio.Relaciones)
-                    r.Id_Servicio = auxServicio.Id;
+                foreach(Relacion r in listaRelaciones)
+                {
+                    r.Id_Servicio = unServicio.Id;
+                    _dataContext.GetTable<Relacion>().InsertOnSubmit(r);
+                }
 
-                foreach (Servicio_X_Formacion sf in unServicio.AuxCoches_LINQ)
-                    sf.Id_Servicio = auxServicio.Id;
-
-                auxServicio.Relaciones = unServicio.Relaciones;
-                auxServicio.AuxCoches_LINQ = unServicio.AuxCoches_LINQ;
+                foreach(Servicio_X_Formacion sf in listaFormaciones)
+                {
+                    sf.Id_Servicio = unServicio.Id;
+                    _dataContext.GetTable<Servicio_X_Formacion>().InsertOnSubmit(sf);
+                }
 
                 _dataContext.SubmitChanges();
-                return auxServicio.Id;
+                return unServicio.Id;
             }
             catch (Exception e)
             {
@@ -502,16 +570,34 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             try
             {
-                Servicio s = GetServicioById(id_servicio);
+                DataContext dc = new DataContext(_cadenaConexion);
+                Servicio unServicio = (from servicios in dc.GetTable<Servicio>() where servicios.Id == id_servicio select servicios).FirstOrDefault();
 
-                foreach (Relacion r in s.Relaciones)
-                    BorrarRelacion(r.Id);
+                foreach(Relacion r in unServicio.Relaciones)
+                {
+                    DataContext dc2 = new DataContext(_cadenaConexion);
+                    Relacion rAux = (from relaciones in dc2.GetTable<Relacion>() where relaciones.Id == r.Id select relaciones).FirstOrDefault();
+                    dc2.GetTable<Relacion>().DeleteOnSubmit(rAux);
+                    dc2.SubmitChanges();
+                    dc2.Dispose();
+                }
 
-                foreach (Servicio_X_Formacion sf in s.AuxCoches_LINQ)
-                    BorrarJoinServicioFormacion(sf.Id);
+                foreach(Servicio_X_Formacion sf in unServicio.AuxFormaciones_LINQ)
+                {
+                    DataContext dc2 = new DataContext(_cadenaConexion);
+                    Servicio_X_Formacion sfAux = (from joins in dc2.GetTable<Servicio_X_Formacion>() where joins.Id == sf.Id select joins).FirstOrDefault();
+                    dc2.GetTable<Servicio_X_Formacion>().DeleteOnSubmit(sfAux);
+                    dc2.SubmitChanges();
+                    dc2.Dispose();
+                }
 
-                _dataContext.GetTable<Servicio>().DeleteOnSubmit(s);
-                _dataContext.SubmitChanges();
+                dc.Dispose();
+                dc = new DataContext(_cadenaConexion);
+                unServicio = (from servicios in dc.GetTable<Servicio>() where servicios.Id == id_servicio select servicios).FirstOrDefault();
+                dc.GetTable<Servicio>().DeleteOnSubmit(unServicio);
+                dc.SubmitChanges();
+                dc.Dispose();
+
                 return 1;
             }
             catch (Exception e)
@@ -734,7 +820,7 @@ namespace ffccSimulacion.Dominio.DataBase
             /*Se crea una estacion, se le asignan 2 incidentes existentes y se guarda en la bd*/
             /*Incidente incidente1 = GetIncidenteById(4);
             Incidente incidente2 = GetIncidenteById(5);
-            Estacion nuevaEstacion = new Estacion("EstacionPirulito", 100, 300, TipoFDP.Normal);
+            Estacion nuevaEstacion = new Estacion("EstacionPirulitoBORRAR", 100, 300, TipoFDP.Normal);
             nuevaEstacion.AgregarIncidente(incidente1);
             nuevaEstacion.AgregarIncidente(incidente2);
             GuardarNuevaEstacion(nuevaEstacion);*/
@@ -747,6 +833,37 @@ namespace ffccSimulacion.Dominio.DataBase
             estacionExistente.AgregarIncidente(incidenteExistente);
             GuardarModificacionesEstacion(estacionExistente);*/
 
+            /*Se cream 3 estaciones sin incidentes*/
+            /*Estacion nuevaEstacion1 = new Estacion("EstacionA1", 100, 300, TipoFDP.Normal);
+            Estacion nuevaEstacion2 = new Estacion("EstacionB2", 100, 300, TipoFDP.Normal);
+            Estacion nuevaEstacion3 = new Estacion("EstacionC3", 100, 300, TipoFDP.Normal);
+            GuardarNuevaEstacion(nuevaEstacion1);
+            GuardarNuevaEstacion(nuevaEstacion2);
+            GuardarNuevaEstacion(nuevaEstacion3);*/
+
+            /*Se crea un servicio nuevo con las 3 estaciones creadas arriva y se las relaciona*/
+            /*Estacion estacion1 = GetEstacionById(5);
+            Estacion estacion2 = GetEstacionById(6);
+            Estacion estacion3 = GetEstacionById(7);
+            Formacion formacion1 = GetFormacionById(41);
+            Relacion r1 = new Relacion(estacion1, estacion2, 200, 60, 10, 1);
+            Relacion r2 = new Relacion(estacion2, estacion3, 200, 60, 10, 1);
+
+            Servicio nuevoServicio = new Servicio("ServicioPruebas");
+            nuevoServicio.Relaciones.Add(r1);
+            nuevoServicio.Relaciones.Add(r2);
+            nuevoServicio.AgregarFormacionDispoble(formacion1);
+            GuardarNuevoServicio(nuevoServicio);*/
+
+            /*Se agrega una nueva relacion a un servicio ya existente*/
+            /*Servicio servicioExistente = GetServicioById(5);
+            Estacion estacion3 = GetEstacionById(7);
+            Estacion estacion4 = GetEstacionById(4);
+            Relacion r = new Relacion(estacion3, estacion4, 200, 60, 10, 1);
+            servicioExistente.Relaciones.Add(r);
+            GuardarMoficicacionesServicio(servicioExistente);*/
+
+            BorrarServicio(5);
         }
     }
 }

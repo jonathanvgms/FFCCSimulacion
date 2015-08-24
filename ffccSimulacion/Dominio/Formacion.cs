@@ -59,7 +59,8 @@ namespace ffccSimulacion.Dominio
         {
             if (_coches.Count == 0)
             {
-                foreach (Formacion_X_Coche fc in _auxCoches_LINQ.ToList<Formacion_X_Coche>())
+                List<Formacion_X_Coche> listaCoches = _auxCoches_LINQ.ToList<Formacion_X_Coche>();
+                foreach (Formacion_X_Coche fc in listaCoches)
                     for (int i = 0; i < fc.VecesCocheRepetido; i++)
                         _coches.Add(fc.UnCoche);
             }

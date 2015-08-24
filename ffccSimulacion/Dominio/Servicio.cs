@@ -16,7 +16,7 @@ namespace ffccSimulacion.Dominio
         private Estacion _desde; //Terminal de donde sale la formacion.
         private Estacion _hasta; //Terminal hacia la que va la formacion.
         private EntitySet<Relacion> _relaciones;
-        private List<Parada> _paradas; //Estaciones en las que para la formacion.
+        private List<Parada> _paradas = new List<Parada>(); //Estaciones en las que para la formacion.
         private EntitySet<Servicio_X_Formacion> _auxFormaciones_LINQ;
         private List<Formacion> _formacionesDisponibles = new List<Formacion>(); //Lista de los distintos tipos de formaciones que prestaran dicho servicio
         private List<int> _programacion; //Tiempos de salida de la terminal.
@@ -72,14 +72,14 @@ namespace ffccSimulacion.Dominio
         }
 
         [Association(Storage = "_relaciones", OtherKey = "Id_Servicio", ThisKey = "Id", IsForeignKey = true)]
-        public List<Relacion> Relaciones
+        public EntitySet<Relacion> Relaciones
         {
-            get { return _relaciones.ToList<Relacion>(); }
+            get { return _relaciones; }
             set { _relaciones.Assign(value); }
         }
 
         [Association(Storage = "_auxFormaciones_LINQ", OtherKey = "Id_Servicio", ThisKey = "Id", IsForeignKey = true)]
-        public EntitySet<Servicio_X_Formacion> AuxCoches_LINQ
+        public EntitySet<Servicio_X_Formacion> AuxFormaciones_LINQ
         {
             get { return _auxFormaciones_LINQ; }
             set { _auxFormaciones_LINQ.Assign(value); }
@@ -99,6 +99,12 @@ namespace ffccSimulacion.Dominio
         #endregion
 
         #region Metodos
+
+        public void LimpiarListaLINQParaPoderGuardar()
+        {
+            _relaciones = new EntitySet<Relacion>();
+            _auxFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
+        }
 
         /*A partir de la lista de relaciones definidas para el servicio se configuran las distitnas estaciones*/
         public void ConfigurarEstaciones()
@@ -177,7 +183,8 @@ namespace ffccSimulacion.Dominio
             while (relacionActual != null)
             {
                 relacionActual = BuscarRelacionAnterior(estacionActual);
-                estacionActual = relacionActual.Anterior;
+                if (relacionActual != null)
+                    estacionActual = relacionActual.Anterior;
             }
 
             return estacionActual;
@@ -190,7 +197,8 @@ namespace ffccSimulacion.Dominio
             while (relacionActual != null)
             {
                 relacionActual = BuscarRelacionSiguiente(estacionActual);
-                estacionActual = relacionActual.Siguiente;
+                if (relacionActual != null)
+                    estacionActual = relacionActual.Siguiente;
             }
 
             return estacionActual;
