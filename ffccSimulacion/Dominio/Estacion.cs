@@ -97,6 +97,7 @@ namespace ffccSimulacion.Dominio
             set { _tiempoComprometido = value; }
         }
 
+        [Association(Storage = "_auxIncidentes_LINQ", OtherKey = "Id_Estacion", ThisKey = "Id", IsForeignKey = true)]
         public EntitySet<Estacion_X_Incidente> AuxIncidentes_LINQ
         {
             get { return _auxIncidentes_LINQ; }
@@ -129,6 +130,11 @@ namespace ffccSimulacion.Dominio
             _auxIncidentes_LINQ.Add(ie);
 
             _incidentesPosibles.Add(i);
+        }
+
+        public void LimpiarListaLINQParaPoderGuardar()
+        {
+            _auxIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>(); 
         }
 
         public void agregarRelacionAnterior(Relacion relacion)

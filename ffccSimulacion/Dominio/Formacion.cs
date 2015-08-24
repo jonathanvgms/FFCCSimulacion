@@ -65,7 +65,7 @@ namespace ffccSimulacion.Dominio
             }
         }
 
-        public void BlanquearListaParaSave()
+        public void LimpiarListaLINQParaPoderGuardar()
         {
             _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
         }

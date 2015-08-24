@@ -30,7 +30,7 @@ namespace ffccSimulacion.Dominio.DataBase
 
         /*Esta funciona permite guarda cualquier modificacion que se le haga a un objeto traido de la bd, asi como tambien permite agregar cualquier nuevo join
          de cualquier clase. Es el update*/
-        public int GuardarModificacionesObjeto()
+        private int GuardarModificacionesObjeto()
         {
             try
             {
@@ -72,7 +72,7 @@ namespace ffccSimulacion.Dominio.DataBase
             try
             {
                 List<Formacion_X_Coche> listaCoches = unaFormacion.AuxCoches_LINQ.ToList<Formacion_X_Coche>();
-                unaFormacion.BlanquearListaParaSave();
+                unaFormacion.LimpiarListaLINQParaPoderGuardar();
                 _dataContext.GetTable<Formacion>().InsertOnSubmit(unaFormacion);
                 _dataContext.SubmitChanges();
 
@@ -96,7 +96,7 @@ namespace ffccSimulacion.Dominio.DataBase
             try
             {
                 List<Formacion_X_Coche> listaCoches = unaFormacion.AuxCoches_LINQ.ToList<Formacion_X_Coche>();
-                unaFormacion.BlanquearListaParaSave();
+                unaFormacion.LimpiarListaLINQParaPoderGuardar();
                 _dataContext.SubmitChanges();
 
                 foreach (Formacion_X_Coche fc in listaCoches)
@@ -184,6 +184,12 @@ namespace ffccSimulacion.Dominio.DataBase
             }
         }
 
+        public int GuardarModificacionesCoche(Coche unCoche)
+        {
+            if (unCoche.Id == 0) return -1;
+            return GuardarModificacionesObjeto();
+        }
+
         /*Guarda un nuevo coche en la bd*/
         public int GuardarNuevoCoche(Coche unCoche)
         {
@@ -248,6 +254,12 @@ namespace ffccSimulacion.Dominio.DataBase
             return (from incidentes in _dataContext.GetTable<Incidente>()
                     where incidentes.Id == id_incidente
                     select incidentes).FirstOrDefault();
+        }
+
+        public int GuardarModificacionesIncidente(Incidente unIncidente)
+        {
+            if (unIncidente.Id == 0) return -1;
+            return GuardarModificacionesObjeto();
         }
 
         public int GuardarNuevoIncidente(Incidente unIncidente)
@@ -322,19 +334,58 @@ namespace ffccSimulacion.Dominio.DataBase
             return e;
         }
 
+        public int GuardarModificacionesEstacion(Estacion unaEstacion)
+        {
+            try
+            {
+                List<Estacion_X_Incidente> listaIncidentes = unaEstacion.AuxIncidentes_LINQ.ToList<Estacion_X_Incidente>();
+                unaEstacion.LimpiarListaLINQParaPoderGuardar();
+
+                _dataContext.SubmitChanges();
+
+                foreach(Estacion_X_Incidente ei in listaIncidentes)
+                {
+                    if(ei.Id!=0)
+                    {
+                        Estacion_X_Incidente eiAux = (from joins in _dataContext.GetTable<Estacion_X_Incidente>() where joins.Id == ei.Id select joins).FirstOrDefault();
+                        eiAux.Id_Estacion = ei.Id_Estacion;
+                        eiAux.UnIncidente = ei.UnIncidente;
+                        _dataContext.SubmitChanges();
+                    }
+                    else
+                    {
+                        ei.Id_Estacion = unaEstacion.Id;
+                        _dataContext.GetTable<Estacion_X_Incidente>().InsertOnSubmit(ei);
+                        _dataContext.SubmitChanges();
+                    }
+                }
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Source);
+                return -1;
+            }
+        }
+
         public int GuardarNuevaEstacion(Estacion unaEstacion)
         {
             try
             {
-                Estacion estAux = new Estacion(unaEstacion.Nombre, unaEstacion.PersonasEsperandoMin, unaEstacion.PersonasEsperandoMax, unaEstacion.FDPEstacion);
-                _dataContext.GetTable<Estacion>().InsertOnSubmit(estAux);
+                List<Estacion_X_Incidente> listaIncidentes = unaEstacion.AuxIncidentes_LINQ.ToList<Estacion_X_Incidente>();
+                unaEstacion.LimpiarListaLINQParaPoderGuardar();
 
-                foreach (Estacion_X_Incidente ei in unaEstacion.AuxIncidentes_LINQ.ToList<Estacion_X_Incidente>())
-                    ei.Id_Estacion = estAux.Id;
-
-                estAux.AuxIncidentes_LINQ = unaEstacion.AuxIncidentes_LINQ;
+                _dataContext.GetTable<Estacion>().InsertOnSubmit(unaEstacion);
                 _dataContext.SubmitChanges();
-                return estAux.Id;
+                foreach (Estacion_X_Incidente ei in listaIncidentes)
+                {
+                    ei.Id_Estacion = unaEstacion.Id;
+                    _dataContext.GetTable<Estacion_X_Incidente>().InsertOnSubmit(ei);
+                    _dataContext.SubmitChanges();
+
+                }
+                return unaEstacion.Id;
             }
             catch (Exception e)
             {
@@ -347,12 +398,24 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             try
             {
-                Estacion e = this.GetEstacionById(id_estacion);
-                foreach (Estacion_X_Incidente ei in e.AuxIncidentes_LINQ.ToList<Estacion_X_Incidente>())
-                    this.BorrarJoinEstacionIncidente(ei.Id);
+                DataContext dc = new DataContext(_cadenaConexion);
+                Estacion e = (from estaciones in dc.GetTable<Estacion>() where estaciones.Id == id_estacion select estaciones).FirstOrDefault();
 
-                _dataContext.GetTable<Estacion>().DeleteOnSubmit(e);
-                _dataContext.SubmitChanges();
+                foreach(Estacion_X_Incidente ei in e.AuxIncidentes_LINQ)
+                {
+                    DataContext dc2 = new DataContext(_cadenaConexion);
+                    Estacion_X_Incidente eiAux = (from joins in dc2.GetTable<Estacion_X_Incidente>() where joins.Id == ei.Id select joins).FirstOrDefault();
+                    dc2.GetTable<Estacion_X_Incidente>().DeleteOnSubmit(eiAux);
+                    dc2.SubmitChanges();
+                    dc2.Dispose();
+                }
+
+                dc.Dispose();
+                dc = new DataContext(_cadenaConexion);
+                e = (from estaciones in dc.GetTable<Estacion>() where estaciones.Id == id_estacion select estaciones).FirstOrDefault();
+                dc.GetTable<Estacion>().DeleteOnSubmit(e);
+                dc.SubmitChanges();
+                dc.Dispose();
 
                 return 1;
             }
@@ -664,17 +727,26 @@ namespace ffccSimulacion.Dominio.DataBase
             GuardarNuevoIncidente(nuevoIncidente2);*/
 
             /*Se crea incidente para borrarlo despues*/
-            /*Incidente nuevoIncidente3 = new Incidente("IncidenteElimina", "", 20, 10);
+            /*Incidente nuevoIncidente3 = new Incidente("Fantasma", "hay fantasmas en las vias", 20, 10);
             id_objeto = GuardarNuevoIncidente(nuevoIncidente3);
             BorrarUnIncidente(id_objeto);*/
 
             /*Se crea una estacion, se le asignan 2 incidentes existentes y se guarda en la bd*/
-            /*Incidente incidente1 = GetIncidenteById(1);
-            Incidente incidente2 = GetIncidenteById(2);
+            /*Incidente incidente1 = GetIncidenteById(4);
+            Incidente incidente2 = GetIncidenteById(5);
             Estacion nuevaEstacion = new Estacion("EstacionPirulito", 100, 300, TipoFDP.Normal);
             nuevaEstacion.AgregarIncidente(incidente1);
             nuevaEstacion.AgregarIncidente(incidente2);
             GuardarNuevaEstacion(nuevaEstacion);*/
+
+            //BorrarUnaEstacion(3);
+
+            /*Se agrega un incidente existente a una Estacion tambien existente. Luego se guarda en la bd*/
+            /*Incidente incidenteExistente = GetIncidenteById(7);
+            Estacion estacionExistente = GetEstacionById(4);
+            estacionExistente.AgregarIncidente(incidenteExistente);
+            GuardarModificacionesEstacion(estacionExistente);*/
+
         }
     }
 }
