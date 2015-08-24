@@ -17,8 +17,8 @@ namespace ffccSimulacion.Dominio
         private Estacion _hasta; //Terminal hacia la que va la formacion.
         private EntitySet<Relacion> _relaciones;
         private List<Parada> _paradas = new List<Parada>(); //Estaciones en las que para la formacion.
-        private EntitySet<Servicio_X_Formacion> _auxFormaciones_LINQ;
-        private List<Formacion> _formacionesDisponibles = new List<Formacion>(); //Lista de los distintos tipos de formaciones que prestaran dicho servicio
+        private EntitySet<Servicio_X_Formacion> _listaFormaciones_LINQ; //Lista de los distintos tipos de formaciones que prestaran dicho servicio
+        //private List<Formacion> _formacionesDisponibles = new List<Formacion>(); 
         private List<int> _programacion; //Tiempos de salida de la terminal.
         
         struct Parada
@@ -33,7 +33,7 @@ namespace ffccSimulacion.Dominio
         {
             _nombre = nom;
             _relaciones = new EntitySet<Relacion>();
-            _auxFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
+            _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
         }
 
         public Servicio(string nom, Estacion terminalInicial, Estacion terminalFinal)
@@ -42,7 +42,7 @@ namespace ffccSimulacion.Dominio
             _desde = terminalInicial;
             _hasta = terminalFinal;
             _relaciones = new EntitySet<Relacion>();
-            _auxFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
+            _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
             _paradas = new List<Parada>();
             _programacion = new List<int>();
         }
@@ -78,16 +78,16 @@ namespace ffccSimulacion.Dominio
             set { _relaciones.Assign(value); }
         }
 
-        [Association(Storage = "_auxFormaciones_LINQ", OtherKey = "Id_Servicio", ThisKey = "Id", IsForeignKey = true)]
+        [Association(Storage = "_listaFormaciones_LINQ", OtherKey = "Id_Servicio", ThisKey = "Id", IsForeignKey = true)]
         public EntitySet<Servicio_X_Formacion> AuxFormaciones_LINQ
         {
-            get { return _auxFormaciones_LINQ; }
-            set { _auxFormaciones_LINQ.Assign(value); }
+            get { return _listaFormaciones_LINQ; }
+            set { _listaFormaciones_LINQ.Assign(value); }
         }
 
         public List<Formacion> FormacionesDisponibles
         {
-            get { return _formacionesDisponibles; }
+            get { return _listaFormaciones_LINQ.Select(x => x.UnaFormacion).ToList<Formacion>(); }
         }
 
         public List<int> Programacion
@@ -103,7 +103,7 @@ namespace ffccSimulacion.Dominio
         public void LimpiarListaLINQParaPoderGuardar()
         {
             _relaciones = new EntitySet<Relacion>();
-            _auxFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
+            _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
         }
 
         /*A partir de la lista de relaciones definidas para el servicio se configuran las distitnas estaciones*/
@@ -154,14 +154,14 @@ namespace ffccSimulacion.Dominio
             }
 
             /*Se cargan las listas de incidentes de cada estacion de atras para adelante*/
-            nodoActual = this.Desde;
+            /*nodoActual = this.Desde;
             while(nodoActual!=this.Hasta)
             {
                 nodoActual.CargarIncidentesPosibles();
                 r = BuscarRelacionSiguiente(nodoActual);
                 nodoActual = r.Siguiente;
             }
-            this.Hasta.CargarIncidentesPosibles();
+            this.Hasta.CargarIncidentesPosibles();*/
         }
 
         /*Dada una estacion retorna aquella relacion donde dicha estacion es la estacion anterior*/
@@ -227,17 +227,17 @@ namespace ffccSimulacion.Dominio
             _paradas.Add(parada);
         }
 
-        public void CargarFormacionesDelServicio()
+        /*public void CargarFormacionesDelServicio()
         {
             if(FormacionesDisponibles.Count==0)
             {
                 foreach (Servicio_X_Formacion sf in _auxFormaciones_LINQ.ToArray<Servicio_X_Formacion>())
                 {
-                    sf.UnaFormacion.CargarCochesDeLaFormacion();
+                    //sf.UnaFormacion.CargarCochesDeLaFormacion();
                     _formacionesDisponibles.Add(sf.UnaFormacion);
                 }
             }
-        }
+        }*/
 
         /*Esta funcion configura todos los campos que no vienen por base y que dependen del conjunto de relaciones definido para el servicio*/
         public void ConfigurarServicio()
@@ -246,7 +246,7 @@ namespace ffccSimulacion.Dominio
             this.Hasta = BuscarEstacionHasta();
             ConfigurarEstaciones();
             CargarParadas();
-            CargarFormacionesDelServicio();
+            //CargarFormacionesDelServicio();
         }
 
         /*Permite agregar un tipo de formacion que prestara el servicio*/
@@ -255,17 +255,17 @@ namespace ffccSimulacion.Dominio
             Servicio_X_Formacion sf = new Servicio_X_Formacion();
             sf.Id_Servicio = this.Id;
             sf.UnaFormacion = unaFormacion;
-            _auxFormaciones_LINQ.Add(sf);
+            _listaFormaciones_LINQ.Add(sf);
 
-            _formacionesDisponibles.Add(unaFormacion);
+            //_formacionesDisponibles.Add(unaFormacion);
         }
 
         /*Retorna cada vez una instancia nueva (replica) de alguna de las formaciones disponibles para prestar un servicio*/
         public Formacion GetFormacionRandom()
         {
             Random rd = new Random();
-            int num = rd.Next(0, _formacionesDisponibles.Count - 1);
-            Formacion unaFormacion = _formacionesDisponibles[num];
+            int num = rd.Next(0, FormacionesDisponibles.Count - 1);
+            Formacion unaFormacion = FormacionesDisponibles[num];
             return unaFormacion.ClonarFormacion();
         }
 

@@ -16,13 +16,13 @@ namespace ffccSimulacion.Dominio
         private int _personasEsperandoMin;
         private int _personasEsperandoMax;
         private TipoFDP _fdpEstacion;
-        private EntitySet<Estacion_X_Incidente> _auxIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>();
+        private EntitySet<Estacion_X_Incidente> _listaIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>();
         private List<Relacion> _anteriores = new List<Relacion>();
         private List<Relacion> _siguientes = new List<Relacion>();
         private int _genteEsperando = 0;
         private int _ultimaAtencion = 0;
         private int _tiempoComprometido = 0;
-        private List<Incidente> _incidentesPosibles = new List<Incidente>();
+        //private List<Incidente> _incidentesPosibles = new List<Incidente>();
 
         public Estacion() { }
 
@@ -97,44 +97,44 @@ namespace ffccSimulacion.Dominio
             set { _tiempoComprometido = value; }
         }
 
-        [Association(Storage = "_auxIncidentes_LINQ", OtherKey = "Id_Estacion", ThisKey = "Id", IsForeignKey = true)]
+        [Association(Storage = "_listaIncidentes_LINQ", OtherKey = "Id_Estacion", ThisKey = "Id", IsForeignKey = true)]
         public EntitySet<Estacion_X_Incidente> AuxIncidentes_LINQ
         {
-            get { return _auxIncidentes_LINQ; }
-            set { _auxIncidentes_LINQ.Assign(value); }
+            get { return _listaIncidentes_LINQ; }
+            set { _listaIncidentes_LINQ.Assign(value); }
         }
 
         public List<Incidente> IncidentesProsibles
         {
-            get { return _incidentesPosibles; }
+            get { return _listaIncidentes_LINQ.Select(x => x.UnIncidente).ToList<Incidente>(); }
         }
 
         #endregion
 
         #region Metodos
 
-        public void CargarIncidentesPosibles()
+        /*public void CargarIncidentesPosibles()
         {
             if (_incidentesPosibles.Count == 0)
             {
                 foreach (Estacion_X_Incidente ei in _auxIncidentes_LINQ.ToList<Estacion_X_Incidente>())
                     _incidentesPosibles.Add(ei.UnIncidente);
             }
-        }
+        }*/
 
         public void AgregarIncidente(Incidente i)
         {
             Estacion_X_Incidente ie = new Estacion_X_Incidente();
             ie.UnIncidente = i;
             ie.Id_Estacion = this.Id;
-            _auxIncidentes_LINQ.Add(ie);
+            _listaIncidentes_LINQ.Add(ie);
 
-            _incidentesPosibles.Add(i);
+            //_incidentesPosibles.Add(i);
         }
 
         public void LimpiarListaLINQParaPoderGuardar()
         {
-            _auxIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>(); 
+            _listaIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>(); 
         }
 
         public void agregarRelacionAnterior(Relacion relacion)

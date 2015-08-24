@@ -13,8 +13,8 @@ namespace ffccSimulacion.Dominio
     public class Formacion
     {
         private string _nombreFormacion;
-        private EntitySet<Formacion_X_Coche> _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
-        private List<Coche> _coches = new List<Coche>();
+        private EntitySet<Formacion_X_Coche> _listaCoches_LINQ = new EntitySet<Formacion_X_Coche>();
+        //private List<Coche> _coches = new List<Coche>();
 
         /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
         public Formacion() {  }
@@ -37,25 +37,25 @@ namespace ffccSimulacion.Dominio
             set { _nombreFormacion = value; }
         }
 
-        [Association(Storage = "_auxCoches_LINQ", OtherKey = "IdFormacion", ThisKey = "Id", IsForeignKey = true)]
+        [Association(Storage = "_listaCoches_LINQ", OtherKey = "IdFormacion", ThisKey = "Id", IsForeignKey = true)]
         public EntitySet<Formacion_X_Coche> AuxCoches_LINQ
         {
-            get { return _auxCoches_LINQ; }
-            set { _auxCoches_LINQ.Assign(value); }
+            get { return _listaCoches_LINQ; }
+            set { _listaCoches_LINQ.Assign(value); }
         }
 
         /*Es vez de poner un "set" a esta propiedad hay que usar la funcion de abajo "agregarCoche" para mantener la consistencia con la clase
          que se utiliza como vinculo entre la formacion y los coches*/
-        public List<Coche> Coches
+        /*public List<Coche> Coches
         {
             get { return _coches; }
-        }
+        }*/
 
         #endregion
 
         #region Metodos
 
-        public void CargarCochesDeLaFormacion()
+        /*public void CargarCochesDeLaFormacion()
         {
             if (_coches.Count == 0)
             {
@@ -64,11 +64,11 @@ namespace ffccSimulacion.Dominio
                     for (int i = 0; i < fc.VecesCocheRepetido; i++)
                         _coches.Add(fc.UnCoche);
             }
-        }
+        }*/
 
         public void LimpiarListaLINQParaPoderGuardar()
         {
-            _auxCoches_LINQ = new EntitySet<Formacion_X_Coche>();
+            _listaCoches_LINQ = new EntitySet<Formacion_X_Coche>();
         }
 
         public void agregarCoche(Coche coche,int vecesRepetido)
@@ -80,8 +80,8 @@ namespace ffccSimulacion.Dominio
             fc.IdFormacion = this.Id;
             AuxCoches_LINQ.Add(fc);
 
-            for (int i = 0; i < vecesRepetido;i++ )
-                _coches.Add(coche);
+            /*for (int i = 0; i < vecesRepetido;i++ )
+                _coches.Add(coche);*/
         }
 
         /*Esta funcion retorna una nueva instancia de formacion exactamente igual a si misma. CLONA LA FORMACION*/
@@ -93,19 +93,22 @@ namespace ffccSimulacion.Dominio
         public int pasajerosSentados()
         {
             int pasajerosSentados = 0;
-            foreach (Coche coche in _coches)
+            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
             {
-                pasajerosSentados += coche.PasajerosSentados;
+                for (int i = 0; i < fc.VecesCocheRepetido; i++)
+                    pasajerosSentados += fc.UnCoche.PasajerosSentados;
             }
+
             return pasajerosSentados;
         }
 
         public int pasajerosParados()
         {
             int pasajerosParados = 0;
-            foreach (Coche coche in _coches)
+            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
             {
-                pasajerosParados += coche.PasajerosParados;
+                for (int i = 0; i < fc.VecesCocheRepetido; i++)
+                    pasajerosParados += fc.UnCoche.PasajerosParados;
             }
             return pasajerosParados;
         }
@@ -113,9 +116,10 @@ namespace ffccSimulacion.Dominio
         public int cantidadAsientos()
         {
             int cantidadAsientos = 0;
-            foreach (Coche coche in _coches)
+            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
             {
-                cantidadAsientos += coche.CantidadAsientos;
+                for (int i = 0; i < fc.VecesCocheRepetido; i++)
+                    cantidadAsientos += fc.UnCoche.CantidadAsientos;
             }
             return cantidadAsientos;
         }
@@ -123,9 +127,10 @@ namespace ffccSimulacion.Dominio
         public int capacidadLegal()
         {
             int capacidadLegal = 0;
-            foreach (Coche coche in _coches)
+            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
             {
-                capacidadLegal += coche.CapacidadLegal;
+                for (int i = 0; i < fc.VecesCocheRepetido; i++)
+                    capacidadLegal += fc.UnCoche.CapacidadLegal;
             }
             return capacidadLegal;
         }
@@ -133,9 +138,10 @@ namespace ffccSimulacion.Dominio
         public int capacidadMaxima()
         {
             int capacidadMaxima = 0;
-            foreach (Coche coche in _coches)
+            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
             {
-                capacidadMaxima += coche.CapacidadMaxima;
+                for (int i = 0; i < fc.VecesCocheRepetido; i++)
+                    capacidadMaxima += fc.UnCoche.CapacidadMaxima;
             }
             return capacidadMaxima;
         }
@@ -144,14 +150,14 @@ namespace ffccSimulacion.Dominio
         {
             int exceso = genteASubir;
 
-            foreach (Coche coche in _coches)
+            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
             {
-                if (exceso > 0)
+                for (int i = 0; i < fc.VecesCocheRepetido; i++)
                 {
-                    exceso = coche.recibir(exceso); //Cargo los coches.
+                    if (exceso > 0)
+                        exceso = fc.UnCoche.recibir(exceso);
                 }
             }
-
             return exceso; //Se retorna la cantidad de gente que no pudo subir.
         }
 

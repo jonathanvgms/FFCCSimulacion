@@ -91,7 +91,7 @@ namespace ffccSimulacion.Dominio
 
         public void ConfigurarSimulador()
         {
-            TrazaActual.CargarLosServicios();
+            TrazaActual.ConfigurarLosServiciosDeLaTraza();
             //Se crea y asgina la programacion de salida para los servicios
             List<int> programacion1 = new List<int>(); 
             for (int i = 0; i < 100; i += _frecuenciaSalida)

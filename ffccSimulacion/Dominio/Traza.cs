@@ -13,8 +13,8 @@ namespace ffccSimulacion.Dominio
     public class Traza
     {
         private string _nombre;
-        private EntitySet<Traza_X_Servicio> _auxServicios_LINQ = new EntitySet<Traza_X_Servicio>();
-        private List<Servicio> _serviciosOtorgados = new List<Servicio>();
+        private EntitySet<Traza_X_Servicio> _listaServicios_LINQ = new EntitySet<Traza_X_Servicio>();
+        //private List<Servicio> _serviciosOtorgados = new List<Servicio>();
 
         public Traza() { }
 
@@ -35,32 +35,26 @@ namespace ffccSimulacion.Dominio
             set { _nombre = value; }
         }
 
-        [Association(Storage = "_auxServicios_LINQ", OtherKey = "Id_Traza", ThisKey = "Id", IsForeignKey = true)]
+        [Association(Storage = "_listaServicios_LINQ", OtherKey = "Id_Traza", ThisKey = "Id", IsForeignKey = true)]
         public EntitySet<Traza_X_Servicio> AuxServicios_LINQ
         {
-            get { return _auxServicios_LINQ; }
-            set { _auxServicios_LINQ.Assign(value); }
+            get { return _listaServicios_LINQ; }
+            set { _listaServicios_LINQ.Assign(value); }
         }
 
         public List<Servicio> ServiciosOtorgados
         {
-            get { return _serviciosOtorgados; }
+            get { return _listaServicios_LINQ.Select(x => x.UnServicio).ToList<Servicio>(); }
         }
 
         #endregion
 
         #region Metodos
 
-        public void CargarLosServicios()
+        public void ConfigurarLosServiciosDeLaTraza()
         {
-            if(_serviciosOtorgados.Count==0)
-            {
-                foreach (Traza_X_Servicio ts in _auxServicios_LINQ)
-                {
-                    ts.UnServicio.ConfigurarServicio();
-                    _serviciosOtorgados.Add(ts.UnServicio);
-                }
-            }
+            foreach (Traza_X_Servicio ts in _listaServicios_LINQ)
+                ts.UnServicio.ConfigurarServicio();
         }
 
         public void AgregarServicio(Servicio unServicio)
@@ -69,7 +63,7 @@ namespace ffccSimulacion.Dominio
             ts.Id = this.Id;
             ts.UnServicio = unServicio;
 
-            _serviciosOtorgados.Add(unServicio);
+            //_serviciosOtorgados.Add(unServicio);
         }
 
         #endregion

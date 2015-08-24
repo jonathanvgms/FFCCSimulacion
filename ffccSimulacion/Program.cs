@@ -35,7 +35,7 @@ namespace ffccSimulacion
 
             Formacion formacion1 = new Formacion("FormacionPrueba");
             formacion1.agregarCoche(new Coche("", false, TipoConsumo.Disel, 0, 0, 30, 50, 100), 5);
-            formacion1.CargarCochesDeLaFormacion();
+            //formacion1.CargarCochesDeLaFormacion();
 
             Estacion estacion1 = new Estacion("Estacion1", 50, 200, TipoFDP.Normal);
             Estacion estacion2 = new Estacion("Estacion2", 50, 200, TipoFDP.Normal);

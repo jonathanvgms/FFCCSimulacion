@@ -51,8 +51,8 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             List<Formacion> todaFormacion = (from formaciones in _dataContext.GetTable<Formacion>()
                                              select formaciones).ToList<Formacion>();
-            foreach (Formacion f in todaFormacion)
-                f.CargarCochesDeLaFormacion();
+            /*foreach (Formacion f in todaFormacion)
+                f.CargarCochesDeLaFormacion();*/
             return todaFormacion;
         }
 
@@ -319,8 +319,8 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             List<Estacion> todasEstaciones = (from estaciones in _dataContext.GetTable<Estacion>()
                                                select estaciones).ToList<Estacion>();
-            foreach (Estacion e in todasEstaciones)
-                e.CargarIncidentesPosibles();
+            /*foreach (Estacion e in todasEstaciones)
+                e.CargarIncidentesPosibles();*/
             
             return todasEstaciones;
         }
@@ -634,7 +634,7 @@ namespace ffccSimulacion.Dominio.DataBase
             List<Traza> listaTrazas = (from trazas in _dataContext.GetTable<Traza>()
                                         select trazas).ToList<Traza>();
             foreach (Traza t in listaTrazas)
-                t.CargarLosServicios();
+                t.ConfigurarLosServiciosDeLaTraza();
 
             return listaTrazas;
         }
@@ -644,7 +644,7 @@ namespace ffccSimulacion.Dominio.DataBase
             Traza t = (from trazas in _dataContext.GetTable<Traza>()
                        where trazas.Id == id_traza
                        select trazas).FirstOrDefault();
-            t.CargarLosServicios();
+            t.ConfigurarLosServiciosDeLaTraza();
             return t;
         }
 
@@ -844,8 +844,8 @@ namespace ffccSimulacion.Dominio.DataBase
             /*Se crea un servicio nuevo con las 3 estaciones creadas arriva y se las relaciona*/
             /*Estacion estacion1 = GetEstacionById(5);
             Estacion estacion2 = GetEstacionById(6);
-            Estacion estacion3 = GetEstacionById(7);
-            Formacion formacion1 = GetFormacionById(41);
+            Estacion estacion3 = GetEstacionById(7);*/
+            /*Formacion formacion1 = GetFormacionById(41);
             Relacion r1 = new Relacion(estacion1, estacion2, 200, 60, 10, 1);
             Relacion r2 = new Relacion(estacion2, estacion3, 200, 60, 10, 1);
 
@@ -863,7 +863,7 @@ namespace ffccSimulacion.Dominio.DataBase
             servicioExistente.Relaciones.Add(r);
             GuardarMoficicacionesServicio(servicioExistente);*/
 
-            BorrarServicio(5);
+            //BorrarServicio(5);
         }
     }
 }
