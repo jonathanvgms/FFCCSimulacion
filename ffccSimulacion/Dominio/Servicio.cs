@@ -15,9 +15,9 @@ namespace ffccSimulacion.Dominio
         private string _nombre;
         private Estacion _desde; //Terminal de donde sale la formacion.
         private Estacion _hasta; //Terminal hacia la que va la formacion.
-        private EntitySet<Relacion> _relaciones;
+        private EntitySet<Relacion> _relaciones = new EntitySet<Relacion>();
         private List<Parada> _paradas = new List<Parada>(); //Estaciones en las que para la formacion.
-        private EntitySet<Servicio_X_Formacion> _listaFormaciones_LINQ; //Lista de los distintos tipos de formaciones que prestaran dicho servicio
+        private EntitySet<Servicio_X_Formacion> _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>(); //Lista de los distintos tipos de formaciones que prestaran dicho servicio
         //private List<Formacion> _formacionesDisponibles = new List<Formacion>(); 
         private List<int> _programacion; //Tiempos de salida de la terminal.
         
@@ -33,7 +33,6 @@ namespace ffccSimulacion.Dominio
         {
             _nombre = nom;
             _relaciones = new EntitySet<Relacion>();
-            _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
         }
 
         public Servicio(string nom, Estacion terminalInicial, Estacion terminalFinal)
@@ -41,8 +40,6 @@ namespace ffccSimulacion.Dominio
             _nombre = nom;
             _desde = terminalInicial;
             _hasta = terminalFinal;
-            _relaciones = new EntitySet<Relacion>();
-            _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>();
             _paradas = new List<Parada>();
             _programacion = new List<int>();
         }
@@ -79,7 +76,7 @@ namespace ffccSimulacion.Dominio
         }
 
         [Association(Storage = "_listaFormaciones_LINQ", OtherKey = "Id_Servicio", ThisKey = "Id", IsForeignKey = true)]
-        public EntitySet<Servicio_X_Formacion> AuxFormaciones_LINQ
+        public EntitySet<Servicio_X_Formacion> ListaFormaciones_LINQ
         {
             get { return _listaFormaciones_LINQ; }
             set { _listaFormaciones_LINQ.Assign(value); }
@@ -178,7 +175,7 @@ namespace ffccSimulacion.Dominio
         /*A partir de la lista de relaciones retorna aquella estacion que es el origen del servicio*/
         public Estacion BuscarEstacionDesde()
         {
-            Relacion relacionActual = Relaciones.First();
+            Relacion relacionActual = _relaciones.First();
             Estacion estacionActual = relacionActual.Anterior;
             while (relacionActual != null)
             {

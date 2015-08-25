@@ -98,7 +98,7 @@ namespace ffccSimulacion.Dominio
         }
 
         [Association(Storage = "_listaIncidentes_LINQ", OtherKey = "Id_Estacion", ThisKey = "Id", IsForeignKey = true)]
-        public EntitySet<Estacion_X_Incidente> AuxIncidentes_LINQ
+        public EntitySet<Estacion_X_Incidente> ListaIncidentes_LINQ
         {
             get { return _listaIncidentes_LINQ; }
             set { _listaIncidentes_LINQ.Assign(value); }

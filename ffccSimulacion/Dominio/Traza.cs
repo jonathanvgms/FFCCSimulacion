@@ -36,7 +36,7 @@ namespace ffccSimulacion.Dominio
         }
 
         [Association(Storage = "_listaServicios_LINQ", OtherKey = "Id_Traza", ThisKey = "Id", IsForeignKey = true)]
-        public EntitySet<Traza_X_Servicio> AuxServicios_LINQ
+        public EntitySet<Traza_X_Servicio> ListaServicios_LINQ
         {
             get { return _listaServicios_LINQ; }
             set { _listaServicios_LINQ.Assign(value); }
@@ -51,6 +51,11 @@ namespace ffccSimulacion.Dominio
 
         #region Metodos
 
+        public void LimpiarListaLINQParaPoderGuardar()
+        {
+            _listaServicios_LINQ = new EntitySet<Traza_X_Servicio>();
+        }
+
         public void ConfigurarLosServiciosDeLaTraza()
         {
             foreach (Traza_X_Servicio ts in _listaServicios_LINQ)
@@ -62,7 +67,7 @@ namespace ffccSimulacion.Dominio
             Traza_X_Servicio ts = new Traza_X_Servicio();
             ts.Id = this.Id;
             ts.UnServicio = unServicio;
-
+            ListaServicios_LINQ.Add(ts);
             //_serviciosOtorgados.Add(unServicio);
         }
 

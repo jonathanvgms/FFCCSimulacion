@@ -38,7 +38,7 @@ namespace ffccSimulacion.Dominio
         }
 
         [Association(Storage = "_listaCoches_LINQ", OtherKey = "IdFormacion", ThisKey = "Id", IsForeignKey = true)]
-        public EntitySet<Formacion_X_Coche> AuxCoches_LINQ
+        public EntitySet<Formacion_X_Coche> ListaCoches_LINQ
         {
             get { return _listaCoches_LINQ; }
             set { _listaCoches_LINQ.Assign(value); }
@@ -78,7 +78,7 @@ namespace ffccSimulacion.Dominio
             fc.UnCoche = coche;
             fc.VecesCocheRepetido = vecesRepetido;
             fc.IdFormacion = this.Id;
-            AuxCoches_LINQ.Add(fc);
+            ListaCoches_LINQ.Add(fc);
 
             /*for (int i = 0; i < vecesRepetido;i++ )
                 _coches.Add(coche);*/
