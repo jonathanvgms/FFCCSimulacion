@@ -12,6 +12,12 @@ namespace ffccSimulacion.Dominio
     [Table(Name = "Servicios")]
     public class Servicio
     {
+        struct Parada
+        {
+            public Estacion nodo;
+            public bool para;
+        }
+
         private string _nombre;
         private Estacion _desde; //Terminal de donde sale la formacion.
         private Estacion _hasta; //Terminal hacia la que va la formacion.
@@ -20,13 +26,7 @@ namespace ffccSimulacion.Dominio
         private EntitySet<Servicio_X_Formacion> _listaFormaciones_LINQ = new EntitySet<Servicio_X_Formacion>(); //Lista de los distintos tipos de formaciones que prestaran dicho servicio
         //private List<Formacion> _formacionesDisponibles = new List<Formacion>(); 
         private List<int> _programacion; //Tiempos de salida de la terminal.
-        
-        struct Parada
-        {
-            public Estacion nodo;
-            public bool para;
-        }
-
+       
         public Servicio() { }
 
         public Servicio(string nom)
@@ -224,17 +224,11 @@ namespace ffccSimulacion.Dominio
             _paradas.Add(parada);
         }
 
-        /*public void CargarFormacionesDelServicio()
+        public void ConfigurarFormacionesDelServicio()
         {
-            if(FormacionesDisponibles.Count==0)
-            {
-                foreach (Servicio_X_Formacion sf in _auxFormaciones_LINQ.ToArray<Servicio_X_Formacion>())
-                {
-                    //sf.UnaFormacion.CargarCochesDeLaFormacion();
-                    _formacionesDisponibles.Add(sf.UnaFormacion);
-                }
-            }
-        }*/
+            foreach (Servicio_X_Formacion sf in _listaFormaciones_LINQ)
+                sf.UnaFormacion.ConfigurarFormacion();
+        }
 
         /*Esta funcion configura todos los campos que no vienen por base y que dependen del conjunto de relaciones definido para el servicio*/
         public void ConfigurarServicio()

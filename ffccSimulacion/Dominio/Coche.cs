@@ -189,6 +189,26 @@ namespace ffccSimulacion.Dominio
             return exceso;
         }
 
+        /*Procesa el desenso de pasajeros en el coche. Retorna la cantidad de pasajeros total que desendio del coche*/
+        public int DesenderPasajeros()
+        {
+            Random rnd = new Random();
+            int genteSentadaDesciende = rnd.Next(1, 20);
+            int genteParadaDesciende = rnd.Next(1, 20);
+
+            if (genteSentadaDesciende >= _pasajerosSentados)
+                _pasajerosSentados = 0;
+            else
+                _pasajerosSentados = _pasajerosSentados - genteSentadaDesciende;
+
+            if (genteParadaDesciende >= _pasajerosParados)
+                _pasajerosParados = 0;
+            else
+                _pasajerosParados = _pasajerosParados - genteParadaDesciende;
+
+            return genteParadaDesciende + genteSentadaDesciende;
+        }
+
         #endregion
     }
 }

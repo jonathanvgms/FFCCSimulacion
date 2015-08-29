@@ -51,8 +51,8 @@ namespace ffccSimulacion.Dominio.DataBase
         {
             List<Formacion> todaFormacion = (from formaciones in _dataContext.GetTable<Formacion>()
                                              select formaciones).ToList<Formacion>();
-            /*foreach (Formacion f in todaFormacion)
-                f.CargarCochesDeLaFormacion();*/
+            foreach (Formacion f in todaFormacion)
+                f.ConfigurarFormacion();
             return todaFormacion;
         }
 
@@ -62,7 +62,7 @@ namespace ffccSimulacion.Dominio.DataBase
             Formacion f = (from formaciones in _dataContext.GetTable<Formacion>()
                            where formaciones.Id == id_formacion
                            select formaciones).FirstOrDefault();
-            //f.CargarCochesDeLaFormacion();
+            f.ConfigurarFormacion();
             return f;
         }
 
@@ -490,7 +490,6 @@ namespace ffccSimulacion.Dominio.DataBase
                         rAux.Id_Estacion_Anterior = r.Id_Estacion_Anterior;
                         rAux.Id_Estacion_Siguiente = r.Id_Estacion_Siguiente;
                         rAux.Id_Servicio = r.Id_Servicio;
-                        rAux.TiempoViaje = r.TiempoViaje;
                         rAux.VelocidadPromedio = r.VelocidadPromedio;
                         rAux.Estacion_Sig_Es_Parada = r.Estacion_Sig_Es_Parada;
                         rAux.Distancia = r.Distancia;

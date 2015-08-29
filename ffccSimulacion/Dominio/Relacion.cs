@@ -23,7 +23,7 @@ namespace ffccSimulacion.Dominio
         private int _id_Servicio;
         private int _distancia;
         private int _velocidadPromedio;
-        private int _tiempoViaje;
+        private int _tiempoViaje; //TODO: este campo va a estar fuera de uso cuando se calculo el tiempo de viaje a partir de la velocidad y la distancia
 
         public Relacion() { }
 
@@ -91,12 +91,12 @@ namespace ffccSimulacion.Dominio
             set { _velocidadPromedio = value; }
         }
 
-        [Column(Name = "TiempoViaje", DbType = "int", CanBeNull = false)]
+        /*[Column(Name = "TiempoViaje", DbType = "int", CanBeNull = false)]
         public int TiempoViaje
         {
             get { return _tiempoViaje; }
             set { _tiempoViaje = value; }
-        }
+        }*/
 
         [Column(Name = "Est_Sig_Es_Parada", DbType = "int", CanBeNull = false)]
         public int Estacion_Sig_Es_Parada

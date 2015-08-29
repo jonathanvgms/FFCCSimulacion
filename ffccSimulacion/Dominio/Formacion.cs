@@ -14,7 +14,7 @@ namespace ffccSimulacion.Dominio
     {
         private string _nombreFormacion;
         private EntitySet<Formacion_X_Coche> _listaCoches_LINQ = new EntitySet<Formacion_X_Coche>();
-        //private List<Coche> _coches = new List<Coche>();
+        private List<Coche> _coches = new List<Coche>();
 
         /*Constructor para LINQ. No modificar porque se rompe el mapeo con la base de datos*/
         public Formacion() {  }
@@ -46,25 +46,25 @@ namespace ffccSimulacion.Dominio
 
         /*Es vez de poner un "set" a esta propiedad hay que usar la funcion de abajo "agregarCoche" para mantener la consistencia con la clase
          que se utiliza como vinculo entre la formacion y los coches*/
-        /*public List<Coche> Coches
+        public List<Coche> Coches
         {
             get { return _coches; }
-        }*/
+        }
 
         #endregion
 
         #region Metodos
 
-        /*public void CargarCochesDeLaFormacion()
+        public void ConfigurarFormacion()
         {
             if (_coches.Count == 0)
             {
-                List<Formacion_X_Coche> listaCoches = _auxCoches_LINQ.ToList<Formacion_X_Coche>();
+                List<Formacion_X_Coche> listaCoches = _listaCoches_LINQ.ToList<Formacion_X_Coche>();
                 foreach (Formacion_X_Coche fc in listaCoches)
                     for (int i = 0; i < fc.VecesCocheRepetido; i++)
                         _coches.Add(fc.UnCoche);
             }
-        }*/
+        }
 
         public void LimpiarListaLINQParaPoderGuardar()
         {
@@ -80,8 +80,8 @@ namespace ffccSimulacion.Dominio
             fc.IdFormacion = this.Id;
             ListaCoches_LINQ.Add(fc);
 
-            /*for (int i = 0; i < vecesRepetido;i++ )
-                _coches.Add(coche);*/
+            for (int i = 0; i < vecesRepetido;i++ )
+                _coches.Add(coche);
         }
 
         /*Esta funcion retorna una nueva instancia de formacion exactamente igual a si misma. CLONA LA FORMACION*/
@@ -93,11 +93,9 @@ namespace ffccSimulacion.Dominio
         public int pasajerosSentados()
         {
             int pasajerosSentados = 0;
-            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
-            {
-                for (int i = 0; i < fc.VecesCocheRepetido; i++)
-                    pasajerosSentados += fc.UnCoche.PasajerosSentados;
-            }
+          
+            foreach (Coche c in Coches)
+                pasajerosSentados += c.PasajerosSentados;
 
             return pasajerosSentados;
         }
@@ -105,44 +103,40 @@ namespace ffccSimulacion.Dominio
         public int pasajerosParados()
         {
             int pasajerosParados = 0;
-            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
-            {
-                for (int i = 0; i < fc.VecesCocheRepetido; i++)
-                    pasajerosParados += fc.UnCoche.PasajerosParados;
-            }
+
+            foreach (Coche c in Coches)
+                pasajerosParados += c.PasajerosParados;
+
             return pasajerosParados;
         }
 
         public int cantidadAsientos()
         {
             int cantidadAsientos = 0;
-            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
-            {
-                for (int i = 0; i < fc.VecesCocheRepetido; i++)
-                    cantidadAsientos += fc.UnCoche.CantidadAsientos;
-            }
+
+            foreach (Coche c in Coches)
+                cantidadAsientos += c.CantidadAsientos;
+
             return cantidadAsientos;
         }
 
         public int capacidadLegal()
         {
             int capacidadLegal = 0;
-            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
-            {
-                for (int i = 0; i < fc.VecesCocheRepetido; i++)
-                    capacidadLegal += fc.UnCoche.CapacidadLegal;
-            }
+
+            foreach (Coche c in Coches)
+                capacidadLegal += c.CapacidadLegal;
+
             return capacidadLegal;
         }
 
         public int capacidadMaxima()
         {
             int capacidadMaxima = 0;
-            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
-            {
-                for (int i = 0; i < fc.VecesCocheRepetido; i++)
-                    capacidadMaxima += fc.UnCoche.CapacidadMaxima;
-            }
+
+            foreach (Coche c in Coches)
+                capacidadMaxima += c.CapacidadMaxima;
+
             return capacidadMaxima;
         }
 
@@ -150,15 +144,39 @@ namespace ffccSimulacion.Dominio
         {
             int exceso = genteASubir;
 
-            foreach (Formacion_X_Coche fc in _listaCoches_LINQ)
+            foreach(Coche c in Coches)
             {
-                for (int i = 0; i < fc.VecesCocheRepetido; i++)
-                {
-                    if (exceso > 0)
-                        exceso = fc.UnCoche.recibir(exceso);
-                }
+                c.DesenderPasajeros();
+                if (exceso > 0)
+                    exceso = c.recibir(exceso);
             }
+
             return exceso; //Se retorna la cantidad de gente que no pudo subir.
+        }
+
+        public int TotalPasajerosEnFormacion()
+        {
+            int totalPasajeros = 0;
+            foreach (Coche c in Coches)
+                totalPasajeros += (c.PasajerosParados + c.PasajerosSentados);
+
+            return totalPasajeros;
+        }
+
+        public bool FormacionSuperoCapLegal()
+        {
+            return TotalPasajerosEnFormacion() >= capacidadLegal();
+        }
+
+        public bool HayPasajerosParados()
+        {
+            foreach(Coche c in Coches)
+            {
+                if (c.PasajerosParados != 0)
+                    return true;
+            }
+
+            return false;
         }
 
         #endregion

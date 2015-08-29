@@ -174,12 +174,14 @@ namespace ffccSimulacion.Dominio
 
         private void actualizarGenteEsperando(int tiempoActual)
         {
+            //TODO: para esto en el futuro hay que utilizar la FDP que se define en el ABM de estacion
             //Calculo de la gente que hay esperando en la estacion.
             _genteEsperando += 20 * (tiempoActual - _ultimaAtencion);
         }
 
         private int tiempoAtencion()
         {
+            //TODO: cambiar esta constante por un numero random
             //Calculo del tiempo de atencion en la estacion.
             return 5;
         }

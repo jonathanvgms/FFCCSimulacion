@@ -8,9 +8,24 @@ namespace ffccSimulacion.Dominio
 {
     class TiempoComprometido : ITiempoComprometido
     {
+        /*todos los tiempos de la estructura estan en minutos*/
+        struct ResultadoFormacion
+        {
+            public int id_formacion;
+            public string nombreFormacion;
+            public int distanciaTotalRecorrida;
+            public int pasajerosTotalesTransportados;
+            public int vecesSuperoCapLegal;
+            public int vecesNoHabiaPasajerosParados;
+            public int tiempoTotalDemoradoIncidente;
+            public int tiempoTotalDemoradoAtencion;
+            public int tiempoTotalEnMovimiento;
+        }
+
         private int _tiempoInicial;
         private int _tiempoFinal;
         private Traza _traza;
+        private List<ResultadoFormacion> _resultadosFormaciones = new List<ResultadoFormacion>();
 
         public TiempoComprometido(int tiempoInicial, int tiempoFinal,Traza unaTraza)
         {
@@ -43,15 +58,40 @@ namespace ffccSimulacion.Dominio
 
         #region Metodos
 
+        private ResultadoFormacion CrearEstructResultado(int id, string nombre,int distRecorrida,int pasajerosTotales,int vecesSupLegal,int vecesNoHayPardos,int tiempoIncidente, int tiempoAtencion,int tiempoMovimiento)
+        {
+            ResultadoFormacion r = new ResultadoFormacion();
+            r.id_formacion = id;
+            r.nombreFormacion = nombre;
+            r.distanciaTotalRecorrida = distRecorrida;
+            r.pasajerosTotalesTransportados = pasajerosTotales;
+            r.vecesSuperoCapLegal = vecesSupLegal;
+            r.vecesNoHabiaPasajerosParados = vecesNoHayPardos;
+            r.tiempoTotalDemoradoIncidente = tiempoIncidente;
+            r.tiempoTotalDemoradoAtencion = tiempoAtencion;
+            r.tiempoTotalEnMovimiento = tiempoMovimiento;
+
+            return r;
+        }
+
         public void EjecutarSimulacion()
         {
-            //VARIABLES DE SALIDA
-            //TODO variables de salida
-
             //EJECUCION
             int tiempoActual;
             Formacion formacionActual;
             Servicio servicioActual;
+
+
+            //VARIABLES DE SALIDA
+            //TODO variables de salida
+
+            int distanciaTotalRecorrida = 0;
+            int pasajerosTotalesTransportados = 0;
+            int vecesSupCapLegal = 0;
+            int vecesNoHabiaPasajerosParados = 0;
+            int tiempoTotalDemoraIncidente = 0;
+            int tiempoTotalDemoraAtencion = 0;
+            int tiempoTotalEnMovimiento = 0;
 
             actualizarSiguienteServicio(out tiempoActual, out servicioActual); //Actualiza el tiempo actual a partir del primer servicio a prestar.
             formacionActual = servicioActual.GetFormacionRandom(); //Se asigna la formacion que realizara el servicio actual
@@ -64,12 +104,22 @@ namespace ffccSimulacion.Dominio
                 int tiempoFormacionActual = tiempoActual; //El tren sale a la hora indicada en la programacion del servicio.
                 //TODO atencion en la terminal.
 
+                distanciaTotalRecorrida = 0;
+                pasajerosTotalesTransportados = 0;
+                vecesSupCapLegal = 0;
+                vecesNoHabiaPasajerosParados = 0;
+                tiempoTotalDemoraIncidente = 0;
+                tiempoTotalDemoraAtencion = 0;
+                tiempoTotalEnMovimiento = 0;
+
                 //ATENCION DE UN SERVICIO
                 while (nodoActual != servicioActual.Hasta)
                 {
                     Estacion nodoSiguiente = servicioActual.proximoNodo(nodoActual); //Busco el siguiente nodo en el recorrido.
 
                     Relacion relacionSiguiente = servicioActual.relacionEntre(nodoActual, nodoSiguiente); //Obtengo el camino a recorrer hasta el proximo nodo.
+
+                    distanciaTotalRecorrida += relacionSiguiente.Distancia;
 
                     int tiempoViaje = relacionSiguiente.calcularTiempoViaje(); //La relacion me indica el tiempo de viaje.
 
@@ -79,7 +129,23 @@ namespace ffccSimulacion.Dominio
 
                     int tiempoInicioAtencion = tiempoLlegadaProximoNodo; //Si no hay demoras en la estacion, el tiempo de atencion sera el de llegada, si hay demoras se actualiza.
 
+                    int pasajerosEsperandoTren = nodoSiguiente.GenteEsperando;
+
                     int tiempoAtencion = nodoSiguiente.atenderFormacion(formacionActual, ref tiempoInicioAtencion);
+
+                    int pasajerosQueNoSubieron = nodoSiguiente.GenteEsperando;
+
+                    pasajerosTotalesTransportados += (pasajerosEsperandoTren - pasajerosQueNoSubieron);
+
+                    if (formacionActual.FormacionSuperoCapLegal())
+                        vecesSupCapLegal++;
+
+                    if (!formacionActual.HayPasajerosParados())
+                        vecesNoHabiaPasajerosParados++;
+
+                    tiempoTotalDemoraAtencion += tiempoAtencion;
+                    tiempoTotalDemoraIncidente += demoraPorAccidentesEnViaje;
+                    tiempoTotalEnMovimiento += CalcularTiempoDistancia(relacionSiguiente.Distancia, relacionSiguiente.VelocidadPromedio);
 
                     nodoActual = nodoSiguiente; //Actualizo el nodo que será el inicial en la siguiente iteracion.
 
@@ -87,7 +153,9 @@ namespace ffccSimulacion.Dominio
 
                     Console.WriteLine("tiempoViaje={0} | demoraPorAccidenteEnViaje={1} | tiempoLlegadaProximoNodo={2} | tiempoInicioAtencion={3} | tiempoAtencion={4}", tiempoViaje, demoraPorAccidentesEnViaje, tiempoLlegadaProximoNodo, tiempoInicioAtencion, tiempoAtencion);
                 }
-
+                
+                ResultadoFormacion nuevoResultado = CrearEstructResultado(formacionActual.Id, formacionActual.NombreFormacion, distanciaTotalRecorrida, pasajerosTotalesTransportados, vecesSupCapLegal, vecesNoHabiaPasajerosParados, tiempoTotalDemoraIncidente, tiempoTotalDemoraAtencion, tiempoTotalEnMovimiento);
+                _resultadosFormaciones.Add(nuevoResultado);
                 actualizarSiguienteServicio(out tiempoActual, out servicioActual); //Actualiza el tiempo actual a partir del proximo servicio a prestar.
                 formacionActual = servicioActual.GetFormacionRandom(); //Se asigna la formacion que realizara el servicio actual
 
@@ -111,6 +179,14 @@ namespace ffccSimulacion.Dominio
                 }
             }
             siguienteServicio.removerSalida(siguienteSalida); //Al haber usado el horario siguienteSalida lo remuevo del servicio.
+        }
+
+        /*apartir de la distancia (en Km) y de la velocidad (km/h) se retorna el tiempo que le toma recorrerla en minutos*/
+        private int CalcularTiempoDistancia(int distancia,int velocidad)
+        {
+            decimal tiempoHoras = distancia / velocidad;
+
+            return Convert.ToInt32(Math.Truncate(tiempoHoras * 60));
         }
 
         #endregion
