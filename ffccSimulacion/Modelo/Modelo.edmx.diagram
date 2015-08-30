@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ad46548b8b8481f8c64c622569d2a50" Name="Diagram1">
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Coches" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Estaciones" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Estaciones_X_Incidentes" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Formaciones" Width="1.5" PointX="3.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Formaciones_X_Coches" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Incidentes" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Relaciones" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Servicios" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Servicios_X_Formaciones" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Simulaciones" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Trazas" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ffccSimuladocionModelo.Trazas_X_Servicios" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Formaciones_X_Coches__Coche" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Relacion_Estacion_Anterior" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Relacion_Estacion_Siguiente" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Formaciones_X_Coches__Formaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Servicios_X_Formaciones__Formacion" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Relacion_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Servicios_X_Formaciones__Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Trazas_X_Servicios__Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Simulacion_Traza" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Trazas_X_Servicios__Traza" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
