@@ -18,6 +18,7 @@ namespace ffccSimulacion.Modelo
         {
             this.Relaciones = new HashSet<Relaciones>();
             this.Relaciones1 = new HashSet<Relaciones>();
+            this.Estaciones_X_Incidentes = new HashSet<Estaciones_X_Incidentes>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,6 @@ namespace ffccSimulacion.Modelo
     
         public virtual ICollection<Relaciones> Relaciones { get; set; }
         public virtual ICollection<Relaciones> Relaciones1 { get; set; }
+        public virtual ICollection<Estaciones_X_Incidentes> Estaciones_X_Incidentes { get; set; }
     }
 }

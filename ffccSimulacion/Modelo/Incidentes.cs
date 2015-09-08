@@ -14,10 +14,17 @@ namespace ffccSimulacion.Modelo
     
     public partial class Incidentes
     {
+        public Incidentes()
+        {
+            this.Estaciones_X_Incidentes = new HashSet<Estaciones_X_Incidentes>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int ProbabilidadOcurrencia { get; set; }
         public int TiempoDemora { get; set; }
+    
+        public virtual ICollection<Estaciones_X_Incidentes> Estaciones_X_Incidentes { get; set; }
     }
 }

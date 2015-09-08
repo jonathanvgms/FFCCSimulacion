@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ffccSimuladocionModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ffccSimuladocionModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Coches">
           <Key>
             <PropertyRef Name="Id" />
@@ -117,6 +117,30 @@
           <Property Name="Id_Servicio" Type="int" Nullable="false" />
           <Property Name="Id_Traza" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Estaciones_X_Incidentes__Estaciones">
+          <End Role="Estaciones" Type="Self.Estaciones" Multiplicity="1" />
+          <End Role="Estaciones_X_Incidentes" Type="Self.Estaciones_X_Incidentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estaciones_X_Incidentes">
+              <PropertyRef Name="Id_Estacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estaciones_X_Incidentes__Incidentes">
+          <End Role="Incidentes" Type="Self.Incidentes" Multiplicity="1" />
+          <End Role="Estaciones_X_Incidentes" Type="Self.Estaciones_X_Incidentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidentes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estaciones_X_Incidentes">
+              <PropertyRef Name="Id_Incidente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Formaciones_X_Coches__Coche">
           <End Role="Coches" Type="Self.Coches" Multiplicity="1" />
           <End Role="Formaciones_X_Coches" Type="Self.Formaciones_X_Coches" Multiplicity="*" />
@@ -250,6 +274,14 @@
           <EntitySet Name="Simulaciones" EntityType="Self.Simulaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trazas" EntityType="Self.Trazas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trazas_X_Servicios" EntityType="Self.Trazas_X_Servicios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Estaciones_X_Incidentes__Estaciones" Association="Self.FK_Estaciones_X_Incidentes__Estaciones">
+            <End Role="Estaciones" EntitySet="Estaciones" />
+            <End Role="Estaciones_X_Incidentes" EntitySet="Estaciones_X_Incidentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estaciones_X_Incidentes__Incidentes" Association="Self.FK_Estaciones_X_Incidentes__Incidentes">
+            <End Role="Incidentes" EntitySet="Incidentes" />
+            <End Role="Estaciones_X_Incidentes" EntitySet="Estaciones_X_Incidentes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Formaciones_X_Coches__Coche" Association="Self.FK_Formaciones_X_Coches__Coche">
             <End Role="Coches" EntitySet="Coches" />
             <End Role="Formaciones_X_Coches" EntitySet="Formaciones_X_Coches" />
@@ -291,8 +323,7 @@
             <End Role="Trazas_X_Servicios" EntitySet="Trazas_X_Servicios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ffccSimuladocionModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -322,6 +353,7 @@
           <Property Name="TipoFDP" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Relaciones" Relationship="Self.FK_Relacion_Estacion_Anterior" FromRole="Estaciones" ToRole="Relaciones" />
           <NavigationProperty Name="Relaciones1" Relationship="Self.FK_Relacion_Estacion_Siguiente" FromRole="Estaciones" ToRole="Relaciones" />
+          <NavigationProperty Name="Estaciones_X_Incidentes" Relationship="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Estaciones" FromRole="Estaciones" ToRole="Estaciones_X_Incidentes" />
         </EntityType>
         <EntityType Name="Estaciones_X_Incidentes">
           <Key>
@@ -330,6 +362,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Incidente" Type="Int32" Nullable="false" />
           <Property Name="Id_Estacion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estaciones" Relationship="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Estaciones" FromRole="Estaciones_X_Incidentes" ToRole="Estaciones" />
+          <NavigationProperty Name="Incidentes" Relationship="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Incidentes" FromRole="Estaciones_X_Incidentes" ToRole="Incidentes" />
         </EntityType>
         <EntityType Name="Formaciones">
           <Key>
@@ -360,6 +394,7 @@
           <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProbabilidadOcurrencia" Type="Int32" Nullable="false" />
           <Property Name="TiempoDemora" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Estaciones_X_Incidentes" Relationship="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Incidentes" FromRole="Incidentes" ToRole="Estaciones_X_Incidentes" />
         </EntityType>
         <EntityType Name="Relaciones">
           <Key>
@@ -601,7 +636,39 @@
             <End Role="Trazas" EntitySet="Trazas" />
             <End Role="Trazas_X_Servicios" EntitySet="Trazas_X_Servicios" />
           </AssociationSet>
+          <AssociationSet Name="FK_Estaciones_X_Incidentes__Estaciones" Association="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Estaciones">
+            <End Role="Estaciones" EntitySet="Estaciones" />
+            <End Role="Estaciones_X_Incidentes" EntitySet="Estaciones_X_Incidentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estaciones_X_Incidentes__Incidentes" Association="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Incidentes">
+            <End Role="Incidentes" EntitySet="Incidentes" />
+            <End Role="Estaciones_X_Incidentes" EntitySet="Estaciones_X_Incidentes" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Estaciones_X_Incidentes__Estaciones">
+          <End Type="ffccSimuladocionModelo.Estaciones" Role="Estaciones" Multiplicity="1" />
+          <End Type="ffccSimuladocionModelo.Estaciones_X_Incidentes" Role="Estaciones_X_Incidentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estaciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estaciones_X_Incidentes">
+              <PropertyRef Name="Id_Estacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estaciones_X_Incidentes__Incidentes">
+          <End Type="ffccSimuladocionModelo.Incidentes" Role="Incidentes" Multiplicity="1" />
+          <End Type="ffccSimuladocionModelo.Estaciones_X_Incidentes" Role="Estaciones_X_Incidentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidentes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Estaciones_X_Incidentes">
+              <PropertyRef Name="Id_Incidente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

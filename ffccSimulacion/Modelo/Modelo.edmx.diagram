@@ -27,6 +27,8 @@
         <AssociationConnector Association="ffccSimuladocionModelo.FK_Trazas_X_Servicios__Servicio" ManuallyRouted="false" />
         <AssociationConnector Association="ffccSimuladocionModelo.FK_Simulacion_Traza" ManuallyRouted="false" />
         <AssociationConnector Association="ffccSimuladocionModelo.FK_Trazas_X_Servicios__Traza" ManuallyRouted="false" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Estaciones" />
+        <AssociationConnector Association="ffccSimuladocionModelo.FK_Estaciones_X_Incidentes__Incidentes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

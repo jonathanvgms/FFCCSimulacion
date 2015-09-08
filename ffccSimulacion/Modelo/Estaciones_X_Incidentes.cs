@@ -17,5 +17,8 @@ namespace ffccSimulacion.Modelo
         public int Id { get; set; }
         public int Id_Incidente { get; set; }
         public int Id_Estacion { get; set; }
+    
+        public virtual Estaciones Estaciones { get; set; }
+        public virtual Incidentes Incidentes { get; set; }
     }
 }
