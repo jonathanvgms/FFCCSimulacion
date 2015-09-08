@@ -7,21 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using ffccSimulacion.Dominio.DataBase.ClasesJoins;
-using System;
-using System.Collections.Generic;
-using System.Data.Linq;
-using System.Data.Linq.Mapping;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ffccSimulacion.Modelo
 {
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    
+    using System.Data.Linq;
+    using System.Data.Linq.Mapping;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     public partial class Servicios
     {
         public struct Parada

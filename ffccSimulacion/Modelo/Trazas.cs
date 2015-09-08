@@ -6,9 +6,7 @@
 //     Los cambios manuales en este archivo se sobrescribirán si se regenera el código.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using ffccSimulacion.Dominio.DataBase.ClasesJoins;
-using System;
-using System.Collections.Generic;
+
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Linq;
@@ -19,7 +17,12 @@ namespace ffccSimulacion.Modelo
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data.Linq;
+    using System.Data.Linq.Mapping;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public partial class Trazas
     {
         public Trazas()
