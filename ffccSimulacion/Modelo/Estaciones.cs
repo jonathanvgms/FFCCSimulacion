@@ -14,6 +14,12 @@ namespace ffccSimulacion.Modelo
     
     public partial class Estaciones
     {
+        private List<Relaciones> _anteriores = new List<Relaciones>();
+        private List<Relaciones> _siguientes = new List<Relaciones>();
+        private int _genteEsperando = 0;
+        private int _ultimaAtencion = 0;
+        private int _tiempoComprometido = 0;
+
         public Estaciones()
         {
             this.Relaciones = new HashSet<Relaciones>();
@@ -30,5 +36,108 @@ namespace ffccSimulacion.Modelo
         public virtual ICollection<Relaciones> Relaciones { get; set; }
         public virtual ICollection<Relaciones> Relaciones1 { get; set; }
         public virtual ICollection<Estaciones_X_Incidentes> Estaciones_X_Incidentes { get; set; }
+
+        /*Estas propiedades no tienen que estar mapeadas en la base*/
+        public int GenteEsperando
+        {
+            get { return _genteEsperando; }
+            set { _genteEsperando = value; }
+        }
+
+        public int UltimaAtencion
+        {
+            get { return _ultimaAtencion; }
+            set { _ultimaAtencion = value; }
+        }
+
+        public int TiempoComprometido
+        {
+            get { return _tiempoComprometido; }
+            set { _tiempoComprometido = value; }
+        }
+
+        public List<Relaciones> RelacionesAnteriores
+        {
+            get { return _anteriores; }
+        }
+
+        public List<Relaciones> RelacionesSiguientes
+        {
+            get { return _siguientes; }
+        }
+
+        public List<Incidentes> ListaIncidentes
+        {
+            get 
+            {
+                List<Incidentes> listaIncidentesPosibles = new List<Incidentes>();
+                foreach (Estaciones_X_Incidentes ei in Estaciones_X_Incidentes)
+                    listaIncidentesPosibles.Add(ei.Incidentes);
+                return listaIncidentesPosibles;
+            }
+        }
+
+
+        public void AgregarIncidente(Incidentes i)
+        {
+            Estaciones_X_Incidentes ie = new Estaciones_X_Incidentes();
+            ie.Incidentes = i;
+            ie.Id_Estacion = this.Id;
+            Estaciones_X_Incidentes.Add(ie);
+        }
+
+        /*public void LimpiarListaLINQParaPoderGuardar()
+        {
+            _listaIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>();
+        }*/
+
+        public void agregarRelacionAnterior(Relaciones relacion)
+        {
+            _anteriores.Add(relacion);
+        }
+
+        public void agregarRelacionSiguiente(Relaciones relacion)
+        {
+            _siguientes.Add(relacion);
+        }
+
+        public int atenderFormacion(Formaciones formacion, ref int tiempoLlegada)
+        {
+            //CALCULO LA LLEGADA
+            if (_tiempoComprometido < tiempoLlegada)
+            {
+                _tiempoComprometido = tiempoLlegada;
+            }
+            else
+            {
+                tiempoLlegada = _tiempoComprometido; //El tiempo de llegada se actualiza.
+            }
+
+            //ATIENDO LOS PASAJEROS
+            actualizarGenteEsperando(tiempoLlegada);
+
+            _genteEsperando = formacion.recibir(_genteEsperando);
+
+            //ACTUALIZO EL TIEMPO COMPROMETIDO Y LA ULTIMA ATENCION
+            _tiempoComprometido += tiempoAtencion();
+            _ultimaAtencion = _tiempoComprometido; //Por ahora son iguales.
+
+            //RETORNO EL TIEMPO DE ATENCION EN LA ESTACION
+            return tiempoAtencion();
+        }
+
+        private void actualizarGenteEsperando(int tiempoActual)
+        {
+            //TODO: para esto en el futuro hay que utilizar la FDP que se define en el ABM de estacion
+            //Calculo de la gente que hay esperando en la estacion.
+            _genteEsperando += 20 * (tiempoActual - _ultimaAtencion);
+        }
+
+        private int tiempoAtencion()
+        {
+            //TODO: cambiar esta constante por un numero random
+            //Calculo del tiempo de atencion en la estacion.
+            return 5;
+        }
     }
 }

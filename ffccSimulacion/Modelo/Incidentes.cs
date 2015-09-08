@@ -26,5 +26,16 @@ namespace ffccSimulacion.Modelo
         public int TiempoDemora { get; set; }
     
         public virtual ICollection<Estaciones_X_Incidentes> Estaciones_X_Incidentes { get; set; }
+
+        public bool Ocurre()
+        {
+            Random random = new Random();
+
+            if (random.Next(0, 100) <= ProbabilidadOcurrencia)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
