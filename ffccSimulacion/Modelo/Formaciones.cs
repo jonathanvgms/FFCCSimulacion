@@ -14,6 +14,8 @@ namespace ffccSimulacion.Modelo
     
     public partial class Formaciones
     {
+        private List<Coches> _listaCoches = new List<Coches>();
+
         public Formaciones()
         {
             this.Formaciones_X_Coches = new HashSet<Formaciones_X_Coches>();
@@ -25,5 +27,134 @@ namespace ffccSimulacion.Modelo
     
         public virtual ICollection<Formaciones_X_Coches> Formaciones_X_Coches { get; set; }
         public virtual ICollection<Servicios_X_Formaciones> Servicios_X_Formaciones { get; set; }
+
+        /*Esta propiedad no esta ni tiene que estar mapeada en la base*/
+        public List<Coches> ListaCoches
+        {
+            get { return _listaCoches; }
+        }
+
+        public void ConfigurarFormacion()
+        {
+            if (_listaCoches.Count == 0)
+            {
+                foreach (Formaciones_X_Coches fc in Formaciones_X_Coches)
+                    for (int i = 0; i < fc.VecesRepetido; i++)
+                        _listaCoches.Add(fc.Coches);
+            }
+        }
+
+        /*public void LimpiarListaLINQParaPoderGuardar()
+        {
+            _listaCoches_LINQ = new EntitySet<Formacion_X_Coche>();
+        }*/
+
+        public void agregarCoche(Coches coche, int vecesRepetido)
+        {
+            /*Es necesario esto para poder guardar luego los nuevos coches que se vallan agregando a una formacion ya existente*/
+            Formaciones_X_Coches fc = new Formaciones_X_Coches();
+            fc.Coches = coche;
+            fc.VecesRepetido = vecesRepetido;
+            fc.Id_Formacion = this.Id;
+            Formaciones_X_Coches.Add(fc);
+
+            for (int i = 0; i < vecesRepetido; i++)
+                _listaCoches.Add(coche);
+        }
+
+        /*Esta funcion retorna una nueva instancia de formacion exactamente igual a si misma. CLONA LA FORMACION*/
+        /*public Formacion ClonarFormacion()
+        {
+            return (Formacion)this.MemberwiseClone();
+        }*/
+
+        public int pasajerosSentados()
+        {
+            int pasajerosSentados = 0;
+
+            foreach (Coches c in _listaCoches)
+                pasajerosSentados += c.PasajerosSentados;
+
+            return pasajerosSentados;
+        }
+
+        public int pasajerosParados()
+        {
+            int pasajerosParados = 0;
+
+            foreach (Coches c in _listaCoches)
+                pasajerosParados += c.PasajerosParados;
+
+            return pasajerosParados;
+        }
+
+        public int cantidadAsientos()
+        {
+            int cantidadAsientos = 0;
+
+            foreach (Coches c in _listaCoches)
+                cantidadAsientos += c.CantidadAsientos;
+
+            return cantidadAsientos;
+        }
+
+        public int capacidadLegal()
+        {
+            int capacidadLegal = 0;
+
+            foreach (Coches c in _listaCoches)
+                capacidadLegal += c.MaximoLegalPasajeros;
+
+            return capacidadLegal;
+        }
+
+        public int capacidadMaxima()
+        {
+            int capacidadMaxima = 0;
+
+            foreach (Coches c in _listaCoches)
+                capacidadMaxima += c.CapacidadMaximaPasajeros;
+
+            return capacidadMaxima;
+        }
+
+        public int recibir(int genteASubir)
+        {
+            int exceso = genteASubir;
+
+            foreach (Coches c in _listaCoches)
+            {
+                c.DesenderPasajeros();
+                if (exceso > 0)
+                    exceso = c.recibir(exceso);
+            }
+
+            return exceso; //Se retorna la cantidad de gente que no pudo subir.
+        }
+
+        public int TotalPasajerosEnFormacion()
+        {
+            int totalPasajeros = 0;
+            foreach (Coches c in _listaCoches)
+                totalPasajeros += (c.PasajerosParados + c.PasajerosSentados);
+
+            return totalPasajeros;
+        }
+
+        public bool FormacionSuperoCapLegal()
+        {
+            return TotalPasajerosEnFormacion() >= capacidadLegal();
+        }
+
+        public bool HayPasajerosParados()
+        {
+            foreach (Coches c in _listaCoches)
+            {
+                if (c.PasajerosParados != 0)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

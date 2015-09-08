@@ -14,6 +14,9 @@ namespace ffccSimulacion.Modelo
     
     public partial class Coches
     {
+        private int _pasajerosSentados = 0;
+        private int _pasajerosParados = 0;
+
         public Coches()
         {
             this.Formaciones_X_Coches = new HashSet<Formaciones_X_Coches>();
@@ -28,7 +31,101 @@ namespace ffccSimulacion.Modelo
         public int CantidadAsientos { get; set; }
         public int MaximoLegalPasajeros { get; set; }
         public int CapacidadMaximaPasajeros { get; set; }
-    
+
+        /*Estos 2 campos no estan y no deben estar mapeados en la base de datos*/
+        public int PasajerosSentados
+        {
+            get { return _pasajerosSentados; }
+            set { _pasajerosSentados = value; }
+        }
+
+        public int PasajerosParados
+        {
+            get { return _pasajerosParados; }
+            set { _pasajerosParados = value; }
+        }
+
         public virtual ICollection<Formaciones_X_Coches> Formaciones_X_Coches { get; set; }
+
+        public int asientosRestantes()
+        {
+            return CantidadAsientos - _pasajerosSentados;
+        }
+
+        public int capacidadLegalRestante()
+        {
+            return MaximoLegalPasajeros - _pasajerosSentados - _pasajerosParados;
+        }
+
+        public int capacidadMaximaRestante()
+        {
+            return CapacidadMaximaPasajeros - _pasajerosSentados - _pasajerosParados;
+        }
+
+        public int recibir(int pasajerosASubir)
+        {
+            int exceso = pasajerosASubir;
+
+            //PRIMERO SE SIENTAN LA MAYOR CANTIDAD POSIBLE DE PASAJEROS
+            int pasajerosASentar;
+            if (exceso >= asientosRestantes())
+            {
+                pasajerosASentar = asientosRestantes();
+            }
+            else
+            {
+                pasajerosASentar = exceso;
+            }
+            exceso -= pasajerosASentar;
+            _pasajerosSentados += pasajerosASentar;
+
+            //EL RESTO DE LOS PASAJEROS VAN PARADOS HASTA LA CAPACIDAD LEGAL
+            int pasajerosAEntrar;
+            if (exceso >= capacidadLegalRestante())
+            {
+                pasajerosAEntrar = capacidadLegalRestante();
+            }
+            else
+            {
+                pasajerosAEntrar = exceso;
+            }
+            exceso -= pasajerosAEntrar;
+            _pasajerosParados += pasajerosAEntrar;
+
+            //EL RESTO DE LOS PASAJEROS VAN PARADOS HASTA LA CAPACIDAD MAXIMA
+            if (exceso >= capacidadMaximaRestante())
+            {
+                pasajerosAEntrar = capacidadMaximaRestante();
+            }
+            else
+            {
+                pasajerosAEntrar = exceso;
+            }
+            exceso -= pasajerosAEntrar;
+            _pasajerosParados += pasajerosAEntrar;
+
+            //EL RESTO DE LOS PASAJEROS NO PODRA ENTRAR
+            return exceso;
+        }
+
+        /*Procesa el desenso de pasajeros en el coche. Retorna la cantidad de pasajeros total que desendio del coche*/
+        public int DesenderPasajeros()
+        {
+            Random rnd = new Random();
+            int genteSentadaDesciende = rnd.Next(1, 20);
+            int genteParadaDesciende = rnd.Next(1, 20);
+
+            if (genteSentadaDesciende >= _pasajerosSentados)
+                _pasajerosSentados = 0;
+            else
+                _pasajerosSentados = _pasajerosSentados - genteSentadaDesciende;
+
+            if (genteParadaDesciende >= _pasajerosParados)
+                _pasajerosParados = 0;
+            else
+                _pasajerosParados = _pasajerosParados - genteParadaDesciende;
+
+            return genteParadaDesciende + genteSentadaDesciende;
+        }
     }
 }
