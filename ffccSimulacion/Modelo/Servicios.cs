@@ -24,7 +24,7 @@ namespace ffccSimulacion.Modelo
     
     public partial class Servicios
     {
-        struct Parada
+        public struct Parada
         {
             public Estaciones nodo;
             public bool para;
