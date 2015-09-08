@@ -22,9 +22,42 @@ namespace ffccSimulacion.Modelo
         public int VelocidadPromedio { get; set; }
         public int TiempoViaje { get; set; }
         public int Est_Sig_Es_Parada { get; set; }
-    
+
+        /*Asumi que esta es la estacion origen. TODO: verificar que sea asi*/
         public virtual Estaciones Estaciones { get; set; }
+        
+        /*Asumi que esta es la estacion destino. TODO: verificar que sea asi*/
         public virtual Estaciones Estaciones1 { get; set; }
         public virtual Servicios Servicios { get; set; }
+
+
+        public bool relaciona(Estaciones nodoInicial, Estaciones nodoFinal)
+        {
+            //TODO Revisar si la relacion es bidireccional.
+            if ((Id_Estacion_Anterior == nodoInicial.Id && Id_Estacion_Siguiente == nodoFinal.Id) || (Id_Estacion_Anterior == nodoFinal.Id && Id_Estacion_Siguiente == nodoInicial.Id))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public int calcularTiempoViaje()
+        {
+            //TODO Modificar
+            return TiempoViaje;
+        }
+
+        public int demoraPorAccidentes()
+        {
+            int totalDemora = 0;
+            foreach (Incidentes incidentePosible in Estaciones1.ListaIncidentes)
+            {
+                if (incidentePosible.Ocurre())
+                {
+                    totalDemora += incidentePosible.TiempoDemora;
+                }
+            }
+            return totalDemora;
+        }
     }
 }

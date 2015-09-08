@@ -7,6 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using ffccSimulacion.Dominio.DataBase.ClasesJoins;
+using System;
+using System.Collections.Generic;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace ffccSimulacion.Modelo
 {
     using System;
@@ -68,13 +77,7 @@ namespace ffccSimulacion.Modelo
 
         public List<Incidentes> ListaIncidentes
         {
-            get 
-            {
-                List<Incidentes> listaIncidentesPosibles = new List<Incidentes>();
-                foreach (Estaciones_X_Incidentes ei in Estaciones_X_Incidentes)
-                    listaIncidentesPosibles.Add(ei.Incidentes);
-                return listaIncidentesPosibles;
-            }
+            get { return Estaciones_X_Incidentes.Select(x => x.Incidentes).ToList<Incidentes>(); }
         }
 
 

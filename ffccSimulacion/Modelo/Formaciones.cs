@@ -7,6 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using ffccSimulacion.Dominio.DataBase.ClasesJoins;
+using System;
+using System.Collections.Generic;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
 namespace ffccSimulacion.Modelo
 {
     using System;
@@ -63,10 +73,10 @@ namespace ffccSimulacion.Modelo
         }
 
         /*Esta funcion retorna una nueva instancia de formacion exactamente igual a si misma. CLONA LA FORMACION*/
-        /*public Formacion ClonarFormacion()
+        public Formaciones ClonarFormacion()
         {
-            return (Formacion)this.MemberwiseClone();
-        }*/
+            return (Formaciones)this.MemberwiseClone();
+        }
 
         public int pasajerosSentados()
         {
