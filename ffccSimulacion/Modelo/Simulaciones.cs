@@ -14,13 +14,48 @@ namespace ffccSimulacion.Modelo
     
     public partial class Simulaciones
     {
+
+        public Simulaciones(){}
+
         public int Id { get; set; }
         public int Tiempo_Inicial { get; set; }
         public int Tiempo_Final { get; set; }
         public int Id_Traza { get; set; }
         public int Frecuencia_Salida { get; set; }
         public string Nombre { get; set; }
+
+        public int _estrategiaDeSimulacion { get; set; }
     
         public virtual Trazas Trazas { get; set; }
+
+        public void ConfigurarSimulador()
+        {
+            Trazas.ConfigurarLosServiciosDeLaTraza();
+            //Se crea y asgina la programacion de salida para los servicios
+            List<int> programacion1 = new List<int>();
+            for (int i = 0; i < 100; i += Frecuencia_Salida)
+                programacion1.Add(i);
+
+            foreach (Trazas_X_Servicios ts in Trazas.Trazas_X_Servicios)
+                ts.Servicios.agregarProgramacionSalida(programacion1);
+
+            //_estrategiaDeSimulacion = new TiempoComprometido(0, _tiempoFinal, TrazaActual);
+            _estrategiaDeSimulacion = 0;
+        }
+
+        public void EjecutarSimulacion()
+        {
+            //EstrategiaDeSimulacion.EjecutarSimulacion();
+            switch (_estrategiaDeSimulacion)
+            {
+                case(0):
+                    TiempoComprometido tiempoComprometido = new TiempoComprometido(0, Tiempo_Final, Trazas);
+                    tiempoComprometido.EjecutarSimulacion();
+                    break;
+                case(1):
+                    //Evento a evento
+                    break;
+            }
+        }
     }
 }

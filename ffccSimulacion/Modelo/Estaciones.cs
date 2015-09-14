@@ -129,14 +129,32 @@ namespace ffccSimulacion.Modelo
         {
             //TODO: para esto en el futuro hay que utilizar la FDP que se define en el ABM de estacion
             //Calculo de la gente que hay esperando en la estacion.
-            _genteEsperando += 20 * (tiempoActual - _ultimaAtencion);
+            //_genteEsperando += 20 * (tiempoActual - _ultimaAtencion);
+            switch (TipoFDP)
+            {
+                case 0:
+                    _genteEsperando = Fdp.Normal(PersonasEsperandoMin, PersonasEsperandoMax);
+                    break;
+                case 1:
+                    //calculo el delta en horas
+                    double horasDeEspera = ((double)(tiempoActual - _ultimaAtencion)) / 60;
+                    _genteEsperando = Fdp.Gamma(PersonasEsperandoMin, PersonasEsperandoMax, horasDeEspera);
+                    break;
+                case 2:
+                    //TODO: Definir gente por minuto.
+                    //_genteEsperando = Fdp.Poisson(_personasEsperandoMin, _personasEsperandoMax);
+                    _genteEsperando += 20 * (tiempoActual - _ultimaAtencion);
+                    break;
+            }
         }
 
         private int tiempoAtencion()
         {
             //TODO: cambiar esta constante por un numero random
             //Calculo del tiempo de atencion en la estacion.
-            return 5;
+            //return 5;
+            int segundosEspera = Fdp.Normal(30, 120);
+            return segundosEspera / 60;
         }
     }
 }

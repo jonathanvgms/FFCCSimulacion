@@ -111,7 +111,7 @@ namespace ffccSimulacion.Modelo
         /*Procesa el desenso de pasajeros en el coche. Retorna la cantidad de pasajeros total que desendio del coche*/
         public int DesenderPasajeros()
         {
-            Random rnd = new Random();
+            /*Random rnd = new Random();
             int genteSentadaDesciende = rnd.Next(1, 20);
             int genteParadaDesciende = rnd.Next(1, 20);
 
@@ -125,7 +125,32 @@ namespace ffccSimulacion.Modelo
             else
                 _pasajerosParados = _pasajerosParados - genteParadaDesciende;
 
-            return genteParadaDesciende + genteSentadaDesciende;
+            return genteParadaDesciende + genteSentadaDesciende;*/
+
+            //TODO: No se considera el vaciado de personas en la terminal.
+            int totalPasajeros = _pasajerosSentados + _pasajerosParados;
+            int porcentajeABajar = Fdp.Normal(10, 100) / 100;
+            int pasajerosABajar = totalPasajeros * porcentajeABajar / 100;
+            int restanBajar = pasajerosABajar;
+            if (restanBajar >= _pasajerosParados)
+            {
+                //TODOS LOS PASAJEROS PARADOS BAJAN
+                restanBajar -= _pasajerosParados;
+                _pasajerosParados = 0;
+                //PUEDE HABER MAS PASAJEROS PARA BAJAR
+                if (restanBajar > 0)
+                {
+                    _pasajerosSentados -= pasajerosABajar;
+                    restanBajar = 0;
+                }
+            }
+            else
+            {
+                //BAJA SOLO PARTE DE LOS PASAJEROS PARADOS, NINGUNO DE LOS SENTADOS
+                _pasajerosSentados -= restanBajar;
+                restanBajar = 0;
+            }
+            return pasajerosABajar;
         }
     }
 }
