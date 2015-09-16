@@ -136,6 +136,7 @@
     <Compile Include="Modelo\Estaciones_X_Incidentes.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Fdp.cs" />
     <Compile Include="Modelo\Formaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -172,6 +173,7 @@
     <Compile Include="Modelo\Simulaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\TiempoComprometido.cs" />
     <Compile Include="Modelo\Trazas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
