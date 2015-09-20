@@ -212,6 +212,7 @@
     <Compile Include="ABMTraza\frmABMTraza.Designer.cs">
       <DependentUpon>frmABMTraza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util.cs" />
     <EmbeddedResource Include="ABMCoche\frmABMCoche.resx">
       <DependentUpon>frmABMCoche.cs</DependentUpon>
     </EmbeddedResource>

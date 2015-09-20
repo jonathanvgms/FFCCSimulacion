@@ -36,31 +36,31 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCrear = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtbIncCreTiem = new System.Windows.Forms.TextBox();
+            this.cbmIncCrePro = new System.Windows.Forms.ComboBox();
+            this.txtincCreDes = new System.Windows.Forms.TextBox();
+            this.txtIncCreNom = new System.Windows.Forms.TextBox();
+            this.tabModificar = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lstIncMod = new System.Windows.Forms.ListBox();
+            this.tabEliminar = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstIncEli = new System.Windows.Forms.ListBox();
             this.pnlInicidente = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabCrear.SuspendLayout();
+            this.tabModificar.SuspendLayout();
+            this.tabEliminar.SuspendLayout();
             this.pnlInicidente.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,62 +141,64 @@
             this.textBox3.Size = new System.Drawing.Size(182, 20);
             this.textBox3.TabIndex = 2;
             // 
-            // button1
+            // btnLimpiar
             // 
-            this.button1.Location = new System.Drawing.Point(15, 389);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Location = new System.Drawing.Point(15, 389);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 3;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(654, 389);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 24);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(654, 389);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 24);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button3
+            // btnAceptar
             // 
-            this.button3.Location = new System.Drawing.Point(573, 389);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 24);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAceptar.Location = new System.Drawing.Point(573, 389);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 24);
+            this.btnAceptar.TabIndex = 3;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabCrear);
+            this.tabControl1.Controls.Add(this.tabModificar);
+            this.tabControl1.Controls.Add(this.tabEliminar);
             this.tabControl1.Location = new System.Drawing.Point(15, 15);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(714, 368);
             this.tabControl1.TabIndex = 4;
             // 
-            // tabPage1
+            // tabCrear
             // 
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(706, 342);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Crear";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabCrear.Controls.Add(this.label5);
+            this.tabCrear.Controls.Add(this.label6);
+            this.tabCrear.Controls.Add(this.label7);
+            this.tabCrear.Controls.Add(this.label8);
+            this.tabCrear.Controls.Add(this.txtbIncCreTiem);
+            this.tabCrear.Controls.Add(this.cbmIncCrePro);
+            this.tabCrear.Controls.Add(this.txtincCreDes);
+            this.tabCrear.Controls.Add(this.txtIncCreNom);
+            this.tabCrear.Location = new System.Drawing.Point(4, 22);
+            this.tabCrear.Name = "tabCrear";
+            this.tabCrear.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCrear.Size = new System.Drawing.Size(706, 342);
+            this.tabCrear.TabIndex = 0;
+            this.tabCrear.Text = "Crear";
+            this.tabCrear.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -234,16 +236,16 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Tiempo de Demora (min)";
             // 
-            // textBox4
+            // txtbIncCreTiem
             // 
-            this.textBox4.Location = new System.Drawing.Point(298, 207);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(190, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtbIncCreTiem.Location = new System.Drawing.Point(298, 207);
+            this.txtbIncCreTiem.Name = "txtbIncCreTiem";
+            this.txtbIncCreTiem.Size = new System.Drawing.Size(190, 20);
+            this.txtbIncCreTiem.TabIndex = 8;
             // 
-            // comboBox2
+            // cbmIncCrePro
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cbmIncCrePro.AutoCompleteCustomSource.AddRange(new string[] {
             "0%",
             "10%",
             "20%",
@@ -255,45 +257,59 @@
             "80%",
             "90%",
             "100%"});
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(298, 155);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(190, 21);
-            this.comboBox2.TabIndex = 7;
+            this.cbmIncCrePro.FormattingEnabled = true;
+            this.cbmIncCrePro.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100"});
+            this.cbmIncCrePro.Location = new System.Drawing.Point(298, 155);
+            this.cbmIncCrePro.Name = "cbmIncCrePro";
+            this.cbmIncCrePro.Size = new System.Drawing.Size(190, 21);
+            this.cbmIncCrePro.TabIndex = 7;
             // 
-            // textBox5
+            // txtincCreDes
             // 
-            this.textBox5.Location = new System.Drawing.Point(298, 106);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(190, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtincCreDes.Location = new System.Drawing.Point(298, 106);
+            this.txtincCreDes.Name = "txtincCreDes";
+            this.txtincCreDes.Size = new System.Drawing.Size(190, 20);
+            this.txtincCreDes.TabIndex = 9;
             // 
-            // textBox6
+            // txtIncCreNom
             // 
-            this.textBox6.Location = new System.Drawing.Point(298, 56);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(190, 20);
-            this.textBox6.TabIndex = 10;
+            this.txtIncCreNom.Location = new System.Drawing.Point(298, 56);
+            this.txtIncCreNom.Name = "txtIncCreNom";
+            this.txtIncCreNom.Size = new System.Drawing.Size(190, 20);
+            this.txtIncCreNom.TabIndex = 10;
             // 
-            // tabPage2
+            // tabModificar
             // 
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(706, 342);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabModificar.Controls.Add(this.label9);
+            this.tabModificar.Controls.Add(this.lstIncMod);
+            this.tabModificar.Controls.Add(this.label1);
+            this.tabModificar.Controls.Add(this.label2);
+            this.tabModificar.Controls.Add(this.label3);
+            this.tabModificar.Controls.Add(this.label4);
+            this.tabModificar.Controls.Add(this.textBox3);
+            this.tabModificar.Controls.Add(this.comboBox1);
+            this.tabModificar.Controls.Add(this.textBox2);
+            this.tabModificar.Controls.Add(this.textBox1);
+            this.tabModificar.Location = new System.Drawing.Point(4, 22);
+            this.tabModificar.Name = "tabModificar";
+            this.tabModificar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabModificar.Size = new System.Drawing.Size(706, 342);
+            this.tabModificar.TabIndex = 1;
+            this.tabModificar.Text = "Modificar";
+            this.tabModificar.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -304,26 +320,26 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Listado de Inidentes";
             // 
-            // listBox1
+            // lstIncMod
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(304, 303);
-            this.listBox1.TabIndex = 3;
+            this.lstIncMod.FormattingEnabled = true;
+            this.lstIncMod.Location = new System.Drawing.Point(6, 30);
+            this.lstIncMod.Name = "lstIncMod";
+            this.lstIncMod.Size = new System.Drawing.Size(304, 303);
+            this.lstIncMod.TabIndex = 3;
             // 
-            // tabPage3
+            // tabEliminar
             // 
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.listBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(706, 342);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabEliminar.Controls.Add(this.label10);
+            this.tabEliminar.Controls.Add(this.button5);
+            this.tabEliminar.Controls.Add(this.lstIncEli);
+            this.tabEliminar.Location = new System.Drawing.Point(4, 22);
+            this.tabEliminar.Name = "tabEliminar";
+            this.tabEliminar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEliminar.Size = new System.Drawing.Size(706, 342);
+            this.tabEliminar.TabIndex = 2;
+            this.tabEliminar.Text = "Eliminar";
+            this.tabEliminar.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -336,27 +352,27 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(513, 47);
+            this.button5.Location = new System.Drawing.Point(513, 32);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 7;
             this.button5.Text = "Borrar Incidente";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // lstIncEli
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(203, 32);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(304, 303);
-            this.listBox2.TabIndex = 6;
+            this.lstIncEli.FormattingEnabled = true;
+            this.lstIncEli.Location = new System.Drawing.Point(203, 32);
+            this.lstIncEli.Name = "lstIncEli";
+            this.lstIncEli.Size = new System.Drawing.Size(304, 303);
+            this.lstIncEli.TabIndex = 6;
             // 
             // pnlInicidente
             // 
             this.pnlInicidente.Controls.Add(this.tabControl1);
-            this.pnlInicidente.Controls.Add(this.button1);
-            this.pnlInicidente.Controls.Add(this.button3);
-            this.pnlInicidente.Controls.Add(this.button2);
+            this.pnlInicidente.Controls.Add(this.btnLimpiar);
+            this.pnlInicidente.Controls.Add(this.btnAceptar);
+            this.pnlInicidente.Controls.Add(this.btnCancelar);
             this.pnlInicidente.Location = new System.Drawing.Point(12, 12);
             this.pnlInicidente.Name = "pnlInicidente";
             this.pnlInicidente.Size = new System.Drawing.Size(743, 429);
@@ -371,12 +387,12 @@
             this.Name = "frmABMIncidente";
             this.Text = "Incidente";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabCrear.ResumeLayout(false);
+            this.tabCrear.PerformLayout();
+            this.tabModificar.ResumeLayout(false);
+            this.tabModificar.PerformLayout();
+            this.tabEliminar.ResumeLayout(false);
+            this.tabEliminar.PerformLayout();
             this.pnlInicidente.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -392,26 +408,26 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabCrear;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox txtbIncCreTiem;
+        private System.Windows.Forms.ComboBox cbmIncCrePro;
+        private System.Windows.Forms.TextBox txtincCreDes;
+        private System.Windows.Forms.TextBox txtIncCreNom;
+        private System.Windows.Forms.TabPage tabModificar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ListBox lstIncMod;
+        private System.Windows.Forms.TabPage tabEliminar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstIncEli;
         public System.Windows.Forms.Panel pnlInicidente;
     }
 }

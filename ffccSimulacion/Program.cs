@@ -22,16 +22,16 @@ namespace ffccSimulacion
             Context c = new Context();
 
             //Console.WriteLine(c.SetCoche(new Coches { Modelo = "pepito", CantidadAsientos = 100, MaximoLegalPasajeros = 100, CapacidadMaximaPasajeros = 212 }));
-            c.GetAllCoches().ForEach(x => Console.WriteLine(x.Modelo));
+            //c.GetAllCoches().ForEach(x => Console.WriteLine(x.Modelo));
 
             
             //DataBaseManager db = new DataBaseManager();
             //db.PruebasBD();
-            /*
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Escritorio());
-             */ 
+             
              
             //Simulacion simulador = new Simulacion(1);
             //simulador.EstrategiaDeSimulacion = new TiempoComprometido(0, 100);
