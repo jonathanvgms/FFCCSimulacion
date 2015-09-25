@@ -47,40 +47,40 @@
             this.btnCocheNuevoAceptar = new System.Windows.Forms.Button();
             this.btnCocheNuevoCancelar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCrear = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cbxTipoConsumo = new System.Windows.Forms.ComboBox();
+            this.rndEsLocomotoraNo = new System.Windows.Forms.RadioButton();
+            this.txtConsumoParado = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.txtConsumoMov = new System.Windows.Forms.TextBox();
+            this.rndEsLocomotoraSi = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtMaxReal = new System.Windows.Forms.TextBox();
+            this.txtMaxLegal = new System.Windows.Forms.TextBox();
+            this.txtCantidadAsientos = new System.Windows.Forms.TextBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabModificar = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbxCochesModificar = new System.Windows.Forms.ListBox();
+            this.tabEliminar = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.btnBorrarCoche = new System.Windows.Forms.Button();
+            this.lbxCochesBorrar = new System.Windows.Forms.ListBox();
             this.pnlCoche = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabCrear.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabModificar.SuspendLayout();
+            this.tabEliminar.SuspendLayout();
             this.pnlCoche.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -232,6 +232,7 @@
             this.btnCocheNuevoLimpiar.TabIndex = 3;
             this.btnCocheNuevoLimpiar.Text = "Limpiar";
             this.btnCocheNuevoLimpiar.UseVisualStyleBackColor = true;
+            this.btnCocheNuevoLimpiar.Click += new System.EventHandler(this.btnCocheNuevoLimpiar_Click);
             // 
             // btnCocheNuevoAceptar
             // 
@@ -241,6 +242,7 @@
             this.btnCocheNuevoAceptar.TabIndex = 4;
             this.btnCocheNuevoAceptar.Text = "Aceptar";
             this.btnCocheNuevoAceptar.UseVisualStyleBackColor = true;
+            this.btnCocheNuevoAceptar.Click += new System.EventHandler(this.btnCocheNuevoAceptar_Click);
             // 
             // btnCocheNuevoCancelar
             // 
@@ -254,42 +256,42 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabCrear);
+            this.tabControl1.Controls.Add(this.tabModificar);
+            this.tabControl1.Controls.Add(this.tabEliminar);
             this.tabControl1.Location = new System.Drawing.Point(15, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(780, 523);
             this.tabControl1.TabIndex = 6;
             // 
-            // tabPage1
+            // tabCrear
             // 
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.textBox9);
-            this.tabPage1.Controls.Add(this.textBox10);
-            this.tabPage1.Controls.Add(this.textBox11);
-            this.tabPage1.Controls.Add(this.textBox12);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(772, 497);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Crear";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabCrear.Controls.Add(this.groupBox2);
+            this.tabCrear.Controls.Add(this.txtMaxReal);
+            this.tabCrear.Controls.Add(this.txtMaxLegal);
+            this.tabCrear.Controls.Add(this.txtCantidadAsientos);
+            this.tabCrear.Controls.Add(this.txtModelo);
+            this.tabCrear.Controls.Add(this.label11);
+            this.tabCrear.Controls.Add(this.label12);
+            this.tabCrear.Controls.Add(this.label13);
+            this.tabCrear.Controls.Add(this.label14);
+            this.tabCrear.Location = new System.Drawing.Point(4, 22);
+            this.tabCrear.Name = "tabCrear";
+            this.tabCrear.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCrear.Size = new System.Drawing.Size(772, 497);
+            this.tabCrear.TabIndex = 0;
+            this.tabCrear.Text = "Crear";
+            this.tabCrear.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.cbxTipoConsumo);
+            this.groupBox2.Controls.Add(this.rndEsLocomotoraNo);
+            this.groupBox2.Controls.Add(this.txtConsumoParado);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.radioButton4);
+            this.groupBox2.Controls.Add(this.txtConsumoMov);
+            this.groupBox2.Controls.Add(this.rndEsLocomotoraSi);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(197, 117);
@@ -299,37 +301,37 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Locomotora";
             // 
-            // comboBox2
+            // cbxTipoConsumo
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cbxTipoConsumo.AutoCompleteCustomSource.AddRange(new string[] {
             "Electrico",
             "Diesel"});
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbxTipoConsumo.FormattingEnabled = true;
+            this.cbxTipoConsumo.Items.AddRange(new object[] {
             "Electrico",
             "Disel"});
-            this.comboBox2.Location = new System.Drawing.Point(139, 44);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(233, 21);
-            this.comboBox2.TabIndex = 2;
+            this.cbxTipoConsumo.Location = new System.Drawing.Point(139, 44);
+            this.cbxTipoConsumo.Name = "cbxTipoConsumo";
+            this.cbxTipoConsumo.Size = new System.Drawing.Size(233, 21);
+            this.cbxTipoConsumo.TabIndex = 2;
             // 
-            // radioButton3
+            // rndEsLocomotoraNo
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(47, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(39, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "No";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rndEsLocomotoraNo.AutoSize = true;
+            this.rndEsLocomotoraNo.Location = new System.Drawing.Point(47, 19);
+            this.rndEsLocomotoraNo.Name = "rndEsLocomotoraNo";
+            this.rndEsLocomotoraNo.Size = new System.Drawing.Size(39, 17);
+            this.rndEsLocomotoraNo.TabIndex = 0;
+            this.rndEsLocomotoraNo.TabStop = true;
+            this.rndEsLocomotoraNo.Text = "No";
+            this.rndEsLocomotoraNo.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // txtConsumoParado
             // 
-            this.textBox7.Location = new System.Drawing.Point(139, 117);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(233, 20);
-            this.textBox7.TabIndex = 1;
+            this.txtConsumoParado.Location = new System.Drawing.Point(139, 117);
+            this.txtConsumoParado.Name = "txtConsumoParado";
+            this.txtConsumoParado.Size = new System.Drawing.Size(233, 20);
+            this.txtConsumoParado.TabIndex = 1;
             // 
             // label8
             // 
@@ -340,23 +342,24 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tipo Consumo";
             // 
-            // textBox8
+            // txtConsumoMov
             // 
-            this.textBox8.Location = new System.Drawing.Point(139, 81);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(233, 20);
-            this.textBox8.TabIndex = 1;
+            this.txtConsumoMov.Location = new System.Drawing.Point(139, 81);
+            this.txtConsumoMov.Name = "txtConsumoMov";
+            this.txtConsumoMov.Size = new System.Drawing.Size(233, 20);
+            this.txtConsumoMov.TabIndex = 1;
             // 
-            // radioButton4
+            // rndEsLocomotoraSi
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(7, 20);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(34, 17);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Si";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rndEsLocomotoraSi.AutoSize = true;
+            this.rndEsLocomotoraSi.Location = new System.Drawing.Point(7, 20);
+            this.rndEsLocomotoraSi.Name = "rndEsLocomotoraSi";
+            this.rndEsLocomotoraSi.Size = new System.Drawing.Size(34, 17);
+            this.rndEsLocomotoraSi.TabIndex = 0;
+            this.rndEsLocomotoraSi.TabStop = true;
+            this.rndEsLocomotoraSi.Text = "Si";
+            this.rndEsLocomotoraSi.UseVisualStyleBackColor = true;
+            this.rndEsLocomotoraSi.CheckedChanged += new System.EventHandler(this.rndEsLocomotoraSi_CheckedChanged);
             // 
             // label9
             // 
@@ -376,33 +379,33 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Consumo en Movimiento";
             // 
-            // textBox9
+            // txtMaxReal
             // 
-            this.textBox9.Location = new System.Drawing.Point(336, 401);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(233, 20);
-            this.textBox9.TabIndex = 7;
+            this.txtMaxReal.Location = new System.Drawing.Point(336, 401);
+            this.txtMaxReal.Name = "txtMaxReal";
+            this.txtMaxReal.Size = new System.Drawing.Size(233, 20);
+            this.txtMaxReal.TabIndex = 7;
             // 
-            // textBox10
+            // txtMaxLegal
             // 
-            this.textBox10.Location = new System.Drawing.Point(336, 363);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(233, 20);
-            this.textBox10.TabIndex = 8;
+            this.txtMaxLegal.Location = new System.Drawing.Point(336, 363);
+            this.txtMaxLegal.Name = "txtMaxLegal";
+            this.txtMaxLegal.Size = new System.Drawing.Size(233, 20);
+            this.txtMaxLegal.TabIndex = 8;
             // 
-            // textBox11
+            // txtCantidadAsientos
             // 
-            this.textBox11.Location = new System.Drawing.Point(336, 323);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(233, 20);
-            this.textBox11.TabIndex = 9;
+            this.txtCantidadAsientos.Location = new System.Drawing.Point(336, 323);
+            this.txtCantidadAsientos.Name = "txtCantidadAsientos";
+            this.txtCantidadAsientos.Size = new System.Drawing.Size(233, 20);
+            this.txtCantidadAsientos.TabIndex = 9;
             // 
-            // textBox12
+            // txtModelo
             // 
-            this.textBox12.Location = new System.Drawing.Point(336, 60);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(233, 20);
-            this.textBox12.TabIndex = 10;
+            this.txtModelo.Location = new System.Drawing.Point(336, 60);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(233, 20);
+            this.txtModelo.TabIndex = 10;
             // 
             // label11
             // 
@@ -440,26 +443,26 @@
             this.label14.TabIndex = 6;
             this.label14.Text = "Modelo";
             // 
-            // tabPage2
+            // tabModificar
             // 
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.listBox1);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(772, 497);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabModificar.Controls.Add(this.label16);
+            this.tabModificar.Controls.Add(this.label6);
+            this.tabModificar.Controls.Add(this.label7);
+            this.tabModificar.Controls.Add(this.lbxCochesModificar);
+            this.tabModificar.Controls.Add(this.textBox1);
+            this.tabModificar.Controls.Add(this.label1);
+            this.tabModificar.Controls.Add(this.label5);
+            this.tabModificar.Controls.Add(this.groupBox1);
+            this.tabModificar.Controls.Add(this.textBox6);
+            this.tabModificar.Controls.Add(this.textBox4);
+            this.tabModificar.Controls.Add(this.textBox5);
+            this.tabModificar.Location = new System.Drawing.Point(4, 22);
+            this.tabModificar.Name = "tabModificar";
+            this.tabModificar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabModificar.Size = new System.Drawing.Size(772, 497);
+            this.tabModificar.TabIndex = 1;
+            this.tabModificar.Text = "Modificar";
+            this.tabModificar.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -488,26 +491,26 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Capacidad Máxima Legal";
             // 
-            // listBox1
+            // lbxCochesModificar
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(15, 39);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(336, 446);
-            this.listBox1.TabIndex = 3;
+            this.lbxCochesModificar.FormattingEnabled = true;
+            this.lbxCochesModificar.Location = new System.Drawing.Point(15, 39);
+            this.lbxCochesModificar.Name = "lbxCochesModificar";
+            this.lbxCochesModificar.Size = new System.Drawing.Size(336, 446);
+            this.lbxCochesModificar.TabIndex = 3;
             // 
-            // tabPage3
+            // tabEliminar
             // 
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.button2);
-            this.tabPage3.Controls.Add(this.listBox2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(772, 497);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabEliminar.Controls.Add(this.label15);
+            this.tabEliminar.Controls.Add(this.btnBorrarCoche);
+            this.tabEliminar.Controls.Add(this.lbxCochesBorrar);
+            this.tabEliminar.Location = new System.Drawing.Point(4, 22);
+            this.tabEliminar.Name = "tabEliminar";
+            this.tabEliminar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEliminar.Size = new System.Drawing.Size(772, 497);
+            this.tabEliminar.TabIndex = 2;
+            this.tabEliminar.Text = "Eliminar";
+            this.tabEliminar.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -518,22 +521,23 @@
             this.label15.TabIndex = 7;
             this.label15.Text = "Coches Existentes";
             // 
-            // button2
+            // btnBorrarCoche
             // 
-            this.button2.Location = new System.Drawing.Point(524, 30);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Borrar Coche";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBorrarCoche.Location = new System.Drawing.Point(524, 30);
+            this.btnBorrarCoche.Name = "btnBorrarCoche";
+            this.btnBorrarCoche.Size = new System.Drawing.Size(81, 23);
+            this.btnBorrarCoche.TabIndex = 6;
+            this.btnBorrarCoche.Text = "Borrar Coche";
+            this.btnBorrarCoche.UseVisualStyleBackColor = true;
+            this.btnBorrarCoche.Click += new System.EventHandler(this.btnBorrarCoche_Click);
             // 
-            // listBox2
+            // lbxCochesBorrar
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(182, 30);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(336, 446);
-            this.listBox2.TabIndex = 5;
+            this.lbxCochesBorrar.FormattingEnabled = true;
+            this.lbxCochesBorrar.Location = new System.Drawing.Point(182, 30);
+            this.lbxCochesBorrar.Name = "lbxCochesBorrar";
+            this.lbxCochesBorrar.Size = new System.Drawing.Size(336, 446);
+            this.lbxCochesBorrar.TabIndex = 5;
             // 
             // pnlCoche
             // 
@@ -557,14 +561,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabCrear.ResumeLayout(false);
+            this.tabCrear.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabModificar.ResumeLayout(false);
+            this.tabModificar.PerformLayout();
+            this.tabEliminar.ResumeLayout(false);
+            this.tabEliminar.PerformLayout();
             this.pnlCoche.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -591,33 +595,33 @@
         private System.Windows.Forms.Button btnCocheNuevoAceptar;
         private System.Windows.Forms.Button btnCocheNuevoCancelar;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabCrear;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cbxTipoConsumo;
+        private System.Windows.Forms.RadioButton rndEsLocomotoraNo;
+        private System.Windows.Forms.TextBox txtConsumoParado;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.TextBox txtConsumoMov;
+        private System.Windows.Forms.RadioButton rndEsLocomotoraSi;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtMaxReal;
+        private System.Windows.Forms.TextBox txtMaxLegal;
+        private System.Windows.Forms.TextBox txtCantidadAsientos;
+        private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TabPage tabModificar;
+        private System.Windows.Forms.ListBox lbxCochesModificar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabEliminar;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button btnBorrarCoche;
+        private System.Windows.Forms.ListBox lbxCochesBorrar;
         public System.Windows.Forms.Panel pnlCoche;
     }
 }
