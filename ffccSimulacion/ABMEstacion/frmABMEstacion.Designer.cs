@@ -30,10 +30,10 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEstacionAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.CrearEstacion = new System.Windows.Forms.TabPage();
+            this.clbIncidentes = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -44,11 +44,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreAgregarIncidente = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.clbModIncidentes = new System.Windows.Forms.CheckedListBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstModEstaciones = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -62,11 +62,11 @@
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lstEliEstaciones = new System.Windows.Forms.ListBox();
             this.button7 = new System.Windows.Forms.Button();
             this.pnlEstacion = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.CrearEstacion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,18 +93,19 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnEstacionAceptar
             // 
-            this.button4.Location = new System.Drawing.Point(892, 461);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Aceptar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEstacionAceptar.Location = new System.Drawing.Point(892, 461);
+            this.btnEstacionAceptar.Name = "btnEstacionAceptar";
+            this.btnEstacionAceptar.Size = new System.Drawing.Size(78, 23);
+            this.btnEstacionAceptar.TabIndex = 3;
+            this.btnEstacionAceptar.Text = "Aceptar";
+            this.btnEstacionAceptar.UseVisualStyleBackColor = true;
+            this.btnEstacionAceptar.Click += new System.EventHandler(this.btnEstacionAceptar_Click);
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.CrearEstacion);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(14, 13);
@@ -113,34 +114,34 @@
             this.tabControl1.Size = new System.Drawing.Size(1040, 446);
             this.tabControl1.TabIndex = 4;
             // 
-            // tabPage1
+            // CrearEstacion
             // 
-            this.tabPage1.Controls.Add(this.checkedListBox1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1032, 420);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Crear";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.CrearEstacion.Controls.Add(this.clbIncidentes);
+            this.CrearEstacion.Controls.Add(this.label1);
+            this.CrearEstacion.Controls.Add(this.groupBox1);
+            this.CrearEstacion.Controls.Add(this.textBox3);
+            this.CrearEstacion.Controls.Add(this.label2);
+            this.CrearEstacion.Controls.Add(this.btnCreAgregarIncidente);
+            this.CrearEstacion.Location = new System.Drawing.Point(4, 22);
+            this.CrearEstacion.Name = "CrearEstacion";
+            this.CrearEstacion.Padding = new System.Windows.Forms.Padding(3);
+            this.CrearEstacion.Size = new System.Drawing.Size(1032, 420);
+            this.CrearEstacion.TabIndex = 0;
+            this.CrearEstacion.Text = "Crear";
+            this.CrearEstacion.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // clbIncidentes
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(573, 40);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(301, 319);
-            this.checkedListBox1.TabIndex = 19;
+            this.clbIncidentes.FormattingEnabled = true;
+            this.clbIncidentes.Location = new System.Drawing.Point(573, 40);
+            this.clbIncidentes.Name = "clbIncidentes";
+            this.clbIncidentes.Size = new System.Drawing.Size(301, 319);
+            this.clbIncidentes.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 63);
+            this.label1.Location = new System.Drawing.Point(213, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 16;
@@ -164,6 +165,10 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Normal",
+            "Gamma",
+            "Poission"});
             this.comboBox1.Location = new System.Drawing.Point(76, 145);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(220, 21);
@@ -212,9 +217,9 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(276, 60);
+            this.textBox3.Location = new System.Drawing.Point(282, 60);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(259, 20);
+            this.textBox3.Size = new System.Drawing.Size(220, 20);
             this.textBox3.TabIndex = 18;
             // 
             // label2
@@ -226,20 +231,21 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Incidentes";
             // 
-            // button1
+            // btnCreAgregarIncidente
             // 
-            this.button1.Location = new System.Drawing.Point(573, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Agregar Incidente";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreAgregarIncidente.Location = new System.Drawing.Point(573, 365);
+            this.btnCreAgregarIncidente.Name = "btnCreAgregarIncidente";
+            this.btnCreAgregarIncidente.Size = new System.Drawing.Size(116, 23);
+            this.btnCreAgregarIncidente.TabIndex = 15;
+            this.btnCreAgregarIncidente.Text = "Agregar Incidente";
+            this.btnCreAgregarIncidente.UseVisualStyleBackColor = true;
+            this.btnCreAgregarIncidente.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.checkedListBox2);
+            this.tabPage2.Controls.Add(this.clbModIncidentes);
             this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.lstModEstaciones);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.groupBox2);
@@ -253,13 +259,13 @@
             this.tabPage2.Text = "Modificar";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox2
+            // clbModIncidentes
             // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(725, 43);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(301, 319);
-            this.checkedListBox2.TabIndex = 20;
+            this.clbModIncidentes.FormattingEnabled = true;
+            this.clbModIncidentes.Location = new System.Drawing.Point(725, 43);
+            this.clbModIncidentes.Name = "clbModIncidentes";
+            this.clbModIncidentes.Size = new System.Drawing.Size(301, 319);
+            this.clbModIncidentes.TabIndex = 20;
             // 
             // label11
             // 
@@ -270,13 +276,13 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Listado de Estaciones";
             // 
-            // listBox1
+            // lstModEstaciones
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(9, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(288, 342);
-            this.listBox1.TabIndex = 11;
+            this.lstModEstaciones.FormattingEnabled = true;
+            this.lstModEstaciones.Location = new System.Drawing.Point(9, 43);
+            this.lstModEstaciones.Name = "lstModEstaciones";
+            this.lstModEstaciones.Size = new System.Drawing.Size(288, 342);
+            this.lstModEstaciones.TabIndex = 11;
             // 
             // label6
             // 
@@ -314,6 +320,10 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Normal",
+            "Gamma",
+            "Poission"});
             this.comboBox2.Location = new System.Drawing.Point(76, 145);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(220, 21);
@@ -379,7 +389,7 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.listBox2);
+            this.tabPage3.Controls.Add(this.lstEliEstaciones);
             this.tabPage3.Controls.Add(this.button7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -398,13 +408,13 @@
             this.label12.TabIndex = 15;
             this.label12.Text = "Listado de Estaciones";
             // 
-            // listBox2
+            // lstEliEstaciones
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(313, 31);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(334, 381);
-            this.listBox2.TabIndex = 14;
+            this.lstEliEstaciones.FormattingEnabled = true;
+            this.lstEliEstaciones.Location = new System.Drawing.Point(313, 31);
+            this.lstEliEstaciones.Name = "lstEliEstaciones";
+            this.lstEliEstaciones.Size = new System.Drawing.Size(334, 381);
+            this.lstEliEstaciones.TabIndex = 14;
             // 
             // button7
             // 
@@ -419,9 +429,9 @@
             // 
             this.pnlEstacion.Controls.Add(this.tabControl1);
             this.pnlEstacion.Controls.Add(this.button2);
-            this.pnlEstacion.Controls.Add(this.button4);
+            this.pnlEstacion.Controls.Add(this.btnEstacionAceptar);
             this.pnlEstacion.Controls.Add(this.button3);
-            this.pnlEstacion.Location = new System.Drawing.Point(75, 46);
+            this.pnlEstacion.Location = new System.Drawing.Point(12, 12);
             this.pnlEstacion.Name = "pnlEstacion";
             this.pnlEstacion.Size = new System.Drawing.Size(1068, 497);
             this.pnlEstacion.TabIndex = 5;
@@ -430,13 +440,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 708);
+            this.ClientSize = new System.Drawing.Size(1082, 515);
             this.Controls.Add(this.pnlEstacion);
             this.Name = "frmABMEstacion";
             this.Text = "Estación";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.CrearEstacion.ResumeLayout(false);
+            this.CrearEstacion.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -454,14 +464,14 @@
 
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEstacionAceptar;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage CrearEstacion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreAgregarIncidente;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstModEstaciones;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -484,10 +494,10 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lstEliEstaciones;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox clbIncidentes;
+        private System.Windows.Forms.CheckedListBox clbModIncidentes;
         public System.Windows.Forms.Panel pnlEstacion;
     }
 }
