@@ -163,8 +163,8 @@ namespace ffccSimulacion.ABMCoche
             }
 
             /*Se define cual propiedad de los objeto que estan dentro de las list box se van a mostrar*/
-            lbxCochesBorrar.DisplayMember = "Modelo";
-            lbxCochesModificar.DisplayMember = "Modelo";
+            //lbxCochesBorrar.DisplayMember = "Modelo";
+            //lbxCochesModificar.DisplayMember = "Modelo";
         }
 
         private void btnBorrarCoche_Click(object sender, EventArgs e)

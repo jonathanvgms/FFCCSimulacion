@@ -493,6 +493,7 @@
             // 
             // lbxCochesModificar
             // 
+            this.lbxCochesModificar.DisplayMember = "Modelo";
             this.lbxCochesModificar.FormattingEnabled = true;
             this.lbxCochesModificar.Location = new System.Drawing.Point(15, 39);
             this.lbxCochesModificar.Name = "lbxCochesModificar";
@@ -533,6 +534,7 @@
             // 
             // lbxCochesBorrar
             // 
+            this.lbxCochesBorrar.DisplayMember = "Modelo";
             this.lbxCochesBorrar.FormattingEnabled = true;
             this.lbxCochesBorrar.Location = new System.Drawing.Point(182, 30);
             this.lbxCochesBorrar.Name = "lbxCochesBorrar";
