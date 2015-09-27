@@ -434,6 +434,7 @@
             this.ClientSize = new System.Drawing.Size(768, 452);
             this.Controls.Add(this.pnlInicidente);
             this.Name = "frmABMIncidente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidente";
             this.tabControl1.ResumeLayout(false);
             this.tabCrear.ResumeLayout(false);

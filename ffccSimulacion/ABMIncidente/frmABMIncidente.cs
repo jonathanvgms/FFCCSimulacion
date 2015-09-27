@@ -32,6 +32,8 @@ namespace ffccSimulacion.ABMIncidente
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.pnlInicidente.Controls.Clear();
+
+            this.Close();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
