@@ -56,6 +56,7 @@ namespace ffccSimulacion.ABMFormacion
             txtCantidadCoches.Text = "";
             lbxCochesFormacion.Items.Clear();
             auxCochesFormacion = new List<Formaciones_X_Coches>();
+            lbxCochesExistentes.SelectedIndex = -1;
             RecalcularTotalesFormacion();
         }
 
@@ -125,12 +126,12 @@ namespace ffccSimulacion.ABMFormacion
                     context.SaveChanges();
                     lbxFormacionesModificar.Items.Add(nuevaFormacion);
                     lbxFormacionesEliminar.Items.Add(nuevaFormacion);
-                    MessageBox.Show("La formación se ha creado exitosamente.\n");
                     LimpiarTabCrearFormacion();
+                    MessageBox.Show("La formación se ha creado exitosamente.\n");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("No se Guardo el Coche \n\n" + exc.ToString());
+                    MessageBox.Show("No se guardo la formación \n\n" + exc.ToString());
                 }
             }
             else
@@ -184,7 +185,7 @@ namespace ffccSimulacion.ABMFormacion
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("No se borro el Coche \n\n" + exc.ToString());
+                    MessageBox.Show("No se borro la formación \n\n" + exc.ToString());
                 }
             }
             else
