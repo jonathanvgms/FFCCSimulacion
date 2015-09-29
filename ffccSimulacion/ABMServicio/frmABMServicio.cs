@@ -122,6 +122,8 @@ namespace ffccSimulacion.ABMServicio
 
         private Relaciones BuscarRelacion(int id_estacionOrigen,int id_estacionDentino)
         {
+            if (auxRelaciones.Count == 0)
+                return null;
             return auxRelaciones.Where(x => x.Id_Estacion_Anterior == id_estacionOrigen && x.Id_Estacion_Siguiente == id_estacionDentino).First();
         }
 
@@ -241,6 +243,12 @@ namespace ffccSimulacion.ABMServicio
             }
             else
                 MessageBox.Show(errorMsj);
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabCrearServicio)
+                LimpiarTabCrear();
         }
     }
 }

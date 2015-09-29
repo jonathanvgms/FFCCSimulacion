@@ -39,6 +39,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCrearServicio = new System.Windows.Forms.TabPage();
+            this.cbxEsParadaCrear = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.dgvRelacionesCrear = new System.Windows.Forms.DataGridView();
             this.txtEstacionOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtEstacionDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +64,10 @@
             this.btnBorrarRelacionTabCrear = new System.Windows.Forms.Button();
             this.btnAgregarEstacion = new System.Windows.Forms.Button();
             this.tabModificarServicio = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbxEsParadaMod = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dgvRelacionesMod = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,12 +89,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.lbxServiciosEliminar = new System.Windows.Forms.ListBox();
             this.pnlServicio = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxEsParadaCrear = new System.Windows.Forms.CheckBox();
-            this.cbxEsParadaMod = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabCrearServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelacionesCrear)).BeginInit();
@@ -158,6 +158,7 @@
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCancelar
             // 
@@ -218,6 +219,24 @@
             this.tabCrearServicio.TabIndex = 0;
             this.tabCrearServicio.Text = "Crear";
             this.tabCrearServicio.UseVisualStyleBackColor = true;
+            // 
+            // cbxEsParadaCrear
+            // 
+            this.cbxEsParadaCrear.AutoSize = true;
+            this.cbxEsParadaCrear.Location = new System.Drawing.Point(293, 402);
+            this.cbxEsParadaCrear.Name = "cbxEsParadaCrear";
+            this.cbxEsParadaCrear.Size = new System.Drawing.Size(15, 14);
+            this.cbxEsParadaCrear.TabIndex = 37;
+            this.cbxEsParadaCrear.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(139, 402);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Estacion Destino es parada";
             // 
             // dgvRelacionesCrear
             // 
@@ -444,6 +463,42 @@
             this.tabModificarServicio.Text = "Modificar";
             this.tabModificarServicio.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(523, 424);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 13);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "Velocidad de la formación";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(523, 395);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 13);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Distancia entre las estaciones";
+            // 
+            // cbxEsParadaMod
+            // 
+            this.cbxEsParadaMod.AutoSize = true;
+            this.cbxEsParadaMod.Location = new System.Drawing.Point(689, 453);
+            this.cbxEsParadaMod.Name = "cbxEsParadaMod";
+            this.cbxEsParadaMod.Size = new System.Drawing.Size(15, 14);
+            this.cbxEsParadaMod.TabIndex = 43;
+            this.cbxEsParadaMod.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(523, 453);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(137, 13);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Estacion Destino es parada";
+            // 
             // dgvRelacionesMod
             // 
             this.dgvRelacionesMod.AllowUserToAddRows = false;
@@ -633,60 +688,6 @@
             this.pnlServicio.Name = "pnlServicio";
             this.pnlServicio.Size = new System.Drawing.Size(1164, 584);
             this.pnlServicio.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(139, 402);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 13);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Estacion Destino es parada";
-            // 
-            // cbxEsParadaCrear
-            // 
-            this.cbxEsParadaCrear.AutoSize = true;
-            this.cbxEsParadaCrear.Location = new System.Drawing.Point(293, 402);
-            this.cbxEsParadaCrear.Name = "cbxEsParadaCrear";
-            this.cbxEsParadaCrear.Size = new System.Drawing.Size(15, 14);
-            this.cbxEsParadaCrear.TabIndex = 37;
-            this.cbxEsParadaCrear.UseVisualStyleBackColor = true;
-            // 
-            // cbxEsParadaMod
-            // 
-            this.cbxEsParadaMod.AutoSize = true;
-            this.cbxEsParadaMod.Location = new System.Drawing.Point(689, 453);
-            this.cbxEsParadaMod.Name = "cbxEsParadaMod";
-            this.cbxEsParadaMod.Size = new System.Drawing.Size(15, 14);
-            this.cbxEsParadaMod.TabIndex = 43;
-            this.cbxEsParadaMod.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(523, 453);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 13);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Estacion Destino es parada";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(523, 424);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(129, 13);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "Velocidad de la formación";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(523, 395);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 13);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Distancia entre las estaciones";
             // 
             // frmABMServicio
             // 
