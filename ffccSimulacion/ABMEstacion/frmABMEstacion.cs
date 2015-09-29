@@ -28,41 +28,37 @@ namespace ffccSimulacion.ABMEstacion
 
             cargarEstaciones();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        
+        #region Accion de Pulsar botones
+        /*
+         * Accion de Pulsar el Boton 'Cancelar'
+         */ 
+        private void btnEstCancelar_Click(object sender, EventArgs e)
         {
-            this.pnlEstacion.Controls.Clear();
+            pnlEstacion.Controls.Clear();
 
-            this.Close();
+            Close();
         }
 
-        private void cargarIncidentes()
+        /*
+         * Accion de Pulsar el Boton 'Aceptar'
+         */ 
+        private void btnEstAceptar_Click(object sender, EventArgs e)
         {
-            clbIncidentes.Items.Clear();
-
-            clbModIncidentes.Items.Clear();
-
-            context.Incidentes.ToList().ForEach(x => 
+            if (tabControl1.SelectedTab == CrearEstacion)
             {
-                clbIncidentes.Items.Add(x.Nombre); 
-                clbModIncidentes.Items.Add(x.Nombre);
-            });
-        }
-
-        private void cargarEstaciones()
-        {
-            lstModEstaciones.Items.Clear();
-
-            lstEliEstaciones.Items.Clear();
-
-            context.Estaciones.ToList().ForEach(x =>
+                tabCrearEstacion();
+            }
+            else
             {
-                lstModEstaciones.Items.Add(x.Nombre);
-                lstEliEstaciones.Items.Add(x.Nombre);
-            });
+                tabModificarEstacion();
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /*
+         * Accion de Pulsar el Boton 'AgregarIncidente'
+         */
+        private void btnCreAgregarIncidente_Click(object sender, EventArgs e)
         {
             frmABMIncidente formIncidente = new frmABMIncidente();
 
@@ -71,18 +67,50 @@ namespace ffccSimulacion.ABMEstacion
             cargarIncidentes();
         }
 
-        private void btnEstacionAceptar_Click(object sender, EventArgs e)
+        /*
+         * Accion de Pulsar el Boton 'Limpiar'
+         */
+        private void btnEstLimpiar_Click(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == CrearEstacion)
-            {
-                tabCrearEstacion();
-            }
-            else 
-            {
-                tabModificarEstacion();
-            }
+            limpiarFormulario();
         }
 
+        /*
+         * Accion de Pulsar el Boton 'Borrar Estacion'
+         */
+        private void btnEstBorrar_Click(object sender, EventArgs e)
+        {
+            borrarEstacion();
+        }
+        
+        #endregion
+
+        #region Accion de Cargar Incidentes y Estaciones
+        private void cargarIncidentes()
+        {
+            clbIncidentes.Items.Clear();
+
+            clbModIncidentes.Items.Clear();
+
+            context.Incidentes.ToList().ForEach(x => { clbIncidentes.Items.Add(x.Nombre); clbModIncidentes.Items.Add(x.Nombre); });
+        }
+
+        private void cargarEstaciones()
+        {
+            lstModEstaciones.Items.Clear();
+
+            lstEliEstaciones.Items.Clear();
+
+            context.Estaciones.ToList().ForEach(x => { lstModEstaciones.Items.Add(x.Nombre); lstEliEstaciones.Items.Add(x.Nombre); });
+        }
+
+        #endregion
+        
+        #region Casos de Uso
+        
+        /*
+         * Caso de Uso 'Modificar Estacion'
+         */ 
         private void tabModificarEstacion()
         {
             string errorMsj = "";
@@ -141,14 +169,17 @@ namespace ffccSimulacion.ABMEstacion
 
                         context.SaveChanges();
 
-                        lblEstacionError.Text = "La Estación Se Guardo";
+                        //lblEstacionError.Text = "La Estación Se Guardo";
+                        MessageBox.Show("Estación Guardada");
 
                         cargarEstaciones();
+
+                        limpiarFormulario();
                     }
                     catch (Exception exc)
                     {
-                        lblEstacionError.Text = "La Estación No Se Guardo";
-                        MessageBox.Show(exc.ToString());
+                        //lblEstacionError.Text = "La Estación No Se Guardo";
+                        MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
                     }
                 }
             }
@@ -158,6 +189,9 @@ namespace ffccSimulacion.ABMEstacion
             }
         }
 
+        /*
+         * Caso de Uso 'Crear Estacion'
+         */
         private void tabCrearEstacion()
         {
             string errorMsj = "";
@@ -215,15 +249,17 @@ namespace ffccSimulacion.ABMEstacion
                         context.Estaciones.Add(nuevaEstacion);
 
                         context.SaveChanges();
-                        
-                        lblEstacionError.Text = "La estación se guardo";
+
+                        MessageBox.Show("Estación Guardada");
 
                         cargarEstaciones();
+
+                        limpiarFormulario();
                     }
                     catch(Exception exc)
                     {
-                        lblEstacionError.Text = "La estación no se guardo";
-                        //MessageBox.Show(exc.ToString());
+                        //lblEstacionError.Text = "La estación no se guardo";
+                        MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
                     }
                 }
             }
@@ -233,6 +269,38 @@ namespace ffccSimulacion.ABMEstacion
             }
         }
 
+        /*
+         * Caso de Uso 'Borrar Estacion'
+         */ 
+        private void borrarEstacion()
+        {
+            try
+            {
+                estacionSeleccionada = context.Estaciones.Where(x => x.Nombre == lstEliEstaciones.SelectedItem.ToString()).FirstOrDefault();
+
+                context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
+
+                context.Estaciones.Remove(estacionSeleccionada);
+
+                context.SaveChanges();
+
+                cargarEstaciones();
+
+                MessageBox.Show("Estación Eliminada");
+            }
+            catch (Exception exc)
+            {
+                //lblEstacionError.Text = "La Estación No Se Borró";
+
+                MessageBox.Show("Estación No Eliminada\nError:\n" + exc.ToString());
+            }
+        }
+        #endregion
+
+        #region Metodos Auxiliares
+        /*
+         * Verifica que el minimo que personas sea menor al maximo de personas esperando en el anden
+         */ 
         private bool verificarRangoPersonas(TextBox minimo, TextBox maximo)
         {
             if (Convert.ToInt64(minimo.Text) < Convert.ToInt64(maximo.Text) + 1)
@@ -243,30 +311,9 @@ namespace ffccSimulacion.ABMEstacion
             return false;
         }
 
-        private void btnEstBorrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                estacionSeleccionada = context.Estaciones.Where(x => x.Nombre == lstEliEstaciones.SelectedItem.ToString()).FirstOrDefault();
-                
-                context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
-                
-                context.Estaciones.Remove(estacionSeleccionada);
-
-                context.SaveChanges();
-
-                cargarEstaciones();
-
-                lblEstacionError.Text = "La Estación Se Borró";
-            }
-            catch (Exception exc)
-            {
-                lblEstacionError.Text = "La Estación No Se Borró";
-
-                MessageBox.Show(exc.ToString());
-            }
-        }
-
+        /*
+         * Evento que sucede cuando se selecciona una Estacion de la lista
+         */ 
         private void seleccionarEstacion(object sender, EventArgs e)
         {
             estacionSeleccionada = context.Estaciones.Where(x => x.Nombre == lstModEstaciones.SelectedItem.ToString()).FirstOrDefault();
@@ -286,13 +333,16 @@ namespace ffccSimulacion.ABMEstacion
                 clbModIncidentes.SetItemChecked(i, false);
             }
 
-            foreach(var incidente in estacionSeleccionada.ListaIncidentes)
+            foreach (var incidente in estacionSeleccionada.ListaIncidentes)
             {
                 clbModIncidentes.SetItemChecked(clbModIncidentes.Items.IndexOf(incidente.Nombre), true);
             }
         }
 
-        private void btnEstLimpiar_Click(object sender, EventArgs e)
+        /*
+         * Metodo que limpia los formularios 'Crear Estacion' y 'Modificar Estacion'
+         */
+        private void limpiarFormulario()
         {
             txtEstCreNombre.Clear();
 
@@ -318,5 +368,7 @@ namespace ffccSimulacion.ABMEstacion
                 clbModIncidentes.SetItemChecked(i, false);
             }
         }
+
+        #endregion
     }
 }

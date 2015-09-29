@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.btnEstLimpiar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnEstacionAceptar = new System.Windows.Forms.Button();
+            this.btnEstCancelar = new System.Windows.Forms.Button();
+            this.btnEstAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CrearEstacion = new System.Windows.Forms.TabPage();
             this.lblEstCreError = new System.Windows.Forms.Label();
@@ -86,25 +86,25 @@
             this.btnEstLimpiar.UseVisualStyleBackColor = true;
             this.btnEstLimpiar.Click += new System.EventHandler(this.btnEstLimpiar_Click);
             // 
-            // button3
+            // btnEstCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(976, 461);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnEstCancelar.Location = new System.Drawing.Point(976, 461);
+            this.btnEstCancelar.Name = "btnEstCancelar";
+            this.btnEstCancelar.Size = new System.Drawing.Size(77, 23);
+            this.btnEstCancelar.TabIndex = 3;
+            this.btnEstCancelar.Text = "Cancelar";
+            this.btnEstCancelar.UseVisualStyleBackColor = true;
+            this.btnEstCancelar.Click += new System.EventHandler(this.btnEstCancelar_Click);
             // 
-            // btnEstacionAceptar
+            // btnEstAceptar
             // 
-            this.btnEstacionAceptar.Location = new System.Drawing.Point(892, 461);
-            this.btnEstacionAceptar.Name = "btnEstacionAceptar";
-            this.btnEstacionAceptar.Size = new System.Drawing.Size(78, 23);
-            this.btnEstacionAceptar.TabIndex = 3;
-            this.btnEstacionAceptar.Text = "Aceptar";
-            this.btnEstacionAceptar.UseVisualStyleBackColor = true;
-            this.btnEstacionAceptar.Click += new System.EventHandler(this.btnEstacionAceptar_Click);
+            this.btnEstAceptar.Location = new System.Drawing.Point(892, 461);
+            this.btnEstAceptar.Name = "btnEstAceptar";
+            this.btnEstAceptar.Size = new System.Drawing.Size(78, 23);
+            this.btnEstAceptar.TabIndex = 3;
+            this.btnEstAceptar.Text = "Aceptar";
+            this.btnEstAceptar.UseVisualStyleBackColor = true;
+            this.btnEstAceptar.Click += new System.EventHandler(this.btnEstAceptar_Click);
             // 
             // tabControl1
             // 
@@ -252,7 +252,7 @@
             this.btnCreAgregarIncidente.TabIndex = 15;
             this.btnCreAgregarIncidente.Text = "Agregar Incidente";
             this.btnCreAgregarIncidente.UseVisualStyleBackColor = true;
-            this.btnCreAgregarIncidente.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreAgregarIncidente.Click += new System.EventHandler(this.btnCreAgregarIncidente_Click);
             // 
             // ModificarEstacion
             // 
@@ -445,8 +445,8 @@
             this.pnlEstacion.Controls.Add(this.lblEstacionError);
             this.pnlEstacion.Controls.Add(this.tabControl1);
             this.pnlEstacion.Controls.Add(this.btnEstLimpiar);
-            this.pnlEstacion.Controls.Add(this.btnEstacionAceptar);
-            this.pnlEstacion.Controls.Add(this.button3);
+            this.pnlEstacion.Controls.Add(this.btnEstAceptar);
+            this.pnlEstacion.Controls.Add(this.btnEstCancelar);
             this.pnlEstacion.Location = new System.Drawing.Point(12, 12);
             this.pnlEstacion.Name = "pnlEstacion";
             this.pnlEstacion.Size = new System.Drawing.Size(1068, 497);
@@ -489,8 +489,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnEstLimpiar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnEstacionAceptar;
+        private System.Windows.Forms.Button btnEstCancelar;
+        private System.Windows.Forms.Button btnEstAceptar;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage CrearEstacion;
         private System.Windows.Forms.Label label2;

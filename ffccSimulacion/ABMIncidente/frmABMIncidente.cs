@@ -29,61 +29,66 @@ namespace ffccSimulacion.ABMIncidente
             lblIncidenteMensaje.Text = "";
         }
 
+        #region Accion de apretar botones
+        /*
+         * Accion al pulsar el boton 'Cancelar'
+         */  
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.pnlInicidente.Controls.Clear();
+            pnlInicidente.Controls.Clear();
 
-            this.Close();
+            Close();
         }
 
+        /*
+         * Accion al pulsar el boton 'Aceptar'
+         */ 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if(tabControl1.SelectedTab == tabCrear)
             {
                 tab_CrearIncidente();
+
             }
             else if (tabControl1.SelectedTab == tabModificar)
             {
                 tab_ModificarIncidente();
             }
         }
-
+        /*
+         * Accion al pulsar el boton 'Limpiar'
+         */
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == tabCrear)
-            {
-                txtIncCreNom.Clear();
-
-                txtincCreDes.Clear();
-
-                txtbIncCreTiem.Clear();
-
-                cbmIncCrePro.SelectedIndex = 0;
-            }
-            else
-            {
-                txtModNombre.Clear();
-
-                txtModDem.Clear();
-
-                txtModDes.Clear();
-
-                cmbModProb.SelectedIndex = 0;
-            }
+            limpiarFormulario();
         }
-        
+
+        /*
+         * Accion al pulsar el boton 'Eliminar Incidente'
+         */ 
+        private void btnEliminarIncidente_Click(object sender, EventArgs e)
+        {
+            borrarIncidente();
+        }
+
+        #endregion
+
+        #region Accion de Cargar Incidentes
         private void cargarIncidentes()
         {
             lstIncMod.Items.Clear();
 
             lstIncEli.Items.Clear();
 
-            context.Incidentes.ToList().ForEach(x => {
-                lstIncMod.Items.Add(x.Nombre); 
-                lstIncEli.Items.Add(x.Nombre);
-            });
+            context.Incidentes.ToList().ForEach(x => { lstIncMod.Items.Add(x.Nombre); lstIncEli.Items.Add(x.Nombre); });
         }
 
+        #endregion
+
+        #region Casos de Uso
+        /*
+         * Caso de Uso 'Crear Incidente'
+         */ 
         private void tab_CrearIncidente()
         {
             string errorMsj = "";
@@ -126,13 +131,15 @@ namespace ffccSimulacion.ABMIncidente
 
                     lblCrearMensajeError.Text = "";
                     
-                    lblIncidenteMensaje.Text = "Incidente Guardado";
+                    //lblIncidenteMensaje.Text = "Incidente Guardado";
+                    MessageBox.Show("Incidente Guardado");
+
+                    limpiarFormulario();
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show("No se Guardo el Incidente \n\n" + exc.ToString());
-
-                    lblIncidenteMensaje.Text = "Incidente No Guardado";
+                    MessageBox.Show("Incidente No Guardado\nError:\n" + exc.ToString());
+                    //lblIncidenteMensaje.Text = "Incidente No Guardado";
                 }
             }
             else
@@ -143,6 +150,9 @@ namespace ffccSimulacion.ABMIncidente
             }
         }
 
+        /*
+        * Caso de Uso 'Modificar Incidente'
+        */ 
         private void tab_ModificarIncidente()
         {
             string errorMsj = "";
@@ -166,7 +176,7 @@ namespace ffccSimulacion.ABMIncidente
             {
                 errorMsj += "Probabilidad de Ocurrencia: Falta Seleccionar.\n";
             }
-            
+
             if (String.IsNullOrEmpty(errorMsj))
             {
                 try
@@ -185,22 +195,55 @@ namespace ffccSimulacion.ABMIncidente
 
                     lblModMensajeError.Text = "";
 
-                    lblIncidenteMensaje.Text = "Incidente Guardado";
+                    //lblIncidenteMensaje.Text = "Incidente Guardado";
+                    MessageBox.Show("Incidente Guardado");
+
+                    limpiarFormulario();
                 }
                 catch (Exception exc)
                 {
                     //MessageBox.Show(exc.ToString());
-
-                    lblIncidenteMensaje.Text = "Incidente No Guardado";
+                    MessageBox.Show("Incidente No Guardado\nError:\n" + exc.ToString());
+                    //lblIncidenteMensaje.Text = "Incidente No Guardado";
                 }
             }
             else
             {
                 lblModMensajeError.Text = errorMsj;
             }
-
         }
 
+        /*
+         * Caso de Uso 'Borrar Incidente' 
+         */
+        private void borrarIncidente()
+        {
+            try
+            {
+                incidenteSeleccionado = context.Incidentes.Where(x => x.Nombre == lstIncEli.SelectedItem.ToString()).FirstOrDefault();
+
+                context.Incidentes.Remove(incidenteSeleccionado);
+
+                context.SaveChanges();
+
+                cargarIncidentes();
+
+                //lblIncidenteMensaje.Text = "Incidente Eliminado";
+                MessageBox.Show("Incidente Eliminado");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Incidente No Eliminado\nError:\n" + exc.ToString());
+
+                //lblIncidenteMensaje.Text = "Incidente No Eliminado";
+            }
+        }
+        #endregion
+
+        #region Métodos Auxiliares
+        /*
+         * Evento que sucede cuando se selecciona un Incidente de la lista
+         */ 
         private void seleccionarIncidente(object sender, EventArgs e)
         {
             incidenteSeleccionado = context.Incidentes.Where(x => x.Nombre == lstIncMod.SelectedItem.ToString()).FirstOrDefault();
@@ -214,26 +257,28 @@ namespace ffccSimulacion.ABMIncidente
             cmbModProb.SelectedIndex = cmbModProb.Items.IndexOf(incidenteSeleccionado.ProbabilidadOcurrencia.ToString());
         }
 
-        private void btnEliminarIncidente_Click(object sender, EventArgs e)
+        /*
+         * Limpiar los TextBox y CheckBoxList de Crear Incidente y Modificar Incidente
+         */ 
+        private void limpiarFormulario()
         {
-            try
-            {
-                incidenteSeleccionado = context.Incidentes.Where(x => x.Nombre == lstIncEli.SelectedItem.ToString()).FirstOrDefault();
+            txtIncCreNom.Clear();
 
-                context.Incidentes.Remove(incidenteSeleccionado);
+            txtincCreDes.Clear();
 
-                context.SaveChanges();
+            txtbIncCreTiem.Clear();
 
-                cargarIncidentes();
+            cbmIncCrePro.SelectedIndex = 0;
 
-                lblIncidenteMensaje.Text = "Incidente Eliminado";
-            }
-            catch(Exception exc)
-            {
-                //MessageBox.Show(exc.ToString());
+            txtModNombre.Clear();
 
-                lblIncidenteMensaje.Text = "Incidente No Eliminado";
-            }
+            txtModDem.Clear();
+
+            txtModDes.Clear();
+
+            cmbModProb.SelectedIndex = 0;
         }
+
+        #endregion
     }
 }

@@ -30,31 +30,31 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.Buscar = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTraCreNombre = new System.Windows.Forms.TextBox();
+            this.btnTraCreAgregarServicio = new System.Windows.Forms.Button();
+            this.btnTraLimpiar = new System.Windows.Forms.Button();
+            this.btnTraCancelar = new System.Windows.Forms.Button();
+            this.btnTraAceptar = new System.Windows.Forms.Button();
+            this.tclTraza = new System.Windows.Forms.TabControl();
+            this.tabCrearTraza = new System.Windows.Forms.TabPage();
+            this.clbTraCreServicios = new System.Windows.Forms.CheckedListBox();
+            this.tabModificarTraza = new System.Windows.Forms.TabPage();
+            this.clbTraModServicios = new System.Windows.Forms.CheckedListBox();
+            this.lstTraModTrazas = new System.Windows.Forms.ListBox();
+            this.txtTraModNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnTraModAgregarServicio = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.tabEliminarTraza = new System.Windows.Forms.TabPage();
+            this.lstTraEliTrazas = new System.Windows.Forms.ListBox();
+            this.btnTraElBorrarTraza = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlTraza = new System.Windows.Forms.Panel();
-            this.Buscar.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tclTraza.SuspendLayout();
+            this.tabCrearTraza.SuspendLayout();
+            this.tabModificarTraza.SuspendLayout();
+            this.tabEliminarTraza.SuspendLayout();
             this.pnlTraza.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,219 +63,222 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(199, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre de Traza";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(199, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.Size = new System.Drawing.Size(159, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Listado de Servicios";
+            this.label2.Text = "Listado de Servicios Disponibles";
             // 
-            // textBox1
+            // txtTraCreNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(258, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(316, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtTraCreNombre.Location = new System.Drawing.Point(294, 17);
+            this.txtTraCreNombre.Name = "txtTraCreNombre";
+            this.txtTraCreNombre.Size = new System.Drawing.Size(280, 20);
+            this.txtTraCreNombre.TabIndex = 3;
             // 
-            // button1
+            // btnTraCreAgregarServicio
             // 
-            this.button1.Location = new System.Drawing.Point(580, 72);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Agregar Servicio";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTraCreAgregarServicio.Location = new System.Drawing.Point(580, 72);
+            this.btnTraCreAgregarServicio.Name = "btnTraCreAgregarServicio";
+            this.btnTraCreAgregarServicio.Size = new System.Drawing.Size(100, 23);
+            this.btnTraCreAgregarServicio.TabIndex = 4;
+            this.btnTraCreAgregarServicio.Text = "Agregar Servicio";
+            this.btnTraCreAgregarServicio.UseVisualStyleBackColor = true;
+            this.btnTraCreAgregarServicio.Click += new System.EventHandler(this.btnTraCreAgregarServicio_Click);
             // 
-            // button2
+            // btnTraLimpiar
             // 
-            this.button2.Location = new System.Drawing.Point(12, 549);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Limpiar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTraLimpiar.Location = new System.Drawing.Point(12, 549);
+            this.btnTraLimpiar.Name = "btnTraLimpiar";
+            this.btnTraLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnTraLimpiar.TabIndex = 5;
+            this.btnTraLimpiar.Text = "Limpiar";
+            this.btnTraLimpiar.UseVisualStyleBackColor = true;
+            this.btnTraLimpiar.Click += new System.EventHandler(this.btnTraLimpiar_Click);
             // 
-            // button3
+            // btnTraCancelar
             // 
-            this.button3.Location = new System.Drawing.Point(755, 553);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnTraCancelar.Location = new System.Drawing.Point(755, 553);
+            this.btnTraCancelar.Name = "btnTraCancelar";
+            this.btnTraCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnTraCancelar.TabIndex = 5;
+            this.btnTraCancelar.Text = "Cancelar";
+            this.btnTraCancelar.UseVisualStyleBackColor = true;
+            this.btnTraCancelar.Click += new System.EventHandler(this.btnTraCancelar_Click);
             // 
-            // button4
+            // btnTraAceptar
             // 
-            this.button4.Location = new System.Drawing.Point(674, 553);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Aceptar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnTraAceptar.Location = new System.Drawing.Point(674, 553);
+            this.btnTraAceptar.Name = "btnTraAceptar";
+            this.btnTraAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnTraAceptar.TabIndex = 5;
+            this.btnTraAceptar.Text = "Aceptar";
+            this.btnTraAceptar.UseVisualStyleBackColor = true;
+            this.btnTraAceptar.Click += new System.EventHandler(this.btnTraAceptar_Click);
             // 
-            // Buscar
+            // tclTraza
             // 
-            this.Buscar.Controls.Add(this.tabPage1);
-            this.Buscar.Controls.Add(this.tabPage2);
-            this.Buscar.Controls.Add(this.tabPage3);
-            this.Buscar.Location = new System.Drawing.Point(12, 14);
-            this.Buscar.Name = "Buscar";
-            this.Buscar.SelectedIndex = 0;
-            this.Buscar.Size = new System.Drawing.Size(818, 533);
-            this.Buscar.TabIndex = 7;
+            this.tclTraza.Controls.Add(this.tabCrearTraza);
+            this.tclTraza.Controls.Add(this.tabModificarTraza);
+            this.tclTraza.Controls.Add(this.tabEliminarTraza);
+            this.tclTraza.Location = new System.Drawing.Point(12, 14);
+            this.tclTraza.Name = "tclTraza";
+            this.tclTraza.SelectedIndex = 0;
+            this.tclTraza.Size = new System.Drawing.Size(818, 533);
+            this.tclTraza.TabIndex = 7;
             // 
-            // tabPage1
+            // tabCrearTraza
             // 
-            this.tabPage1.Controls.Add(this.checkedListBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(810, 507);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Crear";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabCrearTraza.Controls.Add(this.clbTraCreServicios);
+            this.tabCrearTraza.Controls.Add(this.txtTraCreNombre);
+            this.tabCrearTraza.Controls.Add(this.label1);
+            this.tabCrearTraza.Controls.Add(this.label2);
+            this.tabCrearTraza.Controls.Add(this.btnTraCreAgregarServicio);
+            this.tabCrearTraza.Location = new System.Drawing.Point(4, 22);
+            this.tabCrearTraza.Name = "tabCrearTraza";
+            this.tabCrearTraza.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCrearTraza.Size = new System.Drawing.Size(810, 507);
+            this.tabCrearTraza.TabIndex = 0;
+            this.tabCrearTraza.Text = "Crear";
+            this.tabCrearTraza.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox2
+            // clbTraCreServicios
             // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(202, 72);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(372, 424);
-            this.checkedListBox2.TabIndex = 6;
+            this.clbTraCreServicios.FormattingEnabled = true;
+            this.clbTraCreServicios.Location = new System.Drawing.Point(202, 72);
+            this.clbTraCreServicios.Name = "clbTraCreServicios";
+            this.clbTraCreServicios.Size = new System.Drawing.Size(372, 424);
+            this.clbTraCreServicios.TabIndex = 6;
             // 
-            // tabPage2
+            // tabModificarTraza
             // 
-            this.tabPage2.Controls.Add(this.checkedListBox1);
-            this.tabPage2.Controls.Add(this.listBox2);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(810, 507);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabModificarTraza.Controls.Add(this.clbTraModServicios);
+            this.tabModificarTraza.Controls.Add(this.lstTraModTrazas);
+            this.tabModificarTraza.Controls.Add(this.txtTraModNombre);
+            this.tabModificarTraza.Controls.Add(this.label4);
+            this.tabModificarTraza.Controls.Add(this.label5);
+            this.tabModificarTraza.Controls.Add(this.btnTraModAgregarServicio);
+            this.tabModificarTraza.Controls.Add(this.label3);
+            this.tabModificarTraza.Location = new System.Drawing.Point(4, 22);
+            this.tabModificarTraza.Name = "tabModificarTraza";
+            this.tabModificarTraza.Padding = new System.Windows.Forms.Padding(3);
+            this.tabModificarTraza.Size = new System.Drawing.Size(810, 507);
+            this.tabModificarTraza.TabIndex = 1;
+            this.tabModificarTraza.Text = "Modificar";
+            this.tabModificarTraza.UseVisualStyleBackColor = true;
             // 
-            // checkedListBox1
+            // clbTraModServicios
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(429, 87);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(372, 304);
-            this.checkedListBox1.TabIndex = 14;
+            this.clbTraModServicios.FormattingEnabled = true;
+            this.clbTraModServicios.Location = new System.Drawing.Point(412, 84);
+            this.clbTraModServicios.Name = "clbTraModServicios";
+            this.clbTraModServicios.Size = new System.Drawing.Size(372, 304);
+            this.clbTraModServicios.TabIndex = 14;
             // 
-            // listBox2
+            // lstTraModTrazas
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(9, 32);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(373, 459);
-            this.listBox2.TabIndex = 12;
+            this.lstTraModTrazas.FormattingEnabled = true;
+            this.lstTraModTrazas.Location = new System.Drawing.Point(9, 32);
+            this.lstTraModTrazas.Name = "lstTraModTrazas";
+            this.lstTraModTrazas.Size = new System.Drawing.Size(373, 459);
+            this.lstTraModTrazas.TabIndex = 12;
             // 
-            // textBox2
+            // txtTraModNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(482, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(319, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtTraModNombre.Location = new System.Drawing.Point(504, 29);
+            this.txtTraModNombre.Name = "txtTraModNombre";
+            this.txtTraModNombre.Size = new System.Drawing.Size(280, 20);
+            this.txtTraModNombre.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(426, 35);
+            this.label4.Location = new System.Drawing.Point(409, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Nombre";
+            this.label4.Text = "Nombre de Traza";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(426, 68);
+            this.label5.Location = new System.Drawing.Point(409, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.Size = new System.Drawing.Size(159, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Servicios";
+            this.label5.Text = "Listado de Servicios Disponibles";
             // 
-            // button5
+            // btnTraModAgregarServicio
             // 
-            this.button5.Location = new System.Drawing.Point(427, 393);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Agregar Servicio";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnTraModAgregarServicio.Location = new System.Drawing.Point(412, 394);
+            this.btnTraModAgregarServicio.Name = "btnTraModAgregarServicio";
+            this.btnTraModAgregarServicio.Size = new System.Drawing.Size(100, 23);
+            this.btnTraModAgregarServicio.TabIndex = 9;
+            this.btnTraModAgregarServicio.Text = "Agregar Servicio";
+            this.btnTraModAgregarServicio.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Listado Trazas";
+            this.label3.Text = "Listado de Trazas Disponibles";
             // 
-            // tabPage3
+            // tabEliminarTraza
             // 
-            this.tabPage3.Controls.Add(this.listBox3);
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(810, 507);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabEliminarTraza.Controls.Add(this.lstTraEliTrazas);
+            this.tabEliminarTraza.Controls.Add(this.btnTraElBorrarTraza);
+            this.tabEliminarTraza.Controls.Add(this.label6);
+            this.tabEliminarTraza.Location = new System.Drawing.Point(4, 22);
+            this.tabEliminarTraza.Name = "tabEliminarTraza";
+            this.tabEliminarTraza.Padding = new System.Windows.Forms.Padding(3);
+            this.tabEliminarTraza.Size = new System.Drawing.Size(810, 507);
+            this.tabEliminarTraza.TabIndex = 2;
+            this.tabEliminarTraza.Text = "Eliminar";
+            this.tabEliminarTraza.UseVisualStyleBackColor = true;
             // 
-            // listBox3
+            // lstTraEliTrazas
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(203, 41);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(373, 446);
-            this.listBox3.TabIndex = 15;
+            this.lstTraEliTrazas.FormattingEnabled = true;
+            this.lstTraEliTrazas.Location = new System.Drawing.Point(203, 41);
+            this.lstTraEliTrazas.Name = "lstTraEliTrazas";
+            this.lstTraEliTrazas.Size = new System.Drawing.Size(373, 446);
+            this.lstTraEliTrazas.TabIndex = 15;
             // 
-            // button8
+            // btnTraElBorrarTraza
             // 
-            this.button8.Location = new System.Drawing.Point(582, 41);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 23);
-            this.button8.TabIndex = 14;
-            this.button8.Text = "Borrar Traza";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnTraElBorrarTraza.Location = new System.Drawing.Point(582, 41);
+            this.btnTraElBorrarTraza.Name = "btnTraElBorrarTraza";
+            this.btnTraElBorrarTraza.Size = new System.Drawing.Size(100, 23);
+            this.btnTraElBorrarTraza.TabIndex = 14;
+            this.btnTraElBorrarTraza.Text = "Borrar Traza";
+            this.btnTraElBorrarTraza.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(200, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Listado Trazas";
+            this.label6.Text = "Listado de Trazas";
             // 
             // pnlTraza
             // 
-            this.pnlTraza.Controls.Add(this.Buscar);
-            this.pnlTraza.Controls.Add(this.button2);
-            this.pnlTraza.Controls.Add(this.button3);
-            this.pnlTraza.Controls.Add(this.button4);
-            this.pnlTraza.Location = new System.Drawing.Point(38, 28);
+            this.pnlTraza.Controls.Add(this.tclTraza);
+            this.pnlTraza.Controls.Add(this.btnTraLimpiar);
+            this.pnlTraza.Controls.Add(this.btnTraCancelar);
+            this.pnlTraza.Controls.Add(this.btnTraAceptar);
+            this.pnlTraza.Location = new System.Drawing.Point(12, 12);
             this.pnlTraza.Name = "pnlTraza";
             this.pnlTraza.Size = new System.Drawing.Size(840, 588);
             this.pnlTraza.TabIndex = 7;
@@ -284,17 +287,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 667);
+            this.ClientSize = new System.Drawing.Size(858, 609);
             this.Controls.Add(this.pnlTraza);
             this.Name = "frmABMTraza";
             this.Text = "Traza";
-            this.Buscar.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tclTraza.ResumeLayout(false);
+            this.tabCrearTraza.ResumeLayout(false);
+            this.tabCrearTraza.PerformLayout();
+            this.tabModificarTraza.ResumeLayout(false);
+            this.tabModificarTraza.PerformLayout();
+            this.tabEliminarTraza.ResumeLayout(false);
+            this.tabEliminarTraza.PerformLayout();
             this.pnlTraza.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -304,26 +307,26 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TabControl Buscar;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTraCreNombre;
+        private System.Windows.Forms.Button btnTraCreAgregarServicio;
+        private System.Windows.Forms.Button btnTraLimpiar;
+        private System.Windows.Forms.Button btnTraCancelar;
+        private System.Windows.Forms.Button btnTraAceptar;
+        private System.Windows.Forms.TabControl tclTraza;
+        private System.Windows.Forms.TabPage tabCrearTraza;
+        private System.Windows.Forms.TabPage tabModificarTraza;
+        private System.Windows.Forms.TextBox txtTraModNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnTraModAgregarServicio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ListBox lstTraModTrazas;
+        private System.Windows.Forms.TabPage tabEliminarTraza;
+        private System.Windows.Forms.ListBox lstTraEliTrazas;
+        private System.Windows.Forms.Button btnTraElBorrarTraza;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox clbTraCreServicios;
+        private System.Windows.Forms.CheckedListBox clbTraModServicios;
         public System.Windows.Forms.Panel pnlTraza;
     }
 }
