@@ -326,8 +326,6 @@ namespace ffccSimulacion.ABMEstacion
 
             cmbEstModFdp.SelectedIndex = estacionSeleccionada.TipoFDP;
 
-            //ver porque no funciona es método
-            //clbModIncidentes.ClearSelected();
             for (int i = 0; i < clbModIncidentes.Items.Count; i++)
             {
                 clbModIncidentes.SetItemChecked(i, false);

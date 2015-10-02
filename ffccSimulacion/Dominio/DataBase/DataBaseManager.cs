@@ -773,8 +773,8 @@ namespace ffccSimulacion.Dominio.DataBase
         /*Esta funcion la utilizo para hacer pruebas contra la base. No se usa en el modelo*/
         public void PruebasBD()
         {
-            int id_objeto;
-            int resultado = 0;
+            //int id_objeto;
+            //int resultado = 0;
             /*Prueba Guardar nuevo Coche*/
             /*Coche LocomotoraNuevo = new Coche("LocoQueen", true, TipoConsumo.Disel, 50, 20, 0, 0, 0);
             id_objeto = GuardarNuevoCoche(LocomotoraNuevo);

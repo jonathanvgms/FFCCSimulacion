@@ -40,7 +40,7 @@ namespace ffccSimulacion.Modelo.DataBase
             {
                 throw new Exception("Error Insert Coche");
 
-                return -1;
+                //return -1;
             }
 
             return context.Coches.ToList().Find(x => x.Equals(coche)).Id;

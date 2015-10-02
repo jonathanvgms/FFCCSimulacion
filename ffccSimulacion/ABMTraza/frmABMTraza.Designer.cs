@@ -189,6 +189,7 @@
             this.lstTraModTrazas.Name = "lstTraModTrazas";
             this.lstTraModTrazas.Size = new System.Drawing.Size(373, 459);
             this.lstTraModTrazas.TabIndex = 12;
+            this.lstTraModTrazas.SelectedIndexChanged += new System.EventHandler(this.seleccionarTraza);
             // 
             // txtTraModNombre
             // 
@@ -223,6 +224,7 @@
             this.btnTraModAgregarServicio.TabIndex = 9;
             this.btnTraModAgregarServicio.Text = "Agregar Servicio";
             this.btnTraModAgregarServicio.UseVisualStyleBackColor = true;
+            this.btnTraModAgregarServicio.Click += new System.EventHandler(this.btnTraModAgregarServicio_Click);
             // 
             // label3
             // 
@@ -262,6 +264,7 @@
             this.btnTraElBorrarTraza.TabIndex = 14;
             this.btnTraElBorrarTraza.Text = "Borrar Traza";
             this.btnTraElBorrarTraza.UseVisualStyleBackColor = true;
+            this.btnTraElBorrarTraza.Click += new System.EventHandler(this.btnTraElBorrarTraza_Click);
             // 
             // label6
             // 

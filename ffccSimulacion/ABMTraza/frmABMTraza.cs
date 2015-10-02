@@ -16,13 +16,13 @@ namespace ffccSimulacion.ABMTraza
     {
         ffccSimulacionEntities context;
 
+        Trazas trazaSeleccionada;
+
         public frmABMTraza()
         {
             InitializeComponent();
 
             context = new ffccSimulacionEntities();
-
-            Trazas trazaSeleccionada;
 
             cargarServicios();
 
@@ -44,16 +44,7 @@ namespace ffccSimulacion.ABMTraza
          */
         private void btnTraLimpiar_Click(object sender, EventArgs e)
         {
-            txtTraCreNombre.Clear();
-
-            txtTraModNombre.Clear();
-
-            for (int i = 0; i < clbTraCreServicios.Items.Count; i++)
-            {
-                clbTraCreServicios.SetItemChecked(i, false);
-
-                clbTraModServicios.SetItemChecked(i, false);
-            }
+            limpiarFormulario();
         }
 
         /*
@@ -61,11 +52,20 @@ namespace ffccSimulacion.ABMTraza
          */
         private void btnTraCreAgregarServicio_Click(object sender, EventArgs e)
         {
-            frmABMServicio frmServicio = new frmABMServicio();
+            agregarNuevoServicio();
+        }
 
-            frmServicio.ShowDialog(this);
+        private void btnTraModAgregarServicio_Click(object sender, EventArgs e)
+        {
+            agregarNuevoServicio();
+        }
 
-            cargarServicios();
+        /*
+         * Accion al pulsar 'Borrar Traza'
+         */ 
+        private void btnTraElBorrarTraza_Click(object sender, EventArgs e)
+        {
+            eliminarTraza();
         }
 
         /*
@@ -77,7 +77,7 @@ namespace ffccSimulacion.ABMTraza
             {
                 agregarTraza();
             }
-            else
+            else if (tclTraza.SelectedTab == tabModificarTraza)
             {
                 modificarTraza();
             }
@@ -85,10 +85,10 @@ namespace ffccSimulacion.ABMTraza
 
         #endregion
 
-        #region ABM Traza
+        #region Casos de Uso
 
         /*
-         * Accion que se realiza cuando se agrega una Nueva Traza a la Base De Datos
+         * Caso de Uso: 'Agregar Traza'
          */ 
         private void agregarTraza()
         {
@@ -99,43 +99,117 @@ namespace ffccSimulacion.ABMTraza
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
             }
 
-            try
+            if (clbTraCreServicios.CheckedItems.Count == 0)
             {
-                Trazas nuevaTraza = new Trazas();
-
-                nuevaTraza.Nombre = txtTraCreNombre.Text;
-
-                foreach (var servicio in clbTraCreServicios.CheckedItems)
-                {
-                    nuevaTraza.AgregarServicio(context.Servicios.Where(x => x.Nombre == servicio).FirstOrDefault());
-                }
-
-                context.Trazas.Add(nuevaTraza);
-
-                cargarTrazas();
-
-                MessageBox.Show("Traza Guardada");
+                errorStr += "Servicios: Seleccionar";
             }
-            catch(Exception exc)
-            {
 
+            if (errorStr.Length == 0)
+            {
+                try
+                {
+                    Trazas nuevaTraza = new Trazas();
+
+                    nuevaTraza.Nombre = txtTraCreNombre.Text;
+
+                    foreach (var servicio in clbTraCreServicios.CheckedItems)
+                    {
+                        nuevaTraza.AgregarServicio(context.Servicios.Where(x => x.Nombre == servicio.ToString()).FirstOrDefault());
+                    }
+
+                    context.Trazas.Add(nuevaTraza);
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Traza Guardada");
+
+                    cargarTrazas();
+
+                    limpiarFormulario();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorStr);
             }
         }
 
         /*
-         * Accion que se realiza cuando se modificar una Traza Existente en la Base de Datos
+         * Caso de Uso: 'Modificar Traza'
          */
         private void modificarTraza()
         {
-            throw new NotImplementedException();
-        }
+            string errorStr = "";
 
+            if (!Util.EsAlfaNumerico(txtTraModNombre.Text))
+            {
+                errorStr += "Nombre: Incompleto/Incorrecto\n";
+            }
+
+            if (clbTraModServicios.CheckedItems.Count == 0)
+            {
+                errorStr += "Servicio: Seleccionar";
+            }
+
+            if (errorStr.Length == 0)
+            {
+                try
+                {
+                    trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraModTrazas.SelectedItem.ToString()).FirstOrDefault();
+
+                    trazaSeleccionada.Nombre = txtTraModNombre.Text;
+
+                    context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
+
+                    foreach (var servicios in clbTraModServicios.CheckedItems)
+                    {
+                        trazaSeleccionada.AgregarServicio(context.Servicios.Where(x => x.Nombre == servicios.ToString()).FirstOrDefault());
+                    }
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Traza Guardada");
+
+                    cargarTrazas();
+
+                    limpiarFormulario();
+                }
+                catch(Exception exc)
+                {
+                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorStr);
+            }
+        }
+        
         /*
-         * Accion que se realiza cuando se elimina una Traza Existente en la Base de Datos
+         * Caso de Uso: 'Eliminar Traza'
          */
         private void eliminarTraza()
         {
-            throw new NotImplementedException();
+            try
+            {
+                trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraEliTrazas.SelectedItem.ToString()).FirstOrDefault();
+
+                context.Trazas.Remove(trazaSeleccionada);
+
+                context.SaveChanges();
+
+                MessageBox.Show("Traza Eliminada");
+
+                cargarTrazas();
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("Traza No Eliminada\n\nCausa: Hay Servicios Asignados a esta Traza");
+            }
         }
 
         #endregion
@@ -160,5 +234,53 @@ namespace ffccSimulacion.ABMTraza
         }
 
         #endregion
+
+        #region Metodos Auxiliares
+
+        /*
+         * Evento que sucede cuando se selecciona una Traza de la lista
+         */
+        private void seleccionarTraza(object sender, EventArgs e)
+        {
+            trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraModTrazas.SelectedItem.ToString()).FirstOrDefault();
+
+            txtTraModNombre.Text = trazaSeleccionada.Nombre;
+
+            for (int i = 0; i < clbTraModServicios.Items.Count; i++)
+            {
+                clbTraModServicios.SetItemChecked(i, false);
+            }
+
+            foreach (var servicio in trazaSeleccionada.ServiciosDisponibles)
+            {
+                clbTraModServicios.SetItemChecked(clbTraModServicios.Items.IndexOf(servicio.Nombre), true);
+            }
+        }
+
+        private void agregarNuevoServicio()
+        {
+            frmABMServicio frmServicio = new frmABMServicio();
+
+            frmServicio.ShowDialog(this);
+
+            cargarServicios();
+        }
+
+        private void limpiarFormulario()
+        {
+            txtTraCreNombre.Clear();
+
+            txtTraModNombre.Clear();
+
+            for (int i = 0; i < clbTraCreServicios.Items.Count; i++)
+            {
+                clbTraCreServicios.SetItemChecked(i, false);
+
+                clbTraModServicios.SetItemChecked(i, false);
+            }
+        }
+
+        #endregion
+               
     }
 }
