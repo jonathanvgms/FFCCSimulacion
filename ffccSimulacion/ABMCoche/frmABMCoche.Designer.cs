@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModeloMod = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbxTipoConsumoMod = new System.Windows.Forms.ComboBox();
+            this.rdbLocomotoraNoMod = new System.Windows.Forms.RadioButton();
+            this.txtConsumoParadoMod = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.txtConsumoMovimientoMod = new System.Windows.Forms.TextBox();
+            this.rdbLocomotoraSiMod = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.btnCocheNuevoLimpiar = new System.Windows.Forms.Button();
+            this.txtCantidadAsientosMod = new System.Windows.Forms.TextBox();
+            this.txtCapacidadLegalMod = new System.Windows.Forms.TextBox();
+            this.txtCapacidadRealMod = new System.Windows.Forms.TextBox();
+            this.btnCocheLimpiar = new System.Windows.Forms.Button();
             this.btnCocheNuevoAceptar = new System.Windows.Forms.Button();
             this.btnCocheNuevoCancelar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -93,21 +93,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Modelo";
             // 
-            // textBox1
+            // txtModeloMod
             // 
-            this.textBox1.Location = new System.Drawing.Point(520, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtModeloMod.Location = new System.Drawing.Point(520, 68);
+            this.txtModeloMod.Name = "txtModeloMod";
+            this.txtModeloMod.Size = new System.Drawing.Size(200, 20);
+            this.txtModeloMod.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.cbxTipoConsumoMod);
+            this.groupBox1.Controls.Add(this.rdbLocomotoraNoMod);
+            this.groupBox1.Controls.Add(this.txtConsumoParadoMod);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.txtConsumoMovimientoMod);
+            this.groupBox1.Controls.Add(this.rdbLocomotoraSiMod);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(381, 115);
@@ -117,37 +117,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Locomotora";
             // 
-            // comboBox1
+            // cbxTipoConsumoMod
             // 
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cbxTipoConsumoMod.AutoCompleteCustomSource.AddRange(new string[] {
             "Electrico",
             "Diesel"});
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbxTipoConsumoMod.FormattingEnabled = true;
+            this.cbxTipoConsumoMod.Items.AddRange(new object[] {
             "Electrico",
             "Disel"});
-            this.comboBox1.Location = new System.Drawing.Point(139, 44);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbxTipoConsumoMod.Location = new System.Drawing.Point(139, 44);
+            this.cbxTipoConsumoMod.Name = "cbxTipoConsumoMod";
+            this.cbxTipoConsumoMod.Size = new System.Drawing.Size(200, 21);
+            this.cbxTipoConsumoMod.TabIndex = 2;
             // 
-            // radioButton2
+            // rdbLocomotoraNoMod
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(47, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbLocomotoraNoMod.AutoSize = true;
+            this.rdbLocomotoraNoMod.Location = new System.Drawing.Point(47, 19);
+            this.rdbLocomotoraNoMod.Name = "rdbLocomotoraNoMod";
+            this.rdbLocomotoraNoMod.Size = new System.Drawing.Size(39, 17);
+            this.rdbLocomotoraNoMod.TabIndex = 0;
+            this.rdbLocomotoraNoMod.TabStop = true;
+            this.rdbLocomotoraNoMod.Text = "No";
+            this.rdbLocomotoraNoMod.UseVisualStyleBackColor = true;
+            this.rdbLocomotoraNoMod.CheckedChanged += new System.EventHandler(this.rdbLocomotoraNoMod_CheckedChanged);
             // 
-            // textBox3
+            // txtConsumoParadoMod
             // 
-            this.textBox3.Location = new System.Drawing.Point(139, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 1;
+            this.txtConsumoParadoMod.Location = new System.Drawing.Point(139, 117);
+            this.txtConsumoParadoMod.Name = "txtConsumoParadoMod";
+            this.txtConsumoParadoMod.Size = new System.Drawing.Size(200, 20);
+            this.txtConsumoParadoMod.TabIndex = 1;
             // 
             // label4
             // 
@@ -158,23 +159,24 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Tipo Consumo";
             // 
-            // textBox2
+            // txtConsumoMovimientoMod
             // 
-            this.textBox2.Location = new System.Drawing.Point(139, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtConsumoMovimientoMod.Location = new System.Drawing.Point(139, 81);
+            this.txtConsumoMovimientoMod.Name = "txtConsumoMovimientoMod";
+            this.txtConsumoMovimientoMod.Size = new System.Drawing.Size(200, 20);
+            this.txtConsumoMovimientoMod.TabIndex = 1;
             // 
-            // radioButton1
+            // rdbLocomotoraSiMod
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(34, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Si";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbLocomotoraSiMod.AutoSize = true;
+            this.rdbLocomotoraSiMod.Location = new System.Drawing.Point(7, 20);
+            this.rdbLocomotoraSiMod.Name = "rdbLocomotoraSiMod";
+            this.rdbLocomotoraSiMod.Size = new System.Drawing.Size(34, 17);
+            this.rdbLocomotoraSiMod.TabIndex = 0;
+            this.rdbLocomotoraSiMod.TabStop = true;
+            this.rdbLocomotoraSiMod.Text = "Si";
+            this.rdbLocomotoraSiMod.UseVisualStyleBackColor = true;
+            this.rdbLocomotoraSiMod.CheckedChanged += new System.EventHandler(this.rdbLocomotoraSiMod_CheckedChanged);
             // 
             // label3
             // 
@@ -203,36 +205,36 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Cantidad de Asientos";
             // 
-            // textBox4
+            // txtCantidadAsientosMod
             // 
-            this.textBox4.Location = new System.Drawing.Point(520, 300);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 1;
+            this.txtCantidadAsientosMod.Location = new System.Drawing.Point(520, 300);
+            this.txtCantidadAsientosMod.Name = "txtCantidadAsientosMod";
+            this.txtCantidadAsientosMod.Size = new System.Drawing.Size(200, 20);
+            this.txtCantidadAsientosMod.TabIndex = 1;
             // 
-            // textBox5
+            // txtCapacidadLegalMod
             // 
-            this.textBox5.Location = new System.Drawing.Point(520, 347);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 1;
+            this.txtCapacidadLegalMod.Location = new System.Drawing.Point(520, 347);
+            this.txtCapacidadLegalMod.Name = "txtCapacidadLegalMod";
+            this.txtCapacidadLegalMod.Size = new System.Drawing.Size(200, 20);
+            this.txtCapacidadLegalMod.TabIndex = 1;
             // 
-            // textBox6
+            // txtCapacidadRealMod
             // 
-            this.textBox6.Location = new System.Drawing.Point(520, 393);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 20);
-            this.textBox6.TabIndex = 1;
+            this.txtCapacidadRealMod.Location = new System.Drawing.Point(520, 393);
+            this.txtCapacidadRealMod.Name = "txtCapacidadRealMod";
+            this.txtCapacidadRealMod.Size = new System.Drawing.Size(200, 20);
+            this.txtCapacidadRealMod.TabIndex = 1;
             // 
-            // btnCocheNuevoLimpiar
+            // btnCocheLimpiar
             // 
-            this.btnCocheNuevoLimpiar.Location = new System.Drawing.Point(15, 545);
-            this.btnCocheNuevoLimpiar.Name = "btnCocheNuevoLimpiar";
-            this.btnCocheNuevoLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnCocheNuevoLimpiar.TabIndex = 3;
-            this.btnCocheNuevoLimpiar.Text = "Limpiar";
-            this.btnCocheNuevoLimpiar.UseVisualStyleBackColor = true;
-            this.btnCocheNuevoLimpiar.Click += new System.EventHandler(this.btnCocheNuevoLimpiar_Click);
+            this.btnCocheLimpiar.Location = new System.Drawing.Point(15, 545);
+            this.btnCocheLimpiar.Name = "btnCocheLimpiar";
+            this.btnCocheLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnCocheLimpiar.TabIndex = 3;
+            this.btnCocheLimpiar.Text = "Limpiar";
+            this.btnCocheLimpiar.UseVisualStyleBackColor = true;
+            this.btnCocheLimpiar.Click += new System.EventHandler(this.btnCocheLimpiar_Click);
             // 
             // btnCocheNuevoAceptar
             // 
@@ -449,13 +451,13 @@
             this.tabModificar.Controls.Add(this.label6);
             this.tabModificar.Controls.Add(this.label7);
             this.tabModificar.Controls.Add(this.lbxCochesModificar);
-            this.tabModificar.Controls.Add(this.textBox1);
+            this.tabModificar.Controls.Add(this.txtModeloMod);
             this.tabModificar.Controls.Add(this.label1);
             this.tabModificar.Controls.Add(this.label5);
             this.tabModificar.Controls.Add(this.groupBox1);
-            this.tabModificar.Controls.Add(this.textBox6);
-            this.tabModificar.Controls.Add(this.textBox4);
-            this.tabModificar.Controls.Add(this.textBox5);
+            this.tabModificar.Controls.Add(this.txtCapacidadRealMod);
+            this.tabModificar.Controls.Add(this.txtCantidadAsientosMod);
+            this.tabModificar.Controls.Add(this.txtCapacidadLegalMod);
             this.tabModificar.Location = new System.Drawing.Point(4, 22);
             this.tabModificar.Name = "tabModificar";
             this.tabModificar.Padding = new System.Windows.Forms.Padding(3);
@@ -499,6 +501,7 @@
             this.lbxCochesModificar.Name = "lbxCochesModificar";
             this.lbxCochesModificar.Size = new System.Drawing.Size(336, 446);
             this.lbxCochesModificar.TabIndex = 3;
+            this.lbxCochesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxCochesModificar_SelectedIndexChanged);
             // 
             // tabEliminar
             // 
@@ -544,7 +547,7 @@
             // pnlCoche
             // 
             this.pnlCoche.Controls.Add(this.tabControl1);
-            this.pnlCoche.Controls.Add(this.btnCocheNuevoLimpiar);
+            this.pnlCoche.Controls.Add(this.btnCocheLimpiar);
             this.pnlCoche.Controls.Add(this.btnCocheNuevoCancelar);
             this.pnlCoche.Controls.Add(this.btnCocheNuevoAceptar);
             this.pnlCoche.Location = new System.Drawing.Point(29, 29);
@@ -579,21 +582,21 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModeloMod;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbLocomotoraNoMod;
+        private System.Windows.Forms.TextBox txtConsumoMovimientoMod;
+        private System.Windows.Forms.RadioButton rdbLocomotoraSiMod;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cbxTipoConsumoMod;
+        private System.Windows.Forms.TextBox txtConsumoParadoMod;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button btnCocheNuevoLimpiar;
+        private System.Windows.Forms.TextBox txtCantidadAsientosMod;
+        private System.Windows.Forms.TextBox txtCapacidadLegalMod;
+        private System.Windows.Forms.TextBox txtCapacidadRealMod;
+        private System.Windows.Forms.Button btnCocheLimpiar;
         private System.Windows.Forms.Button btnCocheNuevoAceptar;
         private System.Windows.Forms.Button btnCocheNuevoCancelar;
         private System.Windows.Forms.TabControl tabControl1;

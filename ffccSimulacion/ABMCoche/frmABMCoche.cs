@@ -21,6 +21,7 @@ namespace ffccSimulacion.ABMCoche
             InitializeComponent();
 
             context = new ffccSimulacionEntities();
+            
             rndEsLocomotoraNo.Checked = true;
             cbxTipoConsumo.Enabled = false;
             txtConsumoMov.Enabled = false;
@@ -38,6 +39,8 @@ namespace ffccSimulacion.ABMCoche
         {
             if (tabControl1.SelectedTab == tabCrear)
                 GuardarNuevoCoche();
+            if (tabControl1.SelectedTab == tabModificar)
+                GuardarModificacionesCoche();
         }
         
         private void GuardarNuevoCoche()
@@ -88,6 +91,7 @@ namespace ffccSimulacion.ABMCoche
                     {
                         nuevoCoche.EsLocomotora = 0;
                         nuevoCoche.ConsumoMovimiento = 0;
+                        nuevoCoche.TipoConsumo = 0;
                         nuevoCoche.ConsumoParado = 0;
                     }
                     nuevoCoche.CantidadAsientos = Convert.ToInt32(txtCantidadAsientos.Text);
@@ -112,6 +116,73 @@ namespace ffccSimulacion.ABMCoche
             }
         }
 
+        public void GuardarModificacionesCoche()
+        {
+            string errorMsj = "";
+
+            if(!Util.EsAlfaNumerico(txtModeloMod.Text))
+                errorMsj += "Modelo: Incompleto/Incorrecto.\n";
+            if(rdbLocomotoraSiMod.Checked)
+            {
+                if (cbxTipoConsumoMod.SelectedItem == "")
+                    errorMsj += "Tipo de consumo: Incompleto/Incorrecto.\n";
+                if(!Util.EsNumerico(txtConsumoMovimientoMod.Text))
+                    errorMsj += "Consumo en movimiento: Incompleto/Incorrecto.\n";
+                if(!Util.EsNumerico(txtConsumoParadoMod.Text))
+                    errorMsj += "Consumo parado: Incompleto/Incorrecto.\n";
+            }
+            if(!Util.EsNumerico(txtCantidadAsientosMod.Text))
+                errorMsj += "Cantidad de asientos: Incompleto/Incorrecto.\n";
+            if(!Util.EsNumerico(txtCapacidadLegalMod.Text))
+                errorMsj += "Capacidad máxima legal: Incompleto/Incorrecto.\n";
+            if(!Util.EsNumerico(txtCapacidadRealMod.Text))
+                errorMsj += "Capacidad máxima real: Incompleto/Incorrecto.\n";
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                try
+                {
+                    Coches cocheSeleccionado = (Coches)lbxCochesModificar.SelectedItem;
+                    cocheSeleccionado.Modelo = txtModeloMod.Text;
+
+                    if (rdbLocomotoraSiMod.Checked)
+                    {
+                        cocheSeleccionado.EsLocomotora = 1;
+                        if (cbxTipoConsumoMod.SelectedItem == "Disel")
+                            cocheSeleccionado.TipoConsumo = (int)TipoConsumo.Disel;
+                        else
+                            cocheSeleccionado.TipoConsumo = (int)TipoConsumo.Electrico;
+                        cocheSeleccionado.ConsumoMovimiento = Convert.ToInt32(txtConsumoMovimientoMod.Text);
+                        cocheSeleccionado.ConsumoParado = Convert.ToInt32(txtConsumoParadoMod.Text);
+                    }
+                    else
+                    {
+                        cocheSeleccionado.EsLocomotora = 0;
+                        cocheSeleccionado.ConsumoMovimiento = 0;
+                        cocheSeleccionado.ConsumoParado = 0;
+                        cocheSeleccionado.TipoConsumo = 0;
+                    }
+
+                    cocheSeleccionado.CantidadAsientos = Convert.ToInt32(txtCantidadAsientosMod.Text);
+                    cocheSeleccionado.MaximoLegalPasajeros = Convert.ToInt32(txtCapacidadLegalMod.Text);
+                    cocheSeleccionado.CapacidadMaximaPasajeros = Convert.ToInt32(txtCapacidadRealMod.Text);
+
+                    context.SaveChanges();
+
+                    lbxCochesModificar.Items.Clear();
+                    lbxCochesBorrar.Items.Clear();
+                    cargarCochesEnListas();
+
+                    MessageBox.Show("Las modificaciones se han guardado exitosamente.\n");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("No se Guardo el Coche \n\n" + exc.ToString());
+                }
+            }
+            else
+                MessageBox.Show(errorMsj);
+        }
+
         private void rndEsLocomotoraSi_CheckedChanged(object sender, EventArgs e)
         {
             if (rndEsLocomotoraSi.Checked)
@@ -129,13 +200,13 @@ namespace ffccSimulacion.ABMCoche
 
         }
 
-        private void btnCocheNuevoLimpiar_Click(object sender, EventArgs e)
+        private void btnCocheLimpiar_Click(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tabCrear)
                 LimpiarTabNuevoCoche();
 
-            /*if (tabControl1.SelectedTab == tabEliminar)
-                context.SaveChanges();*/
+            if (tabControl1.SelectedTab == tabModificar)
+                LimpiarTabModificarCoche();
         }
 
         private void LimpiarTabNuevoCoche()
@@ -151,6 +222,21 @@ namespace ffccSimulacion.ABMCoche
             cbxTipoConsumo.Enabled = false;
             txtConsumoMov.Enabled = false;
             txtConsumoParado.Enabled = false;
+        }
+
+        private void LimpiarTabModificarCoche()
+        {
+            txtModeloMod.Text = "";
+            rdbLocomotoraNoMod.Checked = true;
+            cbxTipoConsumoMod.SelectedItem = "";
+            txtConsumoMovimientoMod.Text = "";
+            txtConsumoParadoMod.Text = "";
+            txtCantidadAsientosMod.Text = "";
+            txtCapacidadLegalMod.Text = "";
+            txtCapacidadRealMod.Text = "";
+            cbxTipoConsumoMod.Enabled = false;
+            txtConsumoMovimientoMod.Enabled = false;
+            txtConsumoParadoMod.Enabled = false;
         }
 
         private void cargarCochesEnListas()
@@ -189,6 +275,53 @@ namespace ffccSimulacion.ABMCoche
             {
                 MessageBox.Show("No se borro el Coche \n\n" + exc.ToString());
             }
+        }
+
+        private void lbxCochesModificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Coches unCoche = (Coches)lbxCochesModificar.SelectedItem;
+            txtModeloMod.Text = unCoche.Modelo;
+            if (unCoche.EsLocomotora == 1)
+            {
+                rdbLocomotoraSiMod.Checked = true;
+
+                if (unCoche.TipoConsumo == (int)TipoConsumo.Disel)
+                    cbxTipoConsumoMod.SelectedItem = "Disel";
+                else
+                    cbxTipoConsumoMod.SelectedItem = "Electrico";
+
+                txtConsumoMovimientoMod.Text = unCoche.ConsumoMovimiento.ToString();
+                txtConsumoParadoMod.Text = unCoche.ConsumoParado.ToString();
+
+            }
+            else
+            {
+                rdbLocomotoraNoMod.Checked = true;
+                cbxTipoConsumoMod.SelectedIndex = -1;
+                txtConsumoMovimientoMod.Text = "0";
+                txtConsumoParadoMod.Text = "0";
+            }
+
+            txtCantidadAsientosMod.Text = unCoche.CantidadAsientos.ToString();
+            txtCapacidadLegalMod.Text = unCoche.MaximoLegalPasajeros.ToString();
+            txtCapacidadRealMod.Text = unCoche.CapacidadMaximaPasajeros.ToString();
+        }
+
+        private void rdbLocomotoraSiMod_CheckedChanged(object sender, EventArgs e)
+        {
+            cbxTipoConsumoMod.Enabled = true;
+            txtConsumoMovimientoMod.Enabled = true;
+            txtConsumoParadoMod.Enabled = true;
+        }
+
+        private void rdbLocomotoraNoMod_CheckedChanged(object sender, EventArgs e)
+        {
+            cbxTipoConsumoMod.Enabled = false;
+            cbxTipoConsumoMod.SelectedIndex = -1;
+            txtConsumoMovimientoMod.Enabled = false;
+            txtConsumoMovimientoMod.Text = "";
+            txtConsumoParadoMod.Enabled = false;
+            txtConsumoParadoMod.Text = "";
         }
 
     }
