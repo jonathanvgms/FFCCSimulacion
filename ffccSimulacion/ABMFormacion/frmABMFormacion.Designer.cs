@@ -53,21 +53,17 @@
             this.lbxCochesFormacion = new System.Windows.Forms.ListBox();
             this.lbxCochesExistentes = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tabModificarFormacion = new System.Windows.Forms.TabPage();
+            this.txtCantidadCochesMod = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtNombreFormacionMod = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.btnEliminarCocheMod = new System.Windows.Forms.Button();
+            this.btnAgregarCocheMod = new System.Windows.Forms.Button();
+            this.lbxCochesFormacionMod = new System.Windows.Forms.ListBox();
+            this.lbxCochesExistentesMod = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lbxFormacionesModificar = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -79,9 +75,21 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pnlFormacion = new System.Windows.Forms.Panel();
+            this.txtConsumoFormacionParadoMod = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtMaximoPasajerosRealMod = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMaximoPasajerlosLegalMod = new System.Windows.Forms.TextBox();
+            this.txtTotalAsientosMod = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtTotalCochesMod = new System.Windows.Forms.TextBox();
+            this.txtConsumoFormacionMovMod = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabCrearFormacion.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabModificarFormacion.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.pnlFormacion.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +97,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabCrearFormacion);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabModificarFormacion);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 14);
             this.tabControl1.Name = "tabControl1";
@@ -337,40 +345,47 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Coches Existentes";
             // 
-            // tabPage2
+            // tabModificarFormacion
             // 
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.textBox7);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.textBox8);
-            this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.button9);
-            this.tabPage2.Controls.Add(this.listBox3);
-            this.tabPage2.Controls.Add(this.listBox4);
-            this.tabPage2.Controls.Add(this.label14);
-            this.tabPage2.Controls.Add(this.lbxFormacionesModificar);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1161, 462);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modificar";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabModificarFormacion.Controls.Add(this.txtConsumoFormacionParadoMod);
+            this.tabModificarFormacion.Controls.Add(this.label4);
+            this.tabModificarFormacion.Controls.Add(this.txtMaximoPasajerosRealMod);
+            this.tabModificarFormacion.Controls.Add(this.label6);
+            this.tabModificarFormacion.Controls.Add(this.txtMaximoPasajerlosLegalMod);
+            this.tabModificarFormacion.Controls.Add(this.txtTotalAsientosMod);
+            this.tabModificarFormacion.Controls.Add(this.label19);
+            this.tabModificarFormacion.Controls.Add(this.label20);
+            this.tabModificarFormacion.Controls.Add(this.txtTotalCochesMod);
+            this.tabModificarFormacion.Controls.Add(this.txtConsumoFormacionMovMod);
+            this.tabModificarFormacion.Controls.Add(this.label21);
+            this.tabModificarFormacion.Controls.Add(this.label22);
+            this.tabModificarFormacion.Controls.Add(this.txtCantidadCochesMod);
+            this.tabModificarFormacion.Controls.Add(this.label3);
+            this.tabModificarFormacion.Controls.Add(this.button6);
+            this.tabModificarFormacion.Controls.Add(this.label12);
+            this.tabModificarFormacion.Controls.Add(this.txtNombreFormacionMod);
+            this.tabModificarFormacion.Controls.Add(this.label13);
+            this.tabModificarFormacion.Controls.Add(this.btnEliminarCocheMod);
+            this.tabModificarFormacion.Controls.Add(this.btnAgregarCocheMod);
+            this.tabModificarFormacion.Controls.Add(this.lbxCochesFormacionMod);
+            this.tabModificarFormacion.Controls.Add(this.lbxCochesExistentesMod);
+            this.tabModificarFormacion.Controls.Add(this.label14);
+            this.tabModificarFormacion.Controls.Add(this.lbxFormacionesModificar);
+            this.tabModificarFormacion.Controls.Add(this.label5);
+            this.tabModificarFormacion.Location = new System.Drawing.Point(4, 22);
+            this.tabModificarFormacion.Name = "tabModificarFormacion";
+            this.tabModificarFormacion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabModificarFormacion.Size = new System.Drawing.Size(1161, 462);
+            this.tabModificarFormacion.TabIndex = 1;
+            this.tabModificarFormacion.Text = "Modificar";
+            this.tabModificarFormacion.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtCantidadCochesMod
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(747, 156);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 50;
+            this.txtCantidadCochesMod.Location = new System.Drawing.Point(747, 156);
+            this.txtCantidadCochesMod.Name = "txtCantidadCochesMod";
+            this.txtCantidadCochesMod.Size = new System.Drawing.Size(100, 20);
+            this.txtCantidadCochesMod.TabIndex = 50;
             // 
             // label3
             // 
@@ -381,45 +396,9 @@
             this.label3.TabIndex = 49;
             this.label3.Text = "Cantidad";
             // 
-            // textBox6
-            // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(1016, 398);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 48;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(1016, 370);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 47;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(873, 401);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Total de Coches";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(873, 370);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 13);
-            this.label6.TabIndex = 45;
-            this.label6.Text = "Consumo Total Formacion";
-            // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(566, 357);
+            this.button6.Location = new System.Drawing.Point(377, 357);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(90, 23);
             this.button6.TabIndex = 44;
@@ -435,12 +414,12 @@
             this.label12.TabIndex = 43;
             this.label12.Text = "Formacíon";
             // 
-            // textBox8
+            // txtNombreFormacionMod
             // 
-            this.textBox8.Location = new System.Drawing.Point(444, 26);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(212, 20);
-            this.textBox8.TabIndex = 42;
+            this.txtNombreFormacionMod.Location = new System.Drawing.Point(444, 26);
+            this.txtNombreFormacionMod.Name = "txtNombreFormacionMod";
+            this.txtNombreFormacionMod.Size = new System.Drawing.Size(212, 20);
+            this.txtNombreFormacionMod.TabIndex = 42;
             // 
             // label13
             // 
@@ -451,39 +430,45 @@
             this.label13.TabIndex = 41;
             this.label13.Text = "Nombre";
             // 
-            // button8
+            // btnEliminarCocheMod
             // 
-            this.button8.Location = new System.Drawing.Point(712, 249);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(118, 23);
-            this.button8.TabIndex = 40;
-            this.button8.Text = "Borrar de Formación";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnEliminarCocheMod.Location = new System.Drawing.Point(712, 249);
+            this.btnEliminarCocheMod.Name = "btnEliminarCocheMod";
+            this.btnEliminarCocheMod.Size = new System.Drawing.Size(118, 23);
+            this.btnEliminarCocheMod.TabIndex = 40;
+            this.btnEliminarCocheMod.Text = "Borrar de Formación";
+            this.btnEliminarCocheMod.UseVisualStyleBackColor = true;
+            this.btnEliminarCocheMod.Click += new System.EventHandler(this.btnEliminarCocheMod_Click);
             // 
-            // button9
+            // btnAgregarCocheMod
             // 
-            this.button9.Location = new System.Drawing.Point(712, 201);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(118, 23);
-            this.button9.TabIndex = 39;
-            this.button9.Text = "Agregar a Formación";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnAgregarCocheMod.Location = new System.Drawing.Point(712, 201);
+            this.btnAgregarCocheMod.Name = "btnAgregarCocheMod";
+            this.btnAgregarCocheMod.Size = new System.Drawing.Size(118, 23);
+            this.btnAgregarCocheMod.TabIndex = 39;
+            this.btnAgregarCocheMod.Text = "Agregar a Formación";
+            this.btnAgregarCocheMod.UseVisualStyleBackColor = true;
+            this.btnAgregarCocheMod.Click += new System.EventHandler(this.btnAgregarCocheMod_Click);
             // 
-            // listBox3
+            // lbxCochesFormacionMod
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(874, 74);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(280, 277);
-            this.listBox3.TabIndex = 38;
+            this.lbxCochesFormacionMod.DisplayMember = "NombreCoche";
+            this.lbxCochesFormacionMod.FormattingEnabled = true;
+            this.lbxCochesFormacionMod.Location = new System.Drawing.Point(874, 74);
+            this.lbxCochesFormacionMod.Name = "lbxCochesFormacionMod";
+            this.lbxCochesFormacionMod.Size = new System.Drawing.Size(280, 277);
+            this.lbxCochesFormacionMod.TabIndex = 38;
+            this.lbxCochesFormacionMod.SelectedIndexChanged += new System.EventHandler(this.lbxCochesFormacionMod_SelectedIndexChanged);
             // 
-            // listBox4
+            // lbxCochesExistentesMod
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(376, 74);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(280, 277);
-            this.listBox4.TabIndex = 37;
+            this.lbxCochesExistentesMod.DisplayMember = "Modelo";
+            this.lbxCochesExistentesMod.FormattingEnabled = true;
+            this.lbxCochesExistentesMod.Location = new System.Drawing.Point(376, 74);
+            this.lbxCochesExistentesMod.Name = "lbxCochesExistentesMod";
+            this.lbxCochesExistentesMod.Size = new System.Drawing.Size(280, 277);
+            this.lbxCochesExistentesMod.TabIndex = 37;
+            this.lbxCochesExistentesMod.SelectedIndexChanged += new System.EventHandler(this.lbxCochesExistentesMod_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -502,6 +487,7 @@
             this.lbxFormacionesModificar.Name = "lbxFormacionesModificar";
             this.lbxFormacionesModificar.Size = new System.Drawing.Size(324, 316);
             this.lbxFormacionesModificar.TabIndex = 17;
+            this.lbxFormacionesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesModificar_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -593,6 +579,114 @@
             this.pnlFormacion.Size = new System.Drawing.Size(1193, 544);
             this.pnlFormacion.TabIndex = 4;
             // 
+            // txtConsumoFormacionParadoMod
+            // 
+            this.txtConsumoFormacionParadoMod.Enabled = false;
+            this.txtConsumoFormacionParadoMod.Location = new System.Drawing.Point(712, 369);
+            this.txtConsumoFormacionParadoMod.Name = "txtConsumoFormacionParadoMod";
+            this.txtConsumoFormacionParadoMod.ReadOnly = true;
+            this.txtConsumoFormacionParadoMod.Size = new System.Drawing.Size(100, 20);
+            this.txtConsumoFormacionParadoMod.TabIndex = 62;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(546, 369);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 13);
+            this.label4.TabIndex = 61;
+            this.label4.Text = "Consumo Formación Parado";
+            // 
+            // txtMaximoPasajerosRealMod
+            // 
+            this.txtMaximoPasajerosRealMod.Enabled = false;
+            this.txtMaximoPasajerosRealMod.Location = new System.Drawing.Point(994, 419);
+            this.txtMaximoPasajerosRealMod.Name = "txtMaximoPasajerosRealMod";
+            this.txtMaximoPasajerosRealMod.ReadOnly = true;
+            this.txtMaximoPasajerosRealMod.Size = new System.Drawing.Size(100, 20);
+            this.txtMaximoPasajerosRealMod.TabIndex = 60;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(828, 422);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 13);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "Máximo Real Pasajeros";
+            // 
+            // txtMaximoPasajerlosLegalMod
+            // 
+            this.txtMaximoPasajerlosLegalMod.Enabled = false;
+            this.txtMaximoPasajerlosLegalMod.Location = new System.Drawing.Point(994, 394);
+            this.txtMaximoPasajerlosLegalMod.Name = "txtMaximoPasajerlosLegalMod";
+            this.txtMaximoPasajerlosLegalMod.ReadOnly = true;
+            this.txtMaximoPasajerlosLegalMod.Size = new System.Drawing.Size(100, 20);
+            this.txtMaximoPasajerlosLegalMod.TabIndex = 56;
+            // 
+            // txtTotalAsientosMod
+            // 
+            this.txtTotalAsientosMod.Enabled = false;
+            this.txtTotalAsientosMod.Location = new System.Drawing.Point(994, 367);
+            this.txtTotalAsientosMod.Name = "txtTotalAsientosMod";
+            this.txtTotalAsientosMod.ReadOnly = true;
+            this.txtTotalAsientosMod.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalAsientosMod.TabIndex = 58;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(828, 397);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(121, 13);
+            this.label19.TabIndex = 55;
+            this.label19.Text = "Máximo Legal Pasajeros";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(828, 370);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(126, 13);
+            this.label20.TabIndex = 57;
+            this.label20.Text = "Total Asientos Formacion";
+            // 
+            // txtTotalCochesMod
+            // 
+            this.txtTotalCochesMod.Enabled = false;
+            this.txtTotalCochesMod.Location = new System.Drawing.Point(712, 422);
+            this.txtTotalCochesMod.Name = "txtTotalCochesMod";
+            this.txtTotalCochesMod.ReadOnly = true;
+            this.txtTotalCochesMod.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalCochesMod.TabIndex = 54;
+            // 
+            // txtConsumoFormacionMovMod
+            // 
+            this.txtConsumoFormacionMovMod.Enabled = false;
+            this.txtConsumoFormacionMovMod.Location = new System.Drawing.Point(712, 395);
+            this.txtConsumoFormacionMovMod.Name = "txtConsumoFormacionMovMod";
+            this.txtConsumoFormacionMovMod.ReadOnly = true;
+            this.txtConsumoFormacionMovMod.Size = new System.Drawing.Size(100, 20);
+            this.txtConsumoFormacionMovMod.TabIndex = 53;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(546, 425);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(85, 13);
+            this.label21.TabIndex = 52;
+            this.label21.Text = "Total de Coches";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(546, 395);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(160, 13);
+            this.label22.TabIndex = 51;
+            this.label22.Text = "Consumo Formación Movimiento";
+            // 
             // frmABMFormacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,8 +698,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabCrearFormacion.ResumeLayout(false);
             this.tabCrearFormacion.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabModificarFormacion.ResumeLayout(false);
+            this.tabModificarFormacion.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.pnlFormacion.ResumeLayout(false);
@@ -625,7 +719,7 @@
         private System.Windows.Forms.ListBox lbxCochesFormacion;
         private System.Windows.Forms.ListBox lbxCochesExistentes;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabModificarFormacion;
         private System.Windows.Forms.ListBox lbxFormacionesModificar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpiar;
@@ -642,20 +736,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCantidadCoches;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCantidadCochesMod;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtNombreFormacionMod;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.Button btnEliminarCocheMod;
+        private System.Windows.Forms.Button btnAgregarCocheMod;
+        private System.Windows.Forms.ListBox lbxCochesFormacionMod;
+        private System.Windows.Forms.ListBox lbxCochesExistentesMod;
         private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Panel pnlFormacion;
         private System.Windows.Forms.TextBox txtConsumoFormacionParado;
@@ -666,5 +756,17 @@
         private System.Windows.Forms.TextBox txtTotalAsientos;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtConsumoFormacionParadoMod;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtMaximoPasajerosRealMod;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMaximoPasajerlosLegalMod;
+        private System.Windows.Forms.TextBox txtTotalAsientosMod;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtTotalCochesMod;
+        private System.Windows.Forms.TextBox txtConsumoFormacionMovMod;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
     }
 }

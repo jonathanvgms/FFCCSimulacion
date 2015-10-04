@@ -21,5 +21,6 @@ namespace ffccSimulacion.Modelo
     
         public virtual Coches Coches { get; set; }
         public virtual Formaciones Formaciones { get; set; }
+        public string NombreCoche { get { return Coches.Modelo; } }
     }
 }
