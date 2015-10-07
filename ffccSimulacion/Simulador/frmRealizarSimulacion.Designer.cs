@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.pnlSimulador = new System.Windows.Forms.Panel();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lBoxSimServicios = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tbSimDuracion = new System.Windows.Forms.TextBox();
+            this.lBoxSimTrazas = new System.Windows.Forms.ListBox();
+            this.btnReaSimCargSim = new System.Windows.Forms.Button();
+            this.btnSimGuardar = new System.Windows.Forms.Button();
+            this.btnSimular = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSimFrecuencia = new System.Windows.Forms.TextBox();
+            this.tbSimNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlSimulador.SuspendLayout();
             this.SuspendLayout();
@@ -50,33 +50,35 @@
             // pnlSimulador
             // 
             this.pnlSimulador.AutoSize = true;
-            this.pnlSimulador.Controls.Add(this.listBox2);
+            this.pnlSimulador.Controls.Add(this.lBoxSimServicios);
             this.pnlSimulador.Controls.Add(this.label4);
-            this.pnlSimulador.Controls.Add(this.textBox3);
-            this.pnlSimulador.Controls.Add(this.listBox1);
-            this.pnlSimulador.Controls.Add(this.button5);
-            this.pnlSimulador.Controls.Add(this.button4);
-            this.pnlSimulador.Controls.Add(this.button3);
+            this.pnlSimulador.Controls.Add(this.tbSimDuracion);
+            this.pnlSimulador.Controls.Add(this.lBoxSimTrazas);
+            this.pnlSimulador.Controls.Add(this.btnReaSimCargSim);
+            this.pnlSimulador.Controls.Add(this.btnSimGuardar);
+            this.pnlSimulador.Controls.Add(this.btnSimular);
             this.pnlSimulador.Controls.Add(this.button2);
             this.pnlSimulador.Controls.Add(this.button1);
             this.pnlSimulador.Controls.Add(this.label5);
             this.pnlSimulador.Controls.Add(this.label3);
             this.pnlSimulador.Controls.Add(this.label2);
-            this.pnlSimulador.Controls.Add(this.textBox2);
-            this.pnlSimulador.Controls.Add(this.textBox1);
+            this.pnlSimulador.Controls.Add(this.tbSimFrecuencia);
+            this.pnlSimulador.Controls.Add(this.tbSimNombre);
             this.pnlSimulador.Controls.Add(this.label1);
             this.pnlSimulador.Location = new System.Drawing.Point(12, 12);
             this.pnlSimulador.Name = "pnlSimulador";
             this.pnlSimulador.Size = new System.Drawing.Size(888, 383);
             this.pnlSimulador.TabIndex = 14;
             // 
-            // listBox2
+            // lBoxSimServicios
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(631, 21);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(247, 290);
-            this.listBox2.TabIndex = 29;
+            this.lBoxSimServicios.DisplayMember = "Nombre";
+            this.lBoxSimServicios.FormattingEnabled = true;
+            this.lBoxSimServicios.Location = new System.Drawing.Point(631, 21);
+            this.lBoxSimServicios.Name = "lBoxSimServicios";
+            this.lBoxSimServicios.Size = new System.Drawing.Size(247, 290);
+            this.lBoxSimServicios.TabIndex = 29;
+            this.lBoxSimServicios.ValueMember = "Id";
             // 
             // label4
             // 
@@ -87,49 +89,53 @@
             this.label4.TabIndex = 27;
             this.label4.Text = "Duración";
             // 
-            // textBox3
+            // tbSimDuracion
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 186);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(194, 20);
-            this.textBox3.TabIndex = 28;
+            this.tbSimDuracion.Location = new System.Drawing.Point(125, 186);
+            this.tbSimDuracion.Name = "tbSimDuracion";
+            this.tbSimDuracion.Size = new System.Drawing.Size(194, 20);
+            this.tbSimDuracion.TabIndex = 28;
             // 
-            // listBox1
+            // lBoxSimTrazas
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(351, 21);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(247, 290);
-            this.listBox1.TabIndex = 25;
+            this.lBoxSimTrazas.DisplayMember = "Nombre";
+            this.lBoxSimTrazas.FormattingEnabled = true;
+            this.lBoxSimTrazas.Location = new System.Drawing.Point(351, 21);
+            this.lBoxSimTrazas.Name = "lBoxSimTrazas";
+            this.lBoxSimTrazas.Size = new System.Drawing.Size(247, 290);
+            this.lBoxSimTrazas.TabIndex = 25;
+            this.lBoxSimTrazas.ValueMember = "Id";
             // 
-            // button5
+            // btnReaSimCargSim
             // 
-            this.button5.AccessibleDescription = "";
-            this.button5.Location = new System.Drawing.Point(132, 355);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 23);
-            this.button5.TabIndex = 24;
-            this.button5.Text = "Cargar Simulacion";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnReaSimCargSim.AccessibleDescription = "";
+            this.btnReaSimCargSim.Location = new System.Drawing.Point(132, 355);
+            this.btnReaSimCargSim.Name = "btnReaSimCargSim";
+            this.btnReaSimCargSim.Size = new System.Drawing.Size(120, 23);
+            this.btnReaSimCargSim.TabIndex = 24;
+            this.btnReaSimCargSim.Text = "Cargar Simulacion";
+            this.btnReaSimCargSim.UseVisualStyleBackColor = true;
+            this.btnReaSimCargSim.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button4
+            // btnSimGuardar
             // 
-            this.button4.Location = new System.Drawing.Point(6, 355);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 23);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Guardar Simulacion";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSimGuardar.Location = new System.Drawing.Point(6, 355);
+            this.btnSimGuardar.Name = "btnSimGuardar";
+            this.btnSimGuardar.Size = new System.Drawing.Size(120, 23);
+            this.btnSimGuardar.TabIndex = 23;
+            this.btnSimGuardar.Text = "Guardar Simulacion";
+            this.btnSimGuardar.UseVisualStyleBackColor = true;
+            this.btnSimGuardar.Click += new System.EventHandler(this.btnSimGuardar_Click);
             // 
-            // button3
+            // btnSimular
             // 
-            this.button3.Location = new System.Drawing.Point(727, 355);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Simular";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSimular.Location = new System.Drawing.Point(727, 355);
+            this.btnSimular.Name = "btnSimular";
+            this.btnSimular.Size = new System.Drawing.Size(75, 23);
+            this.btnSimular.TabIndex = 22;
+            this.btnSimular.Text = "Simular";
+            this.btnSimular.UseVisualStyleBackColor = true;
+            this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
             // 
             // button2
             // 
@@ -178,19 +184,19 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Trazas";
             // 
-            // textBox2
+            // tbSimFrecuencia
             // 
-            this.textBox2.Location = new System.Drawing.Point(125, 148);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 20);
-            this.textBox2.TabIndex = 18;
+            this.tbSimFrecuencia.Location = new System.Drawing.Point(125, 148);
+            this.tbSimFrecuencia.Name = "tbSimFrecuencia";
+            this.tbSimFrecuencia.Size = new System.Drawing.Size(194, 20);
+            this.tbSimFrecuencia.TabIndex = 18;
             // 
-            // textBox1
+            // tbSimNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 20);
-            this.textBox1.TabIndex = 19;
+            this.tbSimNombre.Location = new System.Drawing.Point(125, 104);
+            this.tbSimNombre.Name = "tbSimNombre";
+            this.tbSimNombre.Size = new System.Drawing.Size(194, 20);
+            this.tbSimNombre.TabIndex = 19;
             // 
             // label1
             // 
@@ -220,21 +226,21 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox tbSimDuracion;
+        private System.Windows.Forms.ListBox lBoxSimTrazas;
+        private System.Windows.Forms.Button btnReaSimCargSim;
+        private System.Windows.Forms.Button btnSimGuardar;
+        private System.Windows.Forms.Button btnSimular;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSimFrecuencia;
+        private System.Windows.Forms.TextBox tbSimNombre;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Panel pnlSimulador;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox lBoxSimServicios;
 
     }
 }
