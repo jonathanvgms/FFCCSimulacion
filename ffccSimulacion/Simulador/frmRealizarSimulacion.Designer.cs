@@ -105,6 +105,7 @@
             this.lBoxSimTrazas.Size = new System.Drawing.Size(247, 290);
             this.lBoxSimTrazas.TabIndex = 25;
             this.lBoxSimTrazas.ValueMember = "Id";
+            this.lBoxSimTrazas.SelectedIndexChanged += new System.EventHandler(this.lBoxSimTrazas_SelectedIndexChanged);
             // 
             // btnReaSimCargSim
             // 

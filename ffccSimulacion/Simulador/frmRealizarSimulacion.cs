@@ -26,7 +26,7 @@ namespace ffccSimulacion.Simulador
 
             buscarTrazasDisponibles();
 
-            buscarServiciosDisponibles();
+            //buscarServiciosDisponibles();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,7 +60,9 @@ namespace ffccSimulacion.Simulador
 
             buscarTrazasDisponibles();
 
-            buscarServiciosDisponibles();
+            //buscarServiciosDisponibles();
+
+            this.lBoxSimServicios.Items.Clear();
         }
 
         private void cargarCamposSimulacion()
@@ -87,7 +89,7 @@ namespace ffccSimulacion.Simulador
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
-            simulacion.EjecutarSimulacion();
+            //simulacion.EjecutarSimulacion();
         }
 
         private void btnSimGuardar_Click(object sender, EventArgs e)
@@ -154,11 +156,32 @@ namespace ffccSimulacion.Simulador
             context.Trazas.ToList().ForEach(x => { lBoxSimTrazas.Items.Add(x); });
         }
 
-        private void buscarServiciosDisponibles()
+        /*private void buscarServiciosDisponibles()
         {
             lBoxSimServicios.Items.Clear();
 
             context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
+        }*/
+
+        private void lBoxSimTrazas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lBoxSimServicios.Items.Clear();
+
+            Trazas trazaSeleccionada = (Trazas)lBoxSimTrazas.SelectedItem;
+
+            context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
+
+            List<Servicios> servicios = new List<Servicios>();
+
+            foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
+            {
+                servicios = (List<Servicios>) context.Servicios.ToList().Where(x => x.Id == ts.Id);
+            }
+
+            foreach (Servicios servicio in servicios)
+            {
+                lBoxSimServicios.Items.Add(servicio);
+            }
         }
     }
 }
