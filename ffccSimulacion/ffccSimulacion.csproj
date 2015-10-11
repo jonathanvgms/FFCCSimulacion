@@ -237,9 +237,6 @@
     <EmbeddedResource Include="Escritorio.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Escritorio.ssy.resx">
-      <DependentUpon>Escritorio.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -293,8 +290,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\formacion.png" />
+    <Content Include="Resources\2cygmcg.png" />
+    <Content Include="Resources\iconoApp.ico" />
     <Content Include="Resources\iconoEstacion.png" />
     <Content Include="Resources\iconoIncidente.png" />
+    <Content Include="Resources\iconoSimulacion.png" />
     <Content Include="Resources\tren-nuevo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -326,4 +326,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-</Project>
+</Project> 
