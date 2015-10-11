@@ -103,11 +103,6 @@ namespace ffccSimulacion.ABMTraza
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
             }
 
-            if (clbTraCreServicios.CheckedItems.Count == 0)
-            {
-                errorStr += "Servicios: Seleccionar";
-            }
-
             if (errorStr.Length == 0)
             {
                 try
@@ -135,7 +130,11 @@ namespace ffccSimulacion.ABMTraza
                 {
                     MessageBox.Show("Traza No Guardada\n\nError\n\n" + exc.Message);
                 }
-           }
+            }
+            else
+            {
+                MessageBox.Show(errorStr);
+            }
         }
 
         /*
@@ -148,11 +147,6 @@ namespace ffccSimulacion.ABMTraza
             if (!Util.EsAlfaNumerico(txtTraModNombre.Text))
             {
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
-            }
-
-            if (clbTraModServicios.CheckedItems.Count == 0)
-            {
-                errorStr += "Servicio: Seleccionar";
             }
 
             if (errorStr.Length == 0)
@@ -196,21 +190,45 @@ namespace ffccSimulacion.ABMTraza
          */
         private void eliminarTraza()
         {
-            try
+            string errorMsj = "";
+            trazaSeleccionada = (Trazas)lstTraEliTrazas.SelectedItem;
+
+            if (lstTraEliTrazas.SelectedItem == null)
             {
-                trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraEliTrazas.SelectedItem.ToString()).FirstOrDefault();
-
-                context.Trazas.Remove(trazaSeleccionada);
-
-                context.SaveChanges();
-
-                MessageBox.Show("Traza Eliminada");
-
-                cargarTrazas();
+                errorMsj += "No se ha seleccionado ninguna traza para eliminar.\n";
             }
-            catch(Exception exc)
+            else if(context.Simulaciones.Any(x => x.Id_Traza == trazaSeleccionada.Id))
             {
-                MessageBox.Show("Traza No Eliminada\n\nCausa\n\n1) Hay Servicios Asignados a esta Traza\n2) La Traza está Asignada a una Simulación");
+                errorMsj += "La traza no puede eliminarse porque pertenece a una simulación.\n";
+            }
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                try
+                {
+                    if (MessageBox.Show("La traza se eliminará de manera permanente. ¿Desea continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+
+                    trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraEliTrazas.SelectedItem.ToString()).FirstOrDefault();
+
+                    //borro todos los servicios asignados a la traza
+                    context.Trazas_X_Servicios.Where(x => x.Id == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
+
+                    context.Trazas.Remove(trazaSeleccionada);
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Traza Eliminada");
+
+                    cargarTrazas();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorMsj);
             }
         }
 

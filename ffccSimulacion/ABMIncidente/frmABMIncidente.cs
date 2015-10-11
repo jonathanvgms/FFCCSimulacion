@@ -218,23 +218,44 @@ namespace ffccSimulacion.ABMIncidente
          */
         private void borrarIncidente()
         {
-            try
+            string errorMsj = "";
+            incidenteSeleccionado = (Incidentes) lstIncEli.SelectedItem;
+
+            if (lstIncEli.SelectedItem == null)
             {
-                incidenteSeleccionado = (Incidentes)lstIncEli.SelectedItem;
-
-                context.Incidentes.Remove(incidenteSeleccionado);
-
-                context.SaveChanges();
-
-                cargarIncidentes();
-
-                limpiarFormulario();
-
-                MessageBox.Show("Incidente Eliminado");
+                errorMsj += "No se ha seleccionado ningun incidente para eliminar.\n";
             }
-            catch (Exception exc)
+            else if (context.Estaciones_X_Incidentes.Any(x => x.Id_Incidente == incidenteSeleccionado.Id))
             {
-                MessageBox.Show("Incidente No Eliminado\n\nCausa\n\nEl Incidente está Asignado a una Estación");
+                errorMsj += "El incidente no puede eliminarse porque pertenece a una estación.\n";
+            }
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                try
+                {
+                    if (MessageBox.Show("El incidente se eliminará de manera permanente. ¿Desea continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+
+                    incidenteSeleccionado = (Incidentes)lstIncEli.SelectedItem;
+
+                    context.Incidentes.Remove(incidenteSeleccionado);
+
+                    context.SaveChanges();
+
+                    cargarIncidentes();
+
+                    limpiarFormulario();
+
+                    MessageBox.Show("Incidente Eliminado");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorMsj);
             }
         }
         #endregion

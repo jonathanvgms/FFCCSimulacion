@@ -169,11 +169,11 @@ namespace ffccSimulacion.ABMEstacion
 
                     context.SaveChanges();
 
-                    MessageBox.Show("Estación Guardada");
-
                     cargarEstaciones();
 
                     limpiarFormulario();
+
+                    MessageBox.Show("Estación Guardada");
                 }
                 catch (Exception exc)
                 {
@@ -241,11 +241,11 @@ namespace ffccSimulacion.ABMEstacion
 
                     context.SaveChanges();
 
-                    MessageBox.Show("Estación Guardada");
-
                     cargarEstaciones();
 
                     limpiarFormulario();
+
+                    MessageBox.Show("Estación Guardada");
                 }
                 catch (Exception exc)
                 {
@@ -263,21 +263,45 @@ namespace ffccSimulacion.ABMEstacion
          */ 
         private void borrarEstacion()
         {
-            try
+            string errorMsj = "";
+            estacionSeleccionada = (Estaciones)lstEliEstaciones.SelectedItem;
+
+            if (lstEliEstaciones.SelectedItem == null)
             {
-                estacionSeleccionada = (Estaciones)lstEliEstaciones.SelectedItem;
-
-                context.Estaciones.Remove(estacionSeleccionada);
-
-                context.SaveChanges();
-
-                cargarEstaciones();
-
-                MessageBox.Show("Estación Eliminada");
+                errorMsj += "No se ha seleccionado ninguna estación para eliminar.\n";
             }
-            catch (Exception exc)
+            else if ((context.Relaciones.Any(x => x.Id_Estacion_Anterior == estacionSeleccionada.Id)) || (context.Relaciones.Any(y => y.Id_Estacion_Siguiente == estacionSeleccionada.Id)))
             {
-                MessageBox.Show("Estación No Eliminada\n\nCausa\n\n1) La Estación tiene Incidentes Asignados\n2) La Estación está asignado a un Servicio");
+                errorMsj += "La estación no puede borrarse porque pertenece a un servicio.\n";
+            }
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                try
+                {
+                    if (MessageBox.Show("La estación se eliminará de manera permanente. ¿Desea continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+
+                    estacionSeleccionada = (Estaciones)lstEliEstaciones.SelectedItem;
+
+                    //borro todos los incidentes relacionados
+                    context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
+
+                    context.Estaciones.Remove(estacionSeleccionada);
+
+                    context.SaveChanges();
+
+                    cargarEstaciones();
+
+                    MessageBox.Show("Estación Eliminada");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorMsj);
             }
         }
         #endregion
@@ -316,6 +340,7 @@ namespace ffccSimulacion.ABMEstacion
 
             cmbEstModFdp.SelectedIndex = estacionSeleccionada.TipoFDP;
 
+            //limpiar el checkboxlist
             for (int i = 0; i < clbModIncidentes.Items.Count; i++)
             {
                 clbModIncidentes.SetItemChecked(i, false);
