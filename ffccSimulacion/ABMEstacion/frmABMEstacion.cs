@@ -141,7 +141,93 @@ namespace ffccSimulacion.ABMEstacion
 
             if (!verificarRangoPersonas(txtEstModMinimo, txtEstModMaximo))
             {
-                errorMsj += "Personas en Andén: El Mínimo\ndebe ser menor que el Máximo\n";
+                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El rango de personas debe ser 0 a 999999999 (9 Cifras)";
+<<<<<<< .mine
+            }
+
+            if (errorMsj.Length == 0)
+            {
+                try
+                {
+                    estacionSeleccionada = (Estaciones)lstModEstaciones.SelectedItem;
+
+                    estacionSeleccionada.Nombre = txtEstModNombre.Text;
+
+                    estacionSeleccionada.PersonasEsperandoMin = Convert.ToInt32(txtEstModMinimo.Text);
+
+                    estacionSeleccionada.PersonasEsperandoMax = Convert.ToInt32(txtEstModMaximo.Text);
+
+                    estacionSeleccionada.TipoFDP = cmbEstModFdp.SelectedIndex;
+
+                    //borro todas los incidente asignados a la estacion
+                    context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
+
+                    //asigo la configuracion de estaciones del checklistbox
+                    foreach (Incidentes i in clbModIncidentes.CheckedItems)
+                    {
+                        estacionSeleccionada.AgregarIncidente(i);
+                    }
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Estación Guardada");
+
+                    cargarEstaciones();
+
+                    limpiarFormulario();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorMsj);
+||||||| .r86
+            }
+
+            if (errorMsj.Length == 0)
+            {
+                try
+                {
+                    estacionSeleccionada = (Estaciones)clbModIncidentes.SelectedItem;
+
+                    estacionSeleccionada.Nombre = txtEstModNombre.Text;
+
+                    estacionSeleccionada.PersonasEsperandoMin = Convert.ToInt32(txtEstModMinimo.Text);
+
+                    estacionSeleccionada.PersonasEsperandoMax = Convert.ToInt32(txtEstModMaximo.Text);
+
+                    estacionSeleccionada.TipoFDP = cmbEstModFdp.SelectedIndex;
+
+                    //borro todas los incidente asignados a la estacion
+                    context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
+
+                    //asigo la configuracion de estaciones del checklistbox
+                    foreach (Incidentes i in clbModIncidentes.CheckedItems)
+                    {
+                        estacionSeleccionada.AgregarIncidente(i);
+                    }
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Estación Guardada");
+
+                    cargarEstaciones();
+
+                    limpiarFormulario();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show(errorMsj);
+=======
+>>>>>>> .r87
             }
 
             if (errorMsj.Length == 0)
@@ -215,7 +301,7 @@ namespace ffccSimulacion.ABMEstacion
 
             if(!verificarRangoPersonas(txtEstCreMinimo, txtEstCreMaximo))
             {
-                errorMsj += "Personas en Andén: El Mínimo\ndebe ser menor que el Máximo\n";
+                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El rango de personas deber ser, 0 a 999999999 (9 Cifras)";
             }
 
             if (errorMsj.Length == 0)
@@ -290,7 +376,12 @@ namespace ffccSimulacion.ABMEstacion
          */ 
         private bool verificarRangoPersonas(TextBox minimo, TextBox maximo)
         {
-            if (Convert.ToInt64(minimo.Text) < Convert.ToInt64(maximo.Text) + 1)
+            if ((minimo.Text.Length > 9) || (maximo.Text.Length > 9))
+            {
+                return false;
+            }
+
+            if (Convert.ToInt32(minimo.Text) < Convert.ToInt32(maximo.Text) + 1)
             {
                 return true;
             }
