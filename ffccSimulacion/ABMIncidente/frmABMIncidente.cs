@@ -106,7 +106,12 @@ namespace ffccSimulacion.ABMIncidente
 
             if (!Util.EsNumerico(txtbIncCreTiem.Text))
             {
-                errorMsj += "Tiempo de Ocurrencia: Incompleto/Incorrecto.\n";
+                errorMsj += "Tiempo de Demora: Incompleto/Incorrecto.\n";
+            }
+
+            if (verificarRango(txtbIncCreTiem.Text))
+            {
+                errorMsj += "Tiempo de Demora: El rango de tiempo deber ser, 0 a 999999999 (9 Cifras)\n";
             }
 
             if (cbmIncCrePro.SelectedIndex < 0)
@@ -136,7 +141,7 @@ namespace ffccSimulacion.ABMIncidente
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Incidente No Guardado\nError:\n" + exc.ToString());
+                    MessageBox.Show("Incidente No Guardado\n\nError\n\n" + exc.Message);
                 }
             }
             else
@@ -144,7 +149,7 @@ namespace ffccSimulacion.ABMIncidente
                 MessageBox.Show(errorMsj);
             }
         }
-
+        
         /*
         * Caso de Uso 'Modificar Incidente'
         */ 
@@ -164,7 +169,12 @@ namespace ffccSimulacion.ABMIncidente
 
             if (!Util.EsNumerico(txtModDem.Text))
             {
-                errorMsj += "Tiempo de Ocurrencia: Incompleto/Incorrecto.\n";
+                errorMsj += "Tiempo de Demora: Incompleto/Incorrecto.\n";
+            }
+
+            if (verificarRango(txtModDem.Text))
+            {
+                errorMsj += "Tiempo de Demora: El rango de tiempo deber ser, 0 a 999999999 (9 Cifras)\n";
             }
 
             if ((cmbModProb.SelectedIndex < 0) || (cmbModProb.SelectedItem.ToString().Length == 0))
@@ -194,12 +204,12 @@ namespace ffccSimulacion.ABMIncidente
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Incidente No Guardado\nError:\n" + exc.Message);
+                    MessageBox.Show("Incidente No Guardado\n\nError\n\n" + exc.Message);
                 }
             }
             else
             {
-                lblModMensajeError.Text = errorMsj;
+                MessageBox.Show(errorMsj);
             }
         }
 
@@ -224,7 +234,7 @@ namespace ffccSimulacion.ABMIncidente
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Incidente No Eliminado\nError:\n" + exc.Message);
+                MessageBox.Show("Incidente No Eliminado\n\nCausa\n\nEl Incidente está Asignado a una Estación");
             }
         }
         #endregion
@@ -266,6 +276,19 @@ namespace ffccSimulacion.ABMIncidente
             txtModDes.Clear();
 
             cmbModProb.SelectedIndex = 0;
+        }
+        
+        /*
+         * verifica que el rango sea de hasta 9 cifras
+         */ 
+        private bool verificarRango(string cifra)
+        {
+            if (cifra.Length > 9)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         #endregion               

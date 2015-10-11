@@ -141,7 +141,7 @@ namespace ffccSimulacion.ABMEstacion
 
             if (!verificarRangoPersonas(txtEstModMinimo, txtEstModMaximo))
             {
-                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El rango de personas debe ser 0 a 999999999 (9 Cifras)";
+                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El Rango de Personas debe ser: 0 a 999999999 (9 Cifras)";
             }
 
             if (errorMsj.Length == 0)
@@ -177,7 +177,7 @@ namespace ffccSimulacion.ABMEstacion
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
+                    MessageBox.Show("Estación No Guardada\n\nError\n\n" + exc.Message);
                 }
             }
             else
@@ -215,7 +215,7 @@ namespace ffccSimulacion.ABMEstacion
 
             if(!verificarRangoPersonas(txtEstCreMinimo, txtEstCreMaximo))
             {
-                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El rango de personas deber ser, 0 a 999999999 (9 Cifras)";
+                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El Rango de Personas deber ser: 0 a 999999999 (9 Cifras)";
             }
 
             if (errorMsj.Length == 0)
@@ -249,7 +249,7 @@ namespace ffccSimulacion.ABMEstacion
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
+                    MessageBox.Show("Estación No Guardada\n\nError\n\n" + exc.Message);
                 }
             }
             else
@@ -267,8 +267,6 @@ namespace ffccSimulacion.ABMEstacion
             {
                 estacionSeleccionada = (Estaciones)lstEliEstaciones.SelectedItem;
 
-                context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
-
                 context.Estaciones.Remove(estacionSeleccionada);
 
                 context.SaveChanges();
@@ -279,7 +277,7 @@ namespace ffccSimulacion.ABMEstacion
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Estación No Eliminada\nError:\n" + exc.ToString());
+                MessageBox.Show("Estación No Eliminada\n\nCausa\n\n1) La Estación tiene Incidentes Asignados\n2) La Estación está asignado a un Servicio");
             }
         }
         #endregion

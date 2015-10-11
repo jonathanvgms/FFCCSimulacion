@@ -133,7 +133,7 @@ namespace ffccSimulacion.ABMTraza
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
+                    MessageBox.Show("Traza No Guardada\n\nError\n\n" + exc.Message);
                 }
            }
         }
@@ -182,7 +182,7 @@ namespace ffccSimulacion.ABMTraza
                 }
                 catch(Exception exc)
                 {
-                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
+                    MessageBox.Show("Traza No Guardada\n\nError\n\n" + exc.Message);
                 }
             }
             else
