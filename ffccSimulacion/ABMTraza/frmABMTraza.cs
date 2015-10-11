@@ -101,37 +101,6 @@ namespace ffccSimulacion.ABMTraza
             if(!Util.EsAlfaNumerico(txtTraCreNombre.Text))
             {
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
-<<<<<<< .mine
-            }
-
-            if (errorStr.Length == 0)
-            {
-                try
-                {
-                    Trazas nuevaTraza = new Trazas();
-
-                    nuevaTraza.Nombre = txtTraCreNombre.Text;
-
-                    foreach (Servicios s in clbTraCreServicios.CheckedItems)
-                    {
-                        nuevaTraza.AgregarServicio(s);
-                    }
-
-                    context.Trazas.Add(nuevaTraza);
-
-                    context.SaveChanges();
-
-                    MessageBox.Show("Traza Guardada");
-
-                    cargarTrazas();
-
-                    limpiarFormulario();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.Message);
-                }
-||||||| .r86
             }
 
             if (clbTraCreServicios.CheckedItems.Count == 0)
@@ -166,150 +135,19 @@ namespace ffccSimulacion.ABMTraza
                 {
                     MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
                 }
-=======
->>>>>>> .r87
-            }
-
-            if (clbTraCreServicios.CheckedItems.Count == 0)
-            {
-                errorStr += "Servicios: Seleccionar";
-            }
-
-            if (errorStr.Length == 0)
-            {
-                try
-                {
-                    Trazas nuevaTraza = new Trazas();
-
-                    nuevaTraza.Nombre = txtTraCreNombre.Text;
-
-                    foreach (Servicios s in clbTraCreServicios.CheckedItems)
-                    {
-                        nuevaTraza.AgregarServicio(s);
-                    }
-
-                    context.Trazas.Add(nuevaTraza);
-
-                    context.SaveChanges();
-
-                    MessageBox.Show("Traza Guardada");
-
-                    cargarTrazas();
-
-                    limpiarFormulario();
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
-                }
-            }
-            else
-            {
-                MessageBox.Show(errorStr);
-            }
+           }
         }
 
         /*
          * Caso de Uso: 'Modificar Traza'
          */
         private void modificarTraza()
-<<<<<<< .mine
         {
             string errorStr = "";
 
             if (!Util.EsAlfaNumerico(txtTraModNombre.Text))
             {
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
-            }
-            
-            if (errorStr.Length == 0)
-            {
-                try
-                {
-                    trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
-
-                    trazaSeleccionada.Nombre = txtTraModNombre.Text;
-
-                    //borro las relaciones existentes en la base de datos
-                    context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
-
-                    //agrego la configuracion del checklistbox
-                    foreach (Servicios s in clbTraModServicios.CheckedItems)
-                    {
-                        trazaSeleccionada.AgregarServicio(s);
-                    }
-
-                    context.SaveChanges();
-
-                    MessageBox.Show("Traza Guardada");
-
-                    cargarTrazas();
-
-                    limpiarFormulario();
-                }
-                catch(Exception exc)
-                {
-                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show(errorStr);
-||||||| .r86
-        {
-            string errorStr = "";
-
-            if (!Util.EsAlfaNumerico(txtTraModNombre.Text))
-            {
-                errorStr += "Nombre: Incompleto/Incorrecto\n";
-            }
-
-            if (clbTraModServicios.CheckedItems.Count == 0)
-            {
-                errorStr += "Servicio: Seleccionar";
-            }
-
-            if (errorStr.Length == 0)
-            {
-                try
-                {
-                    trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
-
-                    trazaSeleccionada.Nombre = txtTraModNombre.Text;
-
-                    //borro las relaciones existentes en la base de datos
-                    context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
-
-                    //agrego la configuracion del checklistbox
-                    foreach (Servicios s in clbTraModServicios.CheckedItems)
-                    {
-                        trazaSeleccionada.AgregarServicio(s);
-                    }
-
-                    context.SaveChanges();
-
-                    MessageBox.Show("Traza Guardada");
-
-                    cargarTrazas();
-
-                    limpiarFormulario();
-                }
-                catch(Exception exc)
-                {
-                    MessageBox.Show("Traza No Guardada\nError:\n" + exc.ToString());
-                }
-            }
-            else
-            {
-                MessageBox.Show(errorStr);
-=======
-        {
-            string errorStr = "";
-
-            if (!Util.EsAlfaNumerico(txtTraModNombre.Text))
-            {
-                errorStr += "Nombre: Incompleto/Incorrecto\n";
->>>>>>> .r87
             }
 
             if (clbTraModServicios.CheckedItems.Count == 0)
@@ -357,20 +195,6 @@ namespace ffccSimulacion.ABMTraza
          * Caso de Uso: 'Eliminar Traza'
          */
         private void eliminarTraza()
-<<<<<<< .mine
-        {
-            try
-            {
-                trazaSeleccionada = (Trazas)lstTraEliTrazas.SelectedItem;
-
-                context.Trazas.Remove(trazaSeleccionada);
-
-                context.SaveChanges();
-
-                MessageBox.Show("Traza Eliminada");
-
-                cargarTrazas();
-||||||| .r86
         {
             try
             {
@@ -383,34 +207,10 @@ namespace ffccSimulacion.ABMTraza
                 MessageBox.Show("Traza Eliminada");
 
                 cargarTrazas();
-=======
-        {
-            try
-            {
-                trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraEliTrazas.SelectedItem.ToString()).FirstOrDefault();
-
-                context.Trazas.Remove(trazaSeleccionada);
-
-                context.SaveChanges();
-
-                MessageBox.Show("Traza Eliminada");
-
-                cargarTrazas();
->>>>>>> .r87
             }
-<<<<<<< .mine
             catch(Exception exc)
             {
-                MessageBox.Show("Traza No Eliminada\n\nCausa:\n\n1) Hay Servicios Asignados a esta Traza\n2) Traza Asignada a una Simulación");
-||||||| .r86
-            catch(Exception exc)
-            {
-                MessageBox.Show("Traza No Eliminada\n\nCausa: Hay Servicios Asignados a esta Traza\nError:\n" + exc.Message);
-=======
-            catch(Exception exc)
-            {
-                MessageBox.Show("Traza No Eliminada\n\nCausa: Hay Servicios Asignados a esta Traza\nError:\n" + exc.Message);
->>>>>>> .r87
+                MessageBox.Show("Traza No Eliminada\n\nCausa\n\n1) Hay Servicios Asignados a esta Traza\n2) La Traza está Asignada a una Simulación");
             }
         }
 
