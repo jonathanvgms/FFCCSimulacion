@@ -25,8 +25,6 @@ namespace ffccSimulacion.ABMIncidente
             context = new ffccSimulacionEntities();
 
             cargarIncidentes();
-
-            lblIncidenteMensaje.Text = "";
         }
 
         #region Accion de apretar botones
@@ -55,6 +53,7 @@ namespace ffccSimulacion.ABMIncidente
                 tab_ModificarIncidente();
             }
         }
+
         /*
          * Accion al pulsar el boton 'Limpiar'
          */
@@ -76,11 +75,13 @@ namespace ffccSimulacion.ABMIncidente
         #region Accion de Cargar Incidentes
         private void cargarIncidentes()
         {
+            lstIncidenteCrear.Items.Clear();
+
             lstIncMod.Items.Clear();
 
             lstIncEli.Items.Clear();
 
-            context.Incidentes.ToList().ForEach(x => { lstIncMod.Items.Add(x.Nombre); lstIncEli.Items.Add(x.Nombre); });
+            context.Incidentes.ToList().ForEach(x => { lstIncMod.Items.Add(x); lstIncEli.Items.Add(x); lstIncidenteCrear.Items.Add(x); });
         }
 
         #endregion
@@ -93,7 +94,7 @@ namespace ffccSimulacion.ABMIncidente
         {
             string errorMsj = "";
 
-            if (!Util.EsAlfabetico(txtIncCreNom.Text))
+            if (!Util.EsAlfaNumerico(txtIncCreNom.Text))
             {
                 errorMsj += "Nombre: Incompleto/Incorrecto.\n";
             }
@@ -129,9 +130,6 @@ namespace ffccSimulacion.ABMIncidente
 
                     cargarIncidentes();
 
-                    lblCrearMensajeError.Text = "";
-                    
-                    //lblIncidenteMensaje.Text = "Incidente Guardado";
                     MessageBox.Show("Incidente Guardado");
 
                     limpiarFormulario();
@@ -139,14 +137,11 @@ namespace ffccSimulacion.ABMIncidente
                 catch (Exception exc)
                 {
                     MessageBox.Show("Incidente No Guardado\nError:\n" + exc.ToString());
-                    //lblIncidenteMensaje.Text = "Incidente No Guardado";
                 }
             }
             else
             {
-                //MessageBox.Show(errorMsj);
-
-                lblCrearMensajeError.Text = errorMsj;
+                MessageBox.Show(errorMsj);
             }
         }
 
@@ -157,7 +152,7 @@ namespace ffccSimulacion.ABMIncidente
         {
             string errorMsj = "";
 
-            if (!Util.EsAlfabetico(txtModNombre.Text))
+            if (!Util.EsAlfaNumerico(txtModNombre.Text))
             {
                 errorMsj += "Nombre: Incompleto/Incorrecto.\n";
             }
@@ -193,18 +188,13 @@ namespace ffccSimulacion.ABMIncidente
 
                     cargarIncidentes();
 
-                    lblModMensajeError.Text = "";
-
-                    //lblIncidenteMensaje.Text = "Incidente Guardado";
                     MessageBox.Show("Incidente Guardado");
 
                     limpiarFormulario();
                 }
                 catch (Exception exc)
                 {
-                    //MessageBox.Show(exc.ToString());
-                    MessageBox.Show("Incidente No Guardado\nError:\n" + exc.ToString());
-                    //lblIncidenteMensaje.Text = "Incidente No Guardado";
+                    MessageBox.Show("Incidente No Guardado\nError:\n" + exc.Message);
                 }
             }
             else
@@ -220,7 +210,7 @@ namespace ffccSimulacion.ABMIncidente
         {
             try
             {
-                incidenteSeleccionado = context.Incidentes.Where(x => x.Nombre == lstIncEli.SelectedItem.ToString()).FirstOrDefault();
+                incidenteSeleccionado = (Incidentes)lstIncEli.SelectedItem;
 
                 context.Incidentes.Remove(incidenteSeleccionado);
 
@@ -228,14 +218,13 @@ namespace ffccSimulacion.ABMIncidente
 
                 cargarIncidentes();
 
-                //lblIncidenteMensaje.Text = "Incidente Eliminado";
+                limpiarFormulario();
+
                 MessageBox.Show("Incidente Eliminado");
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Incidente No Eliminado\nError:\n" + exc.ToString());
-
-                //lblIncidenteMensaje.Text = "Incidente No Eliminado";
+                MessageBox.Show("Incidente No Eliminado\nError:\n" + exc.Message);
             }
         }
         #endregion
@@ -246,7 +235,7 @@ namespace ffccSimulacion.ABMIncidente
          */ 
         private void seleccionarIncidente(object sender, EventArgs e)
         {
-            incidenteSeleccionado = context.Incidentes.Where(x => x.Nombre == lstIncMod.SelectedItem.ToString()).FirstOrDefault();
+            incidenteSeleccionado = (Incidentes)lstIncMod.SelectedItem;
 
             txtModNombre.Text = incidenteSeleccionado.Nombre;
 
@@ -279,6 +268,7 @@ namespace ffccSimulacion.ABMIncidente
             cmbModProb.SelectedIndex = 0;
         }
 
-        #endregion
+        #endregion               
+
     }
 }

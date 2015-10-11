@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Estrategias de Simulación">
+    <Position X="1.275" Y="0.752" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="ffccSimulacion.Modelo.Fdp">
+    <Position X="17.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAACAAAACAAAAAIAAAAAAAAAAABACA=</HashCode>
+      <FileName>Modelo\Fdp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Coches">
+    <Position X="14.75" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAAAAEAAAAAAAEAEIBECAIgAAAhAESQQAIA=</HashCode>
+      <FileName>Modelo\Coches.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Estaciones">
+    <Position X="13.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACAqTKEAAAACAEACQgIBgAAIAAABACACAAAACAAAQAA=</HashCode>
+      <FileName>Modelo\Estaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Estaciones_X_Incidentes">
+    <Position X="15.75" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAIAAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modelo\Estaciones_X_Incidentes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Formaciones">
+    <Position X="9.75" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAACAAABAAAAAUAAAACgCQACAAIAJAAAEgBAAQAAAAA=</HashCode>
+      <FileName>Modelo\Formaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Formaciones_X_Coches">
+    <Position X="12.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAAABAAEAAAAAAAAIACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modelo\Formaciones_X_Coches.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Incidentes">
+    <Position X="18.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAAAAAAAAAAAAgAABIBAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modelo\Incidentes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Relaciones">
+    <Position X="10.5" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAACBIAAAAAQAAAAAAAAAAAEAAICAAAAAMBBAAAAAAQ=</HashCode>
+      <FileName>Modelo\Relaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Servicios">
+    <Position X="7" Y="7" Width="2.75" />
+    <NestedTypes>
+      <Struct Name="ffccSimulacion.Modelo.Servicios.Parada" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Modelo\Servicios.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>DgASASAAQBIAAAAAAAAAyAEABAKAIDAAgiAAAgCACAg=</HashCode>
+      <FileName>Modelo\Servicios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Servicios_X_Formaciones">
+    <Position X="7.25" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAEAAAAAEAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modelo\Servicios_X_Formaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Simulaciones">
+    <Position X="4.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACADAAAAAAAhAAQAAAgAAAAAAAAAAAACEAAgAAAAA=</HashCode>
+      <FileName>Modelo\Simulaciones.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Trazas">
+    <Position X="4.5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAAAIAAAQAQAAAgAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Modelo\Trazas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Modelo.Trazas_X_Servicios">
+    <Position X="4.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAJAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Modelo\Trazas_X_Servicios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ffccSimulacion.Dominio.TiempoComprometido">
+    <Position X="1.25" Y="4.5" Width="2.5" />
+    <NestedTypes>
+      <Struct Name="ffccSimulacion.Dominio.TiempoComprometido.ResultadoFormacion" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Dominio\TiempoComprometido.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABCAAAAIAAAAAIAAAAAABAAAAAAAIBEgAggAAAAA=</HashCode>
+      <FileName>Dominio\TiempoComprometido.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ffccSimulacion.Dominio.ITiempoComprometido" Collapsed="true">
+    <Position X="2.5" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dominio\ITiempoComprometido.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ffccSimulacion.Dominio.IEventoAEvento" Collapsed="true">
+    <Position X="0.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dominio\IEventoAEvento.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ffccSimulacion.Dominio.IEstrategiaDeSimulador" Collapsed="true">
+    <Position X="1.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dominio\IEstrategiaDeSimulador.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

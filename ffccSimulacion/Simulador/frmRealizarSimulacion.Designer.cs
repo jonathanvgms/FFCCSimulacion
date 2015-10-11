@@ -172,9 +172,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(628, 5);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.Size = new System.Drawing.Size(102, 13);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Servicios";
+            this.label3.Text = "Servicios Asignados";
             // 
             // label2
             // 

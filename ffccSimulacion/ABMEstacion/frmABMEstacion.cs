@@ -24,6 +24,10 @@ namespace ffccSimulacion.ABMEstacion
 
             context = new ffccSimulacionEntities();
 
+            clbIncidentes.DisplayMember = "Nombre";
+
+            clbModIncidentes.DisplayMember = "Nombre";
+
             cargarIncidentes();
 
             cargarEstaciones();
@@ -92,7 +96,7 @@ namespace ffccSimulacion.ABMEstacion
 
             clbModIncidentes.Items.Clear();
 
-            context.Incidentes.ToList().ForEach(x => { clbIncidentes.Items.Add(x.Nombre); clbModIncidentes.Items.Add(x.Nombre); });
+            context.Incidentes.ToList().ForEach(x => { clbIncidentes.Items.Add(x); clbModIncidentes.Items.Add(x); });
         }
 
         private void cargarEstaciones()
@@ -101,7 +105,7 @@ namespace ffccSimulacion.ABMEstacion
 
             lstEliEstaciones.Items.Clear();
 
-            context.Estaciones.ToList().ForEach(x => { lstModEstaciones.Items.Add(x.Nombre); lstEliEstaciones.Items.Add(x.Nombre); });
+            context.Estaciones.ToList().ForEach(x => { lstModEstaciones.Items.Add(x); lstEliEstaciones.Items.Add(x); });
         }
 
         #endregion
@@ -142,50 +146,43 @@ namespace ffccSimulacion.ABMEstacion
 
             if (errorMsj.Length == 0)
             {
-                if (context.Estaciones.Where(x => x.Nombre == txtEstModNombre.Text).Count() > 1)
+                try
                 {
-                    lblEstCreError.Text = "Nombre: Existente. Modidique el Nombre";
+                    estacionSeleccionada = (Estaciones)clbModIncidentes.SelectedItem;
+
+                    estacionSeleccionada.Nombre = txtEstModNombre.Text;
+
+                    estacionSeleccionada.PersonasEsperandoMin = Convert.ToInt32(txtEstModMinimo.Text);
+
+                    estacionSeleccionada.PersonasEsperandoMax = Convert.ToInt32(txtEstModMaximo.Text);
+
+                    estacionSeleccionada.TipoFDP = cmbEstModFdp.SelectedIndex;
+
+                    //borro todas los incidente asignados a la estacion
+                    context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
+
+                    //asigo la configuracion de estaciones del checklistbox
+                    foreach (Incidentes i in clbModIncidentes.CheckedItems)
+                    {
+                        estacionSeleccionada.AgregarIncidente(i);
+                    }
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Estación Guardada");
+
+                    cargarEstaciones();
+
+                    limpiarFormulario();
                 }
-                else
+                catch (Exception exc)
                 {
-                    try
-                    {
-                        estacionSeleccionada = context.Estaciones.Where(x => x.Nombre == lstModEstaciones.SelectedItem.ToString()).FirstOrDefault();
-
-                        estacionSeleccionada.Nombre = txtEstModNombre.Text;
-
-                        estacionSeleccionada.PersonasEsperandoMin = Convert.ToInt32(txtEstModMinimo.Text);
-
-                        estacionSeleccionada.PersonasEsperandoMax = Convert.ToInt32(txtEstModMaximo.Text);
-
-                        estacionSeleccionada.TipoFDP = cmbEstModFdp.SelectedIndex;
-
-                        context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
-
-                        foreach (var incidente in clbModIncidentes.CheckedItems)
-                        {
-                            estacionSeleccionada.AgregarIncidente(context.Incidentes.Where(x => x.Nombre == incidente.ToString()).FirstOrDefault());
-                        }
-
-                        context.SaveChanges();
-
-                        //lblEstacionError.Text = "La Estación Se Guardo";
-                        MessageBox.Show("Estación Guardada");
-
-                        cargarEstaciones();
-
-                        limpiarFormulario();
-                    }
-                    catch (Exception exc)
-                    {
-                        //lblEstacionError.Text = "La Estación No Se Guardo";
-                        MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
-                    }
+                    MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
                 }
             }
             else
             {
-                lblEstCreError.Text = errorMsj;
+                MessageBox.Show(errorMsj);
             }
         }
 
@@ -220,52 +217,44 @@ namespace ffccSimulacion.ABMEstacion
             {
                 errorMsj += "Personas en Andén: El Mínimo\ndebe ser menor que el Máximo\n";
             }
-                        
+
             if (errorMsj.Length == 0)
             {
-                if (context.Estaciones.Any(x => x.Nombre == txtEstCreNombre.Text))
+                try
                 {
-                    lblEstCreError.Text = "Nombre: Existente. Modidique el nombre";
+                    Estaciones nuevaEstacion = new Estaciones();
+
+                    nuevaEstacion.Nombre = txtEstCreNombre.Text;
+
+                    nuevaEstacion.PersonasEsperandoMin = Convert.ToInt32(txtEstCreMinimo.Text);
+
+                    nuevaEstacion.PersonasEsperandoMax = Convert.ToInt32(txtEstCreMaximo.Text);
+
+                    nuevaEstacion.TipoFDP = cmbEstCreFdp.SelectedIndex;
+
+                    foreach (Incidentes i in clbIncidentes.CheckedItems)
+                    {
+                        nuevaEstacion.AgregarIncidente(i);
+                    }
+
+                    context.Estaciones.Add(nuevaEstacion);
+
+                    context.SaveChanges();
+
+                    MessageBox.Show("Estación Guardada");
+
+                    cargarEstaciones();
+
+                    limpiarFormulario();
                 }
-                else
+                catch (Exception exc)
                 {
-                    try
-                    {
-                        Estaciones nuevaEstacion = new Estaciones();
-                        
-                        nuevaEstacion.Nombre = txtEstCreNombre.Text;
-                        
-                        nuevaEstacion.PersonasEsperandoMin = Convert.ToInt32(txtEstCreMinimo.Text);
-                        
-                        nuevaEstacion.PersonasEsperandoMax = Convert.ToInt32(txtEstCreMaximo.Text);
-                        
-                        nuevaEstacion.TipoFDP = cmbEstCreFdp.SelectedIndex;
-                        
-                        foreach (var incidente in clbIncidentes.CheckedItems)
-                        {
-                             nuevaEstacion.AgregarIncidente(context.Incidentes.Where(x => x.Nombre == incidente.ToString()).FirstOrDefault());                            
-                        }
-
-                        context.Estaciones.Add(nuevaEstacion);
-
-                        context.SaveChanges();
-
-                        MessageBox.Show("Estación Guardada");
-
-                        cargarEstaciones();
-
-                        limpiarFormulario();
-                    }
-                    catch(Exception exc)
-                    {
-                        //lblEstacionError.Text = "La estación no se guardo";
-                        MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
-                    }
+                    MessageBox.Show("Estación No Guardada\nError:\n" + exc.ToString());
                 }
             }
             else
             {
-                lblEstCreError.Text = errorMsj;
+                MessageBox.Show(errorMsj);
             }
         }
 
@@ -276,7 +265,7 @@ namespace ffccSimulacion.ABMEstacion
         {
             try
             {
-                estacionSeleccionada = context.Estaciones.Where(x => x.Nombre == lstEliEstaciones.SelectedItem.ToString()).FirstOrDefault();
+                estacionSeleccionada = (Estaciones)lstEliEstaciones.SelectedItem;
 
                 context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == estacionSeleccionada.Id).ToList().ForEach(y => context.Estaciones_X_Incidentes.Remove(y));
 
@@ -290,8 +279,6 @@ namespace ffccSimulacion.ABMEstacion
             }
             catch (Exception exc)
             {
-                //lblEstacionError.Text = "La Estación No Se Borró";
-
                 MessageBox.Show("Estación No Eliminada\nError:\n" + exc.ToString());
             }
         }
@@ -316,7 +303,7 @@ namespace ffccSimulacion.ABMEstacion
          */ 
         private void seleccionarEstacion(object sender, EventArgs e)
         {
-            estacionSeleccionada = context.Estaciones.Where(x => x.Nombre == lstModEstaciones.SelectedItem.ToString()).FirstOrDefault();
+            estacionSeleccionada = (Estaciones)lstModEstaciones.SelectedItem;
 
             txtEstModNombre.Text = estacionSeleccionada.Nombre;
 
@@ -331,9 +318,9 @@ namespace ffccSimulacion.ABMEstacion
                 clbModIncidentes.SetItemChecked(i, false);
             }
 
-            foreach (var incidente in estacionSeleccionada.ListaIncidentes)
+            foreach (Incidentes i in estacionSeleccionada.ListaIncidentes)
             {
-                clbModIncidentes.SetItemChecked(clbModIncidentes.Items.IndexOf(incidente.Nombre), true);
+                clbModIncidentes.SetItemChecked(clbModIncidentes.Items.IndexOf(i), true);
             }
         }
 

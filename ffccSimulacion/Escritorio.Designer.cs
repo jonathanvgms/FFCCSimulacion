@@ -29,149 +29,113 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Escritorio));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuEscritorio = new System.Windows.Forms.MenuStrip();
             this.simulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cocheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incidenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlEscritorio = new System.Windows.Forms.Panel();
-            this.menuStrip1.SuspendLayout();
+            this.menuEscritorio.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuEscritorio
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(75, 75);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuEscritorio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.menuEscritorio.ImageScalingSize = new System.Drawing.Size(75, 75);
+            this.menuEscritorio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.simulaciónToolStripMenuItem,
             this.trazaToolStripMenuItem,
             this.servicioToolStripMenuItem,
             this.formaciónToolStripMenuItem,
-            this.estaciónToolStripMenuItem,
             this.cocheToolStripMenuItem,
+            this.estaciónToolStripMenuItem,
             this.incidenteToolStripMenuItem,
             this.ayudaToolStripMenuItem,
             this.salirToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1207, 98);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            resources.ApplyResources(this.menuEscritorio, "menuEscritorio");
+            this.menuEscritorio.Name = "menuEscritorio";
+            this.menuEscritorio.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             // 
             // simulaciónToolStripMenuItem
             // 
-            this.simulaciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("simulaciónToolStripMenuItem.Image")));
-            this.simulaciónToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            resources.ApplyResources(this.simulaciónToolStripMenuItem, "simulaciónToolStripMenuItem");
             this.simulaciónToolStripMenuItem.Name = "simulaciónToolStripMenuItem";
-            this.simulaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.simulaciónToolStripMenuItem.Text = "Simulación";
-            this.simulaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.simulaciónToolStripMenuItem.Click += new System.EventHandler(this.simulaciónToolStripMenuItem_Click);
             // 
             // trazaToolStripMenuItem
             // 
-            this.trazaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("trazaToolStripMenuItem.Image")));
-            this.trazaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            resources.ApplyResources(this.trazaToolStripMenuItem, "trazaToolStripMenuItem");
             this.trazaToolStripMenuItem.Name = "trazaToolStripMenuItem";
-            this.trazaToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.trazaToolStripMenuItem.Text = "Traza";
-            this.trazaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.trazaToolStripMenuItem.Click += new System.EventHandler(this.trazaToolStripMenuItem_Click);
             // 
             // servicioToolStripMenuItem
             // 
-            this.servicioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("servicioToolStripMenuItem.Image")));
+            resources.ApplyResources(this.servicioToolStripMenuItem, "servicioToolStripMenuItem");
             this.servicioToolStripMenuItem.Name = "servicioToolStripMenuItem";
-            this.servicioToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.servicioToolStripMenuItem.Text = "Servicio";
-            this.servicioToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.servicioToolStripMenuItem.Click += new System.EventHandler(this.servicioToolStripMenuItem_Click);
             // 
             // formaciónToolStripMenuItem
             // 
-            this.formaciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("formaciónToolStripMenuItem.Image")));
+            resources.ApplyResources(this.formaciónToolStripMenuItem, "formaciónToolStripMenuItem");
             this.formaciónToolStripMenuItem.Name = "formaciónToolStripMenuItem";
-            this.formaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.formaciónToolStripMenuItem.Text = "Formación";
-            this.formaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.formaciónToolStripMenuItem.Click += new System.EventHandler(this.formaciónToolStripMenuItem_Click);
-            // 
-            // estaciónToolStripMenuItem
-            // 
-            this.estaciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("estaciónToolStripMenuItem.Image")));
-            this.estaciónToolStripMenuItem.Name = "estaciónToolStripMenuItem";
-            this.estaciónToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.estaciónToolStripMenuItem.Text = "Estación";
-            this.estaciónToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.estaciónToolStripMenuItem.Click += new System.EventHandler(this.estaciónToolStripMenuItem_Click);
             // 
             // cocheToolStripMenuItem
             // 
-            this.cocheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cocheToolStripMenuItem.Image")));
+            resources.ApplyResources(this.cocheToolStripMenuItem, "cocheToolStripMenuItem");
             this.cocheToolStripMenuItem.Name = "cocheToolStripMenuItem";
-            this.cocheToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.cocheToolStripMenuItem.Text = "Coche";
-            this.cocheToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.cocheToolStripMenuItem.Click += new System.EventHandler(this.cocheToolStripMenuItem_Click);
+            // 
+            // estaciónToolStripMenuItem
+            // 
+            this.estaciónToolStripMenuItem.Checked = true;
+            this.estaciónToolStripMenuItem.CheckOnClick = true;
+            this.estaciónToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.estaciónToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.estaciónToolStripMenuItem, "estaciónToolStripMenuItem");
+            this.estaciónToolStripMenuItem.Name = "estaciónToolStripMenuItem";
+            this.estaciónToolStripMenuItem.Click += new System.EventHandler(this.estaciónToolStripMenuItem_Click);
             // 
             // incidenteToolStripMenuItem
             // 
-            this.incidenteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("incidenteToolStripMenuItem.Image")));
+            resources.ApplyResources(this.incidenteToolStripMenuItem, "incidenteToolStripMenuItem");
             this.incidenteToolStripMenuItem.Name = "incidenteToolStripMenuItem";
-            this.incidenteToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.incidenteToolStripMenuItem.Text = "Incidente";
-            this.incidenteToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.incidenteToolStripMenuItem.Click += new System.EventHandler(this.incidenteToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
-            this.ayudaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ayudaToolStripMenuItem.Image")));
+            resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
-            this.ayudaToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
+            resources.ApplyResources(this.salirToolStripMenuItem, "salirToolStripMenuItem");
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(87, 94);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // pnlEscritorio
             // 
-            this.pnlEscritorio.AutoSize = true;
-            this.pnlEscritorio.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEscritorio.Location = new System.Drawing.Point(0, 98);
+            resources.ApplyResources(this.pnlEscritorio, "pnlEscritorio");
+            this.pnlEscritorio.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlEscritorio.Name = "pnlEscritorio";
-            this.pnlEscritorio.Size = new System.Drawing.Size(1207, 603);
-            this.pnlEscritorio.TabIndex = 1;
             // 
             // Escritorio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 701);
             this.Controls.Add(this.pnlEscritorio);
-            this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1223, 740);
+            this.Controls.Add(this.menuEscritorio);
+            this.MainMenuStrip = this.menuEscritorio;
             this.Name = "Escritorio";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NOMBRE PENDIENTE";
-            this.SizeChanged += new System.EventHandler(this.redimencionarEscritorio);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuEscritorio.ResumeLayout(false);
+            this.menuEscritorio.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,7 +143,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuEscritorio;
         private System.Windows.Forms.ToolStripMenuItem simulaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trazaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem servicioToolStripMenuItem;

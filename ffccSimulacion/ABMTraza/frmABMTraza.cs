@@ -24,6 +24,10 @@ namespace ffccSimulacion.ABMTraza
 
             context = new ffccSimulacionEntities();
 
+            clbTraCreServicios.DisplayMember = "Nombre";
+
+            clbTraModServicios.DisplayMember = "Nombre";
+
             cargarServicios();
 
             cargarTrazas();
@@ -112,9 +116,9 @@ namespace ffccSimulacion.ABMTraza
 
                     nuevaTraza.Nombre = txtTraCreNombre.Text;
 
-                    foreach (var servicio in clbTraCreServicios.CheckedItems)
+                    foreach (Servicios s in clbTraCreServicios.CheckedItems)
                     {
-                        nuevaTraza.AgregarServicio(context.Servicios.Where(x => x.Nombre == servicio.ToString()).FirstOrDefault());
+                        nuevaTraza.AgregarServicio(s);
                     }
 
                     context.Trazas.Add(nuevaTraza);
@@ -159,15 +163,17 @@ namespace ffccSimulacion.ABMTraza
             {
                 try
                 {
-                    trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraModTrazas.SelectedItem.ToString()).FirstOrDefault();
+                    trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
 
                     trazaSeleccionada.Nombre = txtTraModNombre.Text;
 
+                    //borro las relaciones existentes en la base de datos
                     context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
 
-                    foreach (var servicios in clbTraModServicios.CheckedItems)
+                    //agrego la configuracion del checklistbox
+                    foreach (Servicios s in clbTraModServicios.CheckedItems)
                     {
-                        trazaSeleccionada.AgregarServicio(context.Servicios.Where(x => x.Nombre == servicios.ToString()).FirstOrDefault());
+                        trazaSeleccionada.AgregarServicio(s);
                     }
 
                     context.SaveChanges();
@@ -208,7 +214,7 @@ namespace ffccSimulacion.ABMTraza
             }
             catch(Exception exc)
             {
-                MessageBox.Show("Traza No Eliminada\n\nCausa: Hay Servicios Asignados a esta Traza");
+                MessageBox.Show("Traza No Eliminada\n\nCausa: Hay Servicios Asignados a esta Traza\nError:\n" + exc.Message);
             }
         }
 
@@ -221,7 +227,7 @@ namespace ffccSimulacion.ABMTraza
 
             clbTraModServicios.Items.Clear();
 
-            context.Servicios.ToList().ForEach(x => { clbTraCreServicios.Items.Add(x.Nombre); clbTraModServicios.Items.Add(x.Nombre); });
+            context.Servicios.ToList().ForEach(x => { clbTraCreServicios.Items.Add(x); clbTraModServicios.Items.Add(x); });
         }
 
         private void cargarTrazas()
@@ -230,7 +236,7 @@ namespace ffccSimulacion.ABMTraza
 
             lstTraModTrazas.Items.Clear();
 
-            context.Trazas.ToList().ForEach(x => { lstTraModTrazas.Items.Add(x.Nombre); lstTraEliTrazas.Items.Add(x.Nombre); });
+            context.Trazas.ToList().ForEach(x => { lstTraModTrazas.Items.Add(x); lstTraEliTrazas.Items.Add(x); });
         }
 
         #endregion
@@ -242,8 +248,8 @@ namespace ffccSimulacion.ABMTraza
          */
         private void seleccionarTraza(object sender, EventArgs e)
         {
-            trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraModTrazas.SelectedItem.ToString()).FirstOrDefault();
-
+            trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
+            
             txtTraModNombre.Text = trazaSeleccionada.Nombre;
 
             for (int i = 0; i < clbTraModServicios.Items.Count; i++)
@@ -251,9 +257,9 @@ namespace ffccSimulacion.ABMTraza
                 clbTraModServicios.SetItemChecked(i, false);
             }
 
-            foreach (var servicio in trazaSeleccionada.ServiciosDisponibles)
+            foreach (Servicios s in trazaSeleccionada.ServiciosDisponibles)
             {
-                clbTraModServicios.SetItemChecked(clbTraModServicios.Items.IndexOf(servicio.Nombre), true);
+                clbTraModServicios.SetItemChecked(clbTraModServicios.Items.IndexOf(s), true);
             }
         }
 

@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTraCreNombre = new System.Windows.Forms.TextBox();
-            this.btnTraCreAgregarServicio = new System.Windows.Forms.Button();
             this.btnTraLimpiar = new System.Windows.Forms.Button();
             this.btnTraCancelar = new System.Windows.Forms.Button();
             this.btnTraAceptar = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@
             this.txtTraModNombre = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnTraModAgregarServicio = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tabEliminarTraza = new System.Windows.Forms.TabPage();
             this.lstTraEliTrazas = new System.Windows.Forms.ListBox();
@@ -72,9 +70,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(199, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 13);
+            this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Listado de Servicios Disponibles";
+            this.label2.Text = "Servicios Disponibles";
             // 
             // txtTraCreNombre
             // 
@@ -82,16 +80,6 @@
             this.txtTraCreNombre.Name = "txtTraCreNombre";
             this.txtTraCreNombre.Size = new System.Drawing.Size(280, 20);
             this.txtTraCreNombre.TabIndex = 3;
-            // 
-            // btnTraCreAgregarServicio
-            // 
-            this.btnTraCreAgregarServicio.Location = new System.Drawing.Point(580, 72);
-            this.btnTraCreAgregarServicio.Name = "btnTraCreAgregarServicio";
-            this.btnTraCreAgregarServicio.Size = new System.Drawing.Size(100, 23);
-            this.btnTraCreAgregarServicio.TabIndex = 4;
-            this.btnTraCreAgregarServicio.Text = "Agregar Servicio";
-            this.btnTraCreAgregarServicio.UseVisualStyleBackColor = true;
-            this.btnTraCreAgregarServicio.Click += new System.EventHandler(this.btnTraCreAgregarServicio_Click);
             // 
             // btnTraLimpiar
             // 
@@ -140,7 +128,6 @@
             this.tabCrearTraza.Controls.Add(this.txtTraCreNombre);
             this.tabCrearTraza.Controls.Add(this.label1);
             this.tabCrearTraza.Controls.Add(this.label2);
-            this.tabCrearTraza.Controls.Add(this.btnTraCreAgregarServicio);
             this.tabCrearTraza.Location = new System.Drawing.Point(4, 22);
             this.tabCrearTraza.Name = "tabCrearTraza";
             this.tabCrearTraza.Padding = new System.Windows.Forms.Padding(3);
@@ -155,6 +142,7 @@
             this.clbTraCreServicios.Location = new System.Drawing.Point(202, 72);
             this.clbTraCreServicios.Name = "clbTraCreServicios";
             this.clbTraCreServicios.Size = new System.Drawing.Size(372, 424);
+            this.clbTraCreServicios.Sorted = true;
             this.clbTraCreServicios.TabIndex = 6;
             // 
             // tabModificarTraza
@@ -164,7 +152,6 @@
             this.tabModificarTraza.Controls.Add(this.txtTraModNombre);
             this.tabModificarTraza.Controls.Add(this.label4);
             this.tabModificarTraza.Controls.Add(this.label5);
-            this.tabModificarTraza.Controls.Add(this.btnTraModAgregarServicio);
             this.tabModificarTraza.Controls.Add(this.label3);
             this.tabModificarTraza.Location = new System.Drawing.Point(4, 22);
             this.tabModificarTraza.Name = "tabModificarTraza";
@@ -177,17 +164,20 @@
             // clbTraModServicios
             // 
             this.clbTraModServicios.FormattingEnabled = true;
-            this.clbTraModServicios.Location = new System.Drawing.Point(412, 84);
+            this.clbTraModServicios.Location = new System.Drawing.Point(412, 81);
             this.clbTraModServicios.Name = "clbTraModServicios";
-            this.clbTraModServicios.Size = new System.Drawing.Size(372, 304);
+            this.clbTraModServicios.Size = new System.Drawing.Size(372, 409);
+            this.clbTraModServicios.Sorted = true;
             this.clbTraModServicios.TabIndex = 14;
             // 
             // lstTraModTrazas
             // 
+            this.lstTraModTrazas.DisplayMember = "Nombre";
             this.lstTraModTrazas.FormattingEnabled = true;
             this.lstTraModTrazas.Location = new System.Drawing.Point(9, 32);
             this.lstTraModTrazas.Name = "lstTraModTrazas";
             this.lstTraModTrazas.Size = new System.Drawing.Size(373, 459);
+            this.lstTraModTrazas.Sorted = true;
             this.lstTraModTrazas.TabIndex = 12;
             this.lstTraModTrazas.SelectedIndexChanged += new System.EventHandler(this.seleccionarTraza);
             // 
@@ -212,28 +202,18 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(409, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 13);
+            this.label5.Size = new System.Drawing.Size(107, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Listado de Servicios Disponibles";
-            // 
-            // btnTraModAgregarServicio
-            // 
-            this.btnTraModAgregarServicio.Location = new System.Drawing.Point(412, 394);
-            this.btnTraModAgregarServicio.Name = "btnTraModAgregarServicio";
-            this.btnTraModAgregarServicio.Size = new System.Drawing.Size(100, 23);
-            this.btnTraModAgregarServicio.TabIndex = 9;
-            this.btnTraModAgregarServicio.Text = "Agregar Servicio";
-            this.btnTraModAgregarServicio.UseVisualStyleBackColor = true;
-            this.btnTraModAgregarServicio.Click += new System.EventHandler(this.btnTraModAgregarServicio_Click);
+            this.label5.Text = "Servicios Disponibles";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
+            this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Listado de Trazas Disponibles";
+            this.label3.Text = "Trazas Actuales";
             // 
             // tabEliminarTraza
             // 
@@ -250,10 +230,12 @@
             // 
             // lstTraEliTrazas
             // 
+            this.lstTraEliTrazas.DisplayMember = "Nombre";
             this.lstTraEliTrazas.FormattingEnabled = true;
             this.lstTraEliTrazas.Location = new System.Drawing.Point(203, 41);
             this.lstTraEliTrazas.Name = "lstTraEliTrazas";
             this.lstTraEliTrazas.Size = new System.Drawing.Size(373, 446);
+            this.lstTraEliTrazas.Sorted = true;
             this.lstTraEliTrazas.TabIndex = 15;
             // 
             // btnTraElBorrarTraza
@@ -271,9 +253,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(200, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 13);
+            this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Listado de Trazas";
+            this.label6.Text = "Trazas Actuales";
             // 
             // pnlTraza
             // 
@@ -311,7 +293,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTraCreNombre;
-        private System.Windows.Forms.Button btnTraCreAgregarServicio;
         private System.Windows.Forms.Button btnTraLimpiar;
         private System.Windows.Forms.Button btnTraCancelar;
         private System.Windows.Forms.Button btnTraAceptar;
@@ -321,7 +302,6 @@
         private System.Windows.Forms.TextBox txtTraModNombre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnTraModAgregarServicio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lstTraModTrazas;
         private System.Windows.Forms.TabPage tabEliminarTraza;

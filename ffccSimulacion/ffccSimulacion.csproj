@@ -89,6 +89,12 @@
     <Compile Include="ABMFormacion\frmABMFormacion.Designer.cs">
       <DependentUpon>frmABMFormacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ayuda\frmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ayuda\frmAyuda.Designer.cs">
+      <DependentUpon>frmAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dominio\Coche.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Estacion_X_Incidente.cs" />
     <Compile Include="Dominio\DataBase\ClasesJoins\Formacion_X_Coche.cs" />
@@ -225,7 +231,13 @@
     <EmbeddedResource Include="ABMIncidente\frmABMIncidente.resx">
       <DependentUpon>frmABMIncidente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ayuda\frmAyuda.resx">
+      <DependentUpon>frmAyuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Escritorio.resx">
+      <DependentUpon>Escritorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Escritorio.ssy.resx">
       <DependentUpon>Escritorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -280,8 +292,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\iconoPrueba.jpg" />
-    <Content Include="Resources\SIMUL.AR.jpg" />
+    <None Include="Resources\formacion.png" />
+    <Content Include="Resources\iconoEstacion.png" />
+    <Content Include="Resources\iconoIncidente.png" />
+    <Content Include="Resources\tren-nuevo.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -79,12 +79,15 @@ namespace ffccSimulacion.Simulador
 
             lBoxSimServicios.Items.Clear();
 
-            List<Servicios> serviciosTraza = simulacion.Trazas.ServiciosDisponibles;
+            foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == simulacion.Id_Traza))
+                lBoxSimServicios.Items.Add(ts.Servicios);
 
-            foreach (Servicios servicio in serviciosTraza)
-            {
-                lBoxSimServicios.Items.Add(servicio);
-            }
+            //List<Servicios> serviciosTraza = simulacion.Trazas.ServiciosDisponibles;
+
+            //foreach (Servicios servicio in serviciosTraza)
+            //{
+            //    lBoxSimServicios.Items.Add(servicio);
+            //}
         }
 
         private void btnSimular_Click(object sender, EventArgs e)
@@ -169,19 +172,23 @@ namespace ffccSimulacion.Simulador
 
             Trazas trazaSeleccionada = (Trazas)lBoxSimTrazas.SelectedItem;
 
-            context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
+            //context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
 
-            List<Servicios> servicios = new List<Servicios>();
+            //List<Servicios> servicios = new List<Servicios>();
 
             foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
-            {
-                servicios = (List<Servicios>) context.Servicios.ToList().Where(x => x.Id == ts.Id);
-            }
+                lBoxSimServicios.Items.Add(ts.Servicios);
 
-            foreach (Servicios servicio in servicios)
-            {
-                lBoxSimServicios.Items.Add(servicio);
-            }
+            //foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
+            //{
+            //    servicios = (List<Servicios>)context.Servicios.ToList().Where(x => x.Id == ts.Id);
+            //}
+
+
+            //foreach (Servicios servicio in servicios)
+            //{
+            //    lBoxSimServicios.Items.Add(servicio);
+            //}
         }
     }
 }
