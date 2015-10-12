@@ -214,10 +214,11 @@ namespace ffccSimulacion.Modelo
 
         public void agregarProgramacionSalida(List<int> programacionSalida)
         {
-            foreach (int horarioSalida in programacionSalida)
+            _programacion = programacionSalida;
+            /*foreach (int horarioSalida in programacionSalida)
             {
                 _programacion.Add(horarioSalida);
-            }
+            }*/
             //No es necesario ordenar, devuelvo el menor luego.
         }
 

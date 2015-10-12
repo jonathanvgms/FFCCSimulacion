@@ -106,6 +106,7 @@ namespace ffccSimulacion.Simulador
 
             if (string.IsNullOrEmpty(errorMsj))
             {
+                simulacion = new Simulaciones();
                 simulacion.Trazas = trazaSeleccionada;
                 simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
                 simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);

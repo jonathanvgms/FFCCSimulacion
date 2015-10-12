@@ -124,7 +124,9 @@ namespace ffccSimulacion.ABMServicio
         {
             if (auxRelaciones.Count == 0)
                 return null;
-            return auxRelaciones.Where(x => x.Id_Estacion_Anterior == id_estacionOrigen && x.Id_Estacion_Siguiente == id_estacionDentino).First();
+            Relaciones r = auxRelaciones.Where(x => x.Id_Estacion_Anterior == id_estacionOrigen && x.Id_Estacion_Siguiente == id_estacionDentino).FirstOrDefault();
+
+            return r;
         }
 
         private void dgvRelacionesCrear_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -151,7 +153,7 @@ namespace ffccSimulacion.ABMServicio
             Servicios nuevoServicio = new Servicios();
 
             if (!Util.EsAlfaNumerico(txtNombreServicio.Text))
-                errorMsj += "Distancia entre estaciones: Incompleto/Incorrecto.\n";
+                errorMsj += "Nombre de servicio: Incompleto/Incorrecto.\n";
 
             if (auxRelaciones.Count == 0)
                 errorMsj += "El servicio no tiene estaciones relacionadas.\n";
