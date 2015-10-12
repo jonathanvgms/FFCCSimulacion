@@ -41,10 +41,11 @@ namespace ffccSimulacion.Modelo
             return false;
         }
 
+        /*retorna el tiempo de viaje entre una estacion y la otra en minutos*/
         public int calcularTiempoViaje()
         {
-            //TODO Modificar
-            return TiempoViaje;
+            decimal tiempo = Distancia * 60 / VelocidadPromedio;
+            return Convert.ToInt32(Math.Truncate(tiempo));
         }
 
         public int demoraPorAccidentes()

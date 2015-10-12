@@ -19,12 +19,6 @@ namespace ffccSimulacion.Modelo
     using System.Threading.Tasks;
     public partial class Servicios
     {
-        public struct Parada
-        {
-            public Estaciones nodo;
-            public bool para;
-        }
-
         private List<Parada> _paradas = new List<Parada>(); //Estaciones en las que para la formacion.
         private List<int> _programacion; //Tiempos de salida de la terminal.
 

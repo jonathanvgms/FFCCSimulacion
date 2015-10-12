@@ -148,11 +148,10 @@ namespace ffccSimulacion.Modelo
             }
         }
 
+        /*Retorna el tiempo que lo toma a la estacion para atener al tren y despacharlo en minutos*/
         private int tiempoAtencion()
         {
-            //TODO: cambiar esta constante por un numero random
             //Calculo del tiempo de atencion en la estacion.
-            //return 5;
             int segundosEspera = Fdp.Normal(30, 120);
             return segundosEspera / 60;
         }

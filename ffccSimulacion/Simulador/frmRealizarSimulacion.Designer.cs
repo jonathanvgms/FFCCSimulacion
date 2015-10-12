@@ -44,12 +44,16 @@
             this.tbSimFrecuencia = new System.Windows.Forms.TextBox();
             this.tbSimNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnlSimulador.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSimulador
             // 
             this.pnlSimulador.AutoSize = true;
+            this.pnlSimulador.Controls.Add(this.label7);
+            this.pnlSimulador.Controls.Add(this.label6);
             this.pnlSimulador.Controls.Add(this.lBoxSimServicios);
             this.pnlSimulador.Controls.Add(this.label4);
             this.pnlSimulador.Controls.Add(this.tbSimDuracion);
@@ -83,17 +87,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 189);
+            this.label4.Location = new System.Drawing.Point(9, 186);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(130, 13);
             this.label4.TabIndex = 27;
-            this.label4.Text = "Duración";
+            this.label4.Text = "Duración de la Simulación";
             // 
             // tbSimDuracion
             // 
-            this.tbSimDuracion.Location = new System.Drawing.Point(125, 186);
+            this.tbSimDuracion.Location = new System.Drawing.Point(144, 186);
             this.tbSimDuracion.Name = "tbSimDuracion";
-            this.tbSimDuracion.Size = new System.Drawing.Size(194, 20);
+            this.tbSimDuracion.Size = new System.Drawing.Size(118, 20);
             this.tbSimDuracion.TabIndex = 28;
             // 
             // lBoxSimTrazas
@@ -161,11 +165,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 151);
+            this.label5.Location = new System.Drawing.Point(23, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(110, 26);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Frecuencia";
+            this.label5.Text = "Frecuencia de Salida \r\nde las Formaciones";
             // 
             // label3
             // 
@@ -187,26 +191,44 @@
             // 
             // tbSimFrecuencia
             // 
-            this.tbSimFrecuencia.Location = new System.Drawing.Point(125, 148);
+            this.tbSimFrecuencia.Location = new System.Drawing.Point(144, 142);
             this.tbSimFrecuencia.Name = "tbSimFrecuencia";
-            this.tbSimFrecuencia.Size = new System.Drawing.Size(194, 20);
+            this.tbSimFrecuencia.Size = new System.Drawing.Size(118, 20);
             this.tbSimFrecuencia.TabIndex = 18;
             // 
             // tbSimNombre
             // 
-            this.tbSimNombre.Location = new System.Drawing.Point(125, 104);
+            this.tbSimNombre.Location = new System.Drawing.Point(144, 104);
             this.tbSimNombre.Name = "tbSimNombre";
-            this.tbSimNombre.Size = new System.Drawing.Size(194, 20);
+            this.tbSimNombre.Size = new System.Drawing.Size(118, 20);
             this.tbSimNombre.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 107);
+            this.label1.Location = new System.Drawing.Point(9, 104);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(124, 13);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre de la Simulación";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(269, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "(en minutos)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(268, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "(en horas)";
             // 
             // frmRealizarSimulacion
             // 
@@ -242,6 +264,8 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Panel pnlSimulador;
         private System.Windows.Forms.ListBox lBoxSimServicios;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
 
     }
 }

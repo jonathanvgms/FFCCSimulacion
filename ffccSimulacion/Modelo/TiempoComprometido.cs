@@ -6,24 +6,8 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Modelo
 {
-    class TiempoComprometido //: ITiempoComprometido
+    public class TiempoComprometido //: ITiempoComprometido
     {
-        /*todos los tiempos de la estructura estan en minutos*/
-        struct ResultadoFormacion
-        {
-            public int id_formacion;
-            public string nombreFormacion;
-            public int consumoParado;
-            public int consumoMovimiento;
-            public int distanciaTotalRecorrida;
-            public int pasajerosTotalesTransportados;
-            public int vecesSuperoCapLegal;
-            public int vecesNoHabiaPasajerosParados;
-            public int tiempoTotalDemoradoIncidente;
-            public int tiempoTotalDemoradoAtencion;
-            public int tiempoTotalEnMovimiento;
-        }
-
         private int _tiempoInicial;
         private int _tiempoFinal;
         private Trazas _traza;
@@ -44,6 +28,7 @@ namespace ffccSimulacion.Modelo
             set { _tiempoInicial = value; }
         }
 
+        /*El tiempo final se expresa en minutos*/
         public int TiempoFinal
         {
             get { return _tiempoFinal; }
@@ -55,6 +40,8 @@ namespace ffccSimulacion.Modelo
             get { return _traza; }
             set { _traza = value; }
         }
+
+        public List<ResultadoFormacion> ResultadosFormaciones { get { return _resultadosFormaciones; } }
 
         #endregion
 
@@ -147,7 +134,7 @@ namespace ffccSimulacion.Modelo
 
                     tiempoTotalDemoraAtencion += tiempoAtencion;
                     tiempoTotalDemoraIncidente += demoraPorAccidentesEnViaje;
-                    tiempoTotalEnMovimiento += CalcularTiempoDistancia(relacionSiguiente.Distancia, relacionSiguiente.VelocidadPromedio);
+                    tiempoTotalEnMovimiento += tiempoViaje;
 
                     nodoActual = nodoSiguiente; //Actualizo el nodo que será el inicial en la siguiente iteracion.
 
@@ -156,7 +143,7 @@ namespace ffccSimulacion.Modelo
                     Console.WriteLine("tiempoViaje={0} | demoraPorAccidenteEnViaje={1} | tiempoLlegadaProximoNodo={2} | tiempoInicioAtencion={3} | tiempoAtencion={4}", tiempoViaje, demoraPorAccidentesEnViaje, tiempoLlegadaProximoNodo, tiempoInicioAtencion, tiempoAtencion);
                 }
                 
-                ResultadoFormacion nuevoResultado = CrearEstructResultado(formacionActual.Id, formacionActual.NombreFormacion, distanciaTotalRecorrida, pasajerosTotalesTransportados, vecesSupCapLegal, vecesNoHabiaPasajerosParados, tiempoTotalDemoraIncidente, tiempoTotalDemoraAtencion, tiempoTotalEnMovimiento);
+                ResultadoFormacion nuevoResultado = CrearEstructResultado(formacionActual.Id,formacionActual.NombreFormacion, distanciaTotalRecorrida, pasajerosTotalesTransportados, vecesSupCapLegal, vecesNoHabiaPasajerosParados, tiempoTotalDemoraIncidente, tiempoTotalDemoraAtencion, tiempoTotalEnMovimiento);
                 _resultadosFormaciones.Add(nuevoResultado);
                 actualizarSiguienteServicio(out tiempoActual, out servicioActual); //Actualiza el tiempo actual a partir del proximo servicio a prestar.
                 formacionActual = servicioActual.GetFormacionRandom(); //Se asigna la formacion que realizara el servicio actual
@@ -186,15 +173,6 @@ namespace ffccSimulacion.Modelo
             }
             siguienteServicio.removerSalida(siguienteSalida); //Al haber usado el horario siguienteSalida lo remuevo del servicio.
         }
-
-        /*apartir de la distancia (en Km) y de la velocidad (km/h) se retorna el tiempo que le toma recorrerla en minutos*/
-        private int CalcularTiempoDistancia(int distancia,int velocidad)
-        {
-            decimal tiempoHoras = distancia / velocidad;
-
-            return Convert.ToInt32(Math.Truncate(tiempoHoras * 60));
-        }
-
         #endregion
     }
 }

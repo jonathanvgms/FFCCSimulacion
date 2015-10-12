@@ -39,6 +39,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCrearServicio = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.cbxEsParadaCrear = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvRelacionesCrear = new System.Windows.Forms.DataGridView();
@@ -89,6 +91,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.lbxServiciosEliminar = new System.Windows.Forms.ListBox();
             this.pnlServicio = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabCrearServicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelacionesCrear)).BeginInit();
@@ -192,6 +196,8 @@
             // 
             // tabCrearServicio
             // 
+            this.tabCrearServicio.Controls.Add(this.label9);
+            this.tabCrearServicio.Controls.Add(this.label8);
             this.tabCrearServicio.Controls.Add(this.cbxEsParadaCrear);
             this.tabCrearServicio.Controls.Add(this.label4);
             this.tabCrearServicio.Controls.Add(this.dgvRelacionesCrear);
@@ -219,6 +225,24 @@
             this.tabCrearServicio.TabIndex = 0;
             this.tabCrearServicio.Text = "Crear";
             this.tabCrearServicio.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(399, 369);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "( km / h )";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(399, 340);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "( km )";
             // 
             // cbxEsParadaCrear
             // 
@@ -433,6 +457,8 @@
             // 
             // tabModificarServicio
             // 
+            this.tabModificarServicio.Controls.Add(this.label10);
+            this.tabModificarServicio.Controls.Add(this.label16);
             this.tabModificarServicio.Controls.Add(this.label6);
             this.tabModificarServicio.Controls.Add(this.label7);
             this.tabModificarServicio.Controls.Add(this.cbxEsParadaMod);
@@ -466,7 +492,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(523, 424);
+            this.label6.Location = new System.Drawing.Point(517, 424);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 13);
             this.label6.TabIndex = 44;
@@ -475,7 +501,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(523, 395);
+            this.label7.Location = new System.Drawing.Point(517, 395);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 13);
             this.label7.TabIndex = 45;
@@ -484,7 +510,7 @@
             // cbxEsParadaMod
             // 
             this.cbxEsParadaMod.AutoSize = true;
-            this.cbxEsParadaMod.Location = new System.Drawing.Point(689, 453);
+            this.cbxEsParadaMod.Location = new System.Drawing.Point(683, 453);
             this.cbxEsParadaMod.Name = "cbxEsParadaMod";
             this.cbxEsParadaMod.Size = new System.Drawing.Size(15, 14);
             this.cbxEsParadaMod.TabIndex = 43;
@@ -493,7 +519,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(523, 453);
+            this.label5.Location = new System.Drawing.Point(517, 453);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 13);
             this.label5.TabIndex = 42;
@@ -545,14 +571,14 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(689, 424);
+            this.textBox5.Location = new System.Drawing.Point(683, 424);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(104, 20);
             this.textBox5.TabIndex = 39;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(689, 395);
+            this.textBox4.Location = new System.Drawing.Point(683, 395);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(104, 20);
             this.textBox4.TabIndex = 40;
@@ -689,6 +715,24 @@
             this.pnlServicio.Size = new System.Drawing.Size(1164, 584);
             this.pnlServicio.TabIndex = 11;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(793, 427);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(50, 13);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "( km / h )";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(793, 398);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(33, 13);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "( km )";
+            // 
             // frmABMServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -774,5 +818,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label16;
     }
 }

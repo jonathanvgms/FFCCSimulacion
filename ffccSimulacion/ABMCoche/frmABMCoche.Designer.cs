@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtModeloMod = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblConsumoMovMod = new System.Windows.Forms.Label();
+            this.lblConsumoParadoMod = new System.Windows.Forms.Label();
             this.cbxTipoConsumoMod = new System.Windows.Forms.ComboBox();
             this.rdbLocomotoraNoMod = new System.Windows.Forms.RadioButton();
             this.txtConsumoParadoMod = new System.Windows.Forms.TextBox();
@@ -49,6 +51,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCrear = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblConsumoMovCrear = new System.Windows.Forms.Label();
+            this.lblConsumoParadoCrear = new System.Windows.Forms.Label();
             this.cbxTipoConsumo = new System.Windows.Forms.ComboBox();
             this.rndEsLocomotoraNo = new System.Windows.Forms.RadioButton();
             this.txtConsumoParado = new System.Windows.Forms.TextBox();
@@ -102,6 +106,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblConsumoMovMod);
+            this.groupBox1.Controls.Add(this.lblConsumoParadoMod);
             this.groupBox1.Controls.Add(this.cbxTipoConsumoMod);
             this.groupBox1.Controls.Add(this.rdbLocomotoraNoMod);
             this.groupBox1.Controls.Add(this.txtConsumoParadoMod);
@@ -117,6 +123,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Locomotora";
             // 
+            // lblConsumoMovMod
+            // 
+            this.lblConsumoMovMod.AutoSize = true;
+            this.lblConsumoMovMod.Location = new System.Drawing.Point(241, 84);
+            this.lblConsumoMovMod.Name = "lblConsumoMovMod";
+            this.lblConsumoMovMod.Size = new System.Drawing.Size(45, 13);
+            this.lblConsumoMovMod.TabIndex = 14;
+            this.lblConsumoMovMod.Text = "(por km)";
+            // 
+            // lblConsumoParadoMod
+            // 
+            this.lblConsumoParadoMod.AutoSize = true;
+            this.lblConsumoParadoMod.Location = new System.Drawing.Point(241, 120);
+            this.lblConsumoParadoMod.Name = "lblConsumoParadoMod";
+            this.lblConsumoParadoMod.Size = new System.Drawing.Size(45, 13);
+            this.lblConsumoParadoMod.TabIndex = 15;
+            this.lblConsumoParadoMod.Text = "(por km)";
+            // 
             // cbxTipoConsumoMod
             // 
             this.cbxTipoConsumoMod.AutoCompleteCustomSource.AddRange(new string[] {
@@ -128,8 +152,9 @@
             "Disel"});
             this.cbxTipoConsumoMod.Location = new System.Drawing.Point(139, 44);
             this.cbxTipoConsumoMod.Name = "cbxTipoConsumoMod";
-            this.cbxTipoConsumoMod.Size = new System.Drawing.Size(200, 21);
+            this.cbxTipoConsumoMod.Size = new System.Drawing.Size(96, 21);
             this.cbxTipoConsumoMod.TabIndex = 2;
+            this.cbxTipoConsumoMod.SelectedIndexChanged += new System.EventHandler(this.cbxTipoConsumoMod_SelectedIndexChanged);
             // 
             // rdbLocomotoraNoMod
             // 
@@ -147,7 +172,7 @@
             // 
             this.txtConsumoParadoMod.Location = new System.Drawing.Point(139, 117);
             this.txtConsumoParadoMod.Name = "txtConsumoParadoMod";
-            this.txtConsumoParadoMod.Size = new System.Drawing.Size(200, 20);
+            this.txtConsumoParadoMod.Size = new System.Drawing.Size(96, 20);
             this.txtConsumoParadoMod.TabIndex = 1;
             // 
             // label4
@@ -163,7 +188,7 @@
             // 
             this.txtConsumoMovimientoMod.Location = new System.Drawing.Point(139, 81);
             this.txtConsumoMovimientoMod.Name = "txtConsumoMovimientoMod";
-            this.txtConsumoMovimientoMod.Size = new System.Drawing.Size(200, 20);
+            this.txtConsumoMovimientoMod.Size = new System.Drawing.Size(96, 20);
             this.txtConsumoMovimientoMod.TabIndex = 1;
             // 
             // rdbLocomotoraSiMod
@@ -288,6 +313,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblConsumoMovCrear);
+            this.groupBox2.Controls.Add(this.lblConsumoParadoCrear);
             this.groupBox2.Controls.Add(this.cbxTipoConsumo);
             this.groupBox2.Controls.Add(this.rndEsLocomotoraNo);
             this.groupBox2.Controls.Add(this.txtConsumoParado);
@@ -303,6 +330,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Locomotora";
             // 
+            // lblConsumoMovCrear
+            // 
+            this.lblConsumoMovCrear.AutoSize = true;
+            this.lblConsumoMovCrear.Location = new System.Drawing.Point(305, 84);
+            this.lblConsumoMovCrear.Name = "lblConsumoMovCrear";
+            this.lblConsumoMovCrear.Size = new System.Drawing.Size(45, 13);
+            this.lblConsumoMovCrear.TabIndex = 12;
+            this.lblConsumoMovCrear.Text = "(por km)";
+            // 
+            // lblConsumoParadoCrear
+            // 
+            this.lblConsumoParadoCrear.AutoSize = true;
+            this.lblConsumoParadoCrear.Location = new System.Drawing.Point(305, 120);
+            this.lblConsumoParadoCrear.Name = "lblConsumoParadoCrear";
+            this.lblConsumoParadoCrear.Size = new System.Drawing.Size(45, 13);
+            this.lblConsumoParadoCrear.TabIndex = 13;
+            this.lblConsumoParadoCrear.Text = "(por km)";
+            // 
             // cbxTipoConsumo
             // 
             this.cbxTipoConsumo.AutoCompleteCustomSource.AddRange(new string[] {
@@ -314,8 +359,9 @@
             "Disel"});
             this.cbxTipoConsumo.Location = new System.Drawing.Point(139, 44);
             this.cbxTipoConsumo.Name = "cbxTipoConsumo";
-            this.cbxTipoConsumo.Size = new System.Drawing.Size(233, 21);
+            this.cbxTipoConsumo.Size = new System.Drawing.Size(160, 21);
             this.cbxTipoConsumo.TabIndex = 2;
+            this.cbxTipoConsumo.SelectedIndexChanged += new System.EventHandler(this.cbxTipoConsumo_SelectedIndexChanged);
             // 
             // rndEsLocomotoraNo
             // 
@@ -332,7 +378,7 @@
             // 
             this.txtConsumoParado.Location = new System.Drawing.Point(139, 117);
             this.txtConsumoParado.Name = "txtConsumoParado";
-            this.txtConsumoParado.Size = new System.Drawing.Size(233, 20);
+            this.txtConsumoParado.Size = new System.Drawing.Size(160, 20);
             this.txtConsumoParado.TabIndex = 1;
             // 
             // label8
@@ -348,7 +394,7 @@
             // 
             this.txtConsumoMov.Location = new System.Drawing.Point(139, 81);
             this.txtConsumoMov.Name = "txtConsumoMov";
-            this.txtConsumoMov.Size = new System.Drawing.Size(233, 20);
+            this.txtConsumoMov.Size = new System.Drawing.Size(160, 20);
             this.txtConsumoMov.TabIndex = 1;
             // 
             // rndEsLocomotoraSi
@@ -412,25 +458,25 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(194, 404);
+            this.label11.Location = new System.Drawing.Point(148, 401);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 13);
+            this.label11.Size = new System.Drawing.Size(186, 13);
             this.label11.TabIndex = 3;
-            this.label11.Text = "Capacidad Maxima Real";
+            this.label11.Text = "Capacidad Maxima Real de Pasajeros";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(194, 366);
+            this.label12.Location = new System.Drawing.Point(144, 363);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 13);
+            this.label12.Size = new System.Drawing.Size(190, 13);
             this.label12.TabIndex = 4;
-            this.label12.Text = "Capacidad Máxima Legal";
+            this.label12.Text = "Capacidad Máxima Legal de Pasajeros";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(194, 330);
+            this.label13.Location = new System.Drawing.Point(219, 326);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(107, 13);
             this.label13.TabIndex = 5;
@@ -628,5 +674,9 @@
         private System.Windows.Forms.Button btnBorrarCoche;
         private System.Windows.Forms.ListBox lbxCochesBorrar;
         public System.Windows.Forms.Panel pnlCoche;
+        private System.Windows.Forms.Label lblConsumoMovCrear;
+        private System.Windows.Forms.Label lblConsumoParadoCrear;
+        private System.Windows.Forms.Label lblConsumoMovMod;
+        private System.Windows.Forms.Label lblConsumoParadoMod;
     }
 }

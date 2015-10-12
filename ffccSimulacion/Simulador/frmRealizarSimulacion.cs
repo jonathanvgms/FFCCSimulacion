@@ -92,24 +92,44 @@ namespace ffccSimulacion.Simulador
 
         private void btnSimular_Click(object sender, EventArgs e)
         {
-            //simulacion.EjecutarSimulacion();
+            string errorMsj = "";
+            Trazas trazaSeleccionada = (Trazas)lBoxSimTrazas.SelectedItem;
+
+            if (!Util.EsAlfaNumerico(tbSimNombre.Text))
+                errorMsj += "Nombre: incompleto o incorrecto.\n";
+            if (!Util.EsNumerico(tbSimFrecuencia.Text))
+                errorMsj += "Frecuencia: incompleto o incorrecto.\n";
+            if (!Util.EsNumerico(tbSimDuracion.Text))
+                errorMsj += "Duración: incompleto o incorrecto.\n";
+            if (trazaSeleccionada == null)
+                errorMsj += "ninguna traza ha sido seleccionada.\n";
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                simulacion.Trazas = trazaSeleccionada;
+                simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
+                simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
+                simulacion.EjecutarSimulacion();
+            }
+            else
+                MessageBox.Show(errorMsj);
         }
 
         private void btnSimGuardar_Click(object sender, EventArgs e)
         {
             string errorStr = "";
 
-            if(!Util.EsAlfaNumerico(tbSimNombre.Text))
+            if (!Util.EsAlfaNumerico(tbSimNombre.Text))
             {
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
             }
 
-            if(!Util.EsNumerico(tbSimFrecuencia.Text))
+            if (!Util.EsNumerico(tbSimFrecuencia.Text))
             {
                 errorStr += "Frecuencia: Incompleto/Incorrecto\n";
             }
 
-            if(!Util.EsNumerico(tbSimDuracion.Text))
+            if (!Util.EsNumerico(tbSimDuracion.Text))
             {
                 errorStr += "Duracion: Incompleto/Incorrecto\n";
             }
@@ -130,7 +150,7 @@ namespace ffccSimulacion.Simulador
 
                     simulacion.Tiempo_Final = int.Parse(tbSimDuracion.Text);
 
-                    simulacion.Trazas = (Trazas) lBoxSimTrazas.SelectedItem;
+                    simulacion.Trazas = (Trazas)lBoxSimTrazas.SelectedItem;
 
                     //TODO cargar servicios
 

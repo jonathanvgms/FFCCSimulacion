@@ -1,5 +1,4 @@
-﻿using ffccSimulacion.Dominio;
-using ffccSimulacion.Modelo;
+﻿using ffccSimulacion.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -324,5 +323,32 @@ namespace ffccSimulacion.ABMCoche
             txtConsumoParadoMod.Text = "";
         }
 
+        private void cbxTipoConsumo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoConsumo.SelectedItem == "Disel")
+            {
+                lblConsumoMovCrear.Text = "(por km)";
+                lblConsumoParadoCrear.Text = "(por km)";
+            }
+            else if (cbxTipoConsumo.SelectedItem == "Electrico")
+            {
+                lblConsumoMovCrear.Text = "(por tiempo)";
+                lblConsumoParadoCrear.Text = "(por tiempo)";
+            }
+        }
+
+        private void cbxTipoConsumoMod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoConsumoMod.SelectedItem == "Disel")
+            {
+                lblConsumoMovMod.Text = "(por km)";
+                lblConsumoParadoMod.Text = "(por km)";
+            }
+            else if (cbxTipoConsumo.SelectedItem == "Electrico")
+            {
+                lblConsumoMovMod.Text = "(por tiempo)";
+                lblConsumoParadoMod.Text = "(por tiempo)";
+            }
+        }
     }
 }

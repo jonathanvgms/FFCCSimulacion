@@ -40,7 +40,7 @@ namespace ffccSimulacion
 
         public static void PruebaSimuladorSinBd()
         {
-            int _tiempoInicial = 0;
+            /*int _tiempoInicial = 0;
             int _tiempoFinal = 100;
             int _frecuenciaSalida = 10;
 
@@ -67,7 +67,7 @@ namespace ffccSimulacion
             _traza.AgregarServicio(servicio1);
 
             Simulacion simulador = new Simulacion("simulacionPrueba", _tiempoInicial, _tiempoFinal, _traza, _frecuenciaSalida);
-            simulador.EjecutarSimulacion();
+            simulador.EjecutarSimulacion();*/
         }
     }
 }
