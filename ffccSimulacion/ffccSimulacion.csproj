@@ -56,6 +56,15 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>.\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>.\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Meta.Numerics, Version=3.0.0.0, Culture=neutral, PublicKeyToken=67d25c65a6631347, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Meta.Numerics.dll</HintPath>
@@ -136,7 +145,6 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\DataBase\Context.cs" />
-    <Compile Include="Modelo\Enumeraciones.cs" />
     <Compile Include="Modelo\Estaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -180,7 +188,6 @@
     <Compile Include="Modelo\Simulaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Structs.cs" />
     <Compile Include="Modelo\TiempoComprometido.cs" />
     <Compile Include="Modelo\Trazas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -201,6 +208,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resultados\frmResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resultados\frmResultados.Designer.cs">
+      <DependentUpon>frmResultados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Resultados\Informe.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Simulador\frmBuscarSimulacion.cs">
       <SubType>Form</SubType>
@@ -247,6 +261,9 @@
     <EmbeddedResource Include="ABMServicio\frmABMServicio.resx">
       <DependentUpon>frmABMServicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resultados\frmResultados.resx">
+      <DependentUpon>frmResultados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Simulador\frmBuscarSimulacion.resx">
       <DependentUpon>frmBuscarSimulacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,11 +309,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\formacion.png" />
-    <Content Include="Resources\2cygmcg.png" />
-    <Content Include="Resources\iconoApp.ico" />
     <Content Include="Resources\iconoEstacion.png" />
     <Content Include="Resources\iconoIncidente.png" />
-    <Content Include="Resources\iconoSimulacion.png" />
     <Content Include="Resources\tren-nuevo.png" />
   </ItemGroup>
   <ItemGroup>
