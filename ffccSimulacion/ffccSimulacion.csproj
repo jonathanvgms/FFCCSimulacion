@@ -104,25 +104,6 @@
     <Compile Include="Ayuda\frmAyuda.Designer.cs">
       <DependentUpon>frmAyuda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dominio\Coche.cs" />
-    <Compile Include="Dominio\DataBase\ClasesJoins\Estacion_X_Incidente.cs" />
-    <Compile Include="Dominio\DataBase\ClasesJoins\Formacion_X_Coche.cs" />
-    <Compile Include="Dominio\DataBase\ClasesJoins\Servicio_X_Formacion.cs" />
-    <Compile Include="Dominio\DataBase\ClasesJoins\Traza_X_Servicio.cs" />
-    <Compile Include="Dominio\DataBase\DataBaseManager.cs" />
-    <Compile Include="Dominio\Enumeraciones.cs" />
-    <Compile Include="Dominio\Estacion.cs" />
-    <Compile Include="Dominio\Fdp.cs" />
-    <Compile Include="Dominio\Formacion.cs" />
-    <Compile Include="Dominio\IEventoAEvento.cs" />
-    <Compile Include="Dominio\Incidente.cs" />
-    <Compile Include="Dominio\IEstrategiaDeSimulador.cs" />
-    <Compile Include="Dominio\ITiempoComprometido.cs" />
-    <Compile Include="Dominio\Relacion.cs" />
-    <Compile Include="Dominio\Servicio.cs" />
-    <Compile Include="Dominio\Simulacion.cs" />
-    <Compile Include="Dominio\TiempoComprometido.cs" />
-    <Compile Include="Dominio\Traza.cs" />
     <Compile Include="ABMEstacion\frmABMEstacion.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -21,5 +21,12 @@ namespace ffccSimulacion.Resultados
         {
             Close();
         }
+
+        private void btnResultadosPdf_Click(object sender, EventArgs e)
+        {
+            //aca se tiene que llamar a generarInforme y pasar todas las variables de resultado
+
+            //Informe.generarInforme();
+        }
     }
 }
