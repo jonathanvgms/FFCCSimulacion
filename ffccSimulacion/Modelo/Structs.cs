@@ -12,6 +12,14 @@ namespace ffccSimulacion.Modelo
         public bool para;
     }
 
+    public struct Estacion_Info
+    {
+        public int id_estacion;
+        public int ultima_Atencion;
+        public int tiempo_comprometido;
+        public int gente_esperando;
+    }
+
     /*todos los tiempos de la estructura estan en minutos*/
     public struct ResultadoFormacion
     {

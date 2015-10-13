@@ -85,11 +85,6 @@ namespace ffccSimulacion.Modelo
             Estaciones_X_Incidentes.Add(ie);
         }
 
-        /*public void LimpiarListaLINQParaPoderGuardar()
-        {
-            _listaIncidentes_LINQ = new EntitySet<Estacion_X_Incidente>();
-        }*/
-
         public void agregarRelacionAnterior(Relaciones relacion)
         {
             _anteriores.Add(relacion);
@@ -104,13 +99,9 @@ namespace ffccSimulacion.Modelo
         {
             //CALCULO LA LLEGADA
             if (_tiempoComprometido < tiempoLlegada)
-            {
                 _tiempoComprometido = tiempoLlegada;
-            }
             else
-            {
                 tiempoLlegada = _tiempoComprometido; //El tiempo de llegada se actualiza.
-            }
 
             //ATIENDO LOS PASAJEROS
             actualizarGenteEsperando(tiempoLlegada);

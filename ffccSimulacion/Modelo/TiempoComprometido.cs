@@ -11,6 +11,10 @@ namespace ffccSimulacion.Modelo
         private int _tiempoInicial;
         private int _tiempoFinal;
         private Trazas _traza;
+        /*Este diccionario se utiliza para mantener de manera comun los tiempos comprometidos, la gentes esperando y la hora de ultima atencion de todas las
+         estaciones que existan en la simulacion. De otra forma cada estacion es una instancia distinta y por lo tanto sus campos son siempre 0 aunque se trate de la misma 
+         estacion. Preguntar a Pablo*/
+        private Dictionary<int, Estacion_Info> _estaciones_TC = new Dictionary<int, Estacion_Info>();//La clave que se utiliza es el id de la estacion
         private List<ResultadoFormacion> _resultadosFormaciones = new List<ResultadoFormacion>();
 
         public TiempoComprometido(int tiempoInicial, int tiempoFinal,Trazas unaTraza)
@@ -117,10 +121,30 @@ namespace ffccSimulacion.Modelo
                     int tiempoLlegadaProximoNodo = tiempoViaje + demoraPorAccidentesEnViaje; //Llego al proximo nodo al sumar el tiempo de viaje y las demoras.
 
                     int tiempoInicioAtencion = tiempoLlegadaProximoNodo; //Si no hay demoras en la estacion, el tiempo de atencion sera el de llegada, si hay demoras se actualiza.
+                                        
+                    if (!_estaciones_TC.ContainsKey(nodoSiguiente.Id))
+                    {
+                        Estacion_Info ei = new Estacion_Info();
+                        ei.id_estacion = nodoSiguiente.Id;
+                        ei.tiempo_comprometido = 0;
+                        ei.ultima_Atencion = 0;
+                        ei.gente_esperando = 0;
+                        _estaciones_TC.Add(nodoSiguiente.Id, ei);
+                    }
+
+                    Estacion_Info est_info = _estaciones_TC[nodoSiguiente.Id];
+                    nodoSiguiente.TiempoComprometido = est_info.tiempo_comprometido;
+                    nodoSiguiente.GenteEsperando = est_info.gente_esperando;
+                    nodoSiguiente.UltimaAtencion = est_info.ultima_Atencion;
 
                     int pasajerosEsperandoTren = nodoSiguiente.GenteEsperando;
 
                     int tiempoAtencion = nodoSiguiente.atenderFormacion(formacionActual, ref tiempoInicioAtencion);
+
+                    est_info.tiempo_comprometido = nodoSiguiente.TiempoComprometido;
+                    est_info.gente_esperando = nodoSiguiente.GenteEsperando;
+                    est_info.ultima_Atencion = nodoSiguiente.UltimaAtencion;
+                    _estaciones_TC[nodoSiguiente.Id] = est_info;
 
                     int pasajerosQueNoSubieron = nodoSiguiente.GenteEsperando;
 
