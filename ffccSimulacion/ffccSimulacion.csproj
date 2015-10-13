@@ -126,6 +126,7 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\DataBase\Context.cs" />
+    <Compile Include="Modelo\Enumeraciones.cs" />
     <Compile Include="Modelo\Estaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -169,6 +170,7 @@
     <Compile Include="Modelo\Simulaciones.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Structs.cs" />
     <Compile Include="Modelo\TiempoComprometido.cs" />
     <Compile Include="Modelo\Trazas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>

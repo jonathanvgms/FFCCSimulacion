@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ffccSimulacion.Dominio;
-using ffccSimulacion.Dominio.DataBase;
 using System.Windows.Forms;
 using ffccSimulacion.Modelo;
 using ffccSimulacion.Modelo.DataBase;
