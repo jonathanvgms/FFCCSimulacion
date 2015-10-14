@@ -62,6 +62,11 @@ namespace ffccSimulacion.Modelo
             return CapacidadMaximaPasajeros - _pasajerosSentados - _pasajerosParados;
         }
 
+        public Coches ClonarCoche()
+        {
+            return (Coches)this.MemberwiseClone(); ;
+        }
+
         public int recibir(int pasajerosASubir)
         {
             int exceso = pasajerosASubir;
@@ -129,7 +134,7 @@ namespace ffccSimulacion.Modelo
 
             //TODO: No se considera el vaciado de personas en la terminal.
             int totalPasajeros = _pasajerosSentados + _pasajerosParados;
-            int porcentajeABajar = Fdp.Normal(10, 100) / 100;
+            int porcentajeABajar = Fdp.Normal(10, 100);
             int pasajerosABajar = totalPasajeros * porcentajeABajar / 100;
             int restanBajar = pasajerosABajar;
             if (restanBajar >= _pasajerosParados)

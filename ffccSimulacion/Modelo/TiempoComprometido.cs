@@ -10,6 +10,7 @@ namespace ffccSimulacion.Modelo
     {
         private int _tiempoInicial;
         private int _tiempoFinal;
+        private int _posServicio = 0;
         private Trazas _traza;
         /*Este diccionario se utiliza para mantener de manera comun los tiempos comprometidos, la gentes esperando y la hora de ultima atencion de todas las
          estaciones que existan en la simulacion. De otra forma cada estacion es una instancia distinta y por lo tanto sus campos son siempre 0 aunque se trate de la misma 
@@ -137,8 +138,6 @@ namespace ffccSimulacion.Modelo
                     nodoSiguiente.GenteEsperando = est_info.gente_esperando;
                     nodoSiguiente.UltimaAtencion = est_info.ultima_Atencion;
 
-                    int pasajerosEsperandoTren = nodoSiguiente.GenteEsperando;
-
                     int tiempoAtencion = nodoSiguiente.atenderFormacion(formacionActual, ref tiempoInicioAtencion);
 
                     est_info.tiempo_comprometido = nodoSiguiente.TiempoComprometido;
@@ -146,9 +145,7 @@ namespace ffccSimulacion.Modelo
                     est_info.ultima_Atencion = nodoSiguiente.UltimaAtencion;
                     _estaciones_TC[nodoSiguiente.Id] = est_info;
 
-                    int pasajerosQueNoSubieron = nodoSiguiente.GenteEsperando;
-
-                    pasajerosTotalesTransportados += (pasajerosEsperandoTren - pasajerosQueNoSubieron);
+                    pasajerosTotalesTransportados += nodoSiguiente.PasajerosQueSubieronAlTren;
 
                     if (formacionActual.FormacionSuperoCapLegal())
                         vecesSupCapLegal++;
@@ -179,13 +176,15 @@ namespace ffccSimulacion.Modelo
 
         private void actualizarSiguienteServicio(out int siguienteSalida, out Servicios siguienteServicio)
         {
-            /*Actualiza las variables siguienteSalida y siguienteServicio con los valores del proximo servicio a salir. */
-            //TODO Revisar si las dos lineas siguientes son equivalentes
-            //siguienteServicio = Traza.ServiciosOtorgados.First();
-            siguienteServicio = Traza.ServiciosDisponibles.First();
+            if (_posServicio > Traza.ServiciosDisponibles.Count)
+                _posServicio = 0;
+            siguienteServicio = Traza.ServiciosDisponibles[_posServicio];
+            _posServicio++;
             siguienteSalida = siguienteServicio.proximoHorarioSalida();
-            //TODO Revisar si las dos lineas siguientes son equivalentes
-            //foreach (Servicio servicio in Traza.ServiciosOtorgados)
+
+            /*Actualiza las variables siguienteSalida y siguienteServicio con los valores del proximo servicio a salir. */
+            /*siguienteServicio = Traza.ServiciosDisponibles.First();
+            siguienteSalida = siguienteServicio.proximoHorarioSalida();
             foreach (Servicios servicio in Traza.ServiciosDisponibles)
             {
                 int salidaAux = servicio.proximoHorarioSalida();
@@ -194,7 +193,7 @@ namespace ffccSimulacion.Modelo
                     siguienteServicio = servicio;
                     siguienteSalida = salidaAux;
                 }
-            }
+            }*/
             siguienteServicio.removerSalida(siguienteSalida); //Al haber usado el horario siguienteSalida lo remuevo del servicio.
         }
         #endregion

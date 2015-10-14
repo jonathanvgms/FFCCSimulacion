@@ -47,14 +47,9 @@ namespace ffccSimulacion.Modelo
             {
                 foreach (Formaciones_X_Coches fc in Formaciones_X_Coches)
                     for (int i = 0; i < fc.VecesRepetido; i++)
-                        _listaCoches.Add(fc.Coches);
+                        _listaCoches.Add(fc.Coches.ClonarCoche());
             }
         }
-
-        /*public void LimpiarListaLINQParaPoderGuardar()
-        {
-            _listaCoches_LINQ = new EntitySet<Formacion_X_Coche>();
-        }*/
 
         public void agregarCoche(Coches coche, int vecesRepetido)
         {
@@ -125,7 +120,7 @@ namespace ffccSimulacion.Modelo
             return capacidadMaxima;
         }
 
-        public int recibir(int genteASubir)
+        public Flujo_Pasajeros recibir(int genteASubir)
         {
             int exceso = genteASubir;
 
@@ -136,7 +131,11 @@ namespace ffccSimulacion.Modelo
                     exceso = c.recibir(exceso);
             }
 
-            return exceso; //Se retorna la cantidad de gente que no pudo subir.
+            Flujo_Pasajeros fp = new Flujo_Pasajeros();
+            fp.pasajerosQueSubieronAlTren = genteASubir - exceso;
+            fp.pasajerosQueNoSubieronAlTren = exceso;
+            
+            return fp; //Se retorna la cantidad de gente que no pudo subir.
         }
 
         public int TotalPasajerosEnFormacion()

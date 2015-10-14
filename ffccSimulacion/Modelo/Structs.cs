@@ -12,6 +12,12 @@ namespace ffccSimulacion.Modelo
         public bool para;
     }
 
+    public struct Flujo_Pasajeros
+    {
+        public int pasajerosQueSubieronAlTren;
+        public int pasajerosQueNoSubieronAlTren;
+    }
+
     public struct Estacion_Info
     {
         public int id_estacion;

@@ -24,6 +24,7 @@ namespace ffccSimulacion.Modelo
         private int _genteEsperando = 0;
         private int _ultimaAtencion = 0;
         private int _tiempoComprometido = 0;
+        private int _pasajerosQueSubieronAlTren = 0;
 
         public Estaciones()
         {
@@ -61,6 +62,8 @@ namespace ffccSimulacion.Modelo
             set { _tiempoComprometido = value; }
         }
 
+        public int PasajerosQueSubieronAlTren { get { return _pasajerosQueSubieronAlTren; } }
+
         public List<Relaciones> RelacionesAnteriores
         {
             get { return _anteriores; }
@@ -95,6 +98,7 @@ namespace ffccSimulacion.Modelo
             _siguientes.Add(relacion);
         }
 
+        /*Retorna cual fue el tiempo de atencion de la formacion*/
         public int atenderFormacion(Formaciones formacion, ref int tiempoLlegada)
         {
             //CALCULO LA LLEGADA
@@ -106,14 +110,17 @@ namespace ffccSimulacion.Modelo
             //ATIENDO LOS PASAJEROS
             actualizarGenteEsperando(tiempoLlegada);
 
-            _genteEsperando = formacion.recibir(_genteEsperando);
+            Flujo_Pasajeros fp = formacion.recibir(_genteEsperando);
+            _pasajerosQueSubieronAlTren = fp.pasajerosQueSubieronAlTren;
+            _genteEsperando = fp.pasajerosQueNoSubieronAlTren;
 
             //ACTUALIZO EL TIEMPO COMPROMETIDO Y LA ULTIMA ATENCION
-            _tiempoComprometido += tiempoAtencion();
+            int tiempoAtencionActual = tiempoAtencion();
+            _tiempoComprometido += tiempoAtencionActual;
             _ultimaAtencion = _tiempoComprometido; //Por ahora son iguales.
 
             //RETORNO EL TIEMPO DE ATENCION EN LA ESTACION
-            return tiempoAtencion();
+            return tiempoAtencionActual;
         }
 
         private void actualizarGenteEsperando(int tiempoActual)
