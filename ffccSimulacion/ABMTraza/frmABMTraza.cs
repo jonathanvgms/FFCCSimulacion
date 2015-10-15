@@ -208,18 +208,20 @@ namespace ffccSimulacion.ABMTraza
                 {
                     if (MessageBox.Show("La traza se eliminará de manera permanente. ¿Desea continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
 
-                    trazaSeleccionada = context.Trazas.Where(x => x.Nombre == lstTraEliTrazas.SelectedItem.ToString()).FirstOrDefault();
+                    trazaSeleccionada = (Trazas)lstTraEliTrazas.SelectedItem;
 
                     //borro todos los servicios asignados a la traza
-                    context.Trazas_X_Servicios.Where(x => x.Id == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
+                    context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id).ToList().ForEach(y => context.Trazas_X_Servicios.Remove(y));
 
                     context.Trazas.Remove(trazaSeleccionada);
 
                     context.SaveChanges();
 
-                    MessageBox.Show("Traza Eliminada");
-
                     cargarTrazas();
+
+                    limpiarFormulario();
+
+                    MessageBox.Show("Traza Eliminada");
                 }
                 catch (Exception exc)
                 {
