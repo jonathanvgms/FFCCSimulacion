@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ffccSimulacion.Modelo;
+using ffccSimulacion.Resultados;
 
 namespace ffccSimulacion.Simulador
 {
@@ -17,6 +18,8 @@ namespace ffccSimulacion.Simulador
         ffccSimulacionEntities context;
 
         private Simulaciones simulacion;
+
+        public ResultadoSimulacion resultadoSimulacion;
 
         public frmRealizarSimulacion()
         {
@@ -111,6 +114,7 @@ namespace ffccSimulacion.Simulador
                 simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
                 simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
                 simulacion.EjecutarSimulacion();
+                reportar();
             }
             else
                 MessageBox.Show(errorMsj);
@@ -210,6 +214,72 @@ namespace ffccSimulacion.Simulador
             //{
             //    lBoxSimServicios.Items.Add(servicio);
             //}
+        }
+
+        private void reportar()
+        {
+            /*
+             * Se obtienen los siguientes resultados de cada formacion:
+             *      distanciaTotalRecorrida;
+             *      pasajerosTotalesTransportados;
+             *      vecesSuperoCapLegal;
+             *      vecesNoHabiaPasajerosParados;
+             *      tiempoTotalDemoradoIncidente;
+             *      tiempoTotalDemoradoAtencion;
+             *      tiempoTotalEnMovimiento;
+             * 
+             * Se calculan los siguientes resultados finales:
+             *      Porcentaje de trenes que superaron el maximo de pasajeros permitido.
+             *      Tiempo promedio de demora por incidentes.
+             *      Promedio de pasajeros por formacion.
+             *      Promedio de demora por tiempo de atencion en formacion.
+             *      Costo por km.
+             *      Costo por pasajero.
+             *      Consumo promedio por km.
+             *      Consumo promedio por pasajero.
+             * */
+
+            int totalFormaciones = simulacion.ResultadosFormacionesSimulacion.Count();
+
+            resultadoSimulacion.id = simulacion.Id;
+            resultadoSimulacion.nombre = simulacion.Nombre;
+            resultadoSimulacion.fecha = DateTime.Now;
+            resultadoSimulacion.porcentajeSobrecarga = 0;
+            resultadoSimulacion.promedioDemoraIncidentes = 0;
+            resultadoSimulacion.promedioPasajeros = 0;
+            resultadoSimulacion.promedioDemoraAtencion = 0;
+            resultadoSimulacion.costoKm = 0;
+            resultadoSimulacion.costoPasajero = 0;
+            resultadoSimulacion.consumoKm = 0;
+            resultadoSimulacion.consumoPasajero = 0;
+
+            foreach (ResultadoFormacion resultadoFormacion in simulacion.ResultadosFormacionesSimulacion)
+            {
+                resultadoSimulacion.porcentajeSobrecarga += resultadoFormacion.vecesSuperoCapLegal;
+                resultadoSimulacion.promedioDemoraIncidentes += resultadoFormacion.tiempoTotalDemoradoIncidente;
+                resultadoSimulacion.promedioPasajeros += resultadoFormacion.pasajerosTotalesTransportados;
+                resultadoSimulacion.promedioDemoraAtencion += resultadoFormacion.tiempoTotalDemoradoAtencion;
+                int consumoTotal = resultadoFormacion.consumoMovimiento * resultadoFormacion.tiempoTotalEnMovimiento + resultadoFormacion.consumoParado * (resultadoFormacion.tiempoTotalDemoradoIncidente + resultadoFormacion.tiempoTotalDemoradoAtencion);
+                resultadoSimulacion.costoKm = (double) consumoTotal / (double) resultadoFormacion.distanciaTotalRecorrida;
+                resultadoSimulacion.costoPasajero = (double) consumoTotal / (double) resultadoFormacion.pasajerosTotalesTransportados;
+                /* TODO resultados de consumo
+                 * No veo la diferencia entre costo y consumo
+                 * Creo que el consumo directamente lo podriamos poner en $ siempre, no dividir entre electrico y gasoil.
+                 * Sino tendriamos que tener en algun lado el pasaje de electricidad y gasoil a $.
+                 * 
+                 * Y necesito que se guarde en la estructura ResultadoFormacion el consumo en movimiento y parado de la formacion.
+                 */
+
+            }
+            resultadoSimulacion.porcentajeSobrecarga = (double)resultadoSimulacion.porcentajeSobrecarga * 100 / (double) totalFormaciones;
+            resultadoSimulacion.promedioDemoraIncidentes = (double)resultadoSimulacion.promedioDemoraIncidentes / (double) totalFormaciones;
+            resultadoSimulacion.promedioPasajeros = (double)resultadoSimulacion.promedioPasajeros / (double)totalFormaciones;
+            resultadoSimulacion.promedioDemoraAtencion = (double)resultadoSimulacion.promedioDemoraAtencion / (double) totalFormaciones;
+
+            using (frmResultados frmResultados = new frmResultados(resultadoSimulacion))
+            {
+                frmResultados.ShowDialog();
+            }
         }
     }
 }

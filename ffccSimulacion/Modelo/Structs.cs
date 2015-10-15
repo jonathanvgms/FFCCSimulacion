@@ -32,11 +32,28 @@ namespace ffccSimulacion.Modelo
         public int id_formacion;
         public string nombreFormacion;
         public int distanciaTotalRecorrida;
+        public int consumoMovimiento;
+        public int consumoParado;
         public int pasajerosTotalesTransportados;
         public int vecesSuperoCapLegal;
         public int vecesNoHabiaPasajerosParados;
         public int tiempoTotalDemoradoIncidente;
         public int tiempoTotalDemoradoAtencion;
         public int tiempoTotalEnMovimiento;
+    }
+
+    public struct ResultadoSimulacion
+    {
+        public int id;
+        public string nombre;
+        public DateTime fecha;
+        public double porcentajeSobrecarga;
+        public double promedioDemoraIncidentes;
+        public double promedioPasajeros;
+        public double promedioDemoraAtencion;
+        public double costoKm;
+        public double costoPasajero;
+        public double consumoKm;
+        public double consumoPasajero;
     }
 }

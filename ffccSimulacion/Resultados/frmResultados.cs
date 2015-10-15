@@ -7,14 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ffccSimulacion.Modelo;
 
 namespace ffccSimulacion.Resultados
 {
     public partial class frmResultados : Form
     {
-        public frmResultados()
+        ResultadoSimulacion resultadoSimulacion;
+        public frmResultados(ResultadoSimulacion resSim)
         {
             InitializeComponent();
+
+            resultadoSimulacion = resSim;
+
+            this.txtPorcTrenes.Text = resultadoSimulacion.porcentajeSobrecarga.ToString();
+            this.txtTiemPro.Text = resultadoSimulacion.promedioDemoraIncidentes.ToString();
+            this.txtPromPasaj.Text = resultadoSimulacion.promedioPasajeros.ToString();
+            this.txtPromDem.Text = resultadoSimulacion.promedioDemoraAtencion.ToString();
+            this.txtCostPorKm.Text = resultadoSimulacion.costoKm.ToString();
+            this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
+            this.txtConsPorKm.Text = resultadoSimulacion.consumoKm.ToString();
+            this.txtConsPorPasajero.Text = resultadoSimulacion.consumoPasajero.ToString();
         }
 
         private void btnResultadosCerrar_Click(object sender, EventArgs e)
@@ -26,7 +39,7 @@ namespace ffccSimulacion.Resultados
         {
             //aca se tiene que llamar a generarInforme y pasar todas las variables de resultado
 
-            //Informe.generarInforme();
+            //Informe.generarInforme(resultadoSimulacion);
         }
     }
 }
