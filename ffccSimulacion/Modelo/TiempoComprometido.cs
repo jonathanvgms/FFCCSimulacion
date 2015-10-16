@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ffccSimulacion.Modelo
 {
-    public class TiempoComprometido //: ITiempoComprometido
+    public class TiempoComprometido
     {
         private int _tiempoInicial;
         private int _tiempoFinal;

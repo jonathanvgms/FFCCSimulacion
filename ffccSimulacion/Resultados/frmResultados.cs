@@ -14,6 +14,7 @@ namespace ffccSimulacion.Resultados
     public partial class frmResultados : Form
     {
         ResultadoSimulacion resultadoSimulacion;
+
         public frmResultados(ResultadoSimulacion resSim)
         {
             InitializeComponent();
@@ -28,6 +29,8 @@ namespace ffccSimulacion.Resultados
             this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
             this.txtConsPorKm.Text = resultadoSimulacion.consumoKm.ToString();
             this.txtConsPorPasajero.Text = resultadoSimulacion.consumoPasajero.ToString();
+
+            this.Name = "RESULTADOS DE SIMULACION " + resultadoSimulacion.nombreSimulacion;
         }
 
         private void btnResultadosCerrar_Click(object sender, EventArgs e)
@@ -37,9 +40,13 @@ namespace ffccSimulacion.Resultados
 
         private void btnResultadosPdf_Click(object sender, EventArgs e)
         {
-            //aca se tiene que llamar a generarInforme y pasar todas las variables de resultado
-
-            //Informe.generarInforme(resultadoSimulacion);
+            /*
+             * aca se tiene que llamar a generarInforme y pasar todas las variables de resultado
+             * Necesito pasar el nombre de la simulacion, con el Id no basta pues la simulacion puede no guardarse
+             * y con el IdTraza recupero toda la info de los servicios, formaciones, estaciones, coches e incidentes.
+             * Lo agregré al struct de ResultadoSimulacion
+             */
+            Informe.generarInforme(resultadoSimulacion);            
         }
     }
 }

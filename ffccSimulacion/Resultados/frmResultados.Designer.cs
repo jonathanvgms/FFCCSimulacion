@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResultados));
             this.btnResultadosPdf = new System.Windows.Forms.Button();
             this.btnResultadosCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,6 +69,7 @@
             // 
             // btnResultadosCerrar
             // 
+            this.btnResultadosCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnResultadosCerrar.Location = new System.Drawing.Point(803, 335);
             this.btnResultadosCerrar.Name = "btnResultadosCerrar";
             this.btnResultadosCerrar.Size = new System.Drawing.Size(75, 23);
@@ -81,9 +83,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(30, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 26);
+            this.label1.Size = new System.Drawing.Size(170, 26);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Procentaje de trenes que supero \r\nel maximo de pasajeros permitidos.";
+            this.label1.Text = "Procentaje de Trenes que Superó \r\nel Máximo de Pasajeros Permitidos";
             // 
             // txtPorcTrenes
             // 
@@ -97,63 +99,63 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(30, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(213, 13);
+            this.label2.Size = new System.Drawing.Size(214, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Tiempo promedio de demora por incidentes.";
+            this.label2.Text = "Tiempo Promedio de Demora por Incidentes";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(30, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 13);
+            this.label3.Size = new System.Drawing.Size(185, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Promedio de pasajeros por formacion.";
+            this.label3.Text = "Promedio de Pasajeros por Formacion";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(30, 174);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 26);
+            this.label4.Size = new System.Drawing.Size(162, 26);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Promedio de demora por tiempo\r\n de atencion en estacion";
+            this.label4.Text = "Promedio de Demora por Tiempo\r\nde Atención en Estacion";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(456, 233);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 13);
+            this.label5.Size = new System.Drawing.Size(162, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Consumo promedio por km";
+            this.label5.Text = "Consumo Promedio por Kilómetro";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(456, 286);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 13);
+            this.label6.Size = new System.Drawing.Size(160, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Consumo promedio por pasajero";
+            this.label6.Text = "Consumo Promedio por Pasajero";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(30, 233);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 13);
+            this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Costo por km";
+            this.label7.Text = "Costo por Kilómetro";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(30, 283);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 13);
+            this.label8.Size = new System.Drawing.Size(96, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "Costo por pasajero";
+            this.label8.Text = "Costo por Pasajero";
             // 
             // txtTiemPro
             // 
@@ -180,7 +182,6 @@
             // 
             this.txtConsPorKm.Location = new System.Drawing.Point(651, 227);
             this.txtConsPorKm.Name = "txtConsPorKm";
-            this.txtConsPorKm.ReadOnly = true;
             this.txtConsPorKm.Size = new System.Drawing.Size(100, 20);
             this.txtConsPorKm.TabIndex = 16;
             // 
@@ -202,7 +203,6 @@
             // 
             this.txtConsPorPasajero.Location = new System.Drawing.Point(651, 280);
             this.txtConsPorPasajero.Name = "txtConsPorPasajero";
-            this.txtConsPorPasajero.ReadOnly = true;
             this.txtConsPorPasajero.Size = new System.Drawing.Size(100, 20);
             this.txtConsPorPasajero.TabIndex = 19;
             // 
@@ -280,8 +280,10 @@
             // 
             // frmResultados
             // 
+            this.AcceptButton = this.btnResultadosPdf;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnResultadosCerrar;
             this.ClientSize = new System.Drawing.Size(890, 373);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label14);
@@ -309,7 +311,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnResultadosCerrar);
             this.Controls.Add(this.btnResultadosPdf);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmResultados";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resultados";
             this.ResumeLayout(false);
             this.PerformLayout();

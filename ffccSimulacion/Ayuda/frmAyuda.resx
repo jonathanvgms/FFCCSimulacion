@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Accesos Directos
+
+Ctrl + X = Simulación
+Ctrl + T = Trazas
+Ctrl + S = Servicios
+Ctrl + F = Formaciones
+Ctrl + C = Coches
+Ctrl + E = Estaciones
+Ctrl + I = Incidentes
+Ctrl + A = Ayuda
+Ctrl + Q = Salir
+
+
+
+</value>
+  </data>
 </root>

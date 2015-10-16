@@ -17,7 +17,7 @@ namespace ffccSimulacion
         [STAThread]
         static void Main()
         {
-            Context c = new Context();
+            ffccSimulacionEntities testDb = new ffccSimulacionEntities();
 
             //Console.WriteLine(c.SetCoche(new Coches { Modelo = "pepito", CantidadAsientos = 100, MaximoLegalPasajeros = 100, CapacidadMaximaPasajeros = 212 }));
             //c.GetAllCoches().ForEach(x => Console.WriteLine(x.Modelo));
@@ -25,9 +25,17 @@ namespace ffccSimulacion
             
             //DataBaseManager db = new DataBaseManager();
             //db.PruebasBD();
-            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                testDb.Coches.ToList();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("No hay Conexión con la Base de Datos. Ver Archivo de Configuración.\nLa Aplicación se Cerrará.");
+                return;
+            }            
             Application.Run(new Escritorio());
              
              

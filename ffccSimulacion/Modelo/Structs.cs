@@ -55,5 +55,8 @@ namespace ffccSimulacion.Modelo
         public double costoPasajero;
         public double consumoKm;
         public double consumoPasajero;
+        //necesito estos dos campos mas para generar el informe
+        public string nombreSimulacion;
+        public int idTraza;
     }
 }

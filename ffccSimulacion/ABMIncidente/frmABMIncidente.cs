@@ -23,7 +23,7 @@ namespace ffccSimulacion.ABMIncidente
             InitializeComponent();
 
             context = new ffccSimulacionEntities();
-
+            
             cargarIncidentes();
         }
 
@@ -96,17 +96,17 @@ namespace ffccSimulacion.ABMIncidente
 
             if (!Util.EsAlfaNumerico(txtIncCreNom.Text))
             {
-                errorMsj += "Nombre: Incompleto/Incorrecto.\n";
+                errorMsj += "Nombre: Incompleto ó Incorrecto.\n";
             }
 
             if (!Util.EsAlfabetico(txtincCreDes.Text))
             {
-                errorMsj += "Descripción: Incompleto/Incorrecto.\n";
+                errorMsj += "Descripción: Incompleto ó Incorrecto.\n";
             }
 
             if (!Util.EsNumerico(txtbIncCreTiem.Text))
             {
-                errorMsj += "Tiempo de Demora: Incompleto/Incorrecto.\n";
+                errorMsj += "Tiempo de Demora: Incompleto ó Incorrecto.\n";
             }
 
             if (verificarRango(txtbIncCreTiem.Text))
@@ -116,7 +116,7 @@ namespace ffccSimulacion.ABMIncidente
 
             if (cbmIncCrePro.SelectedIndex < 0)
             {
-                errorMsj += "Probabilidad de Ocurrencia: Falta Seleccionar.\n";
+                errorMsj += "Falta Seleccionar la Probabilidad de Ocurrencia.\n";
             }
 
             if (String.IsNullOrEmpty(errorMsj))
@@ -159,17 +159,17 @@ namespace ffccSimulacion.ABMIncidente
 
             if (!Util.EsAlfaNumerico(txtModNombre.Text))
             {
-                errorMsj += "Nombre: Incompleto/Incorrecto.\n";
+                errorMsj += "Nombre: Incompleto ó Incorrecto.\n";
             }
 
             if (!Util.EsAlfabetico(txtModDes.Text))
             {
-                errorMsj += "Descripción: Incompleto/Incorrecto.\n";
+                errorMsj += "Descripción: Incompleto ó Incorrecto.\n";
             }
 
             if (!Util.EsNumerico(txtModDem.Text))
             {
-                errorMsj += "Tiempo de Demora: Incompleto/Incorrecto.\n";
+                errorMsj += "Tiempo de Demora: Incompleto ó Incorrecto.\n";
             }
 
             if (verificarRango(txtModDem.Text))
@@ -179,7 +179,7 @@ namespace ffccSimulacion.ABMIncidente
 
             if ((cmbModProb.SelectedIndex < 0) || (cmbModProb.SelectedItem.ToString().Length == 0))
             {
-                errorMsj += "Probabilidad de Ocurrencia: Falta Seleccionar.\n";
+                errorMsj += "Falta Seleccionar la Probabilidad de Ocurrencia.\n";
             }
 
             if (String.IsNullOrEmpty(errorMsj))
