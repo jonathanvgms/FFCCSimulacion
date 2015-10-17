@@ -47,28 +47,28 @@ namespace ffccSimulacion.ABMCoche
             string errorMsj = "";
 
             if (!Util.EsAlfaNumerico(txtModelo.Text))
-                errorMsj += "Modelo: Incompleto/Incorrecto.\n";
+                errorMsj += "Modelo: Incompleto ó Incorrecto.\n";
 
             if(rndEsLocomotoraSi.Checked)
             {
                 if(cbxTipoConsumo.SelectedItem == "")
-                    errorMsj += "Tipo Consumo: Incompleto/Incorrecto.\n";
+                    errorMsj += "Tipo Consumo: Incompleto ó Incorrecto.\n";
 
                 if(!Util.EsNumerico(txtConsumoMov.Text))
-                    errorMsj += "Consumo en movimiento: Incompleto/Incorrecto.\n";
+                    errorMsj += "Consumo en movimiento: Incompleto ó Incorrecto.\n";
 
                 if (!Util.EsNumerico(txtConsumoParado.Text))
-                    errorMsj += "Consumo parado: Incompleto/Incorrecto.\n";
+                    errorMsj += "Consumo parado: Incompleto ó Incorrecto.\n";
             }
 
             if (!Util.EsNumerico(txtCantidadAsientos.Text))
-                errorMsj += "Cantidad Asientos: Incompleto/Incorrecto.\n";
+                errorMsj += "Cantidad Asientos: Incompleto ó Incorrecto.\n";
 
             if (!Util.EsNumerico(txtMaxLegal.Text))
-                errorMsj += "Capacidad maxima legal: Incompleto/Incorrecto.\n";
+                errorMsj += "Capacidad Máxima Legal: Incompleto ó Incorrecto.\n";
 
             if (!Util.EsNumerico(txtMaxReal.Text))
-                errorMsj += "Capacidad maxima real: Incompleto/Incorrecto.\n";
+                errorMsj += "Capacidad Máxima Real: Incompleto ó Incorrecto.\n";
 
             if (String.IsNullOrEmpty(errorMsj))
             {
@@ -245,6 +245,7 @@ namespace ffccSimulacion.ABMCoche
             {
                 lbxCochesBorrar.Items.Add(c);
                 lbxCochesModificar.Items.Add(c);
+                lstCocheCrear.Items.Add(c);
             }
 
             /*Se define cual propiedad de los objeto que estan dentro de las list box se van a mostrar*/
@@ -278,32 +279,35 @@ namespace ffccSimulacion.ABMCoche
 
         private void lbxCochesModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Coches unCoche = (Coches)lbxCochesModificar.SelectedItem;
-            txtModeloMod.Text = unCoche.Modelo;
-            if (unCoche.EsLocomotora == 1)
+            if (lbxCochesModificar.SelectedIndex > -1)
             {
-                rdbLocomotoraSiMod.Checked = true;
+                Coches unCoche = (Coches)lbxCochesModificar.SelectedItem;
+                txtModeloMod.Text = unCoche.Modelo;
+                if (unCoche.EsLocomotora == 1)
+                {
+                    rdbLocomotoraSiMod.Checked = true;
 
-                if (unCoche.TipoConsumo == (int)TipoConsumo.Disel)
-                    cbxTipoConsumoMod.SelectedItem = "Disel";
+                    if (unCoche.TipoConsumo == (int)TipoConsumo.Disel)
+                        cbxTipoConsumoMod.SelectedItem = "Disel";
+                    else
+                        cbxTipoConsumoMod.SelectedItem = "Electrico";
+
+                    txtConsumoMovimientoMod.Text = unCoche.ConsumoMovimiento.ToString();
+                    txtConsumoParadoMod.Text = unCoche.ConsumoParado.ToString();
+
+                }
                 else
-                    cbxTipoConsumoMod.SelectedItem = "Electrico";
+                {
+                    rdbLocomotoraNoMod.Checked = true;
+                    cbxTipoConsumoMod.SelectedIndex = -1;
+                    txtConsumoMovimientoMod.Text = "0";
+                    txtConsumoParadoMod.Text = "0";
+                }
 
-                txtConsumoMovimientoMod.Text = unCoche.ConsumoMovimiento.ToString();
-                txtConsumoParadoMod.Text = unCoche.ConsumoParado.ToString();
-
+                txtCantidadAsientosMod.Text = unCoche.CantidadAsientos.ToString();
+                txtCapacidadLegalMod.Text = unCoche.MaximoLegalPasajeros.ToString();
+                txtCapacidadRealMod.Text = unCoche.CapacidadMaximaPasajeros.ToString();
             }
-            else
-            {
-                rdbLocomotoraNoMod.Checked = true;
-                cbxTipoConsumoMod.SelectedIndex = -1;
-                txtConsumoMovimientoMod.Text = "0";
-                txtConsumoParadoMod.Text = "0";
-            }
-
-            txtCantidadAsientosMod.Text = unCoche.CantidadAsientos.ToString();
-            txtCapacidadLegalMod.Text = unCoche.MaximoLegalPasajeros.ToString();
-            txtCapacidadRealMod.Text = unCoche.CapacidadMaximaPasajeros.ToString();
         }
 
         private void rdbLocomotoraSiMod_CheckedChanged(object sender, EventArgs e)
@@ -348,6 +352,25 @@ namespace ffccSimulacion.ABMCoche
             {
                 lblConsumoMovMod.Text = "(por tiempo)";
                 lblConsumoParadoMod.Text = "(por tiempo)";
+            }
+        }
+
+        private void seleccionarPestaña(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabCrear)
+            {
+                btnCocheLimpiar.Enabled = true;
+                btnCocheNuevoAceptar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabModificar)
+            {
+                btnCocheLimpiar.Enabled = true;
+                btnCocheNuevoAceptar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabEliminar)
+            {
+                btnCocheLimpiar.Enabled = false;
+                btnCocheNuevoAceptar.Enabled = false;
             }
         }
     }

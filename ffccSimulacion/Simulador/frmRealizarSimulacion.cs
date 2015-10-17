@@ -51,6 +51,8 @@ namespace ffccSimulacion.Simulador
                     cargarCamposSimulacion();
                 }
             }
+
+            this.btnSimGuardar.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -126,17 +128,22 @@ namespace ffccSimulacion.Simulador
 
             if (!Util.EsAlfaNumerico(tbSimNombre.Text))
             {
-                errorStr += "Nombre: Incompleto/Incorrecto\n";
+                errorStr += "Nombre: Incompleto ó Incorrecto\n";
             }
 
             if (!Util.EsNumerico(tbSimFrecuencia.Text))
             {
-                errorStr += "Frecuencia: Incompleto/Incorrecto\n";
+                errorStr += "Frecuencia: Incompleta ó Incorrecta\n";
             }
 
             if (!Util.EsNumerico(tbSimDuracion.Text))
             {
-                errorStr += "Duracion: Incompleto/Incorrecto\n";
+                errorStr += "Duracion: Incompleta ó Incorrecta\n";
+            }
+
+            if(lBoxSimTrazas.SelectedItem == null)
+            {
+                errorStr += "Falta Seleccionar una Traza";
             }
 
             //TODO revisar listbox, quizas el de servicios deberia ser un combobox
@@ -193,27 +200,30 @@ namespace ffccSimulacion.Simulador
 
         private void lBoxSimTrazas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lBoxSimServicios.Items.Clear();
+            if (lBoxSimTrazas.SelectedIndex > -1)
+            {
+                lBoxSimServicios.Items.Clear();
 
-            Trazas trazaSeleccionada = (Trazas)lBoxSimTrazas.SelectedItem;
+                Trazas trazaSeleccionada = (Trazas)lBoxSimTrazas.SelectedItem;
 
-            //context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
+                //context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
 
-            //List<Servicios> servicios = new List<Servicios>();
+                //List<Servicios> servicios = new List<Servicios>();
 
-            foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
-                lBoxSimServicios.Items.Add(ts.Servicios);
+                foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
+                    lBoxSimServicios.Items.Add(ts.Servicios);
 
-            //foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
-            //{
-            //    servicios = (List<Servicios>)context.Servicios.ToList().Where(x => x.Id == ts.Id);
-            //}
+                //foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
+                //{
+                //    servicios = (List<Servicios>)context.Servicios.ToList().Where(x => x.Id == ts.Id);
+                //}
 
 
-            //foreach (Servicios servicio in servicios)
-            //{
-            //    lBoxSimServicios.Items.Add(servicio);
-            //}
+                //foreach (Servicios servicio in servicios)
+                //{
+                //    lBoxSimServicios.Items.Add(servicio);
+                //}
+            }
         }
 
         private void reportar()
@@ -276,10 +286,16 @@ namespace ffccSimulacion.Simulador
             resultadoSimulacion.promedioPasajeros = (double)resultadoSimulacion.promedioPasajeros / (double)totalFormaciones;
             resultadoSimulacion.promedioDemoraAtencion = (double)resultadoSimulacion.promedioDemoraAtencion / (double) totalFormaciones;
 
-            using (frmResultados frmResultados = new frmResultados(resultadoSimulacion))
-            {
-                frmResultados.ShowDialog();
-            }
+            resultadoSimulacion.nombreSimulacion = tbSimNombre.Text;
+
+            resultadoSimulacion.idTraza = ((Trazas)lBoxSimTrazas.SelectedItem).Id;
+
+            //using (frmResultados frmResultados = new frmResultados(resultadoSimulacion))
+            //{
+            //    frmResultados.ShowDialog();
+            //}
+            frmResultados frmResultados = new frmResultados(resultadoSimulacion);
+            frmResultados.ShowDialog(this);
         }
     }
 }

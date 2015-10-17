@@ -109,7 +109,9 @@ namespace ffccSimulacion.ABMFormacion
         {
             string errorMsj = "";
             if (!Util.EsNumerico(txtCantidadCoches.Text))
-                errorMsj += "Cantidad: Incompleto/Incorrecto.\n";
+                errorMsj += "Cantidad: Incompleto ó Incorrecto.\n";
+            else if (int.Parse(txtCantidadCoches.Text) < 1)
+                errorMsj += "Cantidad: El Valor debe ser Positivo.\n";
             if(lbxCochesExistentes.SelectedItem == null)
                 errorMsj += "No se seleccionó ningun coche para agregar a la formación.\n";
 
@@ -249,12 +251,11 @@ namespace ffccSimulacion.ABMFormacion
         {
             string errorMsj = "";
             Formaciones unaFormacion = (Formaciones)lbxFormacionesEliminar.SelectedItem;
-
-            if (context.Servicios_X_Formaciones.Where(x => x.Formaciones.Id == unaFormacion.Id).Count() != 0)
-                errorMsj += "La formación no puede borrarse porque pertenece a un servicio.\n";
-
+            
             if (lbxFormacionesEliminar.SelectedItem == null)
                 errorMsj += "No se ha seleccionado ninguna formación para eliminar.\n";
+            else if (context.Servicios_X_Formaciones.Where(x => x.Formaciones.Id == unaFormacion.Id).Count() != 0)
+                    errorMsj += "La formación no puede borrarse porque pertenece a un servicio.\n";
 
             if (string.IsNullOrEmpty(errorMsj))
             {
@@ -271,11 +272,14 @@ namespace ffccSimulacion.ABMFormacion
 
                     lbxFormacionesEliminar.Items.Remove(f);
                     lbxFormacionesModificar.Items.Remove(f);
+                    //para que limpie los otras pestañas y que no quede info inconsistente
+                    LimpiarTabCrearFormacion();
+                    LimpiarTabModificarFormacion();
                     MessageBox.Show("La formación se ha borrado exitosamente.");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("No se borro la formación \n\n" + exc.ToString());
+                    MessageBox.Show("No se borró la formación \n\n" + exc.ToString());
                 }
             }
             else
@@ -284,12 +288,15 @@ namespace ffccSimulacion.ABMFormacion
 
         private void lbxFormacionesModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Formaciones unaFormacion = (Formaciones)lbxFormacionesModificar.SelectedItem;
-            txtNombreFormacionMod.Text = unaFormacion.NombreFormacion;
-            lbxCochesFormacionMod.Items.Clear();
-            foreach (Formaciones_X_Coches fc in unaFormacion.Formaciones_X_Coches)
-                lbxCochesFormacionMod.Items.Add(fc);
-            RecalcularTotalesFormacion();
+            if (lbxFormacionesModificar.SelectedIndex > -1)
+            {
+                Formaciones unaFormacion = (Formaciones)lbxFormacionesModificar.SelectedItem;
+                txtNombreFormacionMod.Text = unaFormacion.NombreFormacion;
+                lbxCochesFormacionMod.Items.Clear();
+                foreach (Formaciones_X_Coches fc in unaFormacion.Formaciones_X_Coches)
+                    lbxCochesFormacionMod.Items.Add(fc);
+                RecalcularTotalesFormacion();
+            }
         }
 
         private void lbxCochesFormacionMod_SelectedIndexChanged(object sender, EventArgs e)
@@ -355,6 +362,30 @@ namespace ffccSimulacion.ABMFormacion
             }
             else
                 MessageBox.Show(errorMsj);
+        }
+
+        private void seleccionarPestaña(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabCrearFormacion)
+            {
+                btnAceptar.Enabled = true;
+                btnLimpiar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabModificarFormacion)
+            {
+                btnAceptar.Enabled = true;
+                btnLimpiar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabPage3)
+            {
+                btnAceptar.Enabled = false;
+                btnLimpiar.Enabled = false;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            pnlFormacion.Controls.Clear();
         }
     }
 }

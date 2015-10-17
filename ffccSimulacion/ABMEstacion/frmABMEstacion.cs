@@ -330,25 +330,28 @@ namespace ffccSimulacion.ABMEstacion
          */ 
         private void seleccionarEstacion(object sender, EventArgs e)
         {
-            estacionSeleccionada = (Estaciones)lstModEstaciones.SelectedItem;
-
-            txtEstModNombre.Text = estacionSeleccionada.Nombre;
-
-            txtEstModMinimo.Text = estacionSeleccionada.PersonasEsperandoMin.ToString();
-
-            txtEstModMaximo.Text = estacionSeleccionada.PersonasEsperandoMax.ToString();
-
-            cmbEstModFdp.SelectedIndex = estacionSeleccionada.TipoFDP;
-
-            //limpiar el checkboxlist
-            for (int i = 0; i < clbModIncidentes.Items.Count; i++)
+            if (lstModEstaciones.SelectedIndex > -1)
             {
-                clbModIncidentes.SetItemChecked(i, false);
-            }
+                estacionSeleccionada = (Estaciones)lstModEstaciones.SelectedItem;
 
-            foreach (Incidentes i in estacionSeleccionada.ListaIncidentes)
-            {
-                clbModIncidentes.SetItemChecked(clbModIncidentes.Items.IndexOf(i), true);
+                txtEstModNombre.Text = estacionSeleccionada.Nombre;
+
+                txtEstModMinimo.Text = estacionSeleccionada.PersonasEsperandoMin.ToString();
+
+                txtEstModMaximo.Text = estacionSeleccionada.PersonasEsperandoMax.ToString();
+
+                cmbEstModFdp.SelectedIndex = estacionSeleccionada.TipoFDP;
+
+                //limpiar el checkboxlist
+                for (int i = 0; i < clbModIncidentes.Items.Count; i++)
+                {
+                    clbModIncidentes.SetItemChecked(i, false);
+                }
+
+                foreach (Incidentes i in estacionSeleccionada.ListaIncidentes)
+                {
+                    clbModIncidentes.SetItemChecked(clbModIncidentes.Items.IndexOf(i), true);
+                }
             }
         }
 
@@ -373,12 +376,30 @@ namespace ffccSimulacion.ABMEstacion
 
             cmbEstModFdp.SelectedIndex = 0;
 
-            //ver porque no funciona los métodos
             for (int i = 0; i < clbModIncidentes.Items.Count; i++)
             {
                 clbIncidentes.SetItemChecked(i, false);
 
                 clbModIncidentes.SetItemChecked(i, false);
+            }
+        }
+
+        private void seleccionarPestaña(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == CrearEstacion)
+            {
+                btnEstAceptar.Enabled = true;
+                btnEstLimpiar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == ModificarEstacion)
+            {
+                btnEstAceptar.Enabled = true;
+                btnEstLimpiar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == EliminarEstacion)
+            {
+                btnEstAceptar.Enabled = false;
+                btnEstLimpiar.Enabled = false;
             }
         }
 

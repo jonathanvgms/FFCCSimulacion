@@ -264,18 +264,21 @@ namespace ffccSimulacion.ABMTraza
          */
         private void seleccionarTraza(object sender, EventArgs e)
         {
-            trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
-            
-            txtTraModNombre.Text = trazaSeleccionada.Nombre;
-
-            for (int i = 0; i < clbTraModServicios.Items.Count; i++)
+            if (lstTraModTrazas.SelectedIndex > -1)
             {
-                clbTraModServicios.SetItemChecked(i, false);
-            }
+                trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
 
-            foreach (Servicios s in trazaSeleccionada.ServiciosDisponibles)
-            {
-                clbTraModServicios.SetItemChecked(clbTraModServicios.Items.IndexOf(s), true);
+                txtTraModNombre.Text = trazaSeleccionada.Nombre;
+
+                for (int i = 0; i < clbTraModServicios.Items.Count; i++)
+                {
+                    clbTraModServicios.SetItemChecked(i, false);
+                }
+
+                foreach (Servicios s in trazaSeleccionada.ServiciosDisponibles)
+                {
+                    clbTraModServicios.SetItemChecked(clbTraModServicios.Items.IndexOf(s), true);
+                }
             }
         }
 
@@ -302,7 +305,25 @@ namespace ffccSimulacion.ABMTraza
             }
         }
 
+        private void seleccionarPestaña(object sender, TabControlEventArgs e)
+        {
+            if(tclTraza.SelectedTab == tabCrearTraza)
+            {
+                btnTraAceptar.Enabled = true;
+                btnTraLimpiar.Enabled = true;
+            }
+            if (tclTraza.SelectedTab == tabModificarTraza)
+            {
+                btnTraAceptar.Enabled = true;
+                btnTraLimpiar.Enabled = true;
+            }
+            if (tclTraza.SelectedTab == tabEliminarTraza)
+            {
+                btnTraAceptar.Enabled = false;
+                btnTraLimpiar.Enabled = false;
+            }
+        }
+
         #endregion
-               
     }
 }
