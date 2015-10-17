@@ -80,7 +80,7 @@
             // 
             this.btnEstLimpiar.Location = new System.Drawing.Point(14, 461);
             this.btnEstLimpiar.Name = "btnEstLimpiar";
-            this.btnEstLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnEstLimpiar.Size = new System.Drawing.Size(75, 28);
             this.btnEstLimpiar.TabIndex = 3;
             this.btnEstLimpiar.Text = "Limpiar";
             this.btnEstLimpiar.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             // 
             this.btnEstCancelar.Location = new System.Drawing.Point(976, 461);
             this.btnEstCancelar.Name = "btnEstCancelar";
-            this.btnEstCancelar.Size = new System.Drawing.Size(77, 23);
+            this.btnEstCancelar.Size = new System.Drawing.Size(77, 28);
             this.btnEstCancelar.TabIndex = 3;
             this.btnEstCancelar.Text = "Cancelar";
             this.btnEstCancelar.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // 
             this.btnEstAceptar.Location = new System.Drawing.Point(892, 461);
             this.btnEstAceptar.Name = "btnEstAceptar";
-            this.btnEstAceptar.Size = new System.Drawing.Size(78, 23);
+            this.btnEstAceptar.Size = new System.Drawing.Size(78, 28);
             this.btnEstAceptar.TabIndex = 3;
             this.btnEstAceptar.Text = "Aceptar";
             this.btnEstAceptar.UseVisualStyleBackColor = true;
@@ -117,6 +117,7 @@
             this.tabControl1.ShowToolTips = true;
             this.tabControl1.Size = new System.Drawing.Size(1040, 446);
             this.tabControl1.TabIndex = 4;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.seleccionarPestaña);
             // 
             // CrearEstacion
             // 
@@ -127,10 +128,10 @@
             this.CrearEstacion.Controls.Add(this.groupBox1);
             this.CrearEstacion.Controls.Add(this.txtEstCreNombre);
             this.CrearEstacion.Controls.Add(this.label2);
-            this.CrearEstacion.Location = new System.Drawing.Point(4, 22);
+            this.CrearEstacion.Location = new System.Drawing.Point(4, 24);
             this.CrearEstacion.Name = "CrearEstacion";
             this.CrearEstacion.Padding = new System.Windows.Forms.Padding(3);
-            this.CrearEstacion.Size = new System.Drawing.Size(1032, 420);
+            this.CrearEstacion.Size = new System.Drawing.Size(1032, 418);
             this.CrearEstacion.TabIndex = 0;
             this.CrearEstacion.Text = "Nueva Estación";
             this.CrearEstacion.ToolTipText = "Crea un nueva estación";
@@ -145,7 +146,7 @@
             "Poission"});
             this.cmbEstCreFdp.Location = new System.Drawing.Point(333, 322);
             this.cmbEstCreFdp.Name = "cmbEstCreFdp";
-            this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 21);
+            this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 23);
             this.cmbEstCreFdp.TabIndex = 2;
             // 
             // clbIncidentes
@@ -153,7 +154,7 @@
             this.clbIncidentes.FormattingEnabled = true;
             this.clbIncidentes.Location = new System.Drawing.Point(551, 45);
             this.clbIncidentes.Name = "clbIncidentes";
-            this.clbIncidentes.Size = new System.Drawing.Size(301, 319);
+            this.clbIncidentes.Size = new System.Drawing.Size(301, 308);
             this.clbIncidentes.Sorted = true;
             this.clbIncidentes.TabIndex = 19;
             // 
@@ -162,7 +163,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(191, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 16;
             this.label1.Text = "Nombre";
             // 
@@ -171,7 +172,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(181, 325);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 26);
+            this.label3.Size = new System.Drawing.Size(127, 30);
             this.label3.TabIndex = 0;
             this.label3.Text = "Distribución de Arribo \r\nde Personas al Andén";
             // 
@@ -195,7 +196,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(245, 95);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.Size = new System.Drawing.Size(59, 15);
             this.label14.TabIndex = 3;
             this.label14.Text = "Personas";
             // 
@@ -204,7 +205,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(245, 42);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.Size = new System.Drawing.Size(59, 15);
             this.label8.TabIndex = 2;
             this.label8.Text = "Personas";
             // 
@@ -212,14 +213,14 @@
             // 
             this.txtEstCreMaximo.Location = new System.Drawing.Point(76, 92);
             this.txtEstCreMaximo.Name = "txtEstCreMaximo";
-            this.txtEstCreMaximo.Size = new System.Drawing.Size(151, 20);
+            this.txtEstCreMaximo.Size = new System.Drawing.Size(151, 21);
             this.txtEstCreMaximo.TabIndex = 1;
             // 
             // txtEstCreMinimo
             // 
             this.txtEstCreMinimo.Location = new System.Drawing.Point(76, 39);
             this.txtEstCreMinimo.Name = "txtEstCreMinimo";
-            this.txtEstCreMinimo.Size = new System.Drawing.Size(151, 20);
+            this.txtEstCreMinimo.Size = new System.Drawing.Size(151, 21);
             this.txtEstCreMinimo.TabIndex = 1;
             // 
             // label4
@@ -227,7 +228,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 0;
             this.label4.Text = "Maximo";
             // 
@@ -236,7 +237,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(49, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Minimo";
             // 
@@ -244,7 +245,7 @@
             // 
             this.txtEstCreNombre.Location = new System.Drawing.Point(260, 65);
             this.txtEstCreNombre.Name = "txtEstCreNombre";
-            this.txtEstCreNombre.Size = new System.Drawing.Size(220, 20);
+            this.txtEstCreNombre.Size = new System.Drawing.Size(220, 21);
             this.txtEstCreNombre.TabIndex = 18;
             // 
             // label2
@@ -252,9 +253,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(548, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.Size = new System.Drawing.Size(122, 15);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Incidentes Actuales";
+            this.label2.Text = "Incidentes Existentes";
             // 
             // ModificarEstacion
             // 
@@ -267,10 +268,10 @@
             this.ModificarEstacion.Controls.Add(this.label7);
             this.ModificarEstacion.Controls.Add(this.groupBox2);
             this.ModificarEstacion.Controls.Add(this.txtEstModNombre);
-            this.ModificarEstacion.Location = new System.Drawing.Point(4, 22);
+            this.ModificarEstacion.Location = new System.Drawing.Point(4, 24);
             this.ModificarEstacion.Name = "ModificarEstacion";
             this.ModificarEstacion.Padding = new System.Windows.Forms.Padding(3);
-            this.ModificarEstacion.Size = new System.Drawing.Size(1032, 420);
+            this.ModificarEstacion.Size = new System.Drawing.Size(1032, 418);
             this.ModificarEstacion.TabIndex = 1;
             this.ModificarEstacion.Text = "Buscar";
             this.ModificarEstacion.ToolTipText = "Muestra un listado de estaciones para su modificación";
@@ -281,7 +282,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(346, 323);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 26);
+            this.label13.Size = new System.Drawing.Size(127, 30);
             this.label13.TabIndex = 21;
             this.label13.Text = "Distribución de Arribo \r\nde Personas al Andén";
             // 
@@ -294,7 +295,7 @@
             "Poission"});
             this.cmbEstModFdp.Location = new System.Drawing.Point(500, 320);
             this.cmbEstModFdp.Name = "cmbEstModFdp";
-            this.cmbEstModFdp.Size = new System.Drawing.Size(145, 21);
+            this.cmbEstModFdp.Size = new System.Drawing.Size(145, 23);
             this.cmbEstModFdp.TabIndex = 2;
             // 
             // clbModIncidentes
@@ -302,7 +303,7 @@
             this.clbModIncidentes.FormattingEnabled = true;
             this.clbModIncidentes.Location = new System.Drawing.Point(725, 43);
             this.clbModIncidentes.Name = "clbModIncidentes";
-            this.clbModIncidentes.Size = new System.Drawing.Size(301, 364);
+            this.clbModIncidentes.Size = new System.Drawing.Size(301, 356);
             this.clbModIncidentes.Sorted = true;
             this.clbModIncidentes.TabIndex = 20;
             // 
@@ -311,17 +312,18 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 27);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 13);
+            this.label11.Size = new System.Drawing.Size(126, 15);
             this.label11.TabIndex = 12;
-            this.label11.Text = "Listado de Estaciones";
+            this.label11.Text = "Estaciones Existentes";
             // 
             // lstModEstaciones
             // 
             this.lstModEstaciones.DisplayMember = "Nombre";
             this.lstModEstaciones.FormattingEnabled = true;
+            this.lstModEstaciones.ItemHeight = 15;
             this.lstModEstaciones.Location = new System.Drawing.Point(9, 43);
             this.lstModEstaciones.Name = "lstModEstaciones";
-            this.lstModEstaciones.Size = new System.Drawing.Size(288, 368);
+            this.lstModEstaciones.Size = new System.Drawing.Size(288, 364);
             this.lstModEstaciones.Sorted = true;
             this.lstModEstaciones.TabIndex = 11;
             this.lstModEstaciones.SelectedIndexChanged += new System.EventHandler(this.seleccionarEstacion);
@@ -331,7 +333,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(356, 85);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.Size = new System.Drawing.Size(52, 15);
             this.label6.TabIndex = 4;
             this.label6.Text = "Nombre";
             // 
@@ -340,7 +342,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(722, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.Size = new System.Drawing.Size(63, 15);
             this.label7.TabIndex = 5;
             this.label7.Text = "Incidentes";
             // 
@@ -364,7 +366,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(245, 95);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 13);
+            this.label16.Size = new System.Drawing.Size(59, 15);
             this.label16.TabIndex = 4;
             this.label16.Text = "Personas";
             // 
@@ -373,7 +375,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(245, 42);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
+            this.label15.Size = new System.Drawing.Size(59, 15);
             this.label15.TabIndex = 3;
             this.label15.Text = "Personas";
             // 
@@ -381,14 +383,14 @@
             // 
             this.txtEstModMaximo.Location = new System.Drawing.Point(76, 92);
             this.txtEstModMaximo.Name = "txtEstModMaximo";
-            this.txtEstModMaximo.Size = new System.Drawing.Size(147, 20);
+            this.txtEstModMaximo.Size = new System.Drawing.Size(147, 21);
             this.txtEstModMaximo.TabIndex = 1;
             // 
             // txtEstModMinimo
             // 
             this.txtEstModMinimo.Location = new System.Drawing.Point(76, 39);
             this.txtEstModMinimo.Name = "txtEstModMinimo";
-            this.txtEstModMinimo.Size = new System.Drawing.Size(147, 20);
+            this.txtEstModMinimo.Size = new System.Drawing.Size(147, 21);
             this.txtEstModMinimo.TabIndex = 1;
             // 
             // label9
@@ -396,7 +398,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(7, 95);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "Maximo";
             // 
@@ -405,7 +407,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(7, 42);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.Size = new System.Drawing.Size(49, 15);
             this.label10.TabIndex = 0;
             this.label10.Text = "Minimo";
             // 
@@ -413,7 +415,7 @@
             // 
             this.txtEstModNombre.Location = new System.Drawing.Point(419, 82);
             this.txtEstModNombre.Name = "txtEstModNombre";
-            this.txtEstModNombre.Size = new System.Drawing.Size(226, 20);
+            this.txtEstModNombre.Size = new System.Drawing.Size(226, 21);
             this.txtEstModNombre.TabIndex = 7;
             // 
             // EliminarEstacion
@@ -421,10 +423,10 @@
             this.EliminarEstacion.Controls.Add(this.label12);
             this.EliminarEstacion.Controls.Add(this.lstEliEstaciones);
             this.EliminarEstacion.Controls.Add(this.btnEstBorrar);
-            this.EliminarEstacion.Location = new System.Drawing.Point(4, 22);
+            this.EliminarEstacion.Location = new System.Drawing.Point(4, 24);
             this.EliminarEstacion.Name = "EliminarEstacion";
             this.EliminarEstacion.Padding = new System.Windows.Forms.Padding(3);
-            this.EliminarEstacion.Size = new System.Drawing.Size(1032, 420);
+            this.EliminarEstacion.Size = new System.Drawing.Size(1032, 418);
             this.EliminarEstacion.TabIndex = 2;
             this.EliminarEstacion.Text = "Eliminar";
             this.EliminarEstacion.ToolTipText = "Muestra un listado de estaciones para su eliminación";
@@ -435,17 +437,18 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(310, 9);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(111, 13);
+            this.label12.Size = new System.Drawing.Size(120, 15);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Listado de Estaciones";
+            this.label12.Text = "Estaciones Existente";
             // 
             // lstEliEstaciones
             // 
             this.lstEliEstaciones.DisplayMember = "Nombre";
             this.lstEliEstaciones.FormattingEnabled = true;
+            this.lstEliEstaciones.ItemHeight = 15;
             this.lstEliEstaciones.Location = new System.Drawing.Point(313, 31);
             this.lstEliEstaciones.Name = "lstEliEstaciones";
-            this.lstEliEstaciones.Size = new System.Drawing.Size(334, 381);
+            this.lstEliEstaciones.Size = new System.Drawing.Size(334, 379);
             this.lstEliEstaciones.Sorted = true;
             this.lstEliEstaciones.TabIndex = 14;
             // 
@@ -453,7 +456,7 @@
             // 
             this.btnEstBorrar.Location = new System.Drawing.Point(653, 31);
             this.btnEstBorrar.Name = "btnEstBorrar";
-            this.btnEstBorrar.Size = new System.Drawing.Size(93, 23);
+            this.btnEstBorrar.Size = new System.Drawing.Size(112, 28);
             this.btnEstBorrar.TabIndex = 13;
             this.btnEstBorrar.Text = "Borrar Estación";
             this.btnEstBorrar.UseVisualStyleBackColor = true;
@@ -465,6 +468,7 @@
             this.pnlEstacion.Controls.Add(this.btnEstLimpiar);
             this.pnlEstacion.Controls.Add(this.btnEstAceptar);
             this.pnlEstacion.Controls.Add(this.btnEstCancelar);
+            this.pnlEstacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlEstacion.Location = new System.Drawing.Point(12, 12);
             this.pnlEstacion.Name = "pnlEstacion";
             this.pnlEstacion.Size = new System.Drawing.Size(1068, 497);

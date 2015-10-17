@@ -217,7 +217,7 @@ namespace ffccSimulacion.ABMServicio
 
             if (s == null)
                 errorMsj += "No se ha seleccionado ningun servicio para ser borrado.\n";
-            if (context.Trazas_X_Servicios.Where(x => x.Id_Servicio == s.Id).Count() != 0)
+            else if (context.Trazas_X_Servicios.Where(x => x.Id_Servicio == s.Id).Count() != 0)
                 errorMsj += "El servicio no puede ser borrado porque pertenece a una o mas trazas.\n";
 
             if (string.IsNullOrEmpty(errorMsj))
@@ -251,6 +251,25 @@ namespace ffccSimulacion.ABMServicio
         {
             if (tabControl1.SelectedTab == tabCrearServicio)
                 LimpiarTabCrear();
+        }
+
+        private void seleccionarPestaña(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabCrearServicio)
+            {
+                btnAceptar.Enabled = true;
+                btnLimpiar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabModificarServicio)
+            {
+                btnAceptar.Enabled = true;
+                btnLimpiar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabEliminarServicio)
+            {
+                btnAceptar.Enabled = false;
+                btnLimpiar.Enabled = false;
+            }
         }
     }
 }

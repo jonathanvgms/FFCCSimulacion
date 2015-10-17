@@ -266,15 +266,18 @@ namespace ffccSimulacion.ABMIncidente
          */ 
         private void seleccionarIncidente(object sender, EventArgs e)
         {
-            incidenteSeleccionado = (Incidentes)lstIncMod.SelectedItem;
+            if (lstIncMod.SelectedIndex > -1)
+            {
+                incidenteSeleccionado = (Incidentes)lstIncMod.SelectedItem;
 
-            txtModNombre.Text = incidenteSeleccionado.Nombre;
+                txtModNombre.Text = incidenteSeleccionado.Nombre;
 
-            txtModDes.Text = incidenteSeleccionado.Descripcion;
+                txtModDes.Text = incidenteSeleccionado.Descripcion;
 
-            txtModDem.Text = incidenteSeleccionado.TiempoDemora.ToString();
+                txtModDem.Text = incidenteSeleccionado.TiempoDemora.ToString();
 
-            cmbModProb.SelectedIndex = cmbModProb.Items.IndexOf(incidenteSeleccionado.ProbabilidadOcurrencia.ToString());
+                cmbModProb.SelectedIndex = cmbModProb.Items.IndexOf(incidenteSeleccionado.ProbabilidadOcurrencia.ToString());
+            }
         }
 
         /*
@@ -313,6 +316,25 @@ namespace ffccSimulacion.ABMIncidente
         }
 
         #endregion               
+
+        private void selecionarPestaña(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabEliminar)
+            {
+                btnLimpiar.Enabled = false;
+                btnAceptar.Enabled = false;
+            }
+            if (tabControl1.SelectedTab == tabModificar)
+            {
+                btnLimpiar.Enabled = true;
+                btnAceptar.Enabled = true;
+            }
+            if (tabControl1.SelectedTab == tabCrear)
+            {
+                btnLimpiar.Enabled = true;
+                btnAceptar.Enabled = true;
+            }
+        }
 
     }
 }

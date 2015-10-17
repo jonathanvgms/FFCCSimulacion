@@ -46,6 +46,7 @@
             // menuEscritorio
             // 
             this.menuEscritorio.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.menuEscritorio, "menuEscritorio");
             this.menuEscritorio.ImageScalingSize = new System.Drawing.Size(75, 75);
             this.menuEscritorio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.simulaciónToolStripMenuItem,
@@ -57,7 +58,6 @@
             this.incidenteToolStripMenuItem,
             this.ayudaToolStripMenuItem,
             this.salirToolStripMenuItem});
-            resources.ApplyResources(this.menuEscritorio, "menuEscritorio");
             this.menuEscritorio.Name = "menuEscritorio";
             this.menuEscritorio.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             // 

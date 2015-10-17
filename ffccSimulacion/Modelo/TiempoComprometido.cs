@@ -176,7 +176,7 @@ namespace ffccSimulacion.Modelo
 
         private void actualizarSiguienteServicio(out int siguienteSalida, out Servicios siguienteServicio)
         {
-            if (_posServicio > Traza.ServiciosDisponibles.Count)
+            if (_posServicio > Traza.ServiciosDisponibles.Count - 1)
                 _posServicio = 0;
             siguienteServicio = Traza.ServiciosDisponibles[_posServicio];
             _posServicio++;

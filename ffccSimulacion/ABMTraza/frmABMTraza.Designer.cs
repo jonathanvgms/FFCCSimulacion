@@ -61,7 +61,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(199, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.Size = new System.Drawing.Size(103, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de Traza";
             // 
@@ -70,22 +70,22 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(199, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(124, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Servicios Disponibles";
             // 
             // txtTraCreNombre
             // 
-            this.txtTraCreNombre.Location = new System.Drawing.Point(294, 17);
+            this.txtTraCreNombre.Location = new System.Drawing.Point(320, 17);
             this.txtTraCreNombre.Name = "txtTraCreNombre";
-            this.txtTraCreNombre.Size = new System.Drawing.Size(280, 20);
+            this.txtTraCreNombre.Size = new System.Drawing.Size(254, 21);
             this.txtTraCreNombre.TabIndex = 3;
             // 
             // btnTraLimpiar
             // 
             this.btnTraLimpiar.Location = new System.Drawing.Point(12, 549);
             this.btnTraLimpiar.Name = "btnTraLimpiar";
-            this.btnTraLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnTraLimpiar.Size = new System.Drawing.Size(75, 27);
             this.btnTraLimpiar.TabIndex = 5;
             this.btnTraLimpiar.Text = "Limpiar";
             this.btnTraLimpiar.UseVisualStyleBackColor = true;
@@ -93,9 +93,9 @@
             // 
             // btnTraCancelar
             // 
-            this.btnTraCancelar.Location = new System.Drawing.Point(755, 553);
+            this.btnTraCancelar.Location = new System.Drawing.Point(755, 549);
             this.btnTraCancelar.Name = "btnTraCancelar";
-            this.btnTraCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnTraCancelar.Size = new System.Drawing.Size(75, 27);
             this.btnTraCancelar.TabIndex = 5;
             this.btnTraCancelar.Text = "Cancelar";
             this.btnTraCancelar.UseVisualStyleBackColor = true;
@@ -103,9 +103,9 @@
             // 
             // btnTraAceptar
             // 
-            this.btnTraAceptar.Location = new System.Drawing.Point(674, 553);
+            this.btnTraAceptar.Location = new System.Drawing.Point(674, 549);
             this.btnTraAceptar.Name = "btnTraAceptar";
-            this.btnTraAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnTraAceptar.Size = new System.Drawing.Size(75, 27);
             this.btnTraAceptar.TabIndex = 5;
             this.btnTraAceptar.Text = "Aceptar";
             this.btnTraAceptar.UseVisualStyleBackColor = true;
@@ -121,6 +121,7 @@
             this.tclTraza.SelectedIndex = 0;
             this.tclTraza.Size = new System.Drawing.Size(818, 533);
             this.tclTraza.TabIndex = 7;
+            this.tclTraza.Selected += new System.Windows.Forms.TabControlEventHandler(this.seleccionarPestaña);
             // 
             // tabCrearTraza
             // 
@@ -128,12 +129,12 @@
             this.tabCrearTraza.Controls.Add(this.txtTraCreNombre);
             this.tabCrearTraza.Controls.Add(this.label1);
             this.tabCrearTraza.Controls.Add(this.label2);
-            this.tabCrearTraza.Location = new System.Drawing.Point(4, 22);
+            this.tabCrearTraza.Location = new System.Drawing.Point(4, 24);
             this.tabCrearTraza.Name = "tabCrearTraza";
             this.tabCrearTraza.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCrearTraza.Size = new System.Drawing.Size(810, 507);
+            this.tabCrearTraza.Size = new System.Drawing.Size(810, 505);
             this.tabCrearTraza.TabIndex = 0;
-            this.tabCrearTraza.Text = "Crear";
+            this.tabCrearTraza.Text = "Nueva Traza";
             this.tabCrearTraza.UseVisualStyleBackColor = true;
             // 
             // clbTraCreServicios
@@ -153,12 +154,12 @@
             this.tabModificarTraza.Controls.Add(this.label4);
             this.tabModificarTraza.Controls.Add(this.label5);
             this.tabModificarTraza.Controls.Add(this.label3);
-            this.tabModificarTraza.Location = new System.Drawing.Point(4, 22);
+            this.tabModificarTraza.Location = new System.Drawing.Point(4, 24);
             this.tabModificarTraza.Name = "tabModificarTraza";
             this.tabModificarTraza.Padding = new System.Windows.Forms.Padding(3);
-            this.tabModificarTraza.Size = new System.Drawing.Size(810, 507);
+            this.tabModificarTraza.Size = new System.Drawing.Size(810, 505);
             this.tabModificarTraza.TabIndex = 1;
-            this.tabModificarTraza.Text = "Modificar";
+            this.tabModificarTraza.Text = "Buscar";
             this.tabModificarTraza.UseVisualStyleBackColor = true;
             // 
             // clbTraModServicios
@@ -174,18 +175,19 @@
             // 
             this.lstTraModTrazas.DisplayMember = "Nombre";
             this.lstTraModTrazas.FormattingEnabled = true;
+            this.lstTraModTrazas.ItemHeight = 15;
             this.lstTraModTrazas.Location = new System.Drawing.Point(9, 32);
             this.lstTraModTrazas.Name = "lstTraModTrazas";
-            this.lstTraModTrazas.Size = new System.Drawing.Size(373, 459);
+            this.lstTraModTrazas.Size = new System.Drawing.Size(373, 454);
             this.lstTraModTrazas.Sorted = true;
             this.lstTraModTrazas.TabIndex = 12;
             this.lstTraModTrazas.SelectedIndexChanged += new System.EventHandler(this.seleccionarTraza);
             // 
             // txtTraModNombre
             // 
-            this.txtTraModNombre.Location = new System.Drawing.Point(504, 29);
+            this.txtTraModNombre.Location = new System.Drawing.Point(529, 29);
             this.txtTraModNombre.Name = "txtTraModNombre";
-            this.txtTraModNombre.Size = new System.Drawing.Size(280, 20);
+            this.txtTraModNombre.Size = new System.Drawing.Size(255, 21);
             this.txtTraModNombre.TabIndex = 8;
             // 
             // label4
@@ -193,7 +195,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(409, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.Size = new System.Drawing.Size(103, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Nombre de Traza";
             // 
@@ -202,7 +204,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(409, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.Size = new System.Drawing.Size(124, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "Servicios Disponibles";
             // 
@@ -211,19 +213,19 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Trazas Actuales";
+            this.label3.Text = "Trazas Existentes";
             // 
             // tabEliminarTraza
             // 
             this.tabEliminarTraza.Controls.Add(this.lstTraEliTrazas);
             this.tabEliminarTraza.Controls.Add(this.btnTraElBorrarTraza);
             this.tabEliminarTraza.Controls.Add(this.label6);
-            this.tabEliminarTraza.Location = new System.Drawing.Point(4, 22);
+            this.tabEliminarTraza.Location = new System.Drawing.Point(4, 24);
             this.tabEliminarTraza.Name = "tabEliminarTraza";
             this.tabEliminarTraza.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEliminarTraza.Size = new System.Drawing.Size(810, 507);
+            this.tabEliminarTraza.Size = new System.Drawing.Size(810, 505);
             this.tabEliminarTraza.TabIndex = 2;
             this.tabEliminarTraza.Text = "Eliminar";
             this.tabEliminarTraza.UseVisualStyleBackColor = true;
@@ -232,9 +234,10 @@
             // 
             this.lstTraEliTrazas.DisplayMember = "Nombre";
             this.lstTraEliTrazas.FormattingEnabled = true;
+            this.lstTraEliTrazas.ItemHeight = 15;
             this.lstTraEliTrazas.Location = new System.Drawing.Point(203, 41);
             this.lstTraEliTrazas.Name = "lstTraEliTrazas";
-            this.lstTraEliTrazas.Size = new System.Drawing.Size(373, 446);
+            this.lstTraEliTrazas.Size = new System.Drawing.Size(373, 439);
             this.lstTraEliTrazas.Sorted = true;
             this.lstTraEliTrazas.TabIndex = 15;
             // 
@@ -242,7 +245,7 @@
             // 
             this.btnTraElBorrarTraza.Location = new System.Drawing.Point(582, 41);
             this.btnTraElBorrarTraza.Name = "btnTraElBorrarTraza";
-            this.btnTraElBorrarTraza.Size = new System.Drawing.Size(100, 23);
+            this.btnTraElBorrarTraza.Size = new System.Drawing.Size(100, 27);
             this.btnTraElBorrarTraza.TabIndex = 14;
             this.btnTraElBorrarTraza.Text = "Borrar Traza";
             this.btnTraElBorrarTraza.UseVisualStyleBackColor = true;
@@ -253,9 +256,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(200, 25);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.Size = new System.Drawing.Size(103, 15);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Trazas Actuales";
+            this.label6.Text = "Trazas Existentes";
             // 
             // pnlTraza
             // 
@@ -263,6 +266,7 @@
             this.pnlTraza.Controls.Add(this.btnTraLimpiar);
             this.pnlTraza.Controls.Add(this.btnTraCancelar);
             this.pnlTraza.Controls.Add(this.btnTraAceptar);
+            this.pnlTraza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlTraza.Location = new System.Drawing.Point(12, 12);
             this.pnlTraza.Name = "pnlTraza";
             this.pnlTraza.Size = new System.Drawing.Size(840, 588);

@@ -29,8 +29,8 @@ namespace ffccSimulacion.Resultados
             this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
             this.txtConsPorKm.Text = resultadoSimulacion.consumoKm.ToString();
             this.txtConsPorPasajero.Text = resultadoSimulacion.consumoPasajero.ToString();
-
-            this.Name = "RESULTADOS DE SIMULACION " + resultadoSimulacion.nombreSimulacion;
+            
+            this.Text = "Resultados De " + resultadoSimulacion.nombreSimulacion;
         }
 
         private void btnResultadosCerrar_Click(object sender, EventArgs e)
