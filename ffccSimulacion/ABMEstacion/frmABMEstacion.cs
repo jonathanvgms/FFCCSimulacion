@@ -404,5 +404,21 @@ namespace ffccSimulacion.ABMEstacion
         }
 
         #endregion
+
+        private void buscarEstaciones(object sender, EventArgs e)
+        {
+            char lastChar;
+            if (!String.IsNullOrEmpty(txtEstacionesModBuscar.Text) && Util.EsAlfaNumerico(txtEstacionesModBuscar.Text))
+            {
+                lastChar = txtEstacionesModBuscar.Text.Last();
+                lstModEstaciones.Items.Clear();
+                context.Estaciones.Where(x => x.Nombre.Contains(txtEstacionesModBuscar.Text)).ToList().ForEach(y => lstModEstaciones.Items.Add(y));
+            }
+            else
+            {
+                cargarEstaciones();
+            }
+            limpiarFormulario();
+        }
     }
 }

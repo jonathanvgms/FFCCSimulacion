@@ -102,6 +102,7 @@
             this.lBoxSimServicios.ItemHeight = 15;
             this.lBoxSimServicios.Location = new System.Drawing.Point(631, 21);
             this.lBoxSimServicios.Name = "lBoxSimServicios";
+            this.lBoxSimServicios.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lBoxSimServicios.Size = new System.Drawing.Size(247, 289);
             this.lBoxSimServicios.Sorted = true;
             this.lBoxSimServicios.TabIndex = 29;

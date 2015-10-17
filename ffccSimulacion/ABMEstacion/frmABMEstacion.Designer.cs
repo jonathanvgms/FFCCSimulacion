@@ -47,6 +47,8 @@
             this.txtEstCreNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ModificarEstacion = new System.Windows.Forms.TabPage();
+            this.txtEstacionesModBuscar = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbEstModFdp = new System.Windows.Forms.ComboBox();
             this.clbModIncidentes = new System.Windows.Forms.CheckedListBox();
@@ -259,6 +261,8 @@
             // 
             // ModificarEstacion
             // 
+            this.ModificarEstacion.Controls.Add(this.txtEstacionesModBuscar);
+            this.ModificarEstacion.Controls.Add(this.label17);
             this.ModificarEstacion.Controls.Add(this.label13);
             this.ModificarEstacion.Controls.Add(this.cmbEstModFdp);
             this.ModificarEstacion.Controls.Add(this.clbModIncidentes);
@@ -273,9 +277,26 @@
             this.ModificarEstacion.Padding = new System.Windows.Forms.Padding(3);
             this.ModificarEstacion.Size = new System.Drawing.Size(1032, 418);
             this.ModificarEstacion.TabIndex = 1;
-            this.ModificarEstacion.Text = "Buscar";
+            this.ModificarEstacion.Text = "Modificar";
             this.ModificarEstacion.ToolTipText = "Muestra un listado de estaciones para su modificación";
             this.ModificarEstacion.UseVisualStyleBackColor = true;
+            // 
+            // txtEstacionesModBuscar
+            // 
+            this.txtEstacionesModBuscar.Location = new System.Drawing.Point(75, 27);
+            this.txtEstacionesModBuscar.Name = "txtEstacionesModBuscar";
+            this.txtEstacionesModBuscar.Size = new System.Drawing.Size(222, 21);
+            this.txtEstacionesModBuscar.TabIndex = 23;
+            this.txtEstacionesModBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 15);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Estación";
             // 
             // label13
             // 
@@ -310,7 +331,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 27);
+            this.label11.Location = new System.Drawing.Point(6, 65);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 15);
             this.label11.TabIndex = 12;
@@ -321,9 +342,9 @@
             this.lstModEstaciones.DisplayMember = "Nombre";
             this.lstModEstaciones.FormattingEnabled = true;
             this.lstModEstaciones.ItemHeight = 15;
-            this.lstModEstaciones.Location = new System.Drawing.Point(9, 43);
+            this.lstModEstaciones.Location = new System.Drawing.Point(9, 88);
             this.lstModEstaciones.Name = "lstModEstaciones";
-            this.lstModEstaciones.Size = new System.Drawing.Size(288, 364);
+            this.lstModEstaciones.Size = new System.Drawing.Size(288, 319);
             this.lstModEstaciones.Sorted = true;
             this.lstModEstaciones.TabIndex = 11;
             this.lstModEstaciones.SelectedIndexChanged += new System.EventHandler(this.seleccionarEstacion);
@@ -539,5 +560,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtEstacionesModBuscar;
+        private System.Windows.Forms.Label label17;
     }
 }

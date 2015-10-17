@@ -98,10 +98,14 @@ namespace ffccSimulacion.ABMIncidente
             {
                 errorMsj += "Nombre: Incompleto ó Incorrecto.\n";
             }
+            else if (context.Incidentes.Any(x => x.Nombre == txtIncCreNom.Text))
+            {
+                errorMsj += "El Incidente existe en el Sistema, ingrese otro.\n";
+            }
 
             if (!Util.EsAlfabetico(txtincCreDes.Text))
             {
-                errorMsj += "Descripción: Incompleto ó Incorrecto.\n";
+                errorMsj += "Descripción: Incompleta ó Incorrecta.\n";
             }
 
             if (!Util.EsNumerico(txtbIncCreTiem.Text))
@@ -135,9 +139,13 @@ namespace ffccSimulacion.ABMIncidente
 
                     cargarIncidentes();
 
-                    MessageBox.Show("Incidente Guardado");
-
                     limpiarFormulario();
+                    
+                    txtIncEliBuscar.Clear();
+
+                    txtIncModBuscar.Clear();
+
+                    MessageBox.Show("Incidente Guardado");
                 }
                 catch (Exception exc)
                 {
@@ -160,6 +168,10 @@ namespace ffccSimulacion.ABMIncidente
             if (!Util.EsAlfaNumerico(txtModNombre.Text))
             {
                 errorMsj += "Nombre: Incompleto ó Incorrecto.\n";
+            }
+            else if (context.Incidentes.Any(x => x.Nombre == txtModNombre.Text))
+            {
+                errorMsj += "El Incidente existe en el Sistema, ingrese otro.\n";
             }
 
             if (!Util.EsAlfabetico(txtModDes.Text))
@@ -198,7 +210,11 @@ namespace ffccSimulacion.ABMIncidente
 
                     cargarIncidentes();
 
-                    MessageBox.Show("Incidente Guardado");
+                    txtIncEliBuscar.Clear();
+
+                    txtIncModBuscar.Clear();
+
+                    MessageBox.Show("Las modificaciones han sido guardadas.");
 
                     limpiarFormulario();
                 }
@@ -245,6 +261,10 @@ namespace ffccSimulacion.ABMIncidente
                     cargarIncidentes();
 
                     limpiarFormulario();
+
+                    txtIncEliBuscar.Clear();
+
+                    txtIncModBuscar.Clear();
 
                     MessageBox.Show("Incidente Eliminado");
                 }
@@ -300,6 +320,10 @@ namespace ffccSimulacion.ABMIncidente
             txtModDes.Clear();
 
             cmbModProb.SelectedIndex = 0;
+
+            //txtIncModBuscar.Clear();
+
+            //txtIncEliBuscar.Clear();
         }
         
         /*
@@ -336,5 +360,46 @@ namespace ffccSimulacion.ABMIncidente
             }
         }
 
+        private void buscarIncidente(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabModificar)
+            {
+                actualizarListado(txtIncModBuscar, lstIncMod);
+            }
+            if (tabControl1.SelectedTab == tabEliminar)
+            {
+                actualizarListado(txtIncEliBuscar, lstIncEli);
+            }
+
+            limpiarFormulario();
+        }
+
+        private void actualizarListado(TextBox txtBuscar, ListBox resultado)
+        {
+            char lastChar;
+            if (!String.IsNullOrEmpty(txtBuscar.Text) && Util.EsAlfaNumerico(txtBuscar.Text))
+            {
+                lastChar = txtBuscar.Text.Last();
+                resultado.Items.Clear();
+                context.Incidentes.Where(x => x.Nombre.Contains(txtBuscar.Text)).ToList().ForEach(y => resultado.Items.Add(y));
+            }
+            else
+            {
+                cargarIncidentes();
+            }
+        }
+
+        private void estacionesAsociadas(object sender, EventArgs e)
+        {
+            if(lstIncEli.SelectedIndex > -1)
+            {
+                lstIncEliEstaciones.Items.Clear();
+                List<Estaciones_X_Incidentes> ei = context.Estaciones_X_Incidentes.Where(x => x.Id_Incidente == ((Incidentes)lstIncEli.SelectedItem).Id).ToList();
+                foreach (var est in ei)
+                {
+                    lstIncEliEstaciones.Items.Add(context.Estaciones.Where(x => x.Id == est.Id_Estacion).FirstOrDefault());
+                }
+            }
+        }
     }
 }
