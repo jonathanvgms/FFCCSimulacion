@@ -93,9 +93,7 @@
             // 
             // estaciónToolStripMenuItem
             // 
-            this.estaciónToolStripMenuItem.Checked = true;
             this.estaciónToolStripMenuItem.CheckOnClick = true;
-            this.estaciónToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.estaciónToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             resources.ApplyResources(this.estaciónToolStripMenuItem, "estaciónToolStripMenuItem");
             this.estaciónToolStripMenuItem.Name = "estaciónToolStripMenuItem";
