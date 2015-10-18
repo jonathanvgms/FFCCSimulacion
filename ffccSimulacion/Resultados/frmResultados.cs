@@ -25,10 +25,12 @@ namespace ffccSimulacion.Resultados
             this.txtTiemPro.Text = resultadoSimulacion.promedioDemoraIncidentes.ToString();
             this.txtPromPasaj.Text = resultadoSimulacion.promedioPasajeros.ToString();
             this.txtPromDem.Text = resultadoSimulacion.promedioDemoraAtencion.ToString();
-            this.txtCostPorKm.Text = resultadoSimulacion.costoKm.ToString();
+            
             this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
-            this.txtConsPorKm.Text = resultadoSimulacion.consumoKm.ToString();
-            this.txtConsPorPasajero.Text = resultadoSimulacion.consumoPasajero.ToString();
+            this.txtConsEleKm.Text = resultadoSimulacion.consumoElectricoKm.ToString();
+            this.txtConsDiKm.Text = resultadoSimulacion.consumoDieselKm.ToString();
+            this.txtConsElePas.Text = resultadoSimulacion.consumoElectricoPasajero.ToString();
+            this.txtConsDiPas.Text = resultadoSimulacion.consumoDieselPasajero.ToString();
             
             this.Text = "Resultados De " + resultadoSimulacion.nombreSimulacion;
         }
@@ -47,6 +49,16 @@ namespace ffccSimulacion.Resultados
              * Lo agregré al struct de ResultadoSimulacion
              */
             Informe.generarInforme(resultadoSimulacion);            
+        }
+
+        private void txtCostoEle_TextChanged(object sender, EventArgs e)
+        {
+            this.txtCostPorKm.Text = (resultadoSimulacion.costoKm * Convert.ToDouble(this.txtCostoEle.Text)).ToString();
+        }
+
+        private void txtCostoDi_TextChanged(object sender, EventArgs e)
+        {
+            this.txtCostPorPasajero.Text = (resultadoSimulacion.costoPasajero * Convert.ToDouble(this.txtCostoDi.Text)).ToString();
         }
     }
 }
