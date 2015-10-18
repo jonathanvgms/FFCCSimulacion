@@ -43,10 +43,10 @@
             this.txtTiemPro = new System.Windows.Forms.TextBox();
             this.txtPromPasaj = new System.Windows.Forms.TextBox();
             this.txtPromDem = new System.Windows.Forms.TextBox();
-            this.txtConsPorKm = new System.Windows.Forms.TextBox();
+            this.txtConsElePas = new System.Windows.Forms.TextBox();
             this.txtCostPorKm = new System.Windows.Forms.TextBox();
             this.txtCostPorPasajero = new System.Windows.Forms.TextBox();
-            this.txtConsPorPasajero = new System.Windows.Forms.TextBox();
+            this.txtConsDiPas = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -55,6 +55,18 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtCostoEle = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtCostoDi = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtConsDiKm = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtConsEleKm = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnResultadosPdf
@@ -132,21 +144,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(510, 236);
+            this.label5.Location = new System.Drawing.Point(494, 250);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 15);
+            this.label5.Size = new System.Drawing.Size(240, 15);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Consumo Promedio por Kilómetro";
+            this.label5.Text = "Consumo Eléctrico Promedio por Pasajero";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(510, 289);
+            this.label6.Location = new System.Drawing.Point(494, 287);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(190, 15);
+            this.label6.Size = new System.Drawing.Size(228, 15);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Consumo Promedio por Pasajero";
+            this.label6.Text = "Consumo Diesel Promedio por Pasajero";
             // 
             // label7
             // 
@@ -192,13 +204,13 @@
             this.txtPromDem.Size = new System.Drawing.Size(100, 21);
             this.txtPromDem.TabIndex = 15;
             // 
-            // txtConsPorKm
+            // txtConsElePas
             // 
-            this.txtConsPorKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsPorKm.Location = new System.Drawing.Point(724, 233);
-            this.txtConsPorKm.Name = "txtConsPorKm";
-            this.txtConsPorKm.Size = new System.Drawing.Size(100, 21);
-            this.txtConsPorKm.TabIndex = 16;
+            this.txtConsElePas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsElePas.Location = new System.Drawing.Point(744, 247);
+            this.txtConsElePas.Name = "txtConsElePas";
+            this.txtConsElePas.Size = new System.Drawing.Size(100, 21);
+            this.txtConsElePas.TabIndex = 16;
             // 
             // txtCostPorKm
             // 
@@ -216,13 +228,13 @@
             this.txtCostPorPasajero.Size = new System.Drawing.Size(100, 21);
             this.txtCostPorPasajero.TabIndex = 18;
             // 
-            // txtConsPorPasajero
+            // txtConsDiPas
             // 
-            this.txtConsPorPasajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConsPorPasajero.Location = new System.Drawing.Point(724, 286);
-            this.txtConsPorPasajero.Name = "txtConsPorPasajero";
-            this.txtConsPorPasajero.Size = new System.Drawing.Size(100, 21);
-            this.txtConsPorPasajero.TabIndex = 19;
+            this.txtConsDiPas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsDiPas.Location = new System.Drawing.Point(744, 284);
+            this.txtConsDiPas.Name = "txtConsDiPas";
+            this.txtConsDiPas.Size = new System.Drawing.Size(100, 21);
+            this.txtConsDiPas.TabIndex = 19;
             // 
             // label9
             // 
@@ -278,21 +290,21 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(830, 236);
+            this.label14.Location = new System.Drawing.Point(850, 250);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(14, 15);
+            this.label14.Size = new System.Drawing.Size(30, 15);
             this.label14.TabIndex = 27;
-            this.label14.Text = "$";
+            this.label14.Text = "[UE]";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(830, 289);
+            this.label15.Location = new System.Drawing.Point(850, 287);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(14, 15);
+            this.label15.Size = new System.Drawing.Size(31, 15);
             this.label15.TabIndex = 26;
-            this.label15.Text = "$";
+            this.label15.Text = "[UD]";
             // 
             // label16
             // 
@@ -304,6 +316,109 @@
             this.label16.TabIndex = 28;
             this.label16.Text = "%";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtCostoDi);
+            this.groupBox1.Controls.Add(this.txtCostoEle);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Location = new System.Drawing.Point(497, 26);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(256, 108);
+            this.groupBox1.TabIndex = 29;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos de Consumo";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 24);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(133, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Costo de [unidad electrico]";
+            // 
+            // txtCostoEle
+            // 
+            this.txtCostoEle.Location = new System.Drawing.Point(145, 21);
+            this.txtCostoEle.Name = "txtCostoEle";
+            this.txtCostoEle.Size = new System.Drawing.Size(100, 20);
+            this.txtCostoEle.TabIndex = 1;
+            this.txtCostoEle.TextChanged += new System.EventHandler(this.txtCostoEle_TextChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 74);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(120, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Costo de [unidad diesel]";
+            // 
+            // txtCostoDi
+            // 
+            this.txtCostoDi.Location = new System.Drawing.Point(145, 71);
+            this.txtCostoDi.Name = "txtCostoDi";
+            this.txtCostoDi.Size = new System.Drawing.Size(100, 20);
+            this.txtCostoDi.TabIndex = 1;
+            this.txtCostoDi.TextChanged += new System.EventHandler(this.txtCostoDi_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(494, 212);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(232, 15);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "Consumo Diesel Promedio por Kilómetro";
+            // 
+            // txtConsDiKm
+            // 
+            this.txtConsDiKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsDiKm.Location = new System.Drawing.Point(744, 209);
+            this.txtConsDiKm.Name = "txtConsDiKm";
+            this.txtConsDiKm.Size = new System.Drawing.Size(100, 21);
+            this.txtConsDiKm.TabIndex = 16;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(850, 212);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(31, 15);
+            this.label20.TabIndex = 27;
+            this.label20.Text = "[UD]";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(494, 174);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(244, 15);
+            this.label21.TabIndex = 9;
+            this.label21.Text = "Consumo Eléctrico Promedio por Kilómetro";
+            // 
+            // txtConsEleKm
+            // 
+            this.txtConsEleKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsEleKm.Location = new System.Drawing.Point(744, 171);
+            this.txtConsEleKm.Name = "txtConsEleKm";
+            this.txtConsEleKm.Size = new System.Drawing.Size(100, 21);
+            this.txtConsEleKm.TabIndex = 16;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(850, 174);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(30, 15);
+            this.label22.TabIndex = 27;
+            this.label22.Text = "[UE]";
+            // 
             // frmResultados
             // 
             this.AcceptButton = this.btnResultadosPdf;
@@ -311,7 +426,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnResultadosCerrar;
             this.ClientSize = new System.Drawing.Size(890, 373);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label16);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label13);
@@ -319,15 +437,19 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtConsPorPasajero);
+            this.Controls.Add(this.txtConsDiPas);
             this.Controls.Add(this.txtCostPorPasajero);
             this.Controls.Add(this.txtCostPorKm);
-            this.Controls.Add(this.txtConsPorKm);
+            this.Controls.Add(this.txtConsEleKm);
+            this.Controls.Add(this.txtConsDiKm);
+            this.Controls.Add(this.txtConsElePas);
             this.Controls.Add(this.txtPromDem);
             this.Controls.Add(this.txtPromPasaj);
             this.Controls.Add(this.txtTiemPro);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -345,6 +467,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resultados";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,10 +490,10 @@
         private System.Windows.Forms.TextBox txtTiemPro;
         private System.Windows.Forms.TextBox txtPromPasaj;
         private System.Windows.Forms.TextBox txtPromDem;
-        private System.Windows.Forms.TextBox txtConsPorKm;
+        private System.Windows.Forms.TextBox txtConsElePas;
         private System.Windows.Forms.TextBox txtCostPorKm;
         private System.Windows.Forms.TextBox txtCostPorPasajero;
-        private System.Windows.Forms.TextBox txtConsPorPasajero;
+        private System.Windows.Forms.TextBox txtConsDiPas;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -378,5 +502,16 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtCostoDi;
+        private System.Windows.Forms.TextBox txtCostoEle;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtConsDiKm;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtConsEleKm;
+        private System.Windows.Forms.Label label22;
     }
 }

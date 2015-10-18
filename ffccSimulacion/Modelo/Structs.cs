@@ -32,8 +32,8 @@ namespace ffccSimulacion.Modelo
         public int id_formacion;
         public string nombreFormacion;
         public int distanciaTotalRecorrida;
-        public int consumoMovimiento;
-        public int consumoParado;
+        //public int consumoMovimiento;
+        //public int consumoParado;
         public int pasajerosTotalesTransportados;
         public int vecesSuperoCapLegal;
         public int vecesNoHabiaPasajerosParados;
@@ -53,8 +53,10 @@ namespace ffccSimulacion.Modelo
         public double promedioDemoraAtencion;
         public double costoKm;
         public double costoPasajero;
-        public double consumoKm;
-        public double consumoPasajero;
+        public double consumoElectricoKm;
+        public double consumoDieselKm;
+        public double consumoElectricoPasajero;
+        public double consumoDieselPasajero;
         //necesito estos dos campos mas para generar el informe
         public string nombreSimulacion;
         public int idTraza;
