@@ -25,6 +25,8 @@ namespace ffccSimulacion.ABMIncidente
             context = new ffccSimulacionEntities();
             
             cargarIncidentes();
+
+            deshabilitarModificar();
         }
 
         #region Accion de apretar botones
@@ -169,7 +171,7 @@ namespace ffccSimulacion.ABMIncidente
             {
                 errorMsj += "Nombre: Incompleto ó Incorrecto.\n";
             }
-            else if (context.Incidentes.Any(x => x.Nombre == txtModNombre.Text))
+            else if (context.Incidentes.Where(x => x.Nombre == txtModNombre.Text).Count() > 1)
             {
                 errorMsj += "El Incidente existe en el Sistema, ingrese otro.\n";
             }
@@ -214,9 +216,11 @@ namespace ffccSimulacion.ABMIncidente
 
                     txtIncModBuscar.Clear();
 
-                    MessageBox.Show("Las modificaciones han sido guardadas.");
+                    deshabilitarModificar();
 
                     limpiarFormulario();
+
+                    MessageBox.Show("Las modificaciones han sido guardadas.");
                 }
                 catch (Exception exc)
                 {
@@ -288,6 +292,8 @@ namespace ffccSimulacion.ABMIncidente
         {
             if (lstIncMod.SelectedIndex > -1)
             {
+                habilitarModificar();
+
                 incidenteSeleccionado = (Incidentes)lstIncMod.SelectedItem;
 
                 txtModNombre.Text = incidenteSeleccionado.Nombre;
@@ -320,10 +326,6 @@ namespace ffccSimulacion.ABMIncidente
             txtModDes.Clear();
 
             cmbModProb.SelectedIndex = 0;
-
-            //txtIncModBuscar.Clear();
-
-            //txtIncEliBuscar.Clear();
         }
         
         /*
@@ -347,16 +349,22 @@ namespace ffccSimulacion.ABMIncidente
             {
                 btnLimpiar.Enabled = false;
                 btnAceptar.Enabled = false;
+                deshabilitarModificar();
+                limpiarFormulario();
+                lstIncMod.SelectedIndex = -1;
             }
             if (tabControl1.SelectedTab == tabModificar)
             {
                 btnLimpiar.Enabled = true;
-                btnAceptar.Enabled = true;
+                btnAceptar.Enabled = true;                
             }
             if (tabControl1.SelectedTab == tabCrear)
             {
                 btnLimpiar.Enabled = true;
                 btnAceptar.Enabled = true;
+                deshabilitarModificar();
+                limpiarFormulario();
+                lstIncMod.SelectedIndex = -1;
             }
         }
 
@@ -369,6 +377,10 @@ namespace ffccSimulacion.ABMIncidente
             if (tabControl1.SelectedTab == tabEliminar)
             {
                 actualizarListado(txtIncEliBuscar, lstIncEli);
+            }
+            else
+            {
+                actualizarListado(txtIncCreBuscar, lstIncidenteCrear);
             }
 
             limpiarFormulario();
@@ -387,6 +399,8 @@ namespace ffccSimulacion.ABMIncidente
             {
                 cargarIncidentes();
             }
+            limpiarFormulario();
+            deshabilitarModificar();
         }
 
         private void estacionesAsociadas(object sender, EventArgs e)
@@ -400,6 +414,22 @@ namespace ffccSimulacion.ABMIncidente
                     lstIncEliEstaciones.Items.Add(context.Estaciones.Where(x => x.Id == est.Id_Estacion).FirstOrDefault());
                 }
             }
+        }
+
+        private void deshabilitarModificar()
+        {
+            txtModDem.Enabled = false;
+            txtModDes.Enabled = false;
+            txtModNombre.Enabled = false;
+            cmbModProb.Enabled = false;
+        }
+
+        private void habilitarModificar()
+        {
+            txtModDem.Enabled = true;
+            txtModDes.Enabled = true;
+            txtModNombre.Enabled = true;
+            cmbModProb.Enabled = true;
         }
     }
 }
