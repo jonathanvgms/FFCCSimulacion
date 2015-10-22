@@ -275,5 +275,34 @@ namespace ffccSimulacion.Modelo
             }
             throw new ApplicationException("Error de configuración de nodos del servicio.");
         }
+
+        public bool ServicioEsValido(List<Relaciones> sr)
+        {
+            Relaciones relacionPivote = sr.FirstOrDefault();
+            Relaciones relacionActual = relacionPivote;
+            int contadorRelaciones = 0;
+
+            if (relacionPivote == null)
+                return false;
+
+            while (relacionActual != null)
+            {
+                contadorRelaciones++;
+                relacionActual = sr.Where(x => x.Estaciones.Id == relacionActual.Estaciones1.Id).FirstOrDefault();
+            }
+
+            //relacionActual = relacionPivote;
+            relacionActual = sr.Where(x => x.Estaciones1.Id == relacionPivote.Estaciones.Id).FirstOrDefault();
+            while(relacionActual!= null)
+            {
+                contadorRelaciones++;
+                relacionActual = sr.Where(x => x.Estaciones1.Id == relacionActual.Estaciones.Id).FirstOrDefault();
+            }
+
+            if (sr.Count == contadorRelaciones)
+                return true;
+            else
+                return false;
+        }
     }
 }
