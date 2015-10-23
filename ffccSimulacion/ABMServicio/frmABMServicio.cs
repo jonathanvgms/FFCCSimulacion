@@ -28,6 +28,7 @@ namespace ffccSimulacion.ABMServicio
             clbxFormacionesCrear.DisplayMember = "NombreFormacion";
             clbxFormacionesMod.DisplayMember = "NombreFormacion";
             cbxEsParadaCrear.Checked = true;
+            cbxEsParadaMod.Checked = true;
 
             CargarListas();
         }
@@ -84,18 +85,15 @@ namespace ffccSimulacion.ABMServicio
                 nuevaRelacion.TiempoViaje = 0;
                 nuevaRelacion.Distancia = Convert.ToInt32(txtDistanciaRelacionCrear.Text);
                 nuevaRelacion.VelocidadPromedio = Convert.ToInt32(txtVelocidadRelacionCrear.Text);
-
-                if (cbxEsParadaCrear.Checked)
-                    nuevaRelacion.Est_Sig_Es_Parada = 1;
-                else
-                    nuevaRelacion.Est_Sig_Es_Parada = 0;
-
+                nuevaRelacion.Est_Sig_Es_Parada = 1;
+               
                 auxRelaciones.Add(nuevaRelacion);
                 dgvRelacionesCrear.Rows.Add(new string[] { estacionOrigen.Nombre, estacionDestino.Nombre, estacionOrigen.Id.ToString(), estacionDestino.Id.ToString() });
                 txtDistanciaRelacionCrear.Text = "";
                 txtVelocidadRelacionCrear.Text = "";
-                lbxEstacionesOrigenCrear.SelectedIndex = -1;
+                //lbxEstacionesOrigenCrear.SelectedIndex = -1;
                 lbxEstacionesDestinoCrear.SelectedIndex = -1;
+                lbxEstacionesOrigenCrear.SelectedItem = estacionDestino;
             }
             else
                 MessageBox.Show(errorMsj);
@@ -105,7 +103,7 @@ namespace ffccSimulacion.ABMServicio
         {
             string errorMsj = "";
 
-            if (dgvRelacionesCrear.SelectedRows.Count == 0)
+            if (dgvRelacionesCrear.SelectedRows.Count != 1)
                 errorMsj += "Debe seleccionar un fila para poder ser borrada.\n";
 
             if (string.IsNullOrEmpty(errorMsj))
@@ -145,6 +143,9 @@ namespace ffccSimulacion.ABMServicio
         {
             if (tabControl1.SelectedTab == tabCrearServicio)
                 CrearNuevoServicio();
+
+            if (tabControl1.SelectedTab == tabModificarServicio)
+                GuardarCambiosServicio();
         }
 
         private void CrearNuevoServicio()
@@ -158,7 +159,8 @@ namespace ffccSimulacion.ABMServicio
             if (auxRelaciones.Count == 0)
                 errorMsj += "El servicio no tiene estaciones relacionadas.\n";
 
-            /*TODO: hacer un metodo dentro de la clase servicio para validar que todas las estaciones este conectadas en una sola linia*/
+            if (!nuevoServicio.ServicioEsValido(auxRelaciones))
+                errorMsj += "Las relaciones del servicio tienen errores.\n";
 
             if (clbxFormacionesCrear.CheckedItems.Count == 0)
                 errorMsj += "El servicio no tiene formaciones asignadas.\n";
@@ -251,6 +253,9 @@ namespace ffccSimulacion.ABMServicio
         {
             if (tabControl1.SelectedTab == tabCrearServicio)
                 LimpiarTabCrear();
+
+            if (tabControl1.SelectedTab == tabModificarServicio)
+                LimpiarTabModificar();
         }
 
         private void seleccionarPestaña(object sender, TabControlEventArgs e)
@@ -270,6 +275,194 @@ namespace ffccSimulacion.ABMServicio
                 btnAceptar.Enabled = false;
                 btnLimpiar.Enabled = false;
             }
+        }
+
+        private void LimpiarTabModificar()
+        {
+            cbxEsParadaMod.Checked = true;
+            lbxEstacionesOrigenMod.SelectedIndex = -1;
+            lbxEstacionesDestinoMod.SelectedIndex = -1;
+            txtNombreServicioMod.Text = "";
+            dgvRelacionesMod.Rows.Clear();
+            for (int i = 0; i < clbxFormacionesMod.Items.Count; i++)
+                clbxFormacionesMod.SetItemChecked(i, false);
+        }
+
+        private void lbxServiciosModificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbxServiciosModificar.SelectedItem == null)
+                return;
+
+            LimpiarTabModificar();
+
+            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
+
+            foreach (Relaciones r in servicioSeleccionado.Relaciones)
+                dgvRelacionesMod.Rows.Add(r.Estaciones.Nombre, r.Estaciones1.Nombre, r.Estaciones.Id, r.Estaciones1.Id);
+
+            //clbxFormacionesMod.CheckedItems = servicioSeleccionado.Servicios_X_Formaciones.Select(x => x.Formaciones);
+            foreach (Formaciones f in servicioSeleccionado.Servicios_X_Formaciones.Select(x => x.Formaciones))
+                clbxFormacionesMod.SetItemChecked(clbxFormacionesMod.Items.IndexOf(f), true);
+
+            txtNombreServicioMod.Text = servicioSeleccionado.Nombre;
+        }
+
+        private void btnBorrarRelacionMod_Click(object sender, EventArgs e)
+        {
+            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
+            string errorMsj = "";
+
+            if (servicioSeleccionado == null)
+                errorMsj += "No se ha seleccionado ningún servicio para ser modificado.\n";
+
+            if (dgvRelacionesMod.SelectedRows.Count != 1)
+                errorMsj += "Debe seleccionar un fila para poder ser borrada.\n";
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                int id_estacionOrigen = Convert.ToInt32(dgvRelacionesMod.SelectedRows[0].Cells["Id_EstacionOrigen"].Value);
+                int id_estacionDestino = Convert.ToInt32(dgvRelacionesMod.SelectedRows[0].Cells["Id_EstacionDestino"].Value);
+
+                Relaciones r = servicioSeleccionado.Relaciones.Where(x => x.Estaciones.Id == id_estacionOrigen && x.Estaciones1.Id == id_estacionDestino).FirstOrDefault();
+                if (r != null)
+                {
+                    servicioSeleccionado.Relaciones.Remove(r);
+
+                    /*Esto lo hago con try catch xq si la relacion fue agregada durante la modificacion del servicio la misma
+                     todavia no guardada en la base y por lo tanto tampoco pertenece al contexto. Recien va a aparecer en el contexto cuando se guarden los cambios en la bd*/
+                    try
+                    { context.Relaciones.Remove(r); }
+                    catch
+                    { }
+                }
+
+                dgvRelacionesMod.Rows.Remove(dgvRelacionesMod.SelectedRows[0]);
+            }
+            else
+                MessageBox.Show(errorMsj);
+        }
+
+        private void btnAgregarRelacionMod_Click(object sender, EventArgs e)
+        {
+            string errorMsj = "";
+            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
+            Estaciones estacionOrigen = (Estaciones)lbxEstacionesOrigenMod.SelectedItem;
+            Estaciones estacionDestino = (Estaciones)lbxEstacionesDestinoMod.SelectedItem;
+
+            if (servicioSeleccionado == null)
+                errorMsj += "No se ha seleccionado ningún servicio para ser modificado.\n";
+            if (!Util.EsNumerico(txtDistanciaRelacionMod.Text))
+                errorMsj += "Distancia entre estaciones: Incompleto/Incorrecto.\n";
+            if (!Util.EsNumerico(txtVelocidadRelacionMod.Text))
+                errorMsj += "Velocidad: Incompleto/Incorrecto.\n";
+            if (estacionOrigen == null)
+                errorMsj += "Debe seleccionar una estación de origen.\n";
+            if (estacionDestino == null)
+                errorMsj += "Debe seleccionar una estación de destino.\n";
+            if (BuscarRelacion(estacionOrigen.Id, estacionDestino.Id) != null)
+                errorMsj += "Esa relación ya existe en el servicio.\n";
+            if (estacionDestino.Id == estacionOrigen.Id)
+                errorMsj += "Una estación no puede ser origen y destino al mismo tiempo.\n";
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                Relaciones nuevaRelacion = new Relaciones();
+                nuevaRelacion.Est_Sig_Es_Parada = 1;
+                nuevaRelacion.Distancia = Convert.ToInt32(txtDistanciaRelacionMod.Text);
+                nuevaRelacion.VelocidadPromedio = Convert.ToInt32(txtVelocidadRelacionMod.Text);
+                nuevaRelacion.Id_Estacion_Anterior = estacionOrigen.Id;
+                nuevaRelacion.Id_Estacion_Siguiente = estacionDestino.Id;
+                nuevaRelacion.Estaciones = estacionOrigen;
+                nuevaRelacion.Estaciones1 = estacionDestino;
+
+                servicioSeleccionado.Relaciones.Add(nuevaRelacion);
+                dgvRelacionesMod.Rows.Add(estacionOrigen.Nombre, estacionDestino.Nombre, estacionOrigen.Id, estacionDestino.Id);
+                txtDistanciaRelacionMod.Text = "";
+                txtVelocidadRelacionMod.Text = "";
+                lbxEstacionesDestinoMod.SelectedIndex = -1;
+                lbxEstacionesOrigenMod.SelectedItem = estacionDestino;
+            }
+            else
+                MessageBox.Show(errorMsj);
+        }
+
+        private void GuardarCambiosServicio()
+        {
+            string errorMsj = "";
+            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
+
+            if (servicioSeleccionado == null)
+                return;
+
+            if (!Util.EsAlfaNumerico(txtNombreServicioMod.Text))
+                errorMsj += "Nombre de servicio: Incompleto/Incorrecto.\n";
+
+            if (servicioSeleccionado.Relaciones.Count == 0)
+                errorMsj += "El servicio no tiene estaciones relacionadas.\n";
+
+            if (!servicioSeleccionado.ServicioEsValido(servicioSeleccionado.Relaciones.ToList<Relaciones>()))
+                errorMsj += "Las relaciones del servicio tienen errores.\n";
+
+            if (clbxFormacionesMod.CheckedItems.Count == 0)
+                errorMsj += "El servicio no tiene formaciones asignadas.\n";
+
+            if (string.IsNullOrEmpty(errorMsj))
+            {
+                try
+                {
+                    List<Servicios_X_Formaciones> auxFormacionesServicio = servicioSeleccionado.Servicios_X_Formaciones.ToList<Servicios_X_Formaciones>();
+                    servicioSeleccionado.Nombre = txtNombreServicioMod.Text;
+
+                    /*Se quitan aquellas formaciones que ya no pertenezcan al servicio*/
+                    foreach (Servicios_X_Formaciones sf in auxFormacionesServicio)
+                    {
+                        if (!clbxFormacionesMod.CheckedItems.Contains(sf.Formaciones))
+                        {
+                            servicioSeleccionado.Servicios_X_Formaciones.Remove(sf);
+                            context.Servicios_X_Formaciones.Remove(sf);
+                        }
+                    }
+
+                    /*Se agregan las nuevas formaciones al servicio*/
+                    foreach (Formaciones f in clbxFormacionesMod.CheckedItems)
+                    {
+                        if (servicioSeleccionado.Servicios_X_Formaciones.Where(x => x.Id_Formacion == f.Id).Count() == 0)
+                        {
+                            Servicios_X_Formaciones servform = new Servicios_X_Formaciones();
+                            servform.Id_Servicio = servicioSeleccionado.Id;
+                            servform.Id_Formacion = f.Id;
+                            servform.Formaciones = f;
+
+                            servicioSeleccionado.Servicios_X_Formaciones.Add(servform);
+                        }
+                    }
+
+                    /*Las modificaciones a la lista de relaciones se van guardando a medida que se agregan o sacan formaciones*/
+
+                    context.SaveChanges();
+
+                    lbxServiciosModificar.Items.Clear();
+                    lbxServiciosEliminar.Items.Clear();
+                    foreach (Servicios s in context.Servicios)
+                    {
+                        lbxServiciosModificar.Items.Add(s);
+                        lbxServiciosEliminar.Items.Add(s);
+                    }
+
+                    MessageBox.Show("Los cambios han sido guardados exitosamente.\n");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("No se guardo el servicio \n\n" + exc.ToString());
+                }
+            }
+            else
+                MessageBox.Show(errorMsj);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.pnlServicio.Controls.Clear();
         }
     }
 }

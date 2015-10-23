@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreServicioMod = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAgregarRelacionMod = new System.Windows.Forms.Button();
+            this.btnBorrarRelacionMod = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -72,10 +72,10 @@
             this.dgvRelacionesMod = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Id_EstacionOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_EstacionDestino = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtVelocidadRelacionMod = new System.Windows.Forms.TextBox();
+            this.txtDistanciaRelacionMod = new System.Windows.Forms.TextBox();
             this.lbxEstacionesDestinoMod = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lbxEstacionesOrigenMod = new System.Windows.Forms.ListBox();
@@ -107,12 +107,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // textBox1
+            // txtNombreServicioMod
             // 
-            this.textBox1.Location = new System.Drawing.Point(362, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtNombreServicioMod.Location = new System.Drawing.Point(362, 40);
+            this.txtNombreServicioMod.Name = "txtNombreServicioMod";
+            this.txtNombreServicioMod.Size = new System.Drawing.Size(203, 21);
+            this.txtNombreServicioMod.TabIndex = 1;
             // 
             // label2
             // 
@@ -123,23 +123,25 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Estaciones Origen";
             // 
-            // button2
+            // btnAgregarRelacionMod
             // 
-            this.button2.Location = new System.Drawing.Point(498, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 42);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Agregar Relación";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAgregarRelacionMod.Location = new System.Drawing.Point(498, 153);
+            this.btnAgregarRelacionMod.Name = "btnAgregarRelacionMod";
+            this.btnAgregarRelacionMod.Size = new System.Drawing.Size(97, 42);
+            this.btnAgregarRelacionMod.TabIndex = 6;
+            this.btnAgregarRelacionMod.Text = "Agregar Relación";
+            this.btnAgregarRelacionMod.UseVisualStyleBackColor = true;
+            this.btnAgregarRelacionMod.Click += new System.EventHandler(this.btnAgregarRelacionMod_Click);
             // 
-            // button3
+            // btnBorrarRelacionMod
             // 
-            this.button3.Location = new System.Drawing.Point(498, 278);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(97, 44);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Borrar Relación";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBorrarRelacionMod.Location = new System.Drawing.Point(498, 278);
+            this.btnBorrarRelacionMod.Name = "btnBorrarRelacionMod";
+            this.btnBorrarRelacionMod.Size = new System.Drawing.Size(97, 44);
+            this.btnBorrarRelacionMod.TabIndex = 6;
+            this.btnBorrarRelacionMod.Text = "Borrar Relación";
+            this.btnBorrarRelacionMod.UseVisualStyleBackColor = true;
+            this.btnBorrarRelacionMod.Click += new System.EventHandler(this.btnBorrarRelacionMod_Click);
             // 
             // btnLimpiar
             // 
@@ -159,6 +161,7 @@
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -434,8 +437,8 @@
             this.tabModificarServicio.Controls.Add(this.cbxEsParadaMod);
             this.tabModificarServicio.Controls.Add(this.label5);
             this.tabModificarServicio.Controls.Add(this.dgvRelacionesMod);
-            this.tabModificarServicio.Controls.Add(this.textBox5);
-            this.tabModificarServicio.Controls.Add(this.textBox4);
+            this.tabModificarServicio.Controls.Add(this.txtVelocidadRelacionMod);
+            this.tabModificarServicio.Controls.Add(this.txtDistanciaRelacionMod);
             this.tabModificarServicio.Controls.Add(this.lbxEstacionesDestinoMod);
             this.tabModificarServicio.Controls.Add(this.label3);
             this.tabModificarServicio.Controls.Add(this.lbxEstacionesOrigenMod);
@@ -445,10 +448,10 @@
             this.tabModificarServicio.Controls.Add(this.label21);
             this.tabModificarServicio.Controls.Add(this.lbxServiciosModificar);
             this.tabModificarServicio.Controls.Add(this.label1);
-            this.tabModificarServicio.Controls.Add(this.textBox1);
+            this.tabModificarServicio.Controls.Add(this.txtNombreServicioMod);
             this.tabModificarServicio.Controls.Add(this.label2);
-            this.tabModificarServicio.Controls.Add(this.button3);
-            this.tabModificarServicio.Controls.Add(this.button2);
+            this.tabModificarServicio.Controls.Add(this.btnBorrarRelacionMod);
+            this.tabModificarServicio.Controls.Add(this.btnAgregarRelacionMod);
             this.tabModificarServicio.Location = new System.Drawing.Point(4, 24);
             this.tabModificarServicio.Name = "tabModificarServicio";
             this.tabModificarServicio.Padding = new System.Windows.Forms.Padding(3);
@@ -519,8 +522,8 @@
             this.dgvRelacionesMod.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.Id_EstacionOrigen,
+            this.Id_EstacionDestino});
             this.dgvRelacionesMod.Location = new System.Drawing.Point(599, 83);
             this.dgvRelacionesMod.MultiSelect = false;
             this.dgvRelacionesMod.Name = "dgvRelacionesMod";
@@ -541,33 +544,33 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // Id_EstacionOrigen
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "txtId_EstacionOrigen";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
+            this.Id_EstacionOrigen.HeaderText = "Id_EstacionOrigen";
+            this.Id_EstacionOrigen.Name = "Id_EstacionOrigen";
+            this.Id_EstacionOrigen.ReadOnly = true;
+            this.Id_EstacionOrigen.Visible = false;
             // 
-            // dataGridViewTextBoxColumn4
+            // Id_EstacionDestino
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "txtId_EstacionDestino";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
+            this.Id_EstacionDestino.HeaderText = "Id_EstacionDestino";
+            this.Id_EstacionDestino.Name = "Id_EstacionDestino";
+            this.Id_EstacionDestino.ReadOnly = true;
+            this.Id_EstacionDestino.Visible = false;
             // 
-            // textBox5
+            // txtVelocidadRelacionMod
             // 
-            this.textBox5.Location = new System.Drawing.Point(683, 424);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(104, 21);
-            this.textBox5.TabIndex = 39;
+            this.txtVelocidadRelacionMod.Location = new System.Drawing.Point(683, 424);
+            this.txtVelocidadRelacionMod.Name = "txtVelocidadRelacionMod";
+            this.txtVelocidadRelacionMod.Size = new System.Drawing.Size(104, 21);
+            this.txtVelocidadRelacionMod.TabIndex = 39;
             // 
-            // textBox4
+            // txtDistanciaRelacionMod
             // 
-            this.textBox4.Location = new System.Drawing.Point(683, 395);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(104, 21);
-            this.textBox4.TabIndex = 40;
+            this.txtDistanciaRelacionMod.Location = new System.Drawing.Point(683, 395);
+            this.txtDistanciaRelacionMod.Name = "txtDistanciaRelacionMod";
+            this.txtDistanciaRelacionMod.Size = new System.Drawing.Size(104, 21);
+            this.txtDistanciaRelacionMod.TabIndex = 40;
             // 
             // lbxEstacionesDestinoMod
             // 
@@ -612,7 +615,7 @@
             this.clbxFormacionesMod.FormattingEnabled = true;
             this.clbxFormacionesMod.Location = new System.Drawing.Point(852, 83);
             this.clbxFormacionesMod.Name = "clbxFormacionesMod";
-            this.clbxFormacionesMod.Size = new System.Drawing.Size(270, 364);
+            this.clbxFormacionesMod.Size = new System.Drawing.Size(270, 356);
             this.clbxFormacionesMod.TabIndex = 11;
             // 
             // label22
@@ -642,6 +645,7 @@
             this.lbxServiciosModificar.Name = "lbxServiciosModificar";
             this.lbxServiciosModificar.Size = new System.Drawing.Size(267, 439);
             this.lbxServiciosModificar.TabIndex = 7;
+            this.lbxServiciosModificar.SelectedIndexChanged += new System.EventHandler(this.lbxServiciosModificar_SelectedIndexChanged);
             // 
             // tabEliminarServicio
             // 
@@ -722,10 +726,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreServicioMod;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAgregarRelacionMod;
+        private System.Windows.Forms.Button btnBorrarRelacionMod;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
@@ -761,17 +765,13 @@
         private System.Windows.Forms.ListBox lbxEstacionesDestinoMod;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lbxEstacionesOrigenMod;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtVelocidadRelacionMod;
+        private System.Windows.Forms.TextBox txtDistanciaRelacionMod;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtEstacionOrigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtEstacionDestino;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtId_EstacionOrigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtId_EstacionDestino;
         private System.Windows.Forms.DataGridView dgvRelacionesMod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.CheckBox cbxEsParadaCrear;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbxEsParadaMod;
@@ -782,5 +782,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_EstacionOrigen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_EstacionDestino;
     }
 }

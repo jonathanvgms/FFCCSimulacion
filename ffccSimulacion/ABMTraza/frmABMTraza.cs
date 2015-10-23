@@ -252,7 +252,9 @@ namespace ffccSimulacion.ABMTraza
 
             lstTraModTrazas.Items.Clear();
 
-            context.Trazas.ToList().ForEach(x => { lstTraModTrazas.Items.Add(x); lstTraEliTrazas.Items.Add(x); });
+            lstTraCreResultados.Items.Clear();
+
+            context.Trazas.ToList().ForEach(x => { lstTraModTrazas.Items.Add(x); lstTraEliTrazas.Items.Add(x); lstTraCreResultados.Items.Add(x); });
         }
 
         #endregion
@@ -260,12 +262,14 @@ namespace ffccSimulacion.ABMTraza
         #region Metodos Auxiliares
 
         /*
-         * Evento que sucede cuando se selecciona una Traza de la lista
+         * Evento que sucede cuando se selecciona una Traza de la lista para modificar                                                    
          */
         private void seleccionarTraza(object sender, EventArgs e)
         {
             if (lstTraModTrazas.SelectedIndex > -1)
             {
+                habilitarModificar();
+
                 trazaSeleccionada = (Trazas)lstTraModTrazas.SelectedItem;
 
                 txtTraModNombre.Text = trazaSeleccionada.Nombre;
@@ -316,6 +320,7 @@ namespace ffccSimulacion.ABMTraza
             {
                 btnTraAceptar.Enabled = true;
                 btnTraLimpiar.Enabled = true;
+                deshabilitarModificar();
             }
             if (tclTraza.SelectedTab == tabEliminarTraza)
             {
@@ -324,6 +329,59 @@ namespace ffccSimulacion.ABMTraza
             }
         }
 
+        private void actualizarTraza(TextBox buscarTraza, ListBox resultados)
+        {
+            if (!String.IsNullOrEmpty(buscarTraza.Text) && Util.EsAlfaNumerico(buscarTraza.Text))
+            {
+                resultados.Items.Clear();
+                context.Trazas.Where(x => x.Nombre.Contains(buscarTraza.Text)).ToList().ForEach(y => resultados.Items.Add(y));
+            }
+            else
+            {
+                cargarTrazas();
+            }
+            deshabilitarModificar();
+            limpiarFormulario();
+        }
+
+        private void deshabilitarModificar()
+        {
+            txtTraModNombre.Enabled = false;
+            clbTraModServicios.Enabled = false;
+        }
+
+        private void habilitarModificar()
+        {
+            txtTraModNombre.Enabled = true;
+            clbTraModServicios.Enabled = true;
+        }
+
+        private void buscarTraza(object sender, EventArgs e)
+        {
+            if (tclTraza.SelectedTab == tabCrearTraza)
+            {
+                actualizarTraza(txtTraCreBuscar, lstTraCreResultados);
+            }
+            else if (tclTraza.SelectedTab == tabModificarTraza)
+            {
+                actualizarTraza(txtTraModBuscar, lstTraModTrazas);
+            }
+            else
+            {
+                actualizarTraza(txtTraEliBuscar, lstTraEliTrazas);
+            }
+        }
+
         #endregion
+
+        private void simulacionesAsociadas(object sender, EventArgs e)
+        {
+            if (lstTraEliTrazas.SelectedIndex > -1)
+            {
+                Simulaciones s;
+                lstTraEliSimulaciones.Items.Clear();
+                context.Simulaciones.Where(x => x.Id_Traza == ((Trazas)lstTraEliTrazas.SelectedItem).Id).ToList().ForEach(y => lstTraEliSimulaciones.Items.Add(y));
+            }
+        }
     }
 }

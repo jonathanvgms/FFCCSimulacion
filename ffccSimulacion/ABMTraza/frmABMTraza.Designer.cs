@@ -36,8 +36,12 @@
             this.btnTraAceptar = new System.Windows.Forms.Button();
             this.tclTraza = new System.Windows.Forms.TabControl();
             this.tabCrearTraza = new System.Windows.Forms.TabPage();
+            this.txtTraCreBuscar = new System.Windows.Forms.TextBox();
+            this.lstTraCreResultados = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.clbTraCreServicios = new System.Windows.Forms.CheckedListBox();
             this.tabModificarTraza = new System.Windows.Forms.TabPage();
+            this.txtTraModBuscar = new System.Windows.Forms.TextBox();
             this.clbTraModServicios = new System.Windows.Forms.CheckedListBox();
             this.lstTraModTrazas = new System.Windows.Forms.ListBox();
             this.txtTraModNombre = new System.Windows.Forms.TextBox();
@@ -45,6 +49,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabEliminarTraza = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lstTraEliSimulaciones = new System.Windows.Forms.ListBox();
+            this.txtTraEliBuscar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.lstTraEliTrazas = new System.Windows.Forms.ListBox();
             this.btnTraElBorrarTraza = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,7 +67,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(199, 20);
+            this.label1.Location = new System.Drawing.Point(408, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 15);
             this.label1.TabIndex = 0;
@@ -68,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(199, 56);
+            this.label2.Location = new System.Drawing.Point(408, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 15);
             this.label2.TabIndex = 2;
@@ -76,7 +84,8 @@
             // 
             // txtTraCreNombre
             // 
-            this.txtTraCreNombre.Location = new System.Drawing.Point(320, 17);
+            this.txtTraCreNombre.Location = new System.Drawing.Point(529, 20);
+            this.txtTraCreNombre.MaxLength = 99;
             this.txtTraCreNombre.Name = "txtTraCreNombre";
             this.txtTraCreNombre.Size = new System.Drawing.Size(254, 21);
             this.txtTraCreNombre.TabIndex = 3;
@@ -125,6 +134,9 @@
             // 
             // tabCrearTraza
             // 
+            this.tabCrearTraza.Controls.Add(this.txtTraCreBuscar);
+            this.tabCrearTraza.Controls.Add(this.lstTraCreResultados);
+            this.tabCrearTraza.Controls.Add(this.label8);
             this.tabCrearTraza.Controls.Add(this.clbTraCreServicios);
             this.tabCrearTraza.Controls.Add(this.txtTraCreNombre);
             this.tabCrearTraza.Controls.Add(this.label1);
@@ -137,17 +149,48 @@
             this.tabCrearTraza.Text = "Nueva Traza";
             this.tabCrearTraza.UseVisualStyleBackColor = true;
             // 
+            // txtTraCreBuscar
+            // 
+            this.txtTraCreBuscar.Location = new System.Drawing.Point(106, 23);
+            this.txtTraCreBuscar.MaxLength = 99;
+            this.txtTraCreBuscar.Name = "txtTraCreBuscar";
+            this.txtTraCreBuscar.Size = new System.Drawing.Size(277, 21);
+            this.txtTraCreBuscar.TabIndex = 18;
+            this.txtTraCreBuscar.TextChanged += new System.EventHandler(this.buscarTraza);
+            // 
+            // lstTraCreResultados
+            // 
+            this.lstTraCreResultados.DisplayMember = "Nombre";
+            this.lstTraCreResultados.FormattingEnabled = true;
+            this.lstTraCreResultados.ItemHeight = 15;
+            this.lstTraCreResultados.Location = new System.Drawing.Point(10, 53);
+            this.lstTraCreResultados.Name = "lstTraCreResultados";
+            this.lstTraCreResultados.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lstTraCreResultados.Size = new System.Drawing.Size(373, 439);
+            this.lstTraCreResultados.Sorted = true;
+            this.lstTraCreResultados.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 15);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Buscar Traza";
+            // 
             // clbTraCreServicios
             // 
             this.clbTraCreServicios.FormattingEnabled = true;
-            this.clbTraCreServicios.Location = new System.Drawing.Point(202, 72);
+            this.clbTraCreServicios.Location = new System.Drawing.Point(411, 69);
             this.clbTraCreServicios.Name = "clbTraCreServicios";
-            this.clbTraCreServicios.Size = new System.Drawing.Size(372, 424);
+            this.clbTraCreServicios.Size = new System.Drawing.Size(372, 420);
             this.clbTraCreServicios.Sorted = true;
             this.clbTraCreServicios.TabIndex = 6;
             // 
             // tabModificarTraza
             // 
+            this.tabModificarTraza.Controls.Add(this.txtTraModBuscar);
             this.tabModificarTraza.Controls.Add(this.clbTraModServicios);
             this.tabModificarTraza.Controls.Add(this.lstTraModTrazas);
             this.tabModificarTraza.Controls.Add(this.txtTraModNombre);
@@ -159,15 +202,24 @@
             this.tabModificarTraza.Padding = new System.Windows.Forms.Padding(3);
             this.tabModificarTraza.Size = new System.Drawing.Size(810, 505);
             this.tabModificarTraza.TabIndex = 1;
-            this.tabModificarTraza.Text = "Buscar";
+            this.tabModificarTraza.Text = "Modificar";
             this.tabModificarTraza.UseVisualStyleBackColor = true;
+            // 
+            // txtTraModBuscar
+            // 
+            this.txtTraModBuscar.Location = new System.Drawing.Point(105, 24);
+            this.txtTraModBuscar.MaxLength = 99;
+            this.txtTraModBuscar.Name = "txtTraModBuscar";
+            this.txtTraModBuscar.Size = new System.Drawing.Size(277, 21);
+            this.txtTraModBuscar.TabIndex = 15;
+            this.txtTraModBuscar.TextChanged += new System.EventHandler(this.buscarTraza);
             // 
             // clbTraModServicios
             // 
             this.clbTraModServicios.FormattingEnabled = true;
-            this.clbTraModServicios.Location = new System.Drawing.Point(412, 81);
+            this.clbTraModServicios.Location = new System.Drawing.Point(412, 73);
             this.clbTraModServicios.Name = "clbTraModServicios";
-            this.clbTraModServicios.Size = new System.Drawing.Size(372, 409);
+            this.clbTraModServicios.Size = new System.Drawing.Size(372, 404);
             this.clbTraModServicios.Sorted = true;
             this.clbTraModServicios.TabIndex = 14;
             // 
@@ -176,16 +228,17 @@
             this.lstTraModTrazas.DisplayMember = "Nombre";
             this.lstTraModTrazas.FormattingEnabled = true;
             this.lstTraModTrazas.ItemHeight = 15;
-            this.lstTraModTrazas.Location = new System.Drawing.Point(9, 32);
+            this.lstTraModTrazas.Location = new System.Drawing.Point(9, 54);
             this.lstTraModTrazas.Name = "lstTraModTrazas";
-            this.lstTraModTrazas.Size = new System.Drawing.Size(373, 454);
+            this.lstTraModTrazas.Size = new System.Drawing.Size(373, 424);
             this.lstTraModTrazas.Sorted = true;
             this.lstTraModTrazas.TabIndex = 12;
             this.lstTraModTrazas.SelectedIndexChanged += new System.EventHandler(this.seleccionarTraza);
             // 
             // txtTraModNombre
             // 
-            this.txtTraModNombre.Location = new System.Drawing.Point(529, 29);
+            this.txtTraModNombre.Location = new System.Drawing.Point(529, 21);
+            this.txtTraModNombre.MaxLength = 99;
             this.txtTraModNombre.Name = "txtTraModNombre";
             this.txtTraModNombre.Size = new System.Drawing.Size(255, 21);
             this.txtTraModNombre.TabIndex = 8;
@@ -193,7 +246,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(409, 32);
+            this.label4.Location = new System.Drawing.Point(409, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 15);
             this.label4.TabIndex = 5;
@@ -202,7 +255,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(409, 65);
+            this.label5.Location = new System.Drawing.Point(409, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(124, 15);
             this.label5.TabIndex = 7;
@@ -211,14 +264,18 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 16);
+            this.label3.Location = new System.Drawing.Point(6, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 15);
+            this.label3.Size = new System.Drawing.Size(79, 15);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Trazas Existentes";
+            this.label3.Text = "Buscar Traza";
             // 
             // tabEliminarTraza
             // 
+            this.tabEliminarTraza.Controls.Add(this.label9);
+            this.tabEliminarTraza.Controls.Add(this.lstTraEliSimulaciones);
+            this.tabEliminarTraza.Controls.Add(this.txtTraEliBuscar);
+            this.tabEliminarTraza.Controls.Add(this.label7);
             this.tabEliminarTraza.Controls.Add(this.lstTraEliTrazas);
             this.tabEliminarTraza.Controls.Add(this.btnTraElBorrarTraza);
             this.tabEliminarTraza.Controls.Add(this.label6);
@@ -230,20 +287,60 @@
             this.tabEliminarTraza.Text = "Eliminar";
             this.tabEliminarTraza.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(500, 32);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(141, 15);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Simulaciones Asociadas";
+            // 
+            // lstTraEliSimulaciones
+            // 
+            this.lstTraEliSimulaciones.DisplayMember = "Nombre";
+            this.lstTraEliSimulaciones.FormattingEnabled = true;
+            this.lstTraEliSimulaciones.ItemHeight = 15;
+            this.lstTraEliSimulaciones.Location = new System.Drawing.Point(503, 53);
+            this.lstTraEliSimulaciones.Name = "lstTraEliSimulaciones";
+            this.lstTraEliSimulaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lstTraEliSimulaciones.Size = new System.Drawing.Size(301, 424);
+            this.lstTraEliSimulaciones.Sorted = true;
+            this.lstTraEliSimulaciones.TabIndex = 18;
+            // 
+            // txtTraEliBuscar
+            // 
+            this.txtTraEliBuscar.Location = new System.Drawing.Point(105, 26);
+            this.txtTraEliBuscar.MaxLength = 99;
+            this.txtTraEliBuscar.Name = "txtTraEliBuscar";
+            this.txtTraEliBuscar.Size = new System.Drawing.Size(277, 21);
+            this.txtTraEliBuscar.TabIndex = 17;
+            this.txtTraEliBuscar.TextChanged += new System.EventHandler(this.buscarTraza);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 29);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 15);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Buscar Traza";
+            // 
             // lstTraEliTrazas
             // 
             this.lstTraEliTrazas.DisplayMember = "Nombre";
             this.lstTraEliTrazas.FormattingEnabled = true;
             this.lstTraEliTrazas.ItemHeight = 15;
-            this.lstTraEliTrazas.Location = new System.Drawing.Point(203, 41);
+            this.lstTraEliTrazas.Location = new System.Drawing.Point(9, 53);
             this.lstTraEliTrazas.Name = "lstTraEliTrazas";
-            this.lstTraEliTrazas.Size = new System.Drawing.Size(373, 439);
+            this.lstTraEliTrazas.Size = new System.Drawing.Size(373, 424);
             this.lstTraEliTrazas.Sorted = true;
             this.lstTraEliTrazas.TabIndex = 15;
+            this.lstTraEliTrazas.SelectedIndexChanged += new System.EventHandler(this.simulacionesAsociadas);
             // 
             // btnTraElBorrarTraza
             // 
-            this.btnTraElBorrarTraza.Location = new System.Drawing.Point(582, 41);
+            this.btnTraElBorrarTraza.Location = new System.Drawing.Point(388, 53);
             this.btnTraElBorrarTraza.Name = "btnTraElBorrarTraza";
             this.btnTraElBorrarTraza.Size = new System.Drawing.Size(100, 27);
             this.btnTraElBorrarTraza.TabIndex = 14;
@@ -254,7 +351,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(200, 25);
+            this.label6.Location = new System.Drawing.Point(200, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 15);
             this.label6.TabIndex = 13;
@@ -315,5 +412,13 @@
         private System.Windows.Forms.CheckedListBox clbTraCreServicios;
         private System.Windows.Forms.CheckedListBox clbTraModServicios;
         public System.Windows.Forms.Panel pnlTraza;
+        private System.Windows.Forms.TextBox txtTraCreBuscar;
+        private System.Windows.Forms.ListBox lstTraCreResultados;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTraModBuscar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox lstTraEliSimulaciones;
+        private System.Windows.Forms.TextBox txtTraEliBuscar;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -30,6 +30,10 @@ namespace ffccSimulacion.Modelo
         public virtual Estaciones Estaciones1 { get; set; }
         public virtual Servicios Servicios { get; set; }
 
+        public Relaciones ClonarRelacion()
+        {
+            return (Relaciones)this.MemberwiseClone();
+        }
 
         public bool relaciona(Estaciones nodoInicial, Estaciones nodoFinal)
         {
