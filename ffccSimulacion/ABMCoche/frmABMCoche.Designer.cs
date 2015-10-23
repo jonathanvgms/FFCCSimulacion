@@ -50,6 +50,8 @@
             this.btnCocheNuevoCancelar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCrear = new System.Windows.Forms.TabPage();
+            this.lstCocheCrear = new System.Windows.Forms.ListBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblConsumoMovCrear = new System.Windows.Forms.Label();
             this.lblConsumoParadoCrear = new System.Windows.Forms.Label();
@@ -79,8 +81,12 @@
             this.btnBorrarCoche = new System.Windows.Forms.Button();
             this.lbxCochesBorrar = new System.Windows.Forms.ListBox();
             this.pnlCoche = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lstCocheCrear = new System.Windows.Forms.ListBox();
+            this.txtCocheCreBuscar = new System.Windows.Forms.TextBox();
+            this.txtCocheModBuscar = new System.Windows.Forms.TextBox();
+            this.txtCocheEliBuscar = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lstCocheEliFormaciones = new System.Windows.Forms.ListBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabCrear.SuspendLayout();
@@ -93,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 71);
+            this.label1.Location = new System.Drawing.Point(351, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 0;
@@ -101,9 +107,9 @@
             // 
             // txtModeloMod
             // 
-            this.txtModeloMod.Location = new System.Drawing.Point(520, 68);
+            this.txtModeloMod.Location = new System.Drawing.Point(502, 68);
             this.txtModeloMod.Name = "txtModeloMod";
-            this.txtModeloMod.Size = new System.Drawing.Size(200, 21);
+            this.txtModeloMod.Size = new System.Drawing.Size(230, 21);
             this.txtModeloMod.TabIndex = 1;
             // 
             // groupBox1
@@ -118,9 +124,9 @@
             this.groupBox1.Controls.Add(this.rdbLocomotoraSiMod);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(381, 115);
+            this.groupBox1.Location = new System.Drawing.Point(347, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(351, 151);
+            this.groupBox1.Size = new System.Drawing.Size(385, 151);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Locomotora";
@@ -128,7 +134,7 @@
             // lblConsumoMovMod
             // 
             this.lblConsumoMovMod.AutoSize = true;
-            this.lblConsumoMovMod.Location = new System.Drawing.Point(257, 84);
+            this.lblConsumoMovMod.Location = new System.Drawing.Point(309, 84);
             this.lblConsumoMovMod.Name = "lblConsumoMovMod";
             this.lblConsumoMovMod.Size = new System.Drawing.Size(53, 15);
             this.lblConsumoMovMod.TabIndex = 14;
@@ -137,7 +143,7 @@
             // lblConsumoParadoMod
             // 
             this.lblConsumoParadoMod.AutoSize = true;
-            this.lblConsumoParadoMod.Location = new System.Drawing.Point(257, 120);
+            this.lblConsumoParadoMod.Location = new System.Drawing.Point(309, 120);
             this.lblConsumoParadoMod.Name = "lblConsumoParadoMod";
             this.lblConsumoParadoMod.Size = new System.Drawing.Size(53, 15);
             this.lblConsumoParadoMod.TabIndex = 15;
@@ -154,7 +160,7 @@
             "Disel"});
             this.cbxTipoConsumoMod.Location = new System.Drawing.Point(155, 44);
             this.cbxTipoConsumoMod.Name = "cbxTipoConsumoMod";
-            this.cbxTipoConsumoMod.Size = new System.Drawing.Size(96, 23);
+            this.cbxTipoConsumoMod.Size = new System.Drawing.Size(147, 23);
             this.cbxTipoConsumoMod.TabIndex = 2;
             this.cbxTipoConsumoMod.SelectedIndexChanged += new System.EventHandler(this.cbxTipoConsumoMod_SelectedIndexChanged);
             // 
@@ -174,7 +180,7 @@
             // 
             this.txtConsumoParadoMod.Location = new System.Drawing.Point(155, 117);
             this.txtConsumoParadoMod.Name = "txtConsumoParadoMod";
-            this.txtConsumoParadoMod.Size = new System.Drawing.Size(96, 21);
+            this.txtConsumoParadoMod.Size = new System.Drawing.Size(147, 21);
             this.txtConsumoParadoMod.TabIndex = 1;
             // 
             // label4
@@ -190,7 +196,7 @@
             // 
             this.txtConsumoMovimientoMod.Location = new System.Drawing.Point(155, 81);
             this.txtConsumoMovimientoMod.Name = "txtConsumoMovimientoMod";
-            this.txtConsumoMovimientoMod.Size = new System.Drawing.Size(96, 21);
+            this.txtConsumoMovimientoMod.Size = new System.Drawing.Size(147, 21);
             this.txtConsumoMovimientoMod.TabIndex = 1;
             // 
             // rdbLocomotoraSiMod
@@ -226,7 +232,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(378, 307);
+            this.label5.Location = new System.Drawing.Point(344, 307);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 15);
             this.label5.TabIndex = 0;
@@ -234,23 +240,23 @@
             // 
             // txtCantidadAsientosMod
             // 
-            this.txtCantidadAsientosMod.Location = new System.Drawing.Point(520, 304);
+            this.txtCantidadAsientosMod.Location = new System.Drawing.Point(502, 304);
             this.txtCantidadAsientosMod.Name = "txtCantidadAsientosMod";
-            this.txtCantidadAsientosMod.Size = new System.Drawing.Size(200, 21);
+            this.txtCantidadAsientosMod.Size = new System.Drawing.Size(230, 21);
             this.txtCantidadAsientosMod.TabIndex = 1;
             // 
             // txtCapacidadLegalMod
             // 
-            this.txtCapacidadLegalMod.Location = new System.Drawing.Point(520, 359);
+            this.txtCapacidadLegalMod.Location = new System.Drawing.Point(502, 359);
             this.txtCapacidadLegalMod.Name = "txtCapacidadLegalMod";
-            this.txtCapacidadLegalMod.Size = new System.Drawing.Size(200, 21);
+            this.txtCapacidadLegalMod.Size = new System.Drawing.Size(230, 21);
             this.txtCapacidadLegalMod.TabIndex = 1;
             // 
             // txtCapacidadRealMod
             // 
-            this.txtCapacidadRealMod.Location = new System.Drawing.Point(520, 405);
+            this.txtCapacidadRealMod.Location = new System.Drawing.Point(502, 405);
             this.txtCapacidadRealMod.Name = "txtCapacidadRealMod";
-            this.txtCapacidadRealMod.Size = new System.Drawing.Size(200, 21);
+            this.txtCapacidadRealMod.Size = new System.Drawing.Size(230, 21);
             this.txtCapacidadRealMod.TabIndex = 1;
             // 
             // btnCocheLimpiar
@@ -297,10 +303,11 @@
             // 
             // tabCrear
             // 
-            this.tabCrear.Controls.Add(this.lstCocheCrear);
-            this.tabCrear.Controls.Add(this.label17);
+            this.tabCrear.Controls.Add(this.label19);
+            this.tabCrear.Controls.Add(this.txtCocheCreBuscar);
             this.tabCrear.Controls.Add(this.groupBox2);
             this.tabCrear.Controls.Add(this.txtMaxReal);
+            this.tabCrear.Controls.Add(this.lstCocheCrear);
             this.tabCrear.Controls.Add(this.txtMaxLegal);
             this.tabCrear.Controls.Add(this.txtCantidadAsientos);
             this.tabCrear.Controls.Add(this.txtModelo);
@@ -316,6 +323,27 @@
             this.tabCrear.Text = "Nuevo Coche";
             this.tabCrear.UseVisualStyleBackColor = true;
             // 
+            // lstCocheCrear
+            // 
+            this.lstCocheCrear.DisplayMember = "Modelo";
+            this.lstCocheCrear.FormattingEnabled = true;
+            this.lstCocheCrear.ItemHeight = 15;
+            this.lstCocheCrear.Location = new System.Drawing.Point(24, 98);
+            this.lstCocheCrear.Name = "lstCocheCrear";
+            this.lstCocheCrear.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lstCocheCrear.Size = new System.Drawing.Size(304, 364);
+            this.lstCocheCrear.Sorted = true;
+            this.lstCocheCrear.TabIndex = 13;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(320, 371);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(83, 15);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "Buscar Coche";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblConsumoMovCrear);
@@ -328,7 +356,7 @@
             this.groupBox2.Controls.Add(this.rndEsLocomotoraSi);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(37, 115);
+            this.groupBox2.Location = new System.Drawing.Point(354, 113);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(385, 151);
             this.groupBox2.TabIndex = 11;
@@ -434,28 +462,28 @@
             // 
             // txtMaxReal
             // 
-            this.txtMaxReal.Location = new System.Drawing.Point(189, 402);
+            this.txtMaxReal.Location = new System.Drawing.Point(506, 400);
             this.txtMaxReal.Name = "txtMaxReal";
             this.txtMaxReal.Size = new System.Drawing.Size(233, 21);
             this.txtMaxReal.TabIndex = 7;
             // 
             // txtMaxLegal
             // 
-            this.txtMaxLegal.Location = new System.Drawing.Point(189, 364);
+            this.txtMaxLegal.Location = new System.Drawing.Point(506, 362);
             this.txtMaxLegal.Name = "txtMaxLegal";
             this.txtMaxLegal.Size = new System.Drawing.Size(233, 21);
             this.txtMaxLegal.TabIndex = 8;
             // 
             // txtCantidadAsientos
             // 
-            this.txtCantidadAsientos.Location = new System.Drawing.Point(189, 324);
+            this.txtCantidadAsientos.Location = new System.Drawing.Point(506, 322);
             this.txtCantidadAsientos.Name = "txtCantidadAsientos";
             this.txtCantidadAsientos.Size = new System.Drawing.Size(233, 21);
             this.txtCantidadAsientos.TabIndex = 9;
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(189, 61);
+            this.txtModelo.Location = new System.Drawing.Point(506, 59);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(233, 21);
             this.txtModelo.TabIndex = 10;
@@ -463,7 +491,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(40, 393);
+            this.label11.Location = new System.Drawing.Point(357, 391);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(117, 30);
             this.label11.TabIndex = 3;
@@ -472,7 +500,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(40, 355);
+            this.label12.Location = new System.Drawing.Point(357, 353);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 30);
             this.label12.TabIndex = 4;
@@ -481,7 +509,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(40, 327);
+            this.label13.Location = new System.Drawing.Point(357, 325);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(122, 15);
             this.label13.TabIndex = 5;
@@ -490,7 +518,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(40, 64);
+            this.label14.Location = new System.Drawing.Point(357, 62);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 15);
             this.label14.TabIndex = 6;
@@ -498,6 +526,7 @@
             // 
             // tabModificar
             // 
+            this.tabModificar.Controls.Add(this.txtCocheModBuscar);
             this.tabModificar.Controls.Add(this.label16);
             this.tabModificar.Controls.Add(this.label6);
             this.tabModificar.Controls.Add(this.label7);
@@ -514,22 +543,22 @@
             this.tabModificar.Padding = new System.Windows.Forms.Padding(3);
             this.tabModificar.Size = new System.Drawing.Size(772, 495);
             this.tabModificar.TabIndex = 1;
-            this.tabModificar.Text = "Buscar";
+            this.tabModificar.Text = "Modificar";
             this.tabModificar.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(12, 23);
+            this.label16.Location = new System.Drawing.Point(12, 71);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 15);
+            this.label16.Size = new System.Drawing.Size(83, 15);
             this.label16.TabIndex = 8;
-            this.label16.Text = "Coches Existentes";
+            this.label16.Text = "Buscar Coche";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(378, 396);
+            this.label6.Location = new System.Drawing.Point(344, 396);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(117, 30);
             this.label6.TabIndex = 5;
@@ -538,7 +567,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(378, 350);
+            this.label7.Location = new System.Drawing.Point(344, 350);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 30);
             this.label7.TabIndex = 6;
@@ -549,15 +578,18 @@
             this.lbxCochesModificar.DisplayMember = "Modelo";
             this.lbxCochesModificar.FormattingEnabled = true;
             this.lbxCochesModificar.ItemHeight = 15;
-            this.lbxCochesModificar.Location = new System.Drawing.Point(15, 39);
+            this.lbxCochesModificar.Location = new System.Drawing.Point(15, 99);
             this.lbxCochesModificar.Name = "lbxCochesModificar";
-            this.lbxCochesModificar.Size = new System.Drawing.Size(336, 439);
+            this.lbxCochesModificar.Size = new System.Drawing.Size(310, 379);
             this.lbxCochesModificar.Sorted = true;
             this.lbxCochesModificar.TabIndex = 3;
             this.lbxCochesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxCochesModificar_SelectedIndexChanged);
             // 
             // tabEliminar
             // 
+            this.tabEliminar.Controls.Add(this.lstCocheEliFormaciones);
+            this.tabEliminar.Controls.Add(this.label18);
+            this.tabEliminar.Controls.Add(this.txtCocheEliBuscar);
             this.tabEliminar.Controls.Add(this.label15);
             this.tabEliminar.Controls.Add(this.btnBorrarCoche);
             this.tabEliminar.Controls.Add(this.lbxCochesBorrar);
@@ -572,15 +604,15 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(182, 11);
+            this.label15.Location = new System.Drawing.Point(6, 72);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(107, 15);
+            this.label15.Size = new System.Drawing.Size(83, 15);
             this.label15.TabIndex = 7;
-            this.label15.Text = "Coches Existentes";
+            this.label15.Text = "Buscar Coche";
             // 
             // btnBorrarCoche
             // 
-            this.btnBorrarCoche.Location = new System.Drawing.Point(524, 30);
+            this.btnBorrarCoche.Location = new System.Drawing.Point(339, 96);
             this.btnBorrarCoche.Name = "btnBorrarCoche";
             this.btnBorrarCoche.Size = new System.Drawing.Size(107, 28);
             this.btnBorrarCoche.TabIndex = 6;
@@ -593,15 +625,17 @@
             this.lbxCochesBorrar.DisplayMember = "Modelo";
             this.lbxCochesBorrar.FormattingEnabled = true;
             this.lbxCochesBorrar.ItemHeight = 15;
-            this.lbxCochesBorrar.Location = new System.Drawing.Point(182, 30);
+            this.lbxCochesBorrar.Location = new System.Drawing.Point(6, 96);
             this.lbxCochesBorrar.Name = "lbxCochesBorrar";
-            this.lbxCochesBorrar.Size = new System.Drawing.Size(336, 439);
+            this.lbxCochesBorrar.Size = new System.Drawing.Size(313, 379);
             this.lbxCochesBorrar.Sorted = true;
             this.lbxCochesBorrar.TabIndex = 5;
+            this.lbxCochesBorrar.SelectedIndexChanged += new System.EventHandler(this.formacionesAsociadas);
             // 
             // pnlCoche
             // 
             this.pnlCoche.Controls.Add(this.tabControl1);
+            this.pnlCoche.Controls.Add(this.label17);
             this.pnlCoche.Controls.Add(this.btnCocheLimpiar);
             this.pnlCoche.Controls.Add(this.btnCocheNuevoCancelar);
             this.pnlCoche.Controls.Add(this.btnCocheNuevoAceptar);
@@ -611,26 +645,59 @@
             this.pnlCoche.Size = new System.Drawing.Size(811, 583);
             this.pnlCoche.TabIndex = 7;
             // 
-            // label17
+            // txtCocheCreBuscar
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(449, 41);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 15);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Modelos Existentes";
+            this.txtCocheCreBuscar.Location = new System.Drawing.Point(110, 59);
+            this.txtCocheCreBuscar.Name = "txtCocheCreBuscar";
+            this.txtCocheCreBuscar.Size = new System.Drawing.Size(218, 21);
+            this.txtCocheCreBuscar.TabIndex = 14;
+            this.txtCocheCreBuscar.TextChanged += new System.EventHandler(this.buscarCoche);
             // 
-            // lstCocheCrear
+            // txtCocheModBuscar
             // 
-            this.lstCocheCrear.DisplayMember = "Modelo";
-            this.lstCocheCrear.FormattingEnabled = true;
-            this.lstCocheCrear.ItemHeight = 15;
-            this.lstCocheCrear.Location = new System.Drawing.Point(452, 59);
-            this.lstCocheCrear.Name = "lstCocheCrear";
-            this.lstCocheCrear.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstCocheCrear.Size = new System.Drawing.Size(304, 364);
-            this.lstCocheCrear.Sorted = true;
-            this.lstCocheCrear.TabIndex = 13;
+            this.txtCocheModBuscar.Location = new System.Drawing.Point(101, 68);
+            this.txtCocheModBuscar.Name = "txtCocheModBuscar";
+            this.txtCocheModBuscar.Size = new System.Drawing.Size(224, 21);
+            this.txtCocheModBuscar.TabIndex = 9;
+            this.txtCocheModBuscar.TextChanged += new System.EventHandler(this.buscarCoche);
+            // 
+            // txtCocheEliBuscar
+            // 
+            this.txtCocheEliBuscar.Location = new System.Drawing.Point(95, 69);
+            this.txtCocheEliBuscar.Name = "txtCocheEliBuscar";
+            this.txtCocheEliBuscar.Size = new System.Drawing.Size(224, 21);
+            this.txtCocheEliBuscar.TabIndex = 8;
+            this.txtCocheEliBuscar.TextChanged += new System.EventHandler(this.buscarCoche);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(458, 72);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(138, 15);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Formaciones Asociadas";
+            // 
+            // lstCocheEliFormaciones
+            // 
+            this.lstCocheEliFormaciones.DisplayMember = "NombreFormacion";
+            this.lstCocheEliFormaciones.FormattingEnabled = true;
+            this.lstCocheEliFormaciones.ItemHeight = 15;
+            this.lstCocheEliFormaciones.Location = new System.Drawing.Point(461, 96);
+            this.lstCocheEliFormaciones.Name = "lstCocheEliFormaciones";
+            this.lstCocheEliFormaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lstCocheEliFormaciones.Size = new System.Drawing.Size(305, 379);
+            this.lstCocheEliFormaciones.Sorted = true;
+            this.lstCocheEliFormaciones.TabIndex = 10;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(21, 62);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(83, 15);
+            this.label19.TabIndex = 15;
+            this.label19.Text = "Buscar Coche";
             // 
             // frmABMCoche
             // 
@@ -652,6 +719,7 @@
             this.tabEliminar.ResumeLayout(false);
             this.tabEliminar.PerformLayout();
             this.pnlCoche.ResumeLayout(false);
+            this.pnlCoche.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -711,5 +779,11 @@
         private System.Windows.Forms.Label lblConsumoParadoMod;
         private System.Windows.Forms.ListBox lstCocheCrear;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtCocheCreBuscar;
+        private System.Windows.Forms.TextBox txtCocheModBuscar;
+        private System.Windows.Forms.ListBox lstCocheEliFormaciones;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtCocheEliBuscar;
+        private System.Windows.Forms.Label label19;
     }
 }

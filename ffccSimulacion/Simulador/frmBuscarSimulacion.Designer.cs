@@ -99,7 +99,7 @@
             this.Name = "frmBuscarSimulacion";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CARGAR SIMULACION";
+            this.Text = "CARGAR SIMULACIÓN";
             this.ResumeLayout(false);
             this.PerformLayout();
 

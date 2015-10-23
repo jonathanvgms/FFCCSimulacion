@@ -56,10 +56,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.txtCostoDi = new System.Windows.Forms.TextBox();
             this.txtCostoEle = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.txtCostoDi = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtConsDiKm = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -128,7 +128,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(219, 15);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Promedio de Pasajeros por Formacion";
+            this.label3.Text = "Promedio de Pasajeros por Formación";
             // 
             // label4
             // 
@@ -138,7 +138,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(192, 30);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Promedio de Demora por Tiempo\r\nde Atención en Estacion";
+            this.label4.Text = "Promedio de Demora por Tiempo\r\nde Atención en Estación";
             // 
             // label5
             // 
@@ -322,46 +322,47 @@
             this.groupBox1.Controls.Add(this.txtCostoEle);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(497, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 108);
+            this.groupBox1.Size = new System.Drawing.Size(347, 108);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Consumo";
             // 
-            // label17
+            // txtCostoDi
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 24);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(133, 13);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Costo de [unidad electrico]";
+            this.txtCostoDi.Location = new System.Drawing.Point(180, 68);
+            this.txtCostoDi.Name = "txtCostoDi";
+            this.txtCostoDi.Size = new System.Drawing.Size(100, 21);
+            this.txtCostoDi.TabIndex = 1;
+            this.txtCostoDi.TextChanged += new System.EventHandler(this.txtCostoDi_TextChanged);
             // 
             // txtCostoEle
             // 
-            this.txtCostoEle.Location = new System.Drawing.Point(145, 21);
+            this.txtCostoEle.Location = new System.Drawing.Point(180, 24);
             this.txtCostoEle.Name = "txtCostoEle";
-            this.txtCostoEle.Size = new System.Drawing.Size(100, 20);
+            this.txtCostoEle.Size = new System.Drawing.Size(100, 21);
             this.txtCostoEle.TabIndex = 1;
             this.txtCostoEle.TextChanged += new System.EventHandler(this.txtCostoEle_TextChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 74);
+            this.label18.Location = new System.Drawing.Point(6, 71);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(120, 13);
+            this.label18.Size = new System.Drawing.Size(138, 15);
             this.label18.TabIndex = 0;
             this.label18.Text = "Costo de [unidad diesel]";
             // 
-            // txtCostoDi
+            // label17
             // 
-            this.txtCostoDi.Location = new System.Drawing.Point(145, 71);
-            this.txtCostoDi.Name = "txtCostoDi";
-            this.txtCostoDi.Size = new System.Drawing.Size(100, 20);
-            this.txtCostoDi.TabIndex = 1;
-            this.txtCostoDi.TextChanged += new System.EventHandler(this.txtCostoDi_TextChanged);
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 27);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(151, 15);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Costo de [unidad electrico]";
             // 
             // label19
             // 

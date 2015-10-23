@@ -304,6 +304,7 @@
             this.lbxEstacionesDestinoCrear.Location = new System.Drawing.Point(243, 64);
             this.lbxEstacionesDestinoCrear.Name = "lbxEstacionesDestinoCrear";
             this.lbxEstacionesDestinoCrear.Size = new System.Drawing.Size(216, 304);
+            this.lbxEstacionesDestinoCrear.Sorted = true;
             this.lbxEstacionesDestinoCrear.TabIndex = 34;
             // 
             // lbxEstacionesOrigenCrear
@@ -314,6 +315,7 @@
             this.lbxEstacionesOrigenCrear.Location = new System.Drawing.Point(18, 64);
             this.lbxEstacionesOrigenCrear.Name = "lbxEstacionesOrigenCrear";
             this.lbxEstacionesOrigenCrear.Size = new System.Drawing.Size(216, 304);
+            this.lbxEstacionesOrigenCrear.Sorted = true;
             this.lbxEstacionesOrigenCrear.TabIndex = 33;
             // 
             // txtVelocidadRelacionCrear
@@ -457,7 +459,7 @@
             this.tabModificarServicio.Padding = new System.Windows.Forms.Padding(3);
             this.tabModificarServicio.Size = new System.Drawing.Size(1129, 500);
             this.tabModificarServicio.TabIndex = 1;
-            this.tabModificarServicio.Text = "Buscar";
+            this.tabModificarServicio.Text = "Modificar";
             this.tabModificarServicio.UseVisualStyleBackColor = true;
             // 
             // label10
@@ -580,6 +582,7 @@
             this.lbxEstacionesDestinoMod.Location = new System.Drawing.Point(284, 278);
             this.lbxEstacionesDestinoMod.Name = "lbxEstacionesDestinoMod";
             this.lbxEstacionesDestinoMod.Size = new System.Drawing.Size(208, 169);
+            this.lbxEstacionesDestinoMod.Sorted = true;
             this.lbxEstacionesDestinoMod.TabIndex = 16;
             // 
             // label3
@@ -599,6 +602,7 @@
             this.lbxEstacionesOrigenMod.Location = new System.Drawing.Point(284, 83);
             this.lbxEstacionesOrigenMod.Name = "lbxEstacionesOrigenMod";
             this.lbxEstacionesOrigenMod.Size = new System.Drawing.Size(208, 169);
+            this.lbxEstacionesOrigenMod.Sorted = true;
             this.lbxEstacionesOrigenMod.TabIndex = 14;
             // 
             // label23
@@ -616,6 +620,7 @@
             this.clbxFormacionesMod.Location = new System.Drawing.Point(852, 83);
             this.clbxFormacionesMod.Name = "clbxFormacionesMod";
             this.clbxFormacionesMod.Size = new System.Drawing.Size(270, 356);
+            this.clbxFormacionesMod.Sorted = true;
             this.clbxFormacionesMod.TabIndex = 11;
             // 
             // label22
@@ -644,6 +649,7 @@
             this.lbxServiciosModificar.Location = new System.Drawing.Point(6, 43);
             this.lbxServiciosModificar.Name = "lbxServiciosModificar";
             this.lbxServiciosModificar.Size = new System.Drawing.Size(267, 439);
+            this.lbxServiciosModificar.Sorted = true;
             this.lbxServiciosModificar.TabIndex = 7;
             this.lbxServiciosModificar.SelectedIndexChanged += new System.EventHandler(this.lbxServiciosModificar_SelectedIndexChanged);
             // 

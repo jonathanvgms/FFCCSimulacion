@@ -158,9 +158,9 @@ namespace ffccSimulacion.Simulador
                     //nuevaTraza.Nombre = txtTraCreNombre.Text;
                     simulacion.Nombre = tbSimNombre.Text;
 
-                    simulacion.Frecuencia_Salida = int.Parse(tbSimFrecuencia.Text);
+                    simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
 
-                    simulacion.Tiempo_Final = int.Parse(tbSimDuracion.Text);
+                    simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text);
 
                     simulacion.Trazas = (Trazas)lBoxSimTrazas.SelectedItem;
 

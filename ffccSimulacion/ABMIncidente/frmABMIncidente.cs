@@ -388,10 +388,8 @@ namespace ffccSimulacion.ABMIncidente
 
         private void actualizarListado(TextBox txtBuscar, ListBox resultado)
         {
-            char lastChar;
             if (!String.IsNullOrEmpty(txtBuscar.Text) && Util.EsAlfaNumerico(txtBuscar.Text))
             {
-                lastChar = txtBuscar.Text.Last();
                 resultado.Items.Clear();
                 context.Incidentes.Where(x => x.Nombre.Contains(txtBuscar.Text)).ToList().ForEach(y => resultado.Items.Add(y));
             }

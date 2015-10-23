@@ -229,8 +229,9 @@ namespace ffccSimulacion.Modelo
             {
                 return _programacion.Min();
             }
-
-            return 1000;
+            
+            //return 1000;
+            return 2147483646; //valor teorico del High Value
         }
 
         public void removerSalida(int salida)

@@ -71,7 +71,7 @@
             this.pnlSimulador.Controls.Add(this.label1);
             this.pnlSimulador.Location = new System.Drawing.Point(12, 12);
             this.pnlSimulador.Name = "pnlSimulador";
-            this.pnlSimulador.Size = new System.Drawing.Size(891, 383);
+            this.pnlSimulador.Size = new System.Drawing.Size(891, 385);
             this.pnlSimulador.TabIndex = 14;
             // 
             // label7
@@ -148,7 +148,7 @@
             this.btnReaSimCargSim.Name = "btnReaSimCargSim";
             this.btnReaSimCargSim.Size = new System.Drawing.Size(139, 35);
             this.btnReaSimCargSim.TabIndex = 24;
-            this.btnReaSimCargSim.Text = "Cargar Simulacion";
+            this.btnReaSimCargSim.Text = "Cargar Simulación";
             this.btnReaSimCargSim.UseVisualStyleBackColor = true;
             this.btnReaSimCargSim.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -159,7 +159,7 @@
             this.btnSimGuardar.Name = "btnSimGuardar";
             this.btnSimGuardar.Size = new System.Drawing.Size(141, 35);
             this.btnSimGuardar.TabIndex = 23;
-            this.btnSimGuardar.Text = "Guardar Simulacion";
+            this.btnSimGuardar.Text = "Guardar Simulación";
             this.btnSimGuardar.UseVisualStyleBackColor = true;
             this.btnSimGuardar.Click += new System.EventHandler(this.btnSimGuardar_Click);
             // 

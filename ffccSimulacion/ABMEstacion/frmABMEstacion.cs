@@ -384,6 +384,12 @@ namespace ffccSimulacion.ABMEstacion
 
             txtEstModNombre.Clear();
 
+            txtEstCreBuscar.Clear();
+
+            txtEstacionesModBuscar.Clear();
+
+            txtEstEliBuscar.Clear();
+
             cmbEstCreFdp.SelectedIndex = 0;
 
             cmbEstModFdp.SelectedIndex = 0;

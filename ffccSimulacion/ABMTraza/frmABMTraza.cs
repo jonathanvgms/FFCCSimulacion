@@ -378,7 +378,6 @@ namespace ffccSimulacion.ABMTraza
         {
             if (lstTraEliTrazas.SelectedIndex > -1)
             {
-                Simulaciones s;
                 lstTraEliSimulaciones.Items.Clear();
                 context.Simulaciones.Where(x => x.Id_Traza == ((Trazas)lstTraEliTrazas.SelectedItem).Id).ToList().ForEach(y => lstTraEliSimulaciones.Items.Add(y));
             }

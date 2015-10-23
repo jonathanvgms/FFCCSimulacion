@@ -240,6 +240,10 @@ namespace ffccSimulacion.ABMCoche
 
         private void cargarCochesEnListas()
         {
+            lbxCochesBorrar.Items.Clear();
+            lbxCochesModificar.Items.Clear();
+            lstCocheCrear.Items.Clear();
+
             List<Coches> listaCoches = context.Coches.ToList<Coches>();
             foreach(Coches c in listaCoches)
             {
@@ -255,25 +259,38 @@ namespace ffccSimulacion.ABMCoche
 
         private void btnBorrarCoche_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("El coche se eliminará de manera permanente.¿Desea continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+            string errormsj = "";
+
             Coches unCoche = (Coches)lbxCochesBorrar.SelectedItem;
-            try
+            if (lbxCochesBorrar.SelectedIndex < 0)
             {
-                /*Se verifica que el coche no pertenezca a ninguna formacion antes de borrarlo*/
-                if (context.Formaciones_X_Coches.Where(x => x.Id_Coche == unCoche.Id).Count() == 0)
+                errormsj += "No se ha seleccionado ningun coche para eliminar\n";
+            }
+            else if (context.Formaciones_X_Coches.Where(x => x.Id_Coche == unCoche.Id).Count() != 0)
+            {
+                errormsj += "El coche no puede borrarse porque pertenece a una o mas formaciones\n";
+            }
+            if (string.IsNullOrEmpty(errormsj))
+            {
+                try
                 {
+                    if (MessageBox.Show("El coche se eliminará de manera permanente.¿Desea continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+
+                    /*Se verifica que el coche no pertenezca a ninguna formacion antes de borrarlo*/
                     context.Coches.Remove(unCoche);
                     context.SaveChanges();
                     lbxCochesBorrar.Items.Remove(unCoche);
                     lbxCochesModificar.Items.Remove(unCoche);
                     MessageBox.Show("El Coche ha sido borrado");
                 }
-                else
-                    MessageBox.Show("El coche no puede borrarse porque pertenece a una o mas formaciones");
+                catch (Exception exc)
+                {
+                    MessageBox.Show("No se borro el Coche \n\n" + exc.ToString());
+                }
             }
-            catch (Exception exc)
+            else
             {
-                MessageBox.Show("No se borro el Coche \n\n" + exc.ToString());
+                MessageBox.Show(errormsj);
             }
         }
 
@@ -371,6 +388,50 @@ namespace ffccSimulacion.ABMCoche
             {
                 btnCocheLimpiar.Enabled = false;
                 btnCocheNuevoAceptar.Enabled = false;
+            }
+        }
+
+        private void buscarCoche(object sender, EventArgs e)
+        {
+            if(tabControl1.SelectedTab == tabCrear)
+            {
+                actualizarCoche(txtCocheCreBuscar, lstCocheCrear);
+            }
+            else if (tabControl1.SelectedTab == tabModificar)
+            {
+                actualizarCoche(txtCocheModBuscar, lbxCochesModificar);
+            }
+            else
+            {
+                actualizarCoche(txtCocheEliBuscar, lbxCochesBorrar);
+            }
+        }
+
+        private void actualizarCoche(TextBox buscarCoche, ListBox resultados)
+        {
+            if (!string.IsNullOrEmpty(buscarCoche.Text) && Util.EsAlfaNumerico(buscarCoche.Text))
+            {
+                resultados.Items.Clear();
+                context.Coches.Where(x => x.Modelo.Contains(buscarCoche.Text)).ToList().ForEach(y => resultados.Items.Add(y));
+            }
+            else
+            {
+                cargarCochesEnListas();
+            }
+        }
+
+        private void formacionesAsociadas(object sender, EventArgs e)
+        {
+            if(lbxCochesBorrar.SelectedIndex > -1)
+            {
+                Formaciones f;
+                lstCocheEliFormaciones.Items.Clear();
+                List<Formaciones_X_Coches> fc = context.Formaciones_X_Coches.Where(x => x.Id_Coche == ((Coches)lbxCochesBorrar.SelectedItem).Id).ToList<Formaciones_X_Coches>();
+                foreach(var item in fc)
+                {
+                    f = context.Formaciones.Where(x => x.Id == item.Id_Formacion).FirstOrDefault();
+                    lstCocheEliFormaciones.Items.Add(f);
+                }
             }
         }
     }
