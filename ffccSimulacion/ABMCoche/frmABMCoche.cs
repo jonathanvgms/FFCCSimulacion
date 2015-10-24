@@ -27,6 +27,8 @@ namespace ffccSimulacion.ABMCoche
             txtConsumoParado.Enabled = false;
 
             cargarCochesEnListas();
+
+            deshabilitarModificar();
         }
 
         private void btnCocheNuevoCancelar_Click(object sender, EventArgs e)
@@ -170,7 +172,7 @@ namespace ffccSimulacion.ABMCoche
                     lbxCochesModificar.Items.Clear();
                     lbxCochesBorrar.Items.Clear();
                     cargarCochesEnListas();
-
+                    deshabilitarModificar();
                     MessageBox.Show("Las modificaciones se han guardado exitosamente.\n");
                 }
                 catch (Exception exc)
@@ -298,6 +300,7 @@ namespace ffccSimulacion.ABMCoche
         {
             if (lbxCochesModificar.SelectedIndex > -1)
             {
+                habilitarModificar();
                 Coches unCoche = (Coches)lbxCochesModificar.SelectedItem;
                 txtModeloMod.Text = unCoche.Modelo;
                 if (unCoche.EsLocomotora == 1)
@@ -378,16 +381,23 @@ namespace ffccSimulacion.ABMCoche
             {
                 btnCocheLimpiar.Enabled = true;
                 btnCocheNuevoAceptar.Enabled = true;
+                LimpiarTabNuevoCoche();
+                LimpiarTabModificarCoche();
+                deshabilitarModificar();
             }
-            if (tabControl1.SelectedTab == tabModificar)
+            else if (tabControl1.SelectedTab == tabModificar)
             {
                 btnCocheLimpiar.Enabled = true;
                 btnCocheNuevoAceptar.Enabled = true;
             }
-            if (tabControl1.SelectedTab == tabEliminar)
+            else
             {
                 btnCocheLimpiar.Enabled = false;
                 btnCocheNuevoAceptar.Enabled = false;
+                LimpiarTabNuevoCoche();
+                LimpiarTabModificarCoche();
+                deshabilitarModificar();
+                lbxCochesModificar.SelectedIndex = -1;
             }
         }
 
@@ -405,6 +415,8 @@ namespace ffccSimulacion.ABMCoche
             {
                 actualizarCoche(txtCocheEliBuscar, lbxCochesBorrar);
             }
+            LimpiarTabModificarCoche();
+            LimpiarTabNuevoCoche();
         }
 
         private void actualizarCoche(TextBox buscarCoche, ListBox resultados)
@@ -418,6 +430,9 @@ namespace ffccSimulacion.ABMCoche
             {
                 cargarCochesEnListas();
             }
+            LimpiarTabModificarCoche();
+            LimpiarTabNuevoCoche();
+            deshabilitarModificar();
         }
 
         private void formacionesAsociadas(object sender, EventArgs e)
@@ -433,6 +448,28 @@ namespace ffccSimulacion.ABMCoche
                     lstCocheEliFormaciones.Items.Add(f);
                 }
             }
+        }
+
+        private void habilitarModificar()
+        {
+            txtCantidadAsientosMod.Enabled = true;
+            txtCapacidadLegalMod.Enabled = true;
+            txtCapacidadRealMod.Enabled = true;
+            txtConsumoMovimientoMod.Enabled = true;
+            txtConsumoParadoMod.Enabled = true;
+            txtModeloMod.Enabled = true;
+            cbxTipoConsumoMod.Enabled = true;
+        }
+
+        private void deshabilitarModificar()
+        {
+            txtCantidadAsientosMod.Enabled = false;
+            txtCapacidadLegalMod.Enabled = false;
+            txtCapacidadRealMod.Enabled = false;
+            txtConsumoMovimientoMod.Enabled = false;
+            txtConsumoParadoMod.Enabled = false;
+            txtModeloMod.Enabled = false;
+            cbxTipoConsumoMod.Enabled = false;
         }
     }
 }

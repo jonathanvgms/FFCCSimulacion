@@ -115,12 +115,7 @@ namespace ffccSimulacion.ABMIncidente
                 errorMsj += "Tiempo de Demora: Incompleto ó Incorrecto.\n";
             }
 
-            if (verificarRango(txtbIncCreTiem.Text))
-            {
-                errorMsj += "Tiempo de Demora: El rango de tiempo deber ser, 0 a 999999999 (9 Cifras)\n";
-            }
-
-            if (cbmIncCrePro.SelectedIndex < 0)
+            if ((cbmIncCrePro.SelectedIndex < 0) || (cbmIncCrePro.SelectedItem.ToString() == ""))
             {
                 errorMsj += "Falta Seleccionar la Probabilidad de Ocurrencia.\n";
             }
@@ -345,23 +340,22 @@ namespace ffccSimulacion.ABMIncidente
 
         private void selecionarPestaña(object sender, TabControlEventArgs e)
         {
-            if (tabControl1.SelectedTab == tabEliminar)
-            {
-                btnLimpiar.Enabled = false;
-                btnAceptar.Enabled = false;
-                deshabilitarModificar();
-                limpiarFormulario();
-                lstIncMod.SelectedIndex = -1;
-            }
-            if (tabControl1.SelectedTab == tabModificar)
-            {
-                btnLimpiar.Enabled = true;
-                btnAceptar.Enabled = true;                
-            }
             if (tabControl1.SelectedTab == tabCrear)
             {
                 btnLimpiar.Enabled = true;
                 btnAceptar.Enabled = true;
+                deshabilitarModificar();
+                limpiarFormulario();
+            }
+            else if (tabControl1.SelectedTab == tabModificar)
+            {
+                btnLimpiar.Enabled = true;
+                btnAceptar.Enabled = true;                
+            }
+            else
+            {
+                btnLimpiar.Enabled = false;
+                btnAceptar.Enabled = false;
                 deshabilitarModificar();
                 limpiarFormulario();
                 lstIncMod.SelectedIndex = -1;

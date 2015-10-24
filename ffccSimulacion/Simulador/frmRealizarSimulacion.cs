@@ -46,13 +46,13 @@ namespace ffccSimulacion.Simulador
 
                 if (result == DialogResult.OK)
                 {
-                    simulacion = frmBuscar.simulacionSeleccionada;
-
+                    //simulacion = frmBuscar.simulacionSeleccionada;
+                    simulacion = context.Simulaciones.Where(x => x.Id == frmBuscar.simulacionSeleccionada.Id).FirstOrDefault();
                     cargarCamposSimulacion();
+
+//                    this.btnSimGuardar.Enabled = false;
                 }
             }
-
-            this.btnSimGuardar.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -152,30 +152,44 @@ namespace ffccSimulacion.Simulador
             {
                 try
                 {
-                    //Trazas nuevaTraza = new Trazas();
-                    simulacion = new Simulaciones();
+                    if (context.Simulaciones.Where(x => x.Id == simulacion.Id).Count() == 0)
+                    {
+                        simulacion = new Simulaciones();
 
-                    //nuevaTraza.Nombre = txtTraCreNombre.Text;
-                    simulacion.Nombre = tbSimNombre.Text;
+                        simulacion.Nombre = tbSimNombre.Text;
 
-                    simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
+                        simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
 
-                    simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text);
+                        simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text);
 
-                    simulacion.Trazas = (Trazas)lBoxSimTrazas.SelectedItem;
+                        simulacion.Trazas = (Trazas)lBoxSimTrazas.SelectedItem;
 
-                    //TODO cargar servicios
+                        //TODO cargar servicios
 
-                    context.Simulaciones.Add(simulacion);
+                        context.Simulaciones.Add(simulacion);
+                    }
+                    else
+                    {
+                        //Simulaciones s;
+                        //s = new Simulaciones();//simulacion = context.Simulaciones.Where(x => x.Nombre.Equals(tbSimNombre.Text)).FirstOrDefault();
+
+                        simulacion.Nombre = tbSimNombre.Text;
+
+                        simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
+
+                        simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text);
+
+                        simulacion.Trazas = (Trazas)lBoxSimTrazas.SelectedItem;
+                    }
 
                     context.SaveChanges();
 
-                    MessageBox.Show("Simulacion Guardada");
+                    MessageBox.Show("Simulación Guardada");
 
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Simulacion No Guardada\nError:\n" + exc.ToString());
+                    MessageBox.Show("Simulación No Guardada\nError:\n" + exc.ToString());
                 }
             }
             else

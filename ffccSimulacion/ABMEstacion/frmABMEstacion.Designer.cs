@@ -182,8 +182,7 @@
             this.cmbEstCreFdp.FormattingEnabled = true;
             this.cmbEstCreFdp.Items.AddRange(new object[] {
             "Normal",
-            "Gamma",
-            "Poission"});
+            "Gamma"});
             this.cmbEstCreFdp.Location = new System.Drawing.Point(494, 324);
             this.cmbEstCreFdp.Name = "cmbEstCreFdp";
             this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 23);
@@ -353,8 +352,7 @@
             this.cmbEstModFdp.FormattingEnabled = true;
             this.cmbEstModFdp.Items.AddRange(new object[] {
             "Normal",
-            "Gamma",
-            "Poission"});
+            "Gamma"});
             this.cmbEstModFdp.Location = new System.Drawing.Point(499, 324);
             this.cmbEstModFdp.Name = "cmbEstModFdp";
             this.cmbEstModFdp.Size = new System.Drawing.Size(145, 23);

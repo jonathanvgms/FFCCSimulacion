@@ -122,6 +122,7 @@ namespace ffccSimulacion.ABMEstacion
         private void tabModificarEstacion()
         {
             string errorMsj = "";
+            bool numeroEntero = true;
 
             if (!Util.EsAlfaNumerico(txtEstModNombre.Text))
             {
@@ -131,11 +132,13 @@ namespace ffccSimulacion.ABMEstacion
             if (!Util.EsNumerico(txtEstModMinimo.Text))
             {
                 errorMsj += "Personas Mínimas en Andén: Valor Incompleto ó Incorrecto\n";
+                numeroEntero = false;
             }
 
             if (!Util.EsNumerico(txtEstModMaximo.Text))
             {
                 errorMsj += "Personas Máximas en Andén: Valor Incompleto ó Incorrecto\n";
+                numeroEntero = false;
             }
 
             if (cmbEstModFdp.SelectedIndex < 0)
@@ -143,9 +146,12 @@ namespace ffccSimulacion.ABMEstacion
                 errorMsj += "Distribución de Personas en Andén: Falta Seleccionar\n";
             }
 
-            if (!verificarRangoPersonas(txtEstModMinimo, txtEstModMaximo))
+            if (numeroEntero)
             {
-                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El Rango de Personas debe ser: 0 a 999999999 (9 Cifras)";
+                if (!verificarRangoPersonas(txtEstModMinimo, txtEstModMaximo))
+                {
+                    errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El Rango de Personas debe ser: 0 a 999999999 (9 Cifras)";
+                }
             }
 
             if (errorMsj.Length == 0)
@@ -198,6 +204,7 @@ namespace ffccSimulacion.ABMEstacion
         private void tabCrearEstacion()
         {
             string errorMsj = "";
+            bool numeroEntero = true;
 
             if(!Util.EsAlfaNumerico(txtEstCreNombre.Text))
             {
@@ -207,24 +214,30 @@ namespace ffccSimulacion.ABMEstacion
             {
                 errorMsj += "La estación existe en el sistema, ingrese otra.\n";
             }
+
+            if (cmbEstCreFdp.SelectedIndex < 0)
+            {
+                errorMsj += "Fdp: Falta Seleccionar\n";
+            }
+
             if(!Util.EsNumerico(txtEstCreMinimo.Text))
             {
                 errorMsj += "Personas Mínimas en Andén: Valor Incompleto ó Incorrecto.\n";
+                numeroEntero = false;
             }
 
             if (!Util.EsNumerico(txtEstCreMaximo.Text))
             {
                 errorMsj += "Personas Máximas en Andén: Valor Incompleto ó Incorrecto.\n";
+                numeroEntero = false;
             }
 
-            if(cmbEstCreFdp.SelectedIndex < 0)
+            if (numeroEntero)
             {
-                errorMsj += "Fdp: Falta Seleccionar\n";
-            }
-
-            if(!verificarRangoPersonas(txtEstCreMinimo, txtEstCreMaximo))
-            {
-                errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El Rango de Personas deber ser: 0 a 999999999 (9 Cifras)";
+                if (!verificarRangoPersonas(txtEstCreMinimo, txtEstCreMaximo))
+                {
+                    errorMsj += "Personas en Andén: El Mínimo debe ser menor que el Máximo";
+                }
             }
 
             if (errorMsj.Length == 0)
@@ -322,11 +335,6 @@ namespace ffccSimulacion.ABMEstacion
          */ 
         private bool verificarRangoPersonas(TextBox minimo, TextBox maximo)
         {
-            if ((minimo.Text.Length > 9) || (maximo.Text.Length > 9))
-            {
-                return false;
-            }
-
             if (Convert.ToInt32(minimo.Text) < Convert.ToInt32(maximo.Text) + 1)
             {
                 return true;
@@ -384,12 +392,6 @@ namespace ffccSimulacion.ABMEstacion
 
             txtEstModNombre.Clear();
 
-            txtEstCreBuscar.Clear();
-
-            txtEstacionesModBuscar.Clear();
-
-            txtEstEliBuscar.Clear();
-
             cmbEstCreFdp.SelectedIndex = 0;
 
             cmbEstModFdp.SelectedIndex = 0;
@@ -409,12 +411,15 @@ namespace ffccSimulacion.ABMEstacion
                 btnEstAceptar.Enabled = true;
                 btnEstLimpiar.Enabled = true;
                 deshabilitarModificar();
+                limpiarFormulario();
             }
             else if (tabControl1.SelectedTab == ModificarEstacion)
             {
                 btnEstAceptar.Enabled = true;
                 btnEstLimpiar.Enabled = true;
                 txtEstacionesModBuscar.Clear();
+                limpiarFormulario();
+                lstModEstaciones.SelectedIndex = -1;
             }
             else
             {
@@ -428,26 +433,24 @@ namespace ffccSimulacion.ABMEstacion
 
         private void buscarEstaciones(object sender, EventArgs e)
         {
-            if(tabControl1.SelectedTab == ModificarEstacion)
+            if(tabControl1.SelectedTab == CrearEstacion)
+            {
+                actualizarEstaciones(txtEstCreBuscar, lstCreEstaciones);
+            }
+            else if (tabControl1.SelectedTab == ModificarEstacion)
             {
                 actualizarEstaciones(txtEstacionesModBuscar, lstModEstaciones);
             }
-            if (tabControl1.SelectedTab == EliminarEstacion)
-            {
-                actualizarEstaciones(txtEstEliBuscar, lstEliEstaciones);
-            }
             else
             {
-                actualizarEstaciones(txtEstCreBuscar, lstCreEstaciones);
+                actualizarEstaciones(txtEstEliBuscar, lstEliEstaciones);
             }
         }
 
         private void actualizarEstaciones(TextBox buscarEstacion, ListBox resultados)
         {
-            char lastChar;
             if (!String.IsNullOrEmpty(buscarEstacion.Text) && Util.EsAlfaNumerico(buscarEstacion.Text))
             {
-                lastChar = buscarEstacion.Text.Last();
                 resultados.Items.Clear();
                 context.Estaciones.Where(x => x.Nombre.Contains(buscarEstacion.Text)).ToList().ForEach(y => resultados.Items.Add(y));
             }
@@ -455,8 +458,8 @@ namespace ffccSimulacion.ABMEstacion
             {
                 cargarEstaciones();
             }
-            deshabilitarModificar();
             limpiarFormulario();
+            deshabilitarModificar();
         }
 
         private void serviciosAsociadas(object sender, EventArgs e)
@@ -493,32 +496,6 @@ namespace ffccSimulacion.ABMEstacion
             txtEstModMaximo.Enabled = false;
             clbModIncidentes.Enabled = false;
             cmbEstModFdp.Enabled = false;
-        }
-
-        private void buscarIncidentes(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedTab == CrearEstacion)
-            {
-                //actualizarIncidentes(txtEstCreBusInc, clbIncidentes);                
-            }
-        }
-
-        private void actualizarIncidentes(TextBox buscarIncidente, CheckedListBox resultados)
-        {
-            char lastChar;
-            if (!String.IsNullOrEmpty(buscarIncidente.Text) && Util.EsAlfaNumerico(buscarIncidente.Text))
-            {
-                lastChar = buscarIncidente.Text.Last();
-                resultados.Items.Clear();
-                //esto funciona PERO no quedan seleccionado los elementos despues de buscar
-                context.Incidentes.Where(x => x.Nombre.Contains(buscarIncidente.Text)).ToList().ForEach(y => resultados.Items.Add(y));             
-            }
-            else
-            {
-                cargarIncidentes();
-            }
-            deshabilitarModificar();
-            //limpiarFormulario();
         }
     }
 }

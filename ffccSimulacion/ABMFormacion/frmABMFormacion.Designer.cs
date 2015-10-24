@@ -211,6 +211,7 @@
             // txtCantidadCoches
             // 
             this.txtCantidadCoches.Location = new System.Drawing.Point(399, 133);
+            this.txtCantidadCoches.MaxLength = 9;
             this.txtCantidadCoches.Name = "txtCantidadCoches";
             this.txtCantidadCoches.Size = new System.Drawing.Size(118, 21);
             this.txtCantidadCoches.TabIndex = 35;
@@ -272,6 +273,7 @@
             // txtNombreFormacion
             // 
             this.txtNombreFormacion.Location = new System.Drawing.Point(85, 23);
+            this.txtNombreFormacion.MaxLength = 99;
             this.txtNombreFormacion.Name = "txtNombreFormacion";
             this.txtNombreFormacion.Size = new System.Drawing.Size(212, 21);
             this.txtNombreFormacion.TabIndex = 26;
@@ -367,7 +369,7 @@
             this.tabModificarFormacion.Padding = new System.Windows.Forms.Padding(3);
             this.tabModificarFormacion.Size = new System.Drawing.Size(1161, 460);
             this.tabModificarFormacion.TabIndex = 1;
-            this.tabModificarFormacion.Text = "Buscar";
+            this.tabModificarFormacion.Text = "Modificar";
             this.tabModificarFormacion.UseVisualStyleBackColor = true;
             // 
             // txtConsumoFormacionParadoMod
@@ -481,6 +483,7 @@
             // txtCantidadCochesMod
             // 
             this.txtCantidadCochesMod.Location = new System.Drawing.Point(747, 156);
+            this.txtCantidadCochesMod.MaxLength = 9;
             this.txtCantidadCochesMod.Name = "txtCantidadCochesMod";
             this.txtCantidadCochesMod.Size = new System.Drawing.Size(100, 21);
             this.txtCantidadCochesMod.TabIndex = 50;
@@ -506,6 +509,7 @@
             // txtNombreFormacionMod
             // 
             this.txtNombreFormacionMod.Location = new System.Drawing.Point(444, 26);
+            this.txtNombreFormacionMod.MaxLength = 99;
             this.txtNombreFormacionMod.Name = "txtNombreFormacionMod";
             this.txtNombreFormacionMod.Size = new System.Drawing.Size(212, 21);
             this.txtNombreFormacionMod.TabIndex = 42;

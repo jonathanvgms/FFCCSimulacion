@@ -122,6 +122,7 @@
             // 
             this.tbSimDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSimDuracion.Location = new System.Drawing.Point(25, 237);
+            this.tbSimDuracion.MaxLength = 9;
             this.tbSimDuracion.Name = "tbSimDuracion";
             this.tbSimDuracion.Size = new System.Drawing.Size(231, 21);
             this.tbSimDuracion.TabIndex = 28;
@@ -148,7 +149,7 @@
             this.btnReaSimCargSim.Name = "btnReaSimCargSim";
             this.btnReaSimCargSim.Size = new System.Drawing.Size(139, 35);
             this.btnReaSimCargSim.TabIndex = 24;
-            this.btnReaSimCargSim.Text = "Cargar Simulación";
+            this.btnReaSimCargSim.Text = "Buscar Simulación";
             this.btnReaSimCargSim.UseVisualStyleBackColor = true;
             this.btnReaSimCargSim.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -230,6 +231,7 @@
             // 
             this.tbSimFrecuencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSimFrecuencia.Location = new System.Drawing.Point(25, 154);
+            this.tbSimFrecuencia.MaxLength = 9;
             this.tbSimFrecuencia.Name = "tbSimFrecuencia";
             this.tbSimFrecuencia.Size = new System.Drawing.Size(231, 21);
             this.tbSimFrecuencia.TabIndex = 18;
@@ -238,6 +240,7 @@
             // 
             this.tbSimNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSimNombre.Location = new System.Drawing.Point(25, 74);
+            this.tbSimNombre.MaxLength = 99;
             this.tbSimNombre.Name = "tbSimNombre";
             this.tbSimNombre.Size = new System.Drawing.Size(231, 21);
             this.tbSimNombre.TabIndex = 19;

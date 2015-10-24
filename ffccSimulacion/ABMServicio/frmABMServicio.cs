@@ -127,6 +127,13 @@ namespace ffccSimulacion.ABMServicio
             return r;
         }
 
+        private Relaciones BuscarRelacion2(int id_estacionOrigen, int id_estacionDentino)
+        {
+            Relaciones r = context.Relaciones.Where(x => x.Id_Estacion_Anterior == id_estacionOrigen && x.Id_Estacion_Siguiente == id_estacionDentino).FirstOrDefault();
+
+            return r;
+        }
+
         private void dgvRelacionesCrear_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int id_estacionOrigen = Convert.ToInt32(dgvRelacionesCrear.SelectedRows[0].Cells["txtId_EstacionOrigen"].Value);
@@ -463,6 +470,20 @@ namespace ffccSimulacion.ABMServicio
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.pnlServicio.Controls.Clear();
+        }
+
+        private void dgvRelacionesMod_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id_estacionOrigen = Convert.ToInt32(dgvRelacionesMod.SelectedRows[0].Cells["Id_EstacionOrigen"].Value);
+            int id_estacionDestino = Convert.ToInt32(dgvRelacionesMod.SelectedRows[0].Cells["Id_EstacionDestino"].Value);
+            Relaciones r = BuscarRelacion2(id_estacionOrigen, id_estacionDestino);
+
+            if (r == null) return;
+
+            lbxEstacionesOrigenMod.SelectedItem = r.Estaciones;
+            lbxEstacionesDestinoMod.SelectedItem = r.Estaciones1;
+            txtDistanciaRelacionMod.Text = r.Distancia.ToString();
+            txtVelocidadRelacionMod.Text = r.VelocidadPromedio.ToString();
         }
     }
 }

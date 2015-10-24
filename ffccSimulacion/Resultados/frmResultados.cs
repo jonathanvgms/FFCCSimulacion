@@ -53,11 +53,13 @@ namespace ffccSimulacion.Resultados
 
         private void txtCostoEle_TextChanged(object sender, EventArgs e)
         {
+            //TODO validar
             this.txtCostPorKm.Text = (resultadoSimulacion.costoKm * Convert.ToDouble(this.txtCostoEle.Text)).ToString();
         }
 
         private void txtCostoDi_TextChanged(object sender, EventArgs e)
         {
+            //TODO validar
             this.txtCostPorPasajero.Text = (resultadoSimulacion.costoPasajero * Convert.ToDouble(this.txtCostoDi.Text)).ToString();
         }
     }

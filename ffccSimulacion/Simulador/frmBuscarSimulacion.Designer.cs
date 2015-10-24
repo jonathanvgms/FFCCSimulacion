@@ -33,6 +33,7 @@
             this.btnBuscSimCanc = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscSimSelec = new System.Windows.Forms.Button();
+            this.btnBuscarSimBorrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lBoxBuscSimList
@@ -72,13 +73,23 @@
             // btnBuscSimSelec
             // 
             this.btnBuscSimSelec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscSimSelec.Location = new System.Drawing.Point(217, 370);
+            this.btnBuscSimSelec.Location = new System.Drawing.Point(194, 370);
             this.btnBuscSimSelec.Name = "btnBuscSimSelec";
-            this.btnBuscSimSelec.Size = new System.Drawing.Size(98, 33);
+            this.btnBuscSimSelec.Size = new System.Drawing.Size(121, 33);
             this.btnBuscSimSelec.TabIndex = 0;
-            this.btnBuscSimSelec.Text = "Seleccionar";
+            this.btnBuscSimSelec.Text = "Cargar Simulacón";
             this.btnBuscSimSelec.UseVisualStyleBackColor = true;
             this.btnBuscSimSelec.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnBuscarSimBorrar
+            // 
+            this.btnBuscarSimBorrar.Location = new System.Drawing.Point(3, 370);
+            this.btnBuscarSimBorrar.Name = "btnBuscarSimBorrar";
+            this.btnBuscarSimBorrar.Size = new System.Drawing.Size(83, 33);
+            this.btnBuscarSimBorrar.TabIndex = 4;
+            this.btnBuscarSimBorrar.Text = "Eliminar";
+            this.btnBuscarSimBorrar.UseVisualStyleBackColor = true;
+            this.btnBuscarSimBorrar.Click += new System.EventHandler(this.btnBuscarSimBorrar_Click_1);
             // 
             // frmBuscarSimulacion
             // 
@@ -87,6 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnBuscSimCanc;
             this.ClientSize = new System.Drawing.Size(415, 410);
+            this.Controls.Add(this.btnBuscarSimBorrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscSimCanc);
             this.Controls.Add(this.lBoxBuscSimList);
@@ -99,7 +111,7 @@
             this.Name = "frmBuscarSimulacion";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CARGAR SIMULACIÓN";
+            this.Text = "Buscar Simulación";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +123,6 @@
         private System.Windows.Forms.Button btnBuscSimCanc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscSimSelec;
+        private System.Windows.Forms.Button btnBuscarSimBorrar;
     }
 }

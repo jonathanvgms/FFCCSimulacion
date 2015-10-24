@@ -110,6 +110,7 @@
             // txtNombreServicioMod
             // 
             this.txtNombreServicioMod.Location = new System.Drawing.Point(362, 40);
+            this.txtNombreServicioMod.MaxLength = 99;
             this.txtNombreServicioMod.Name = "txtNombreServicioMod";
             this.txtNombreServicioMod.Size = new System.Drawing.Size(203, 21);
             this.txtNombreServicioMod.TabIndex = 1;
@@ -321,6 +322,7 @@
             // txtVelocidadRelacionCrear
             // 
             this.txtVelocidadRelacionCrear.Location = new System.Drawing.Point(294, 430);
+            this.txtVelocidadRelacionCrear.MaxLength = 9;
             this.txtVelocidadRelacionCrear.Name = "txtVelocidadRelacionCrear";
             this.txtVelocidadRelacionCrear.Size = new System.Drawing.Size(100, 21);
             this.txtVelocidadRelacionCrear.TabIndex = 31;
@@ -328,6 +330,7 @@
             // txtDistanciaRelacionCrear
             // 
             this.txtDistanciaRelacionCrear.Location = new System.Drawing.Point(294, 398);
+            this.txtDistanciaRelacionCrear.MaxLength = 9;
             this.txtDistanciaRelacionCrear.Name = "txtDistanciaRelacionCrear";
             this.txtDistanciaRelacionCrear.Size = new System.Drawing.Size(100, 21);
             this.txtDistanciaRelacionCrear.TabIndex = 32;
@@ -397,6 +400,7 @@
             // txtNombreServicio
             // 
             this.txtNombreServicio.Location = new System.Drawing.Point(89, 18);
+            this.txtNombreServicio.MaxLength = 99;
             this.txtNombreServicio.Name = "txtNombreServicio";
             this.txtNombreServicio.Size = new System.Drawing.Size(203, 21);
             this.txtNombreServicio.TabIndex = 14;
@@ -533,6 +537,7 @@
             this.dgvRelacionesMod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRelacionesMod.Size = new System.Drawing.Size(244, 293);
             this.dgvRelacionesMod.TabIndex = 41;
+            this.dgvRelacionesMod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRelacionesMod_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -563,6 +568,7 @@
             // txtVelocidadRelacionMod
             // 
             this.txtVelocidadRelacionMod.Location = new System.Drawing.Point(683, 424);
+            this.txtVelocidadRelacionMod.MaxLength = 9;
             this.txtVelocidadRelacionMod.Name = "txtVelocidadRelacionMod";
             this.txtVelocidadRelacionMod.Size = new System.Drawing.Size(104, 21);
             this.txtVelocidadRelacionMod.TabIndex = 39;
@@ -570,6 +576,7 @@
             // txtDistanciaRelacionMod
             // 
             this.txtDistanciaRelacionMod.Location = new System.Drawing.Point(683, 395);
+            this.txtDistanciaRelacionMod.MaxLength = 9;
             this.txtDistanciaRelacionMod.Name = "txtDistanciaRelacionMod";
             this.txtDistanciaRelacionMod.Size = new System.Drawing.Size(104, 21);
             this.txtDistanciaRelacionMod.TabIndex = 40;

@@ -15,7 +15,7 @@ namespace ffccSimulacion
             {
                 return false;
             }
-            Regex reg = new Regex(@"[ -,.A-Za-zñÑáéíóúÁÉÓÚÍ]*");
+            Regex reg = new Regex(@"[ -_/\(),.A-Za-zñÑáéíóúÁÉÓÚÍ]*");
 
             Match match = reg.Match(buffer);
 
@@ -53,7 +53,7 @@ namespace ffccSimulacion
                 return false;
             }
 
-            Regex reg = new Regex(@"[ -,.A-Za-zñÑ0-9áéíóúÁÉÓÚÍ]*");
+            Regex reg = new Regex(@"[ -_/\(),.A-Za-zñÑ0-9áéíóúÁÉÓÚÍ]*");
 
             Match match = reg.Match(buffer);
 
