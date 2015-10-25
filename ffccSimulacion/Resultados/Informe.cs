@@ -149,7 +149,8 @@ namespace ffccSimulacion.Resultados
             /*
              * TODO busar la imagen dinamicamente el origen del proyecto
              */ 
-            string path = "C:/Users/Jonathan/Desktop/pdfEjemplo/pdfEjemplo/logo.png";
+            
+            string path = Application.StartupPath + "\\Resources\\logo.png";
             Image logo = Image.GetInstance(new Uri(path));
             logo.ScalePercent(30);
             logo.Alignment = Image.TEXTWRAP | Image.ALIGN_LEFT;

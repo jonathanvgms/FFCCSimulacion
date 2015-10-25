@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\ffccSimulacion\</PublishUrl>
+    <PublishUrl>C:\Users\Leandro\Desktop\ffcc\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>ffccSimulacion</ProductName>
     <PublisherName>Grupo502</PublisherName>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -314,6 +314,7 @@
     <Content Include="icono.ico" />
     <Content Include="Resources\iconoEstacion.png" />
     <Content Include="Resources\iconoIncidente.png" />
+    <Content Include="Resources\logo.png" />
     <Content Include="Resources\tren-nuevo.png" />
   </ItemGroup>
   <ItemGroup>
