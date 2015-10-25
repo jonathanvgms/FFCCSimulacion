@@ -501,6 +501,7 @@
             // lstEstEliServicios
             // 
             this.lstEstEliServicios.DisplayMember = "Nombre";
+            this.lstEstEliServicios.Enabled = false;
             this.lstEstEliServicios.FormattingEnabled = true;
             this.lstEstEliServicios.ItemHeight = 15;
             this.lstEstEliServicios.Location = new System.Drawing.Point(464, 55);

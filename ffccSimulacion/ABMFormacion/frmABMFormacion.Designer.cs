@@ -78,6 +78,8 @@
             this.lbxFormacionesModificar = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.lbxServiciosAsociadosEliminar = new System.Windows.Forms.ListBox();
             this.btnBorrarFormacion = new System.Windows.Forms.Button();
             this.lbxFormacionesEliminar = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -596,6 +598,8 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.lbxServiciosAsociadosEliminar);
             this.tabPage3.Controls.Add(this.btnBorrarFormacion);
             this.tabPage3.Controls.Add(this.lbxFormacionesEliminar);
             this.tabPage3.Controls.Add(this.label9);
@@ -607,9 +611,29 @@
             this.tabPage3.Text = "Eliminar";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(647, 36);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(115, 15);
+            this.label23.TabIndex = 23;
+            this.label23.Text = "Servicios Asociados";
+            // 
+            // lbxServiciosAsociadosEliminar
+            // 
+            this.lbxServiciosAsociadosEliminar.DisplayMember = "Nombre";
+            this.lbxServiciosAsociadosEliminar.Enabled = false;
+            this.lbxServiciosAsociadosEliminar.FormattingEnabled = true;
+            this.lbxServiciosAsociadosEliminar.ItemHeight = 15;
+            this.lbxServiciosAsociadosEliminar.Location = new System.Drawing.Point(647, 55);
+            this.lbxServiciosAsociadosEliminar.Name = "lbxServiciosAsociadosEliminar";
+            this.lbxServiciosAsociadosEliminar.Size = new System.Drawing.Size(325, 379);
+            this.lbxServiciosAsociadosEliminar.TabIndex = 22;
+            // 
             // btnBorrarFormacion
             // 
-            this.btnBorrarFormacion.Location = new System.Drawing.Point(727, 55);
+            this.btnBorrarFormacion.Location = new System.Drawing.Point(522, 55);
             this.btnBorrarFormacion.Name = "btnBorrarFormacion";
             this.btnBorrarFormacion.Size = new System.Drawing.Size(119, 28);
             this.btnBorrarFormacion.TabIndex = 21;
@@ -622,15 +646,16 @@
             this.lbxFormacionesEliminar.DisplayMember = "NombreFormacion";
             this.lbxFormacionesEliminar.FormattingEnabled = true;
             this.lbxFormacionesEliminar.ItemHeight = 15;
-            this.lbxFormacionesEliminar.Location = new System.Drawing.Point(397, 55);
+            this.lbxFormacionesEliminar.Location = new System.Drawing.Point(192, 55);
             this.lbxFormacionesEliminar.Name = "lbxFormacionesEliminar";
             this.lbxFormacionesEliminar.Size = new System.Drawing.Size(324, 379);
             this.lbxFormacionesEliminar.TabIndex = 20;
+            this.lbxFormacionesEliminar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesEliminar_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(394, 39);
+            this.label9.Location = new System.Drawing.Point(189, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(139, 15);
             this.label9.TabIndex = 19;
@@ -757,5 +782,7 @@
         private System.Windows.Forms.TextBox txtConsumoFormacionMovMod;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ListBox lbxServiciosAsociadosEliminar;
     }
 }

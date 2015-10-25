@@ -502,6 +502,7 @@
             // lstIncEliEstaciones
             // 
             this.lstIncEliEstaciones.DisplayMember = "Nombre";
+            this.lstIncEliEstaciones.Enabled = false;
             this.lstIncEliEstaciones.FormattingEnabled = true;
             this.lstIncEliEstaciones.ItemHeight = 15;
             this.lstIncEliEstaciones.Location = new System.Drawing.Point(441, 57);

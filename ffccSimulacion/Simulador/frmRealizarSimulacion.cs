@@ -152,7 +152,7 @@ namespace ffccSimulacion.Simulador
             {
                 try
                 {
-                    if (context.Simulaciones.Where(x => x.Id == simulacion.Id).Count() == 0)
+                    if (simulacion == null)
                     {
                         simulacion = new Simulaciones();
 
@@ -216,27 +216,21 @@ namespace ffccSimulacion.Simulador
         {
             if (lBoxSimTrazas.SelectedIndex > -1)
             {
+                Servicios s;
                 lBoxSimServicios.Items.Clear();
+                lbxFormaciones.Items.Clear();
 
                 Trazas trazaSeleccionada = (Trazas)lBoxSimTrazas.SelectedItem;
 
-                //context.Servicios.ToList().ForEach(x => { lBoxSimServicios.Items.Add(x); });
-
-                //List<Servicios> servicios = new List<Servicios>();
-
                 foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
-                    lBoxSimServicios.Items.Add(ts.Servicios);
+                {
+                    s = ts.Servicios;
+                    lBoxSimServicios.Items.Add(s);
 
-                //foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == trazaSeleccionada.Id))
-                //{
-                //    servicios = (List<Servicios>)context.Servicios.ToList().Where(x => x.Id == ts.Id);
-                //}
+                    foreach (Servicios_X_Formaciones sf in context.Servicios_X_Formaciones.Where(x => x.Id_Servicio == s.Id))
+                        lbxFormaciones.Items.Add(sf.Formaciones);
+                }
 
-
-                //foreach (Servicios servicio in servicios)
-                //{
-                //    lBoxSimServicios.Items.Add(servicio);
-                //}
             }
         }
 

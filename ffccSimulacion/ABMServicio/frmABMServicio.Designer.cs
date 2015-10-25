@@ -85,6 +85,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.lbxServiciosModificar = new System.Windows.Forms.ListBox();
             this.tabEliminarServicio = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lbxTrazasAsociadasEliminar = new System.Windows.Forms.ListBox();
             this.btnBorrarServicio = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.lbxServiciosEliminar = new System.Windows.Forms.ListBox();
@@ -269,7 +271,8 @@
             this.dgvRelacionesCrear.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRelacionesCrear.Size = new System.Drawing.Size(244, 420);
             this.dgvRelacionesCrear.TabIndex = 35;
-            this.dgvRelacionesCrear.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRelacionesCrear_CellContentClick);
+            this.dgvRelacionesCrear.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRelacionesCrear_CellContentClick);
+            this.dgvRelacionesCrear.Leave += new System.EventHandler(this.dgvRelacionesCrear_Leave);
             // 
             // txtEstacionOrigen
             // 
@@ -537,7 +540,8 @@
             this.dgvRelacionesMod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRelacionesMod.Size = new System.Drawing.Size(244, 293);
             this.dgvRelacionesMod.TabIndex = 41;
-            this.dgvRelacionesMod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRelacionesMod_CellContentClick);
+            this.dgvRelacionesMod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRelacionesMod_CellContentClick);
+            this.dgvRelacionesMod.Leave += new System.EventHandler(this.dgvRelacionesMod_Leave);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -662,6 +666,8 @@
             // 
             // tabEliminarServicio
             // 
+            this.tabEliminarServicio.Controls.Add(this.label17);
+            this.tabEliminarServicio.Controls.Add(this.lbxTrazasAsociadasEliminar);
             this.tabEliminarServicio.Controls.Add(this.btnBorrarServicio);
             this.tabEliminarServicio.Controls.Add(this.label26);
             this.tabEliminarServicio.Controls.Add(this.lbxServiciosEliminar);
@@ -673,9 +679,29 @@
             this.tabEliminarServicio.Text = "Eliminar";
             this.tabEliminarServicio.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(612, 10);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(103, 15);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Trazas Asociadas";
+            // 
+            // lbxTrazasAsociadasEliminar
+            // 
+            this.lbxTrazasAsociadasEliminar.DisplayMember = "Nombre";
+            this.lbxTrazasAsociadasEliminar.Enabled = false;
+            this.lbxTrazasAsociadasEliminar.FormattingEnabled = true;
+            this.lbxTrazasAsociadasEliminar.ItemHeight = 15;
+            this.lbxTrazasAsociadasEliminar.Location = new System.Drawing.Point(612, 26);
+            this.lbxTrazasAsociadasEliminar.Name = "lbxTrazasAsociadasEliminar";
+            this.lbxTrazasAsociadasEliminar.Size = new System.Drawing.Size(339, 454);
+            this.lbxTrazasAsociadasEliminar.TabIndex = 13;
+            // 
             // btnBorrarServicio
             // 
-            this.btnBorrarServicio.Location = new System.Drawing.Point(708, 26);
+            this.btnBorrarServicio.Location = new System.Drawing.Point(510, 26);
             this.btnBorrarServicio.Name = "btnBorrarServicio";
             this.btnBorrarServicio.Size = new System.Drawing.Size(95, 25);
             this.btnBorrarServicio.TabIndex = 12;
@@ -686,7 +712,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(378, 10);
+            this.label26.Location = new System.Drawing.Point(180, 10);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(116, 15);
             this.label26.TabIndex = 11;
@@ -697,10 +723,11 @@
             this.lbxServiciosEliminar.DisplayMember = "Nombre";
             this.lbxServiciosEliminar.FormattingEnabled = true;
             this.lbxServiciosEliminar.ItemHeight = 15;
-            this.lbxServiciosEliminar.Location = new System.Drawing.Point(381, 26);
+            this.lbxServiciosEliminar.Location = new System.Drawing.Point(183, 28);
             this.lbxServiciosEliminar.Name = "lbxServiciosEliminar";
             this.lbxServiciosEliminar.Size = new System.Drawing.Size(321, 454);
             this.lbxServiciosEliminar.TabIndex = 10;
+            this.lbxServiciosEliminar.SelectedIndexChanged += new System.EventHandler(this.lbxServiciosEliminar_SelectedIndexChanged);
             // 
             // pnlServicio
             // 
@@ -799,5 +826,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_EstacionOrigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_EstacionDestino;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ListBox lbxTrazasAsociadasEliminar;
     }
 }

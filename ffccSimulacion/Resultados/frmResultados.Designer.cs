@@ -104,6 +104,7 @@
             // 
             // txtPorcTrenes
             // 
+            this.txtPorcTrenes.Enabled = false;
             this.txtPorcTrenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPorcTrenes.Location = new System.Drawing.Point(307, 29);
             this.txtPorcTrenes.Name = "txtPorcTrenes";
@@ -182,6 +183,7 @@
             // 
             // txtTiemPro
             // 
+            this.txtTiemPro.Enabled = false;
             this.txtTiemPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTiemPro.Location = new System.Drawing.Point(307, 80);
             this.txtTiemPro.Name = "txtTiemPro";
@@ -190,6 +192,7 @@
             // 
             // txtPromPasaj
             // 
+            this.txtPromPasaj.Enabled = false;
             this.txtPromPasaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPromPasaj.Location = new System.Drawing.Point(307, 128);
             this.txtPromPasaj.Name = "txtPromPasaj";
@@ -198,6 +201,7 @@
             // 
             // txtPromDem
             // 
+            this.txtPromDem.Enabled = false;
             this.txtPromDem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPromDem.Location = new System.Drawing.Point(307, 174);
             this.txtPromDem.Name = "txtPromDem";
@@ -206,6 +210,7 @@
             // 
             // txtConsElePas
             // 
+            this.txtConsElePas.Enabled = false;
             this.txtConsElePas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsElePas.Location = new System.Drawing.Point(744, 247);
             this.txtConsElePas.Name = "txtConsElePas";
@@ -214,6 +219,7 @@
             // 
             // txtCostPorKm
             // 
+            this.txtCostPorKm.Enabled = false;
             this.txtCostPorKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostPorKm.Location = new System.Drawing.Point(307, 233);
             this.txtCostPorKm.Name = "txtCostPorKm";
@@ -222,6 +228,7 @@
             // 
             // txtCostPorPasajero
             // 
+            this.txtCostPorPasajero.Enabled = false;
             this.txtCostPorPasajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostPorPasajero.Location = new System.Drawing.Point(307, 283);
             this.txtCostPorPasajero.Name = "txtCostPorPasajero";
@@ -230,6 +237,7 @@
             // 
             // txtConsDiPas
             // 
+            this.txtConsDiPas.Enabled = false;
             this.txtConsDiPas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsDiPas.Location = new System.Drawing.Point(744, 284);
             this.txtConsDiPas.Name = "txtConsDiPas";
@@ -376,6 +384,7 @@
             // 
             // txtConsDiKm
             // 
+            this.txtConsDiKm.Enabled = false;
             this.txtConsDiKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsDiKm.Location = new System.Drawing.Point(744, 209);
             this.txtConsDiKm.Name = "txtConsDiKm";
@@ -404,6 +413,7 @@
             // 
             // txtConsEleKm
             // 
+            this.txtConsEleKm.Enabled = false;
             this.txtConsEleKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsEleKm.Location = new System.Drawing.Point(744, 171);
             this.txtConsEleKm.Name = "txtConsEleKm";

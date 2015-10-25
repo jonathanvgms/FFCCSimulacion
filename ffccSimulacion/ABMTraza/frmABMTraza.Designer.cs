@@ -299,6 +299,7 @@
             // lstTraEliSimulaciones
             // 
             this.lstTraEliSimulaciones.DisplayMember = "Nombre";
+            this.lstTraEliSimulaciones.Enabled = false;
             this.lstTraEliSimulaciones.FormattingEnabled = true;
             this.lstTraEliSimulaciones.ItemHeight = 15;
             this.lstTraEliSimulaciones.Location = new System.Drawing.Point(503, 53);

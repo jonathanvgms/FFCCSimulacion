@@ -634,6 +634,7 @@
             // lstCocheEliFormaciones
             // 
             this.lstCocheEliFormaciones.DisplayMember = "NombreFormacion";
+            this.lstCocheEliFormaciones.Enabled = false;
             this.lstCocheEliFormaciones.FormattingEnabled = true;
             this.lstCocheEliFormaciones.ItemHeight = 15;
             this.lstCocheEliFormaciones.Location = new System.Drawing.Point(461, 81);

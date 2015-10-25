@@ -107,6 +107,10 @@ namespace ffccSimulacion.ABMFormacion
 
         private void btnAgregarFormacion_Click(object sender, EventArgs e)
         {
+            Coches unCoche = (Coches)lbxCochesExistentes.SelectedItem;
+
+            if (unCoche == null) return;
+
             string errorMsj = "";
             if (!Util.EsNumerico(txtCantidadCoches.Text))
                 errorMsj += "Cantidad: Incompleto ó Incorrecto.\n";
@@ -114,11 +118,12 @@ namespace ffccSimulacion.ABMFormacion
                 errorMsj += "Cantidad: El Valor debe ser Positivo.\n";
             if(lbxCochesExistentes.SelectedItem == null)
                 errorMsj += "No se seleccionó ningun coche para agregar a la formación.\n";
+            if (auxCochesFormacion.Where(x => x.Id_Coche == unCoche.Id).Count() != 0)
+                errorMsj += "El coche ya existe dentro de esta formación.\n";
 
             if (String.IsNullOrEmpty(errorMsj))
             {
                 Formaciones_X_Coches fc = new Formaciones_X_Coches();
-                Coches unCoche = (Coches)lbxCochesExistentes.SelectedItem;
                 fc.Coches = unCoche;
                 fc.Id_Coche = unCoche.Id;
                 fc.VecesRepetido = Convert.ToInt32(txtCantidadCoches.Text);
@@ -158,13 +163,25 @@ namespace ffccSimulacion.ABMFormacion
 
         private void CrearNuevaFormacion()
         {
+            int cantidadLocomotoras = auxCochesFormacion.Where(x => x.Coches.EsLocomotora == 1).Sum(x => x.VecesRepetido);
             string errorMsj = "";
+
+            if (cantidadLocomotoras > 1)
+            {
+                if (MessageBox.Show("Atención: la formación tiene mas de una locomotora.¿Desea Continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+            }
+
             if (!Util.EsAlfaNumerico(txtNombreFormacion.Text))
                 errorMsj += "Nombre: Incompleto/Incorrecto.\n";
+            else if (context.Formaciones.Where(x => x.NombreFormacion == txtNombreFormacion.Text).Count() > 0)
+                errorMsj += "Nombre: ya existe una formación con el mismo nombre.\n";
+
             if(auxCochesFormacion.Count == 0)
                 errorMsj += "La formación no tiene coches.\n";
-            if (auxCochesFormacion.Where(x => x.Coches.EsLocomotora == 1).Count() == 0)
+            
+            if (cantidadLocomotoras == 0)
                 errorMsj += "No hay ninguna locomotora en la formación.\n";
+
             if (String.IsNullOrEmpty(errorMsj))
             {
                 try
@@ -189,24 +206,42 @@ namespace ffccSimulacion.ABMFormacion
 
         private void GuardarModificacionesFormacion()
         {
+            Formaciones formacionSeleccionada = (Formaciones)lbxFormacionesModificar.SelectedItem;
             string errorMsj = "";
             List<Formaciones_X_Coches> auxFormacionCochesMod = new List<Formaciones_X_Coches>();
+
+            if (formacionSeleccionada == null)
+            {
+                MessageBox.Show("Se ha deseleccionado la formación que iba a ser modificada.\n");
+                return;
+            }
+
+            List<string> nombresFormaciones = context.Formaciones.Where(x => x.Id != formacionSeleccionada.Id).Select(x => x.NombreFormacion).ToList<string>();
 
             foreach (Formaciones_X_Coches fc in lbxCochesFormacionMod.Items)
                 auxFormacionCochesMod.Add(fc);
 
+            int cantidadLocomotoras = auxFormacionCochesMod.Where(x => x.Coches.EsLocomotora == 1).Sum(x => x.VecesRepetido);
+
+            if (cantidadLocomotoras > 1)
+            {
+                if (MessageBox.Show("Atención: la formación tiene mas de una locomotora.¿Desea Continuar?", "", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
+            }
+
             if (!Util.EsAlfaNumerico(txtNombreFormacionMod.Text))
                 errorMsj += "Nombre: Incompleto/Incorrecto.\n";
+            else if (nombresFormaciones.Contains(txtNombreFormacionMod.Text))
+                errorMsj += "Nombre: ya existe una formación con el mismo nombre.\n";
+
             if (auxFormacionCochesMod.Count == 0)
                 errorMsj += "La formación no tiene coches.\n";
-            if (auxFormacionCochesMod.Where(x => x.Coches.EsLocomotora == 1).Count() == 0)
+            if (cantidadLocomotoras == 0)
                 errorMsj += "La formación debe tener al menos una locomotora.\n";
 
             if (string.IsNullOrEmpty(errorMsj))
             {
                 try
                 {
-                    Formaciones formacionSeleccionada = (Formaciones)lbxFormacionesModificar.SelectedItem;
                     formacionSeleccionada.NombreFormacion = txtNombreFormacionMod.Text;
                     /*Los coches se fueron guardando en la formacion en el momento que el coche se agrega a la lista dentro del metodo "btnAgregarCocheMod_Click()"
                      o en "btnEliminarCocheMod_Click()"*/
@@ -237,6 +272,7 @@ namespace ffccSimulacion.ABMFormacion
         private void lbxCochesFormacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             Coches unCoche = (Coches)lbxCochesFormacion.SelectedItem;
+            if (unCoche == null) return;
             txtCantidadCoches.Text = auxCochesFormacion.Where(x => x.Id_Coche == unCoche.Id).First().VecesRepetido.ToString();
             txtCantidadCoches.Enabled = false;
         }
@@ -245,6 +281,7 @@ namespace ffccSimulacion.ABMFormacion
         {
             txtCantidadCoches.Text = "";
             txtCantidadCoches.Enabled = true;
+            lbxCochesFormacion.SelectedIndex = -1;
         }
 
         private void btnBorrarFormacion_Click(object sender, EventArgs e)
@@ -303,12 +340,15 @@ namespace ffccSimulacion.ABMFormacion
         {
             Formaciones_X_Coches fc = (Formaciones_X_Coches)lbxCochesFormacionMod.SelectedItem;
             if (fc != null)
+            {
                 txtCantidadCochesMod.Text = fc.VecesRepetido.ToString();
-            txtCantidadCochesMod.Enabled = false;
+                txtCantidadCochesMod.Enabled = false;
+            }
         }
 
         private void lbxCochesExistentesMod_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lbxCochesFormacionMod.SelectedIndex = -1;
             txtCantidadCochesMod.Text = "";
             txtCantidadCochesMod.Enabled = true;
         }
@@ -325,6 +365,8 @@ namespace ffccSimulacion.ABMFormacion
                 errorMsj += "No se seleccionó ningún coche para ser agregado.\n";
             if (!Util.EsNumerico(txtCantidadCochesMod.Text))
                 errorMsj += "Cantidad de coches: Incompleto/Incorrecto.\n";
+            if (formacionSeleccionada.Formaciones_X_Coches.Where(x => x.Coches.Modelo == cocheSeleccionado.Modelo).Count() != 0)
+                errorMsj += "El coche ya pertenece a la formación.\n";
             
             if (string.IsNullOrEmpty(errorMsj))
             {
@@ -356,7 +398,11 @@ namespace ffccSimulacion.ABMFormacion
             {
                 lbxCochesFormacionMod.SelectedIndex = -1;
                 formacionSeleccionada.Formaciones_X_Coches.Remove(fc);
-                context.Formaciones_X_Coches.Remove(fc);
+                
+                /*Esto se hace asi en caso de que el objeto todavia no haya sido agregado/guadado en el contexto de la bd*/
+                try { context.Formaciones_X_Coches.Remove(fc); }
+                catch (Exception exc) { }
+
                 lbxCochesFormacionMod.Items.Remove(fc);
                 RecalcularTotalesFormacion();
             }
@@ -386,6 +432,20 @@ namespace ffccSimulacion.ABMFormacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             pnlFormacion.Controls.Clear();
+        }
+
+        private void lbxFormacionesEliminar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Formaciones f = (Formaciones)lbxFormacionesEliminar.SelectedItem;
+            
+            if (f == null)
+                return;
+
+            lbxServiciosAsociadosEliminar.Items.Clear();
+            List<Servicios_X_Formaciones> serviciosFormacionesAsociados = context.Servicios_X_Formaciones.Where(x => x.Id_Formacion == f.Id).ToList<Servicios_X_Formaciones>();
+
+            foreach (Servicios_X_Formaciones sf in serviciosFormacionesAsociados)
+                lbxServiciosAsociadosEliminar.Items.Add(sf.Servicios);
         }
     }
 }

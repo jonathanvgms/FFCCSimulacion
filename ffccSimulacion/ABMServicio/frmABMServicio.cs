@@ -62,14 +62,16 @@ namespace ffccSimulacion.ABMServicio
             Estaciones estacionOrigen = (Estaciones)lbxEstacionesOrigenCrear.SelectedItem;
             Estaciones estacionDestino = (Estaciones)lbxEstacionesDestinoCrear.SelectedItem;
 
+            if (estacionOrigen == null || estacionDestino==null)
+            {
+                MessageBox.Show("La estación de origen y/o la estación de destino no han sido seleccionadas.\n");
+                return;
+            }
+
             if (!Util.EsNumerico(txtDistanciaRelacionCrear.Text))
                 errorMsj += "Distancia entre estaciones: Incompleto/Incorrecto.\n";
             if(!Util.EsNumerico(txtVelocidadRelacionCrear.Text))
                 errorMsj += "Velocidad: Incompleto/Incorrecto.\n";
-            if (estacionOrigen == null)
-                errorMsj += "Debe seleccionar una estación de origen.\n";
-            if (estacionDestino == null)
-                errorMsj += "Debe seleccionar una estación de destino.\n";
             if (BuscarRelacion(estacionOrigen.Id, estacionDestino.Id) != null)
                 errorMsj += "Esa relación ya existe en el servicio.\n";
             if (estacionDestino.Id == estacionOrigen.Id)
@@ -127,9 +129,9 @@ namespace ffccSimulacion.ABMServicio
             return r;
         }
 
-        private Relaciones BuscarRelacion2(int id_estacionOrigen, int id_estacionDentino)
+        private Relaciones BuscarRelacion2(int id_estacionOrigen, int id_estacionDentino, Servicios s)
         {
-            Relaciones r = context.Relaciones.Where(x => x.Id_Estacion_Anterior == id_estacionOrigen && x.Id_Estacion_Siguiente == id_estacionDentino).FirstOrDefault();
+            Relaciones r = s.Relaciones.Where(x => x.Id_Estacion_Anterior == id_estacionOrigen && x.Id_Estacion_Siguiente == id_estacionDentino).FirstOrDefault();
 
             return r;
         }
@@ -144,6 +146,8 @@ namespace ffccSimulacion.ABMServicio
             lbxEstacionesDestinoCrear.SelectedItem = r.Estaciones1;
             txtDistanciaRelacionCrear.Text = r.Distancia.ToString();
             txtVelocidadRelacionCrear.Text = r.VelocidadPromedio.ToString();
+            txtDistanciaRelacionCrear.Enabled = false;
+            txtVelocidadRelacionCrear.Enabled = false;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -162,6 +166,8 @@ namespace ffccSimulacion.ABMServicio
 
             if (!Util.EsAlfaNumerico(txtNombreServicio.Text))
                 errorMsj += "Nombre de servicio: Incompleto/Incorrecto.\n";
+            else if (context.Servicios.Where(x => x.Nombre == txtNombreServicio.Text).Count() > 0)
+                errorMsj += "Nombre de servicio: ya existe un servicio con el mismo nombre.\n";
 
             if (auxRelaciones.Count == 0)
                 errorMsj += "El servicio no tiene estaciones relacionadas.\n";
@@ -356,6 +362,18 @@ namespace ffccSimulacion.ABMServicio
             Estaciones estacionOrigen = (Estaciones)lbxEstacionesOrigenMod.SelectedItem;
             Estaciones estacionDestino = (Estaciones)lbxEstacionesDestinoMod.SelectedItem;
 
+            if (estacionOrigen == null || estacionDestino==null)
+            {
+                MessageBox.Show("La estación de origen y/o la estación de destino no han sido seleccionadas.\n");
+                return;
+            }
+
+            if (servicioSeleccionado == null)
+            {
+                MessageBox.Show("No se ha seleccionado ningún servicio para ser modificado.\n");
+                return;
+            }
+
             if (servicioSeleccionado == null)
                 errorMsj += "No se ha seleccionado ningún servicio para ser modificado.\n";
             if (!Util.EsNumerico(txtDistanciaRelacionMod.Text))
@@ -399,10 +417,18 @@ namespace ffccSimulacion.ABMServicio
             Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
 
             if (servicioSeleccionado == null)
+            {
+                MessageBox.Show("Se ha deseleccionado la formación que iba a ser modificada.\n");
                 return;
+            }
+                
+
+            List<string> nombreDeServicios = context.Servicios.Where(x => x.Id != servicioSeleccionado.Id).Select(x => x.Nombre).ToList<string>();
 
             if (!Util.EsAlfaNumerico(txtNombreServicioMod.Text))
                 errorMsj += "Nombre de servicio: Incompleto/Incorrecto.\n";
+            else if (nombreDeServicios.Contains(txtNombreServicioMod.Text))
+                errorMsj += "Nombre de servicio: ya existe un servicio con el mismo nombre.\n";
 
             if (servicioSeleccionado.Relaciones.Count == 0)
                 errorMsj += "El servicio no tiene estaciones relacionadas.\n";
@@ -474,16 +500,58 @@ namespace ffccSimulacion.ABMServicio
 
         private void dgvRelacionesMod_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
             int id_estacionOrigen = Convert.ToInt32(dgvRelacionesMod.SelectedRows[0].Cells["Id_EstacionOrigen"].Value);
             int id_estacionDestino = Convert.ToInt32(dgvRelacionesMod.SelectedRows[0].Cells["Id_EstacionDestino"].Value);
-            Relaciones r = BuscarRelacion2(id_estacionOrigen, id_estacionDestino);
+            
+            if(servicioSeleccionado==null)
+            {
+                MessageBox.Show("Se ha desseleccionado el servicio ha modificar.\n");
+                return;
+            }
+            
+            Relaciones r = BuscarRelacion2(id_estacionOrigen, id_estacionDestino, servicioSeleccionado);
 
             if (r == null) return;
+            
 
             lbxEstacionesOrigenMod.SelectedItem = r.Estaciones;
             lbxEstacionesDestinoMod.SelectedItem = r.Estaciones1;
             txtDistanciaRelacionMod.Text = r.Distancia.ToString();
             txtVelocidadRelacionMod.Text = r.VelocidadPromedio.ToString();
+            txtDistanciaRelacionMod.Enabled = false;
+            txtVelocidadRelacionMod.Enabled = false;
+        }
+
+        private void lbxServiciosEliminar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Servicios s = (Servicios)lbxServiciosEliminar.SelectedItem;
+
+            if (s == null) return;
+
+            lbxTrazasAsociadasEliminar.Items.Clear();
+            List<Trazas_X_Servicios> trazaServiciosAsociados = context.Trazas_X_Servicios.Where(x => x.Id_Servicio == s.Id).ToList<Trazas_X_Servicios>();
+
+            foreach (Trazas_X_Servicios ts in trazaServiciosAsociados)
+                lbxTrazasAsociadasEliminar.Items.Add(ts.Trazas);
+        }
+
+        private void dgvRelacionesCrear_Leave(object sender, EventArgs e)
+        {
+            txtDistanciaRelacionCrear.Enabled = true;
+            txtVelocidadRelacionCrear.Enabled = true;
+            txtDistanciaRelacionCrear.Text = "";
+            txtVelocidadRelacionCrear.Text = "";
+            dgvRelacionesCrear.CurrentCell = dgvRelacionesCrear[0, 0];
+        }
+
+        private void dgvRelacionesMod_Leave(object sender, EventArgs e)
+        {
+            txtDistanciaRelacionMod.Enabled = true;
+            txtVelocidadRelacionMod.Enabled = true;
+            txtDistanciaRelacionMod.Text = "";
+            txtVelocidadRelacionMod.Text = "";
+            dgvRelacionesMod.CurrentCell = dgvRelacionesMod[0, 0];
         }
     }
 }
