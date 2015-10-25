@@ -116,40 +116,11 @@ namespace ffccSimulacion.Resultados
                 escenarioStr += ".";
                 doc.Add(new Paragraph(escenarioStr, FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.ITALIC)));
             }
-            //escenarioStr = "";
-            //foreach (var ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == idTraza))
-            //{
-            //    unServicio = context.Servicios.Where(y => y.Id == ts.Id_Servicio).FirstOrDefault();
-            //    doc.Add(new Paragraph("Estaciones", FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.BOLD)));
-            //    foreach (var r in context.Relaciones.Where(y => y.Id_Servicio == ts.Id_Servicio))
-            //    {
-            //        unaEstacion = context.Estaciones.Where(y => y.Id == r.Id_Estacion_Anterior).FirstOrDefault();
-            //        escenarioStr += unaEstacion.Nombre;
-            //        if (context.Estaciones_X_Incidentes.Any(x => x.Id_Estacion == unaEstacion.Id))
-            //        {
-            //            escenarioStr += " (";
-            //            foreach (var ei in context.Estaciones_X_Incidentes.Where(x => x.Id_Estacion == unaEstacion.Id))
-            //            {
-            //                escenarioStr += context.Incidentes.Where(y => y.Id == ei.Id_Incidente).FirstOrDefault().Nombre + ", ";
-            //            }
-            //            escenarioStr = escenarioStr.TrimEnd(charToTrim);
-            //            escenarioStr += ") ";
-            //        }
-            //        escenarioStr += ", ";
-            //    }
-            //}
-            //escenarioStr = escenarioStr.TrimEnd(charToTrim);
-            //escenarioStr += ".";
-            //doc.Add(new Paragraph(escenarioStr, FontFactory.GetFont("ARIAL", 10, iTextSharp.text.Font.ITALIC)));
             return doc;
         }
 
         private static Document generarEncabezado(Document doc, string nombreSimulacion, string fecha, string hora)
         {
-            /*
-             * TODO busar la imagen dinamicamente el origen del proyecto
-             */ 
-            
             string path = Application.StartupPath + "\\Resources\\logo.png";
             Image logo = Image.GetInstance(new Uri(path));
             logo.ScalePercent(30);
