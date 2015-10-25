@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlSimulador = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbxFormaciones = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lBoxSimServicios = new System.Windows.Forms.ListBox();
@@ -46,8 +48,6 @@
             this.tbSimFrecuencia = new System.Windows.Forms.TextBox();
             this.tbSimNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbxFormaciones = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.pnlSimulador.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,14 +75,36 @@
             this.pnlSimulador.Controls.Add(this.label1);
             this.pnlSimulador.Location = new System.Drawing.Point(12, 12);
             this.pnlSimulador.Name = "pnlSimulador";
-            this.pnlSimulador.Size = new System.Drawing.Size(891, 385);
+            this.pnlSimulador.Size = new System.Drawing.Size(1020, 385);
             this.pnlSimulador.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(777, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(196, 15);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Formaciones Asignadas a la Traza";
+            // 
+            // lbxFormaciones
+            // 
+            this.lbxFormaciones.DisplayMember = "NombreFormacion";
+            this.lbxFormaciones.Enabled = false;
+            this.lbxFormaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxFormaciones.FormattingEnabled = true;
+            this.lbxFormaciones.ItemHeight = 15;
+            this.lbxFormaciones.Location = new System.Drawing.Point(780, 21);
+            this.lbxFormaciones.Name = "lbxFormaciones";
+            this.lbxFormaciones.Size = new System.Drawing.Size(225, 289);
+            this.lbxFormaciones.TabIndex = 32;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(180, 243);
+            this.label7.Location = new System.Drawing.Point(180, 240);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 15);
             this.label7.TabIndex = 31;
@@ -92,7 +114,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(180, 160);
+            this.label6.Location = new System.Drawing.Point(180, 157);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 15);
             this.label6.TabIndex = 30;
@@ -105,10 +127,10 @@
             this.lBoxSimServicios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxSimServicios.FormattingEnabled = true;
             this.lBoxSimServicios.ItemHeight = 15;
-            this.lBoxSimServicios.Location = new System.Drawing.Point(480, 21);
+            this.lBoxSimServicios.Location = new System.Drawing.Point(528, 21);
             this.lBoxSimServicios.Name = "lBoxSimServicios";
             this.lBoxSimServicios.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lBoxSimServicios.Size = new System.Drawing.Size(170, 289);
+            this.lBoxSimServicios.Size = new System.Drawing.Size(225, 289);
             this.lBoxSimServicios.Sorted = true;
             this.lBoxSimServicios.TabIndex = 29;
             this.lBoxSimServicios.ValueMember = "Id";
@@ -138,9 +160,9 @@
             this.lBoxSimTrazas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lBoxSimTrazas.FormattingEnabled = true;
             this.lBoxSimTrazas.ItemHeight = 15;
-            this.lBoxSimTrazas.Location = new System.Drawing.Point(272, 21);
+            this.lBoxSimTrazas.Location = new System.Drawing.Point(272, 23);
             this.lBoxSimTrazas.Name = "lBoxSimTrazas";
-            this.lBoxSimTrazas.Size = new System.Drawing.Size(170, 289);
+            this.lBoxSimTrazas.Size = new System.Drawing.Size(225, 289);
             this.lBoxSimTrazas.Sorted = true;
             this.lBoxSimTrazas.TabIndex = 25;
             this.lBoxSimTrazas.ValueMember = "Id";
@@ -172,7 +194,7 @@
             // btnSimular
             // 
             this.btnSimular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSimular.Location = new System.Drawing.Point(666, 343);
+            this.btnSimular.Location = new System.Drawing.Point(783, 343);
             this.btnSimular.Name = "btnSimular";
             this.btnSimular.Size = new System.Drawing.Size(108, 35);
             this.btnSimular.TabIndex = 22;
@@ -183,7 +205,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(780, 343);
+            this.button2.Location = new System.Drawing.Point(897, 343);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 35);
             this.button2.TabIndex = 21;
@@ -216,7 +238,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(477, 5);
+            this.label3.Location = new System.Drawing.Point(525, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 15);
             this.label3.TabIndex = 15;
@@ -256,34 +278,15 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(22, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 15);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Nombre de la Simulación";
-            // 
-            // lbxFormaciones
-            // 
-            this.lbxFormaciones.DisplayMember = "NombreFormacion";
-            this.lbxFormaciones.Enabled = false;
-            this.lbxFormaciones.FormattingEnabled = true;
-            this.lbxFormaciones.Location = new System.Drawing.Point(685, 21);
-            this.lbxFormaciones.Name = "lbxFormaciones";
-            this.lbxFormaciones.Size = new System.Drawing.Size(170, 290);
-            this.lbxFormaciones.TabIndex = 32;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(682, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 13);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "Formaciones Asignadas a la Traza";
+            this.label1.Text = "Nombre";
             // 
             // frmRealizarSimulacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 405);
+            this.ClientSize = new System.Drawing.Size(1044, 405);
             this.Controls.Add(this.pnlSimulador);
             this.Name = "frmRealizarSimulacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
