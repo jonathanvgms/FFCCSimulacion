@@ -39,6 +39,8 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCrear = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtIncCreBuscar = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lstIncidenteCrear = new System.Windows.Forms.ListBox();
@@ -67,8 +69,6 @@
             this.btnEliminarIncidente = new System.Windows.Forms.Button();
             this.lstIncEli = new System.Windows.Forms.ListBox();
             this.pnlInicidente = new System.Windows.Forms.Panel();
-            this.txtIncCreBuscar = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabCrear.SuspendLayout();
             this.tabModificar.SuspendLayout();
@@ -227,10 +227,28 @@
             this.tabCrear.ToolTipText = "Crea un nuevo incidente que no aparezca en el listado";
             this.tabCrear.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(402, 32);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 15);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Buscar Incidente";
+            // 
+            // txtIncCreBuscar
+            // 
+            this.txtIncCreBuscar.Location = new System.Drawing.Point(506, 29);
+            this.txtIncCreBuscar.MaxLength = 99;
+            this.txtIncCreBuscar.Name = "txtIncCreBuscar";
+            this.txtIncCreBuscar.Size = new System.Drawing.Size(194, 21);
+            this.txtIncCreBuscar.TabIndex = 16;
+            this.txtIncCreBuscar.TextChanged += new System.EventHandler(this.buscarIncidente);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(539, 273);
+            this.label13.Location = new System.Drawing.Point(238, 272);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 15);
             this.label13.TabIndex = 15;
@@ -239,7 +257,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(539, 218);
+            this.label12.Location = new System.Drawing.Point(238, 217);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(18, 15);
             this.label12.TabIndex = 14;
@@ -251,17 +269,17 @@
             this.lstIncidenteCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIncidenteCrear.FormattingEnabled = true;
             this.lstIncidenteCrear.ItemHeight = 15;
-            this.lstIncidenteCrear.Location = new System.Drawing.Point(6, 53);
+            this.lstIncidenteCrear.Location = new System.Drawing.Point(405, 57);
             this.lstIncidenteCrear.Name = "lstIncidenteCrear";
             this.lstIncidenteCrear.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstIncidenteCrear.Size = new System.Drawing.Size(295, 274);
+            this.lstIncidenteCrear.Size = new System.Drawing.Size(295, 259);
             this.lstIncidenteCrear.Sorted = true;
             this.lstIncidenteCrear.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(324, 33);
+            this.label5.Location = new System.Drawing.Point(23, 32);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 3;
@@ -270,7 +288,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(324, 76);
+            this.label6.Location = new System.Drawing.Point(23, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 4;
@@ -279,7 +297,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(324, 208);
+            this.label7.Location = new System.Drawing.Point(23, 207);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 30);
             this.label7.TabIndex = 5;
@@ -288,7 +306,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(324, 264);
+            this.label8.Location = new System.Drawing.Point(23, 263);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 30);
             this.label8.TabIndex = 6;
@@ -296,7 +314,7 @@
             // 
             // txtbIncCreTiem
             // 
-            this.txtbIncCreTiem.Location = new System.Drawing.Point(420, 270);
+            this.txtbIncCreTiem.Location = new System.Drawing.Point(119, 269);
             this.txtbIncCreTiem.MaxLength = 9;
             this.txtbIncCreTiem.Name = "txtbIncCreTiem";
             this.txtbIncCreTiem.Size = new System.Drawing.Size(113, 21);
@@ -334,14 +352,14 @@
             "80",
             "90",
             "100"});
-            this.cbmIncCrePro.Location = new System.Drawing.Point(420, 215);
+            this.cbmIncCrePro.Location = new System.Drawing.Point(119, 214);
             this.cbmIncCrePro.Name = "cbmIncCrePro";
             this.cbmIncCrePro.Size = new System.Drawing.Size(113, 23);
             this.cbmIncCrePro.TabIndex = 7;
             // 
             // txtincCreDes
             // 
-            this.txtincCreDes.Location = new System.Drawing.Point(420, 73);
+            this.txtincCreDes.Location = new System.Drawing.Point(119, 72);
             this.txtincCreDes.MaxLength = 499;
             this.txtincCreDes.Multiline = true;
             this.txtincCreDes.Name = "txtincCreDes";
@@ -350,7 +368,7 @@
             // 
             // txtIncCreNom
             // 
-            this.txtIncCreNom.Location = new System.Drawing.Point(420, 30);
+            this.txtIncCreNom.Location = new System.Drawing.Point(119, 29);
             this.txtIncCreNom.MaxLength = 99;
             this.txtIncCreNom.Name = "txtIncCreNom";
             this.txtIncCreNom.Size = new System.Drawing.Size(260, 21);
@@ -543,24 +561,6 @@
             this.pnlInicidente.Name = "pnlInicidente";
             this.pnlInicidente.Size = new System.Drawing.Size(743, 429);
             this.pnlInicidente.TabIndex = 5;
-            // 
-            // txtIncCreBuscar
-            // 
-            this.txtIncCreBuscar.Location = new System.Drawing.Point(107, 27);
-            this.txtIncCreBuscar.MaxLength = 99;
-            this.txtIncCreBuscar.Name = "txtIncCreBuscar";
-            this.txtIncCreBuscar.Size = new System.Drawing.Size(194, 21);
-            this.txtIncCreBuscar.TabIndex = 16;
-            this.txtIncCreBuscar.TextChanged += new System.EventHandler(this.buscarIncidente);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 30);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 15);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Buscar Incidente";
             // 
             // frmABMIncidente
             // 

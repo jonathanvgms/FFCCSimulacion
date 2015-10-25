@@ -149,7 +149,7 @@
             // 
             // txtEstCreBuscar
             // 
-            this.txtEstCreBuscar.Location = new System.Drawing.Point(110, 28);
+            this.txtEstCreBuscar.Location = new System.Drawing.Point(820, 23);
             this.txtEstCreBuscar.MaxLength = 99;
             this.txtEstCreBuscar.Name = "txtEstCreBuscar";
             this.txtEstCreBuscar.Size = new System.Drawing.Size(190, 21);
@@ -159,7 +159,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(9, 31);
+            this.label18.Location = new System.Drawing.Point(719, 26);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(95, 15);
             this.label18.TabIndex = 25;
@@ -170,10 +170,10 @@
             this.lstCreEstaciones.DisplayMember = "Nombre";
             this.lstCreEstaciones.FormattingEnabled = true;
             this.lstCreEstaciones.ItemHeight = 15;
-            this.lstCreEstaciones.Location = new System.Drawing.Point(12, 59);
+            this.lstCreEstaciones.Location = new System.Drawing.Point(722, 54);
             this.lstCreEstaciones.Name = "lstCreEstaciones";
             this.lstCreEstaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstCreEstaciones.Size = new System.Drawing.Size(288, 349);
+            this.lstCreEstaciones.Size = new System.Drawing.Size(288, 334);
             this.lstCreEstaciones.Sorted = true;
             this.lstCreEstaciones.TabIndex = 24;
             // 
@@ -183,7 +183,7 @@
             this.cmbEstCreFdp.Items.AddRange(new object[] {
             "Normal",
             "Gamma"});
-            this.cmbEstCreFdp.Location = new System.Drawing.Point(494, 324);
+            this.cmbEstCreFdp.Location = new System.Drawing.Point(172, 308);
             this.cmbEstCreFdp.Name = "cmbEstCreFdp";
             this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 23);
             this.cmbEstCreFdp.TabIndex = 2;
@@ -191,7 +191,7 @@
             // clbIncidentes
             // 
             this.clbIncidentes.FormattingEnabled = true;
-            this.clbIncidentes.Location = new System.Drawing.Point(712, 47);
+            this.clbIncidentes.Location = new System.Drawing.Point(390, 33);
             this.clbIncidentes.Name = "clbIncidentes";
             this.clbIncidentes.Size = new System.Drawing.Size(301, 356);
             this.clbIncidentes.Sorted = true;
@@ -200,7 +200,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(352, 70);
+            this.label1.Location = new System.Drawing.Point(30, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 16;
@@ -209,7 +209,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(342, 327);
+            this.label3.Location = new System.Drawing.Point(20, 311);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 30);
             this.label3.TabIndex = 0;
@@ -223,7 +223,7 @@
             this.groupBox1.Controls.Add(this.txtEstCreMinimo);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(345, 135);
+            this.groupBox1.Location = new System.Drawing.Point(23, 119);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(317, 140);
             this.groupBox1.TabIndex = 17;
@@ -271,7 +271,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Maximo";
+            this.label4.Text = "Máximo";
             // 
             // label5
             // 
@@ -280,11 +280,11 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 15);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Minimo";
+            this.label5.Text = "Mínimo";
             // 
             // txtEstCreNombre
             // 
-            this.txtEstCreNombre.Location = new System.Drawing.Point(421, 67);
+            this.txtEstCreNombre.Location = new System.Drawing.Point(99, 51);
             this.txtEstCreNombre.MaxLength = 99;
             this.txtEstCreNombre.Name = "txtEstCreNombre";
             this.txtEstCreNombre.Size = new System.Drawing.Size(220, 21);
@@ -293,7 +293,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(709, 31);
+            this.label2.Location = new System.Drawing.Point(387, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 15);
             this.label2.TabIndex = 11;
@@ -453,7 +453,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Maximo";
+            this.label9.Text = "Máximo";
             // 
             // label10
             // 
@@ -462,7 +462,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 15);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Minimo";
+            this.label10.Text = "Mínimo";
             // 
             // txtEstModNombre
             // 

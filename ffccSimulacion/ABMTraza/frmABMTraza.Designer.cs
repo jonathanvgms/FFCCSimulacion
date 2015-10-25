@@ -67,24 +67,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(408, 23);
+            this.label1.Location = new System.Drawing.Point(19, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 15);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de Traza";
+            this.label1.Text = "Nombre";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(408, 53);
+            this.label2.Location = new System.Drawing.Point(16, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 15);
+            this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Servicios Disponibles";
+            this.label2.Text = "Servicios";
             // 
             // txtTraCreNombre
             // 
-            this.txtTraCreNombre.Location = new System.Drawing.Point(529, 20);
+            this.txtTraCreNombre.Location = new System.Drawing.Point(128, 15);
             this.txtTraCreNombre.MaxLength = 99;
             this.txtTraCreNombre.Name = "txtTraCreNombre";
             this.txtTraCreNombre.Size = new System.Drawing.Size(254, 21);
@@ -151,7 +151,7 @@
             // 
             // txtTraCreBuscar
             // 
-            this.txtTraCreBuscar.Location = new System.Drawing.Point(106, 23);
+            this.txtTraCreBuscar.Location = new System.Drawing.Point(517, 15);
             this.txtTraCreBuscar.MaxLength = 99;
             this.txtTraCreBuscar.Name = "txtTraCreBuscar";
             this.txtTraCreBuscar.Size = new System.Drawing.Size(277, 21);
@@ -163,7 +163,7 @@
             this.lstTraCreResultados.DisplayMember = "Nombre";
             this.lstTraCreResultados.FormattingEnabled = true;
             this.lstTraCreResultados.ItemHeight = 15;
-            this.lstTraCreResultados.Location = new System.Drawing.Point(10, 53);
+            this.lstTraCreResultados.Location = new System.Drawing.Point(421, 45);
             this.lstTraCreResultados.Name = "lstTraCreResultados";
             this.lstTraCreResultados.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lstTraCreResultados.Size = new System.Drawing.Size(373, 439);
@@ -173,7 +173,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 23);
+            this.label8.Location = new System.Drawing.Point(418, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 15);
             this.label8.TabIndex = 16;
@@ -182,7 +182,7 @@
             // clbTraCreServicios
             // 
             this.clbTraCreServicios.FormattingEnabled = true;
-            this.clbTraCreServicios.Location = new System.Drawing.Point(411, 69);
+            this.clbTraCreServicios.Location = new System.Drawing.Point(19, 61);
             this.clbTraCreServicios.Name = "clbTraCreServicios";
             this.clbTraCreServicios.Size = new System.Drawing.Size(372, 420);
             this.clbTraCreServicios.Sorted = true;
@@ -248,18 +248,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(409, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 15);
+            this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Nombre de Traza";
+            this.label4.Text = "Nombre";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(409, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 15);
+            this.label5.Size = new System.Drawing.Size(56, 15);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Servicios Disponibles";
+            this.label5.Text = "Servicios";
             // 
             // label3
             // 
