@@ -217,6 +217,12 @@
     </Compile>
     <Compile Include="Resultados\Informe.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Simulador\frmBarraProgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Simulador\frmBarraProgreso.Designer.cs">
+      <DependentUpon>frmBarraProgreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Simulador\frmBuscarSimulacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resultados\frmResultados.resx">
       <DependentUpon>frmResultados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Simulador\frmBarraProgreso.resx">
+      <DependentUpon>frmBarraProgreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Simulador\frmBuscarSimulacion.resx">
       <DependentUpon>frmBuscarSimulacion.cs</DependentUpon>
