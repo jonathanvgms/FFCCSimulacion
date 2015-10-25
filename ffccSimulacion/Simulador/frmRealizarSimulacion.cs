@@ -168,7 +168,7 @@ namespace ffccSimulacion.Simulador
             {
                 try
                 {
-                    if (simulacion == null)
+                    if (simulacion == null || simulacion.Id == 0)
                     {
                         simulacion = new Simulaciones();
 
