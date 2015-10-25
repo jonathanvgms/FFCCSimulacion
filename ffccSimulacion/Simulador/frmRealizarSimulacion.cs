@@ -228,7 +228,10 @@ namespace ffccSimulacion.Simulador
                     lBoxSimServicios.Items.Add(s);
 
                     foreach (Servicios_X_Formaciones sf in context.Servicios_X_Formaciones.Where(x => x.Id_Servicio == s.Id))
-                        lbxFormaciones.Items.Add(sf.Formaciones);
+                    {
+                        if (!lbxFormaciones.Items.Contains(sf.Formaciones))
+                            lbxFormaciones.Items.Add(sf.Formaciones);
+                    }
                 }
 
             }
