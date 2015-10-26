@@ -167,7 +167,7 @@ namespace ffccSimulacion.Simulador
             if (errorStr.Length == 0)
             {
                 try
-                {
+                {   /*si la simulacion es null o su id es igual a 0 quiere decir que la misma no existe en la bd*/
                     if (simulacion == null || simulacion.Id == 0)
                     {
                         simulacion = new Simulaciones();
