@@ -553,5 +553,29 @@ namespace ffccSimulacion.ABMServicio
             txtVelocidadRelacionMod.Text = "";
             dgvRelacionesMod.CurrentCell = dgvRelacionesMod[0, 0];
         }
+
+        private void seleccionarFormaciones(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabCrearServicio)
+            {
+                checkFormaciones(clbxFormacionesCrear);
+            }
+            else
+            {
+                checkFormaciones(clbxFormacionesMod);
+            }
+        }
+
+        private void checkFormaciones(CheckedListBox clb)
+        {
+            if (clb.GetItemChecked(clb.SelectedIndex))
+            {
+                clb.SetItemChecked(clb.SelectedIndex, false);
+            }
+            else
+            {
+                clb.SetItemChecked(clb.SelectedIndex, true);
+            }
+        }
     }
 }

@@ -497,5 +497,29 @@ namespace ffccSimulacion.ABMEstacion
             clbModIncidentes.Enabled = false;
             cmbEstModFdp.Enabled = false;
         }
+
+        private void seleccionarIncidentes(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == CrearEstacion)
+            {
+                checkIncidentes(clbIncidentes);
+            }
+            else
+            {
+                checkIncidentes(clbModIncidentes);
+            }
+        }
+
+        private void checkIncidentes(CheckedListBox clb)
+        {
+            if(clb.GetItemChecked(clb.SelectedIndex))
+            {
+                clb.SetItemChecked(clb.SelectedIndex, false);
+            }
+            else
+            {
+                clb.SetItemChecked(clb.SelectedIndex, true);
+            }
+        }
     }
 }
