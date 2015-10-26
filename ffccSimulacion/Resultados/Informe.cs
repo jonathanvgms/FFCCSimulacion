@@ -121,7 +121,9 @@ namespace ffccSimulacion.Resultados
 
         private static Document generarEncabezado(Document doc, string nombreSimulacion, string fecha, string hora)
         {
+            //TODO aun no funciona el path del logo
             string path = Application.StartupPath + "\\Resources\\logo.png";
+            //string path = "C:\\\\Resources\\logo.png";
             Image logo = Image.GetInstance(new Uri(path));
             logo.ScalePercent(30);
             logo.Alignment = Image.TEXTWRAP | Image.ALIGN_LEFT;
