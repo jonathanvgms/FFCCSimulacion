@@ -187,6 +187,7 @@
             this.clbTraCreServicios.Size = new System.Drawing.Size(372, 420);
             this.clbTraCreServicios.Sorted = true;
             this.clbTraCreServicios.TabIndex = 6;
+            this.clbTraCreServicios.SelectedIndexChanged += new System.EventHandler(this.seleccionarServicios);
             // 
             // tabModificarTraza
             // 
@@ -222,6 +223,7 @@
             this.clbTraModServicios.Size = new System.Drawing.Size(372, 404);
             this.clbTraModServicios.Sorted = true;
             this.clbTraModServicios.TabIndex = 14;
+            this.clbTraModServicios.SelectedIndexChanged += new System.EventHandler(this.seleccionarServicios);
             // 
             // lstTraModTrazas
             // 

@@ -381,6 +381,7 @@
             this.clbxFormacionesCrear.Name = "clbxFormacionesCrear";
             this.clbxFormacionesCrear.Size = new System.Drawing.Size(284, 420);
             this.clbxFormacionesCrear.TabIndex = 24;
+            this.clbxFormacionesCrear.SelectedIndexChanged += new System.EventHandler(this.seleccionarFormaciones);
             // 
             // label12
             // 
@@ -633,6 +634,7 @@
             this.clbxFormacionesMod.Size = new System.Drawing.Size(270, 356);
             this.clbxFormacionesMod.Sorted = true;
             this.clbxFormacionesMod.TabIndex = 11;
+            this.clbxFormacionesMod.SelectedIndexChanged += new System.EventHandler(this.seleccionarFormaciones);
             // 
             // label22
             // 

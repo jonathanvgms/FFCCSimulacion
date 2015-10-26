@@ -382,5 +382,29 @@ namespace ffccSimulacion.ABMTraza
                 context.Simulaciones.Where(x => x.Id_Traza == ((Trazas)lstTraEliTrazas.SelectedItem).Id).ToList().ForEach(y => lstTraEliSimulaciones.Items.Add(y));
             }
         }
+
+        private void seleccionarServicios(object sender, EventArgs e)
+        {
+            if (tclTraza.SelectedTab == tabCrearTraza)
+            {
+                checkServicios(clbTraCreServicios);
+            }
+            else
+            {
+                checkServicios(clbTraModServicios);
+            }
+        }
+
+        private void checkServicios(CheckedListBox clb)
+        {
+            if (clb.GetItemChecked(clb.SelectedIndex))
+            {
+                clb.SetItemChecked(clb.SelectedIndex, false);
+            }
+            else
+            {
+                clb.SetItemChecked(clb.SelectedIndex, true);
+            }
+        }
     }
 }

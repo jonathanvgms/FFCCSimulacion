@@ -196,6 +196,7 @@
             this.clbIncidentes.Size = new System.Drawing.Size(301, 356);
             this.clbIncidentes.Sorted = true;
             this.clbIncidentes.TabIndex = 19;
+            this.clbIncidentes.SelectedIndexChanged += new System.EventHandler(this.seleccionarIncidentes);
             // 
             // label1
             // 
@@ -366,6 +367,7 @@
             this.clbModIncidentes.Size = new System.Drawing.Size(301, 356);
             this.clbModIncidentes.Sorted = true;
             this.clbModIncidentes.TabIndex = 20;
+            this.clbModIncidentes.SelectedIndexChanged += new System.EventHandler(this.seleccionarIncidentes);
             // 
             // lstModEstaciones
             // 
