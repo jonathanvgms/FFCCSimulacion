@@ -364,17 +364,17 @@ namespace ffccSimulacion.ABMIncidente
 
         private void buscarIncidente(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab == tabModificar)
+            if (tabControl1.SelectedTab == tabCrear)
+            {
+                actualizarListado(txtIncCreBuscar, lstIncidenteCrear);
+            }
+            else if (tabControl1.SelectedTab == tabModificar)
             {
                 actualizarListado(txtIncModBuscar, lstIncMod);
             }
-            if (tabControl1.SelectedTab == tabEliminar)
-            {
-                actualizarListado(txtIncEliBuscar, lstIncEli);
-            }
             else
             {
-                actualizarListado(txtIncCreBuscar, lstIncidenteCrear);
+                actualizarListado(txtIncEliBuscar, lstIncEli);
             }
 
             limpiarFormulario();
