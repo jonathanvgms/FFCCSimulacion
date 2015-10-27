@@ -542,7 +542,8 @@ namespace ffccSimulacion.ABMServicio
             txtVelocidadRelacionCrear.Enabled = true;
             txtDistanciaRelacionCrear.Text = "";
             txtVelocidadRelacionCrear.Text = "";
-            dgvRelacionesCrear.CurrentCell = dgvRelacionesCrear[0, 0];
+            if (dgvRelacionesCrear.Rows.Count != 0)
+                dgvRelacionesCrear.CurrentCell = dgvRelacionesCrear[0, 0];
         }
 
         private void dgvRelacionesMod_Leave(object sender, EventArgs e)
@@ -551,7 +552,8 @@ namespace ffccSimulacion.ABMServicio
             txtVelocidadRelacionMod.Enabled = true;
             txtDistanciaRelacionMod.Text = "";
             txtVelocidadRelacionMod.Text = "";
-            dgvRelacionesMod.CurrentCell = dgvRelacionesMod[0, 0];
+            if (dgvRelacionesMod.Rows.Count != 0)
+                dgvRelacionesMod.CurrentCell = dgvRelacionesMod[0, 0];
         }
 
         private void seleccionarFormaciones(object sender, EventArgs e)
