@@ -121,12 +121,12 @@
     <value>Accesos Directos
 
 Ctrl + X = Simulación
-Ctrl + T = Trazas
-Ctrl + S = Servicios
-Ctrl + F = Formaciones
-Ctrl + C = Coches
-Ctrl + E = Estaciones
-Ctrl + I = Incidentes
+Ctrl + T = Traza
+Ctrl + S = Servicio
+Ctrl + F = Formación
+Ctrl + C = Coche
+Ctrl + E = Estación
+Ctrl + I = Incidente
 Ctrl + A = Ayuda
 Ctrl + Q = Salir
 
