@@ -244,6 +244,7 @@
             this.cbxEsParadaCrear.Size = new System.Drawing.Size(15, 14);
             this.cbxEsParadaCrear.TabIndex = 37;
             this.cbxEsParadaCrear.UseVisualStyleBackColor = true;
+            this.cbxEsParadaCrear.Visible = false;
             // 
             // label4
             // 
@@ -253,6 +254,7 @@
             this.label4.Size = new System.Drawing.Size(157, 15);
             this.label4.TabIndex = 36;
             this.label4.Text = "Estacion Destino es parada";
+            this.label4.Visible = false;
             // 
             // dgvRelacionesCrear
             // 
@@ -514,6 +516,7 @@
             this.cbxEsParadaMod.Size = new System.Drawing.Size(15, 14);
             this.cbxEsParadaMod.TabIndex = 43;
             this.cbxEsParadaMod.UseVisualStyleBackColor = true;
+            this.cbxEsParadaMod.Visible = false;
             // 
             // label5
             // 
@@ -523,6 +526,7 @@
             this.label5.Size = new System.Drawing.Size(157, 15);
             this.label5.TabIndex = 42;
             this.label5.Text = "Estacion Destino es parada";
+            this.label5.Visible = false;
             // 
             // dgvRelacionesMod
             // 
