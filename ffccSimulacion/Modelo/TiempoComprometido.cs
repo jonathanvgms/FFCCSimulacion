@@ -109,9 +109,13 @@ namespace ffccSimulacion.Modelo
                 //ATENCION DE UN SERVICIO
                 while (nodoActual != servicioActual.Hasta)
                 {
-                    Estaciones nodoSiguiente = servicioActual.proximoNodo(nodoActual); //Busco el siguiente nodo en el recorrido.
+                    //Estaciones nodoSiguiente = servicioActual.proximoNodo(nodoActual); //Busco el siguiente nodo en el recorrido.
+                    
+                    //Relaciones relacionSiguiente = servicioActual.relacionEntre(nodoActual, nodoSiguiente); //Obtengo el camino a recorrer hasta el proximo nodo.
 
-                    Relaciones relacionSiguiente = servicioActual.relacionEntre(nodoActual, nodoSiguiente); //Obtengo el camino a recorrer hasta el proximo nodo.
+                    Relaciones relacionSiguiente = servicioActual.Relaciones.Where(x => x.Id_Estacion_Anterior == nodoActual.Id).First();
+
+                    Estaciones nodoSiguiente = relacionSiguiente.Estaciones1;
 
                     distanciaTotalRecorrida += relacionSiguiente.Distancia;
 

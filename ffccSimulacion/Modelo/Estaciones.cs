@@ -19,8 +19,8 @@ namespace ffccSimulacion.Modelo
     
     public partial class Estaciones
     {
-        private List<Relaciones> _anteriores = new List<Relaciones>();
-        private List<Relaciones> _siguientes = new List<Relaciones>();
+        //private List<Relaciones> _anteriores = new List<Relaciones>();
+        //private List<Relaciones> _siguientes = new List<Relaciones>();
         private int _genteEsperando = 0;
         private int _ultimaAtencion = 0;
         private int _tiempoComprometido = 0;
@@ -64,15 +64,15 @@ namespace ffccSimulacion.Modelo
 
         public int PasajerosQueSubieronAlTren { get { return _pasajerosQueSubieronAlTren; } }
 
-        public List<Relaciones> RelacionesAnteriores
+        /*public List<Relaciones> RelacionesAnteriores
         {
             get { return _anteriores; }
-        }
+        }*/
 
-        public List<Relaciones> RelacionesSiguientes
+        /*public List<Relaciones> RelacionesSiguientes
         {
             get { return _siguientes; }
-        }
+        }*/
 
         public List<Incidentes> ListaIncidentes
         {
@@ -88,15 +88,15 @@ namespace ffccSimulacion.Modelo
             Estaciones_X_Incidentes.Add(ie);
         }
 
-        public void agregarRelacionAnterior(Relaciones relacion)
+        /*public void agregarRelacionAnterior(Relaciones relacion)
         {
             _anteriores.Add(relacion);
-        }
+        }*/
 
-        public void agregarRelacionSiguiente(Relaciones relacion)
+        /*public void agregarRelacionSiguiente(Relaciones relacion)
         {
             _siguientes.Add(relacion);
-        }
+        }*/
 
         /*Retorna cual fue el tiempo de atencion de la formacion*/
         public int atenderFormacion(Formaciones formacion, ref int tiempoLlegada)

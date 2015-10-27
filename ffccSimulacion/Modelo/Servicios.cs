@@ -59,12 +59,12 @@ namespace ffccSimulacion.Modelo
         }*/
 
         /*A partir de la lista de relaciones definidas para el servicio se configuran las distitnas estaciones*/
-        public void ConfigurarEstaciones()
+        /*public void ConfigurarEstaciones()
         {
             Relaciones r;
             Estaciones nodoRelacion;
 
-            /*Se cargan todas las relaciones siguientes de los nodos. Se recorre de atras para adelante*/
+            //Se cargan todas las relaciones siguientes de los nodos. Se recorre de atras para adelante
             Estaciones nodoActual = this.Desde;
             while (nodoActual != null)
             {
@@ -104,7 +104,7 @@ namespace ffccSimulacion.Modelo
                 else
                     nodoActual = null;
             }
-        }
+        }*/
 
         /*Dada una estacion retorna aquella relacion donde dicha estacion es la estacion anterior*/
         public Relaciones BuscarRelacionSiguiente(Estaciones n)
@@ -180,7 +180,7 @@ namespace ffccSimulacion.Modelo
         {
             this.Desde = BuscarEstacionDesde();
             this.Hasta = BuscarEstacionHasta();
-            ConfigurarEstaciones();
+            //ConfigurarEstaciones();
             CargarParadas();
             ConfigurarFormacionesDelServicio();
         }
@@ -252,7 +252,7 @@ namespace ffccSimulacion.Modelo
             throw new ApplicationException("No se encontró relacion entre nodos.");
         }
 
-        public Estaciones proximoNodo(Estaciones nodoActual)
+        /*public Estaciones proximoNodo(Estaciones nodoActual)
         {
             foreach (Relaciones proximaRelacion in nodoActual.RelacionesSiguientes)
             {
@@ -275,7 +275,7 @@ namespace ffccSimulacion.Modelo
                 }
             }
             throw new ApplicationException("Error de configuración de nodos del servicio.");
-        }
+        }*/
 
         public bool ServicioEsValido(List<Relaciones> sr)
         {
