@@ -185,7 +185,7 @@ namespace ffccSimulacion.ABMEstacion
 
                     deshabilitarModificar();
 
-                    MessageBox.Show("Las Modificaciones se guardaron con Exito.");
+                    MessageBox.Show("Las Modificaciones se guardaron exitosamente.");
                 }
                 catch (Exception exc)
                 {
