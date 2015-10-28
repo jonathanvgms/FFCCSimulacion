@@ -15,6 +15,10 @@ namespace ffccSimulacion.Resultados
     {
         ResultadoSimulacion resultadoSimulacion;
 
+        double valorAnteriortxtCostoEle = 0;
+
+        double valorAnteriortxtCostoDi = 0;
+
         public frmResultados(ResultadoSimulacion resSim)
         {
             InitializeComponent();
@@ -31,6 +35,10 @@ namespace ffccSimulacion.Resultados
             this.txtConsDiKm.Text = resultadoSimulacion.consumoDieselKm.ToString();
             this.txtConsElePas.Text = resultadoSimulacion.consumoElectricoPasajero.ToString();
             this.txtConsDiPas.Text = resultadoSimulacion.consumoDieselPasajero.ToString();
+
+            this.txtCostoEle.Text = "0";
+            this.txtCostoDi.Text = "0";
+
             
             this.Text = "Resultados De " + resultadoSimulacion.nombreSimulacion;
         }
@@ -53,14 +61,36 @@ namespace ffccSimulacion.Resultados
 
         private void txtCostoEle_TextChanged(object sender, EventArgs e)
         {
-            //TODO validar
-            this.txtCostPorKm.Text = (resultadoSimulacion.costoKm * Convert.ToDouble(this.txtCostoEle.Text)).ToString();
+            if (this.txtCostoEle.Text.Length > 0)
+            {
+                if (Util.EsDouble(this.txtCostoEle.Text))
+                {
+                    this.valorAnteriortxtCostoEle = Convert.ToDouble(this.txtCostoEle.Text);
+                    this.txtCostPorKm.Text = (resultadoSimulacion.costoKm * Convert.ToDouble(this.txtCostoEle.Text)).ToString();
+                }
+                else
+                {
+                    MessageBox.Show(lblCostoEle.Text + ": Incompleto ó Incorrecto.");
+                    this.txtCostoEle.Text = valorAnteriortxtCostoEle.ToString();
+                }
+            }
         }
 
         private void txtCostoDi_TextChanged(object sender, EventArgs e)
         {
-            //TODO validar
-            this.txtCostPorPasajero.Text = (resultadoSimulacion.costoPasajero * Convert.ToDouble(this.txtCostoDi.Text)).ToString();
+            if (this.txtCostoDi.Text.Length > 0)
+            {
+                if (Util.EsDouble(this.txtCostoDi.Text))
+                {
+                    this.valorAnteriortxtCostoDi = Convert.ToDouble(this.txtCostoDi.Text);
+                    this.txtCostPorPasajero.Text = (resultadoSimulacion.costoPasajero * Convert.ToDouble(this.txtCostoDi.Text)).ToString();
+                }
+                else
+                {
+                    MessageBox.Show(lblCostoDi.Text + ": Incompleto ó Incorrecto.");
+                    this.txtCostoDi.Text = valorAnteriortxtCostoDi.ToString();
+                }
+            }
         }
     }
 }

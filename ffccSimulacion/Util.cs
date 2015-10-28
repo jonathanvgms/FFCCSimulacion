@@ -64,5 +64,24 @@ namespace ffccSimulacion
 
             return false;
         }
+
+        static public bool EsDouble(string buffer)
+        {
+            if (buffer.Length == 0)
+            {
+                return false;
+            }
+
+            double number;
+
+            if (Double.TryParse(buffer, out number))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

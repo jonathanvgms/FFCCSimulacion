@@ -58,8 +58,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCostoDi = new System.Windows.Forms.TextBox();
             this.txtCostoEle = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblCostoDi = new System.Windows.Forms.Label();
+            this.lblCostoEle = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtConsDiKm = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -328,8 +328,8 @@
             // 
             this.groupBox1.Controls.Add(this.txtCostoDi);
             this.groupBox1.Controls.Add(this.txtCostoEle);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.lblCostoDi);
+            this.groupBox1.Controls.Add(this.lblCostoEle);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(497, 26);
             this.groupBox1.Name = "groupBox1";
@@ -354,23 +354,23 @@
             this.txtCostoEle.TabIndex = 1;
             this.txtCostoEle.TextChanged += new System.EventHandler(this.txtCostoEle_TextChanged);
             // 
-            // label18
+            // lblCostoDi
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 71);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(138, 15);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Costo de [unidad diesel]";
+            this.lblCostoDi.AutoSize = true;
+            this.lblCostoDi.Location = new System.Drawing.Point(6, 71);
+            this.lblCostoDi.Name = "lblCostoDi";
+            this.lblCostoDi.Size = new System.Drawing.Size(138, 15);
+            this.lblCostoDi.TabIndex = 0;
+            this.lblCostoDi.Text = "Costo de [unidad diesel]";
             // 
-            // label17
+            // lblCostoEle
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 27);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(151, 15);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Costo de [unidad electrico]";
+            this.lblCostoEle.AutoSize = true;
+            this.lblCostoEle.Location = new System.Drawing.Point(6, 27);
+            this.lblCostoEle.Name = "lblCostoEle";
+            this.lblCostoEle.Size = new System.Drawing.Size(151, 15);
+            this.lblCostoEle.TabIndex = 0;
+            this.lblCostoEle.Text = "Costo de [unidad electrico]";
             // 
             // label19
             // 
@@ -516,8 +516,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtCostoDi;
         private System.Windows.Forms.TextBox txtCostoEle;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblCostoDi;
+        private System.Windows.Forms.Label lblCostoEle;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txtConsDiKm;
         private System.Windows.Forms.Label label20;
