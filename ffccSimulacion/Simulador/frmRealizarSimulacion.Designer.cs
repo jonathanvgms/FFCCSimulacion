@@ -97,7 +97,9 @@
             this.lbxFormaciones.ItemHeight = 15;
             this.lbxFormaciones.Location = new System.Drawing.Point(780, 21);
             this.lbxFormaciones.Name = "lbxFormaciones";
+            this.lbxFormaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbxFormaciones.Size = new System.Drawing.Size(225, 289);
+            this.lbxFormaciones.Sorted = true;
             this.lbxFormaciones.TabIndex = 32;
             // 
             // label7
@@ -284,8 +286,10 @@
             // 
             // frmRealizarSimulacion
             // 
+            this.AcceptButton = this.btnSimular;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(1044, 405);
             this.Controls.Add(this.pnlSimulador);
             this.Name = "frmRealizarSimulacion";

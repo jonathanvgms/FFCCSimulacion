@@ -158,6 +158,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(1074, 546);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 25);
@@ -382,6 +383,7 @@
             this.clbxFormacionesCrear.Location = new System.Drawing.Point(826, 64);
             this.clbxFormacionesCrear.Name = "clbxFormacionesCrear";
             this.clbxFormacionesCrear.Size = new System.Drawing.Size(284, 420);
+            this.clbxFormacionesCrear.Sorted = true;
             this.clbxFormacionesCrear.TabIndex = 24;
             this.clbxFormacionesCrear.SelectedIndexChanged += new System.EventHandler(this.seleccionarFormaciones);
             // 
@@ -703,6 +705,7 @@
             this.lbxTrazasAsociadasEliminar.Location = new System.Drawing.Point(612, 26);
             this.lbxTrazasAsociadasEliminar.Name = "lbxTrazasAsociadasEliminar";
             this.lbxTrazasAsociadasEliminar.Size = new System.Drawing.Size(339, 454);
+            this.lbxTrazasAsociadasEliminar.Sorted = true;
             this.lbxTrazasAsociadasEliminar.TabIndex = 13;
             // 
             // btnBorrarServicio
@@ -732,6 +735,7 @@
             this.lbxServiciosEliminar.Location = new System.Drawing.Point(183, 28);
             this.lbxServiciosEliminar.Name = "lbxServiciosEliminar";
             this.lbxServiciosEliminar.Size = new System.Drawing.Size(321, 454);
+            this.lbxServiciosEliminar.Sorted = true;
             this.lbxServiciosEliminar.TabIndex = 10;
             this.lbxServiciosEliminar.SelectedIndexChanged += new System.EventHandler(this.lbxServiciosEliminar_SelectedIndexChanged);
             // 
@@ -749,8 +753,10 @@
             // 
             // frmABMServicio
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(1362, 732);
             this.Controls.Add(this.pnlServicio);
             this.Name = "frmABMServicio";

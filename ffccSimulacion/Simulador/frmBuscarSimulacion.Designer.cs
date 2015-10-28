@@ -45,6 +45,7 @@
             this.lBoxBuscSimList.Location = new System.Drawing.Point(3, 44);
             this.lBoxBuscSimList.Name = "lBoxBuscSimList";
             this.lBoxBuscSimList.Size = new System.Drawing.Size(405, 319);
+            this.lBoxBuscSimList.Sorted = true;
             this.lBoxBuscSimList.TabIndex = 1;
             this.lBoxBuscSimList.ValueMember = "Id";
             // 

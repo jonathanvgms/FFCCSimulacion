@@ -287,6 +287,7 @@
             // 
             // btnCocheNuevoCancelar
             // 
+            this.btnCocheNuevoCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCocheNuevoCancelar.Location = new System.Drawing.Point(720, 545);
             this.btnCocheNuevoCancelar.Name = "btnCocheNuevoCancelar";
             this.btnCocheNuevoCancelar.Size = new System.Drawing.Size(75, 28);
@@ -717,8 +718,10 @@
             // 
             // frmABMCoche
             // 
+            this.AcceptButton = this.btnCocheNuevoAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCocheNuevoCancelar;
             this.ClientSize = new System.Drawing.Size(855, 626);
             this.Controls.Add(this.pnlCoche);
             this.Name = "frmABMCoche";

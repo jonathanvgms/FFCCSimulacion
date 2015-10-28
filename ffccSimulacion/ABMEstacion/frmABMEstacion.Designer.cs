@@ -181,8 +181,7 @@
             // 
             this.cmbEstCreFdp.FormattingEnabled = true;
             this.cmbEstCreFdp.Items.AddRange(new object[] {
-            "Normal",
-            "Gamma"});
+            "Normal"});
             this.cmbEstCreFdp.Location = new System.Drawing.Point(172, 308);
             this.cmbEstCreFdp.Name = "cmbEstCreFdp";
             this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 23);
@@ -352,8 +351,7 @@
             // 
             this.cmbEstModFdp.FormattingEnabled = true;
             this.cmbEstModFdp.Items.AddRange(new object[] {
-            "Normal",
-            "Gamma"});
+            "Normal"});
             this.cmbEstModFdp.Location = new System.Drawing.Point(499, 324);
             this.cmbEstModFdp.Name = "cmbEstModFdp";
             this.cmbEstModFdp.Size = new System.Drawing.Size(145, 23);
@@ -567,8 +565,10 @@
             // 
             // frmABMEstacion
             // 
+            this.AcceptButton = this.btnEstAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnEstCancelar;
             this.ClientSize = new System.Drawing.Size(1082, 515);
             this.Controls.Add(this.pnlEstacion);
             this.Name = "frmABMEstacion";

@@ -102,6 +102,7 @@
             // 
             // btnTraCancelar
             // 
+            this.btnTraCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnTraCancelar.Location = new System.Drawing.Point(755, 549);
             this.btnTraCancelar.Name = "btnTraCancelar";
             this.btnTraCancelar.Size = new System.Drawing.Size(75, 27);
@@ -374,8 +375,10 @@
             // 
             // frmABMTraza
             // 
+            this.AcceptButton = this.btnTraAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnTraCancelar;
             this.ClientSize = new System.Drawing.Size(858, 609);
             this.Controls.Add(this.pnlTraza);
             this.Name = "frmABMTraza";

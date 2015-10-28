@@ -317,6 +317,7 @@
             this.lbxCochesFormacion.Location = new System.Drawing.Point(557, 72);
             this.lbxCochesFormacion.Name = "lbxCochesFormacion";
             this.lbxCochesFormacion.Size = new System.Drawing.Size(280, 364);
+            this.lbxCochesFormacion.Sorted = true;
             this.lbxCochesFormacion.TabIndex = 22;
             this.lbxCochesFormacion.SelectedIndexChanged += new System.EventHandler(this.lbxCochesFormacion_SelectedIndexChanged);
             // 
@@ -328,6 +329,7 @@
             this.lbxCochesExistentes.Location = new System.Drawing.Point(17, 72);
             this.lbxCochesExistentes.Name = "lbxCochesExistentes";
             this.lbxCochesExistentes.Size = new System.Drawing.Size(280, 364);
+            this.lbxCochesExistentes.Sorted = true;
             this.lbxCochesExistentes.TabIndex = 21;
             this.lbxCochesExistentes.SelectedIndexChanged += new System.EventHandler(this.lbxCochesExistentes_SelectedIndexChanged);
             // 
@@ -553,6 +555,7 @@
             this.lbxCochesFormacionMod.Location = new System.Drawing.Point(874, 74);
             this.lbxCochesFormacionMod.Name = "lbxCochesFormacionMod";
             this.lbxCochesFormacionMod.Size = new System.Drawing.Size(280, 274);
+            this.lbxCochesFormacionMod.Sorted = true;
             this.lbxCochesFormacionMod.TabIndex = 38;
             this.lbxCochesFormacionMod.SelectedIndexChanged += new System.EventHandler(this.lbxCochesFormacionMod_SelectedIndexChanged);
             // 
@@ -564,6 +567,7 @@
             this.lbxCochesExistentesMod.Location = new System.Drawing.Point(376, 74);
             this.lbxCochesExistentesMod.Name = "lbxCochesExistentesMod";
             this.lbxCochesExistentesMod.Size = new System.Drawing.Size(280, 274);
+            this.lbxCochesExistentesMod.Sorted = true;
             this.lbxCochesExistentesMod.TabIndex = 37;
             this.lbxCochesExistentesMod.SelectedIndexChanged += new System.EventHandler(this.lbxCochesExistentesMod_SelectedIndexChanged);
             // 
@@ -584,6 +588,7 @@
             this.lbxFormacionesModificar.Location = new System.Drawing.Point(16, 35);
             this.lbxFormacionesModificar.Name = "lbxFormacionesModificar";
             this.lbxFormacionesModificar.Size = new System.Drawing.Size(324, 409);
+            this.lbxFormacionesModificar.Sorted = true;
             this.lbxFormacionesModificar.TabIndex = 17;
             this.lbxFormacionesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesModificar_SelectedIndexChanged);
             // 
@@ -628,7 +633,9 @@
             this.lbxServiciosAsociadosEliminar.ItemHeight = 15;
             this.lbxServiciosAsociadosEliminar.Location = new System.Drawing.Point(647, 55);
             this.lbxServiciosAsociadosEliminar.Name = "lbxServiciosAsociadosEliminar";
+            this.lbxServiciosAsociadosEliminar.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbxServiciosAsociadosEliminar.Size = new System.Drawing.Size(325, 379);
+            this.lbxServiciosAsociadosEliminar.Sorted = true;
             this.lbxServiciosAsociadosEliminar.TabIndex = 22;
             // 
             // btnBorrarFormacion
@@ -649,6 +656,7 @@
             this.lbxFormacionesEliminar.Location = new System.Drawing.Point(192, 55);
             this.lbxFormacionesEliminar.Name = "lbxFormacionesEliminar";
             this.lbxFormacionesEliminar.Size = new System.Drawing.Size(324, 379);
+            this.lbxFormacionesEliminar.Sorted = true;
             this.lbxFormacionesEliminar.TabIndex = 20;
             this.lbxFormacionesEliminar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesEliminar_SelectedIndexChanged);
             // 
@@ -673,6 +681,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(1107, 508);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 28);
@@ -705,8 +714,10 @@
             // 
             // frmABMFormacion
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(1356, 737);
             this.Controls.Add(this.pnlFormacion);
             this.Name = "frmABMFormacion";

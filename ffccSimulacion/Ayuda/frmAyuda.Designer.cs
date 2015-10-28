@@ -31,14 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
             this.pnlAyuda = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAyudaCerrar = new System.Windows.Forms.Button();
             this.pnlAyuda.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlAyuda
             // 
             this.pnlAyuda.Controls.Add(this.label1);
-            this.pnlAyuda.Controls.Add(this.btnAyudaCerrar);
             this.pnlAyuda.Location = new System.Drawing.Point(1, 3);
             this.pnlAyuda.Name = "pnlAyuda";
             this.pnlAyuda.Size = new System.Drawing.Size(988, 500);
@@ -54,16 +52,6 @@
             this.label1.Size = new System.Drawing.Size(104, 182);
             this.label1.TabIndex = 2;
             this.label1.Text = resources.GetString("label1.Text");
-            // 
-            // btnAyudaCerrar
-            // 
-            this.btnAyudaCerrar.Location = new System.Drawing.Point(900, 467);
-            this.btnAyudaCerrar.Name = "btnAyudaCerrar";
-            this.btnAyudaCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnAyudaCerrar.TabIndex = 1;
-            this.btnAyudaCerrar.Text = "Cerrar";
-            this.btnAyudaCerrar.UseVisualStyleBackColor = true;
-            this.btnAyudaCerrar.Click += new System.EventHandler(this.btnAyudaCerrar_Click);
             // 
             // frmAyuda
             // 
@@ -81,7 +69,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnAyudaCerrar;
         public System.Windows.Forms.Panel pnlAyuda;
         private System.Windows.Forms.Label label1;
     }

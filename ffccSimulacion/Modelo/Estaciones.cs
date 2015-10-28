@@ -134,9 +134,9 @@ namespace ffccSimulacion.Modelo
                     _genteEsperando = Fdp.Normal(PersonasEsperandoMin, PersonasEsperandoMax);
                     break;
                 case 1:
-                    //calculo el delta en horas
-                    double horasDeEspera = ((double)(tiempoActual - _ultimaAtencion)) / 60;
-                    _genteEsperando = Fdp.Gamma(PersonasEsperandoMin, PersonasEsperandoMax, horasDeEspera);
+                    //TODO calculo el delta en horas
+                    //double horasDeEspera = ((double)(tiempoActual - _ultimaAtencion)) / 60;
+                    //_genteEsperando = Fdp.Gamma(PersonasEsperandoMin, PersonasEsperandoMax, horasDeEspera);
                     break;
                 case 2:
                     //TODO: Definir gente por minuto.
