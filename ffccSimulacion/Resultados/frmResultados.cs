@@ -30,7 +30,6 @@ namespace ffccSimulacion.Resultados
             this.txtPromPasaj.Text = resultadoSimulacion.promedioPasajeros.ToString();
             this.txtPromDem.Text = resultadoSimulacion.promedioDemoraAtencion.ToString();
             
-            this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
             this.txtConsEleKm.Text = resultadoSimulacion.consumoElectricoKm.ToString();
             this.txtConsDiKm.Text = resultadoSimulacion.consumoDieselKm.ToString();
             this.txtConsElePas.Text = resultadoSimulacion.consumoElectricoPasajero.ToString();
@@ -38,7 +37,6 @@ namespace ffccSimulacion.Resultados
 
             this.txtCostoEle.Text = "0";
             this.txtCostoDi.Text = "0";
-
             
             this.Text = "Resultados De " + resultadoSimulacion.nombreSimulacion;
         }
@@ -66,7 +64,7 @@ namespace ffccSimulacion.Resultados
                 if (Util.EsDouble(this.txtCostoEle.Text))
                 {
                     this.valorAnteriortxtCostoEle = Convert.ToDouble(this.txtCostoEle.Text);
-                    this.txtCostPorKm.Text = (resultadoSimulacion.costoKm * Convert.ToDouble(this.txtCostoEle.Text)).ToString();
+                    actualizarCostos();
                 }
                 else
                 {
@@ -83,7 +81,7 @@ namespace ffccSimulacion.Resultados
                 if (Util.EsDouble(this.txtCostoDi.Text))
                 {
                     this.valorAnteriortxtCostoDi = Convert.ToDouble(this.txtCostoDi.Text);
-                    this.txtCostPorPasajero.Text = (resultadoSimulacion.costoPasajero * Convert.ToDouble(this.txtCostoDi.Text)).ToString();
+                    actualizarCostos();
                 }
                 else
                 {
@@ -91,6 +89,18 @@ namespace ffccSimulacion.Resultados
                     this.txtCostoDi.Text = valorAnteriortxtCostoDi.ToString();
                 }
             }
+        }
+
+        private void actualizarCostos()
+        {
+            if ((this.txtCostoEle.Text.Length > 0) && (Util.EsDouble(this.txtCostoEle.Text)) && (this.txtCostoDi.Text.Length > 0) && (Util.EsDouble(this.txtCostoDi.Text)))
+            {
+                resultadoSimulacion.costoKm = (double)resultadoSimulacion.consumoElectricoKm * Convert.ToDouble(this.txtCostoEle.Text) + (double)resultadoSimulacion.consumoDieselKm * Convert.ToDouble(this.txtCostoDi.Text);
+                resultadoSimulacion.costoPasajero = (double)resultadoSimulacion.consumoElectricoPasajero * Convert.ToDouble(this.txtCostoEle.Text) + (double)resultadoSimulacion.consumoDieselPasajero * Convert.ToDouble(this.txtCostoDi.Text);
+                this.txtCostPorKm.Text = resultadoSimulacion.costoKm.ToString();
+                this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
+            }
+            
         }
     }
 }

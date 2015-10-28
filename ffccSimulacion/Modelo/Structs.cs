@@ -32,8 +32,6 @@ namespace ffccSimulacion.Modelo
         public int id_formacion;
         public string nombreFormacion;
         public int distanciaTotalRecorrida;
-        //public int consumoMovimiento;
-        //public int consumoParado;
         public int pasajerosTotalesTransportados;
         public int vecesSuperoCapLegal;
         public int vecesNoHabiaPasajerosParados;

@@ -298,21 +298,15 @@ namespace ffccSimulacion.Simulador
             {
                 if (resultadoFormacion.vecesSuperoCapLegal > 0)
                 {
+                    //Si esta formacion en su recorrido supero la capacidad legal, se incrementa el contador.
                     resultadoSimulacion.porcentajeSobrecarga++;
                 }
+
+                //Por ahora los promedios son acumuladores, luego se dividen por los totales.
                 resultadoSimulacion.promedioDemoraIncidentes += resultadoFormacion.tiempoTotalDemoradoIncidente;
                 resultadoSimulacion.promedioPasajeros += resultadoFormacion.pasajerosTotalesTransportados;
                 resultadoSimulacion.promedioDemoraAtencion += resultadoFormacion.tiempoTotalDemoradoAtencion;
-                //int consumoTotal = resultadoFormacion.consumoMovimiento * resultadoFormacion.tiempoTotalEnMovimiento + resultadoFormacion.consumoParado * (resultadoFormacion.tiempoTotalDemoradoIncidente + resultadoFormacion.tiempoTotalDemoradoAtencion);
-                //resultadoSimulacion.costoKm = (double) consumoTotal / (double) resultadoFormacion.distanciaTotalRecorrida;
-                //resultadoSimulacion.costoPasajero = (double) consumoTotal / (double) resultadoFormacion.pasajerosTotalesTransportados;
-                /* TODO resultados de consumo
-                 * No veo la diferencia entre costo y consumo
-                 * Creo que el consumo directamente lo podriamos poner en $ siempre, no dividir entre electrico y gasoil.
-                 * Sino tendriamos que tener en algun lado el pasaje de electricidad y gasoil a $.
-                 * 
-                 * Y necesito que se guarde en la estructura ResultadoFormacion el consumo en movimiento y parado de la formacion.
-                 */
+                
                 totalKm += resultadoFormacion.distanciaTotalRecorrida;
                 totalPasajeros += resultadoFormacion.pasajerosTotalesTransportados;
                 foreach (Formaciones_X_Coches formacion_coche in context.Formaciones_X_Coches.Where(x => x.Id_Formacion == resultadoFormacion.id_formacion))
@@ -322,34 +316,35 @@ namespace ffccSimulacion.Simulador
                     
                     if (coche.EsLocomotora == 1)
                     {
-                        /*TODO No se porque rompe esto
-                        if (coche.TipoConsumo == TipoConsumo.Electrico)
+                        /*TODO No se porque rompe esto*/
+                        if (coche.TipoConsumo == (int)TipoConsumo.Electrico)
                         {
-                            resultadoSimulacion.consumoElectricoKm += coche.ConsumoMovimiento * resultadoFormacion.tiempoTotalEnMovimiento + coche.ConsumoParado * (resultadoFormacion.tiempoTotalDemoradoAtencion + resultadoFormacion.tiempoTotalDemoradoIncidente);
+                            resultadoSimulacion.consumoElectricoKm += (double)coche.ConsumoMovimiento * resultadoFormacion.tiempoTotalEnMovimiento + (double)coche.ConsumoParado * (resultadoFormacion.tiempoTotalDemoradoAtencion + resultadoFormacion.tiempoTotalDemoradoIncidente);
                         }
-                        else if (coche.TipoConsumo == TipoConsumo.Disel)
+                        else if (coche.TipoConsumo == (int)TipoConsumo.Disel)
                         {
-                            resultadoSimulacion.consumoDieselKm += coche.ConsumoMovimiento * resultadoFormacion.tiempoTotalEnMovimiento + coche.ConsumoParado * (resultadoFormacion.tiempoTotalDemoradoAtencion + resultadoFormacion.tiempoTotalDemoradoIncidente);
-                        }*/
+                            resultadoSimulacion.consumoDieselKm += (double)coche.ConsumoMovimiento * resultadoFormacion.tiempoTotalEnMovimiento + (double)coche.ConsumoParado * (resultadoFormacion.tiempoTotalDemoradoAtencion + resultadoFormacion.tiempoTotalDemoradoIncidente);
+                        }
                     }
                 }
             }
+
+            //Se terminan de calcular porcentajes y promedios.
             resultadoSimulacion.porcentajeSobrecarga = (double)resultadoSimulacion.porcentajeSobrecarga * 100 / (double) totalFormaciones;
             resultadoSimulacion.promedioDemoraIncidentes = (double)resultadoSimulacion.promedioDemoraIncidentes / (double) totalFormaciones;
             resultadoSimulacion.promedioPasajeros = (double)resultadoSimulacion.promedioPasajeros / (double)totalFormaciones;
             resultadoSimulacion.promedioDemoraAtencion = (double)resultadoSimulacion.promedioDemoraAtencion / (double) totalFormaciones;
 
-            resultadoSimulacion.consumoElectricoPasajero = resultadoSimulacion.consumoElectricoKm; //El consumo total electrico es el mismo, luego se calcula por km y por pasajero.
-            resultadoSimulacion.consumoDieselPasajero = resultadoSimulacion.consumoDieselKm; //El consumo total diesel es el mismo, luego se calcula por km y por pasajero.
+            //La acumulacion de consumo es igual para Km y Pasajeros, luego se divide por los totales correspondientes
+            resultadoSimulacion.consumoElectricoPasajero = resultadoSimulacion.consumoElectricoKm;
+            resultadoSimulacion.consumoDieselPasajero = resultadoSimulacion.consumoDieselKm;
 
+            //Se dividen los consumos por los totales de Km y Pasajeros
             resultadoSimulacion.consumoElectricoKm = (double) resultadoSimulacion.consumoElectricoKm / (double) totalKm;
             resultadoSimulacion.consumoDieselKm = (double)resultadoSimulacion.consumoDieselKm / (double)totalKm;
             resultadoSimulacion.consumoElectricoPasajero = (double)resultadoSimulacion.consumoElectricoPasajero / (double)totalPasajeros;
             resultadoSimulacion.consumoDieselPasajero = (double)resultadoSimulacion.consumoDieselPasajero / (double)totalPasajeros;
 
-            resultadoSimulacion.costoKm = resultadoSimulacion.consumoElectricoKm + resultadoSimulacion.consumoDieselKm;
-            resultadoSimulacion.costoPasajero = resultadoSimulacion.consumoElectricoPasajero + resultadoSimulacion.consumoDieselPasajero;
-            
             resultadoSimulacion.nombreSimulacion = tbSimNombre.Text;
 
             resultadoSimulacion.idTraza = ((Trazas)lBoxSimTrazas.SelectedItem).Id;
