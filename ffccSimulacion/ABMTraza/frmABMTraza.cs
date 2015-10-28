@@ -387,11 +387,17 @@ namespace ffccSimulacion.ABMTraza
         {
             if (tclTraza.SelectedTab == tabCrearTraza)
             {
-                checkServicios(clbTraCreServicios);
+                if (clbTraCreServicios.SelectedIndex > -1)
+                {
+                    checkServicios(clbTraCreServicios);
+                }
             }
             else
             {
-                checkServicios(clbTraModServicios);
+                if (clbTraModServicios.SelectedIndex > -1)
+                {
+                    checkServicios(clbTraModServicios);
+                }
             }
         }
 

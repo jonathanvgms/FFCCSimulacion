@@ -502,11 +502,17 @@ namespace ffccSimulacion.ABMEstacion
         {
             if (tabControl1.SelectedTab == CrearEstacion)
             {
-                checkIncidentes(clbIncidentes);
+                if (clbIncidentes.SelectedIndex > -1)
+                {
+                    checkIncidentes(clbIncidentes);
+                }
             }
             else
             {
-                checkIncidentes(clbModIncidentes);
+                if (clbModIncidentes.SelectedIndex > -1)
+                {
+                    checkIncidentes(clbModIncidentes);
+                }
             }
         }
 

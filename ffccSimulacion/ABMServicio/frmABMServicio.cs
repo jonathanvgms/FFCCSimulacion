@@ -560,11 +560,17 @@ namespace ffccSimulacion.ABMServicio
         {
             if (tabControl1.SelectedTab == tabCrearServicio)
             {
-                checkFormaciones(clbxFormacionesCrear);
+                if (clbxFormacionesCrear.SelectedIndex > -1)
+                {
+                    checkFormaciones(clbxFormacionesCrear);
+                }
             }
             else
             {
-                checkFormaciones(clbxFormacionesMod);
+                if (clbxFormacionesMod.SelectedIndex > -1)
+                {
+                    checkFormaciones(clbxFormacionesMod);
+                }
             }
         }
 
