@@ -150,7 +150,7 @@ namespace ffccSimulacion.ABMEstacion
             {
                 if (!verificarRangoPersonas(txtEstModMinimo, txtEstModMaximo))
                 {
-                    errorMsj += "Personas en Andén:\n\n1) El Mínimo debe ser menor que el Máximo\n2) El Rango de Personas debe ser: 0 a 999999999 (9 Cifras)";
+                    errorMsj += "Personas en Andén: El Mínimo debe ser menor que el Máximo";
                 }
             }
 
@@ -335,11 +335,13 @@ namespace ffccSimulacion.ABMEstacion
          */ 
         private bool verificarRangoPersonas(TextBox minimo, TextBox maximo)
         {
-            if (Convert.ToInt32(minimo.Text) < Convert.ToInt32(maximo.Text) + 1)
+            if ((Convert.ToInt32(minimo.Text) >= 0) && (Convert.ToInt32(maximo.Text) >= 1))
             {
-                return true;
+                if (Convert.ToInt32(minimo.Text) < Convert.ToInt32(maximo.Text))
+                {
+                    return true;
+                }
             }
-
             return false;
         }
 

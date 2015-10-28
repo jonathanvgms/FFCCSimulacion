@@ -66,6 +66,11 @@ namespace ffccSimulacion.Modelo
 
         private static double calcularDesvio(int minValue, int maxValue)
         {
+            if (maxValue == minValue + 1)
+            {
+                return 1;
+            }
+
             return (maxValue - minValue) / 2;
         }
 
