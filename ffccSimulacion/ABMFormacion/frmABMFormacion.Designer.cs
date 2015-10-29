@@ -486,6 +486,7 @@
             // 
             // txtCantidadCochesMod
             // 
+            this.txtCantidadCochesMod.Enabled = false;
             this.txtCantidadCochesMod.Location = new System.Drawing.Point(747, 156);
             this.txtCantidadCochesMod.MaxLength = 9;
             this.txtCantidadCochesMod.Name = "txtCantidadCochesMod";
@@ -512,6 +513,7 @@
             // 
             // txtNombreFormacionMod
             // 
+            this.txtNombreFormacionMod.Enabled = false;
             this.txtNombreFormacionMod.Location = new System.Drawing.Point(444, 26);
             this.txtNombreFormacionMod.MaxLength = 99;
             this.txtNombreFormacionMod.Name = "txtNombreFormacionMod";
@@ -550,6 +552,7 @@
             // lbxCochesFormacionMod
             // 
             this.lbxCochesFormacionMod.DisplayMember = "NombreCoche";
+            this.lbxCochesFormacionMod.Enabled = false;
             this.lbxCochesFormacionMod.FormattingEnabled = true;
             this.lbxCochesFormacionMod.ItemHeight = 15;
             this.lbxCochesFormacionMod.Location = new System.Drawing.Point(874, 74);
@@ -562,6 +565,7 @@
             // lbxCochesExistentesMod
             // 
             this.lbxCochesExistentesMod.DisplayMember = "Modelo";
+            this.lbxCochesExistentesMod.Enabled = false;
             this.lbxCochesExistentesMod.FormattingEnabled = true;
             this.lbxCochesExistentesMod.ItemHeight = 15;
             this.lbxCochesExistentesMod.Location = new System.Drawing.Point(376, 74);

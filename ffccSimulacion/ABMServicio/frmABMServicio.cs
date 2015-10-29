@@ -296,7 +296,7 @@ namespace ffccSimulacion.ABMServicio
                 LimpiarTabCrear();
 
             if (tabControl1.SelectedTab == tabModificarServicio)
-                LimpiarTabModificar();
+                LimpiarTabModificar(true);
         }
 
         private void seleccionarPestaña(object sender, TabControlEventArgs e)
@@ -318,8 +318,20 @@ namespace ffccSimulacion.ABMServicio
             }
         }
 
-        private void LimpiarTabModificar()
+        private void LimpiarTabModificar(bool inhabilitarControles = false)
         {
+            if (inhabilitarControles)
+            {
+                txtNombreServicioMod.Enabled = false;
+                lbxEstacionesOrigenMod.Enabled = false;
+                lbxEstacionesDestinoMod.Enabled = false;
+                dgvRelacionesMod.Enabled = false;
+                txtDistanciaRelacionMod.Enabled = false;
+                txtVelocidadRelacionMod.Enabled = false;
+                clbxFormacionesMod.Enabled = false;
+                lbxServiciosModificar.SelectedIndex = -1;
+            }
+
             cbxEsParadaMod.Checked = true;
             lbxEstacionesOrigenMod.SelectedIndex = -1;
             lbxEstacionesDestinoMod.SelectedIndex = -1;
@@ -331,12 +343,20 @@ namespace ffccSimulacion.ABMServicio
 
         private void lbxServiciosModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lbxServiciosModificar.SelectedItem == null)
+            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
+            if (servicioSeleccionado == null)
                 return;
+
+            txtNombreServicioMod.Enabled = true;
+            lbxEstacionesOrigenMod.Enabled = true;
+            lbxEstacionesDestinoMod.Enabled = true;
+            dgvRelacionesMod.Enabled = true;
+            txtDistanciaRelacionMod.Enabled = true;
+            txtVelocidadRelacionMod.Enabled = true;
+            clbxFormacionesMod.Enabled = true;
 
             LimpiarTabModificar();
 
-            Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
             List<Relaciones> listaOrdenadaRelaciones = this.OrdenarRelaciones(servicioSeleccionado.Relaciones.ToList<Relaciones>());
 
             //foreach (Relaciones r in servicioSeleccionado.Relaciones)

@@ -157,8 +157,8 @@
             "Diesel"});
             this.cbxTipoConsumoMod.FormattingEnabled = true;
             this.cbxTipoConsumoMod.Items.AddRange(new object[] {
-            "Electrico",
-            "Disel"});
+            "Eléctrico",
+            "Diesel"});
             this.cbxTipoConsumoMod.Location = new System.Drawing.Point(155, 44);
             this.cbxTipoConsumoMod.Name = "cbxTipoConsumoMod";
             this.cbxTipoConsumoMod.Size = new System.Drawing.Size(147, 23);
@@ -392,8 +392,8 @@
             "Diesel"});
             this.cbxTipoConsumo.FormattingEnabled = true;
             this.cbxTipoConsumo.Items.AddRange(new object[] {
-            "Electrico",
-            "Disel"});
+            "Eléctrico",
+            "Diesel"});
             this.cbxTipoConsumo.Location = new System.Drawing.Point(149, 44);
             this.cbxTipoConsumo.Name = "cbxTipoConsumo";
             this.cbxTipoConsumo.Size = new System.Drawing.Size(160, 23);

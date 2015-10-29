@@ -91,8 +91,16 @@ namespace ffccSimulacion.ABMFormacion
             RecalcularTotalesFormacion();
         }
 
-        private void LimpiarTabModificarFormacion()
+        private void LimpiarTabModificarFormacion(bool inhabilitarControles = false)
         {
+            if (inhabilitarControles)
+            {
+                txtNombreFormacionMod.Enabled = false;
+                lbxCochesExistentesMod.Enabled = false;
+                txtCantidadCochesMod.Enabled = false;
+                lbxCochesFormacionMod.Enabled = false;
+            }
+
             lbxFormacionesModificar.Items.Clear();
             lbxFormacionesEliminar.Items.Clear();
             CargarListasFormaciones();
@@ -101,7 +109,7 @@ namespace ffccSimulacion.ABMFormacion
             lbxCochesFormacionMod.Items.Clear();
             lbxCochesExistentesMod.SelectedIndex = -1;
             lbxFormacionesModificar.SelectedIndex = -1;
-            txtCantidadCochesMod.Enabled = true;
+            //txtCantidadCochesMod.Enabled = true;
             RecalcularTotalesFormacion();
         }
 
@@ -266,7 +274,7 @@ namespace ffccSimulacion.ABMFormacion
                 LimpiarTabCrearFormacion();
 
             if (tabControl1.SelectedTab == tabModificarFormacion)
-                LimpiarTabModificarFormacion();
+                LimpiarTabModificarFormacion(true);
         }
 
         private void lbxCochesFormacion_SelectedIndexChanged(object sender, EventArgs e)
@@ -327,6 +335,13 @@ namespace ffccSimulacion.ABMFormacion
         {
             if (lbxFormacionesModificar.SelectedIndex > -1)
             {
+                txtNombreFormacionMod.Enabled = true;
+                lbxCochesExistentesMod.Enabled = true;
+                txtCantidadCochesMod.Enabled = true;
+                lbxCochesFormacionMod.Enabled = true;
+
+                txtCantidadCochesMod.Text = "";
+
                 Formaciones unaFormacion = (Formaciones)lbxFormacionesModificar.SelectedItem;
                 txtNombreFormacionMod.Text = unaFormacion.NombreFormacion;
                 lbxCochesFormacionMod.Items.Clear();

@@ -111,6 +111,7 @@
             // 
             // txtNombreServicioMod
             // 
+            this.txtNombreServicioMod.Enabled = false;
             this.txtNombreServicioMod.Location = new System.Drawing.Point(362, 40);
             this.txtNombreServicioMod.MaxLength = 99;
             this.txtNombreServicioMod.Name = "txtNombreServicioMod";
@@ -540,6 +541,7 @@
             this.dataGridViewTextBoxColumn2,
             this.Id_EstacionOrigen,
             this.Id_EstacionDestino});
+            this.dgvRelacionesMod.Enabled = false;
             this.dgvRelacionesMod.Location = new System.Drawing.Point(599, 83);
             this.dgvRelacionesMod.MultiSelect = false;
             this.dgvRelacionesMod.Name = "dgvRelacionesMod";
@@ -578,6 +580,7 @@
             // 
             // txtVelocidadRelacionMod
             // 
+            this.txtVelocidadRelacionMod.Enabled = false;
             this.txtVelocidadRelacionMod.Location = new System.Drawing.Point(683, 424);
             this.txtVelocidadRelacionMod.MaxLength = 9;
             this.txtVelocidadRelacionMod.Name = "txtVelocidadRelacionMod";
@@ -586,6 +589,7 @@
             // 
             // txtDistanciaRelacionMod
             // 
+            this.txtDistanciaRelacionMod.Enabled = false;
             this.txtDistanciaRelacionMod.Location = new System.Drawing.Point(683, 395);
             this.txtDistanciaRelacionMod.MaxLength = 9;
             this.txtDistanciaRelacionMod.Name = "txtDistanciaRelacionMod";
@@ -595,6 +599,7 @@
             // lbxEstacionesDestinoMod
             // 
             this.lbxEstacionesDestinoMod.DisplayMember = "Nombre";
+            this.lbxEstacionesDestinoMod.Enabled = false;
             this.lbxEstacionesDestinoMod.FormattingEnabled = true;
             this.lbxEstacionesDestinoMod.ItemHeight = 15;
             this.lbxEstacionesDestinoMod.Location = new System.Drawing.Point(284, 278);
@@ -615,6 +620,7 @@
             // lbxEstacionesOrigenMod
             // 
             this.lbxEstacionesOrigenMod.DisplayMember = "Nombre";
+            this.lbxEstacionesOrigenMod.Enabled = false;
             this.lbxEstacionesOrigenMod.FormattingEnabled = true;
             this.lbxEstacionesOrigenMod.ItemHeight = 15;
             this.lbxEstacionesOrigenMod.Location = new System.Drawing.Point(284, 83);
@@ -634,6 +640,7 @@
             // 
             // clbxFormacionesMod
             // 
+            this.clbxFormacionesMod.Enabled = false;
             this.clbxFormacionesMod.FormattingEnabled = true;
             this.clbxFormacionesMod.Location = new System.Drawing.Point(852, 83);
             this.clbxFormacionesMod.Name = "clbxFormacionesMod";

@@ -308,9 +308,9 @@ namespace ffccSimulacion.ABMCoche
                     rdbLocomotoraSiMod.Checked = true;
 
                     if (unCoche.TipoConsumo == (int)TipoConsumo.Disel)
-                        cbxTipoConsumoMod.SelectedItem = "Disel";
+                        cbxTipoConsumoMod.SelectedItem = "Diesel";
                     else
-                        cbxTipoConsumoMod.SelectedItem = "Electrico";
+                        cbxTipoConsumoMod.SelectedItem = "Eléctrico";
 
                     txtConsumoMovimientoMod.Text = unCoche.ConsumoMovimiento.ToString();
                     txtConsumoParadoMod.Text = unCoche.ConsumoParado.ToString();
@@ -349,12 +349,12 @@ namespace ffccSimulacion.ABMCoche
 
         private void cbxTipoConsumo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxTipoConsumo.SelectedItem == "Disel")
+            if (cbxTipoConsumo.SelectedItem == "Diesel")
             {
                 lblConsumoMovCrear.Text = "(por km)";
                 lblConsumoParadoCrear.Text = "(por km)";
             }
-            else if (cbxTipoConsumo.SelectedItem == "Electrico")
+            else//Si no es diesel es electrico
             {
                 lblConsumoMovCrear.Text = "(por tiempo)";
                 lblConsumoParadoCrear.Text = "(por tiempo)";
@@ -363,12 +363,12 @@ namespace ffccSimulacion.ABMCoche
 
         private void cbxTipoConsumoMod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxTipoConsumoMod.SelectedItem == "Disel")
+            if (cbxTipoConsumoMod.SelectedItem == "Diesel")
             {
                 lblConsumoMovMod.Text = "(por km)";
                 lblConsumoParadoMod.Text = "(por km)";
             }
-            else if (cbxTipoConsumo.SelectedItem == "Electrico")
+            else//Si no es diesel es electrico
             {
                 lblConsumoMovMod.Text = "(por tiempo)";
                 lblConsumoParadoMod.Text = "(por tiempo)";
