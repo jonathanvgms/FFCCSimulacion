@@ -88,6 +88,8 @@ namespace ffccSimulacion.Simulador
             foreach (Trazas_X_Servicios ts in context.Trazas_X_Servicios.Where(x => x.Id_Traza == simulacion.Id_Traza))
                 lBoxSimServicios.Items.Add(ts.Servicios);
 
+            lBoxSimTrazas.SelectedIndex = 0;
+
             //List<Servicios> serviciosTraza = simulacion.Trazas.ServiciosDisponibles;
 
             //foreach (Servicios servicio in serviciosTraza)
