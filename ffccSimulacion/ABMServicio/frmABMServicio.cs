@@ -56,6 +56,34 @@ namespace ffccSimulacion.ABMServicio
             }
         }
 
+        private List<Relaciones> OrdenarRelaciones(List<Relaciones> listaDesaordenada)
+        {
+            List<Relaciones> listaOrdenada = new List<Relaciones>();
+            if (listaDesaordenada.Count == 0)
+                return listaOrdenada;
+            
+            Relaciones relacionActual = listaDesaordenada.First();
+            Estaciones estacionOrigen = new Estaciones();
+
+            //Primero busco cual es la estacion de inicio
+            while (relacionActual != null)
+            {
+                estacionOrigen = relacionActual.Estaciones;
+                relacionActual = listaDesaordenada.Where(x => x.Id_Estacion_Siguiente == relacionActual.Id_Estacion_Anterior).FirstOrDefault();
+            }
+
+            //Busco la primer relacion. Sera aquella que tenga como estacion anterior a la estacion origen
+            relacionActual = listaDesaordenada.Where(x => x.Id_Estacion_Anterior == estacionOrigen.Id).FirstOrDefault();
+
+            while(relacionActual!=null)
+            {
+                listaOrdenada.Add(relacionActual);
+                relacionActual = listaDesaordenada.Where(x => x.Id_Estacion_Anterior == relacionActual.Id_Estacion_Siguiente).FirstOrDefault();
+            }
+
+            return listaOrdenada;
+        }
+
         private void btnAgregarRelacionTabCrear_Click(object sender, EventArgs e)
         {
             string errorMsj = "";
@@ -309,8 +337,10 @@ namespace ffccSimulacion.ABMServicio
             LimpiarTabModificar();
 
             Servicios servicioSeleccionado = (Servicios)lbxServiciosModificar.SelectedItem;
+            List<Relaciones> listaOrdenadaRelaciones = this.OrdenarRelaciones(servicioSeleccionado.Relaciones.ToList<Relaciones>());
 
-            foreach (Relaciones r in servicioSeleccionado.Relaciones)
+            //foreach (Relaciones r in servicioSeleccionado.Relaciones)
+            foreach (Relaciones r in listaOrdenadaRelaciones)
                 dgvRelacionesMod.Rows.Add(r.Estaciones.Nombre, r.Estaciones1.Nombre, r.Estaciones.Id, r.Estaciones1.Id);
 
             //clbxFormacionesMod.CheckedItems = servicioSeleccionado.Servicios_X_Formaciones.Select(x => x.Formaciones);
@@ -401,6 +431,7 @@ namespace ffccSimulacion.ABMServicio
                 nuevaRelacion.Estaciones1 = estacionDestino;
 
                 servicioSeleccionado.Relaciones.Add(nuevaRelacion);
+
                 dgvRelacionesMod.Rows.Add(estacionOrigen.Nombre, estacionDestino.Nombre, estacionOrigen.Id, estacionDestino.Id);
                 txtDistanciaRelacionMod.Text = "";
                 txtVelocidadRelacionMod.Text = "";
