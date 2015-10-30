@@ -91,6 +91,7 @@ namespace ffccSimulacion.Resultados
             }
         }
 
+        //TODO costo electrico o diesel, o ambos ??
         private void actualizarCostos()
         {
             if ((this.txtCostoEle.Text.Length > 0) && (Util.EsDouble(this.txtCostoEle.Text)) && (this.txtCostoDi.Text.Length > 0) && (Util.EsDouble(this.txtCostoDi.Text)))
@@ -100,7 +101,6 @@ namespace ffccSimulacion.Resultados
                 this.txtCostPorKm.Text = resultadoSimulacion.costoKm.ToString();
                 this.txtCostPorPasajero.Text = resultadoSimulacion.costoPasajero.ToString();
             }
-            
         }
     }
 }

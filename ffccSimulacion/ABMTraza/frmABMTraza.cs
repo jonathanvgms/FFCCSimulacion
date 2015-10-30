@@ -48,7 +48,14 @@ namespace ffccSimulacion.ABMTraza
          */
         private void btnTraLimpiar_Click(object sender, EventArgs e)
         {
-            limpiarFormulario();
+            if (tclTraza.SelectedTab == tabCrearTraza)
+            {
+                limpiarFormularioCrear();
+            }
+            else
+            {
+                limpiarFormularioModificar();
+            }
         }
 
         /*
@@ -100,7 +107,11 @@ namespace ffccSimulacion.ABMTraza
 
             if(!Util.EsAlfaNumerico(txtTraCreNombre.Text))
             {
-                errorStr += "Nombre: Incompleto/Incorrecto\n";
+                errorStr += "Nombre: Incompleto ó Incorrecto\n";
+            }
+            if (clbTraCreServicios.CheckedItems.Count == 0)
+            {
+                errorStr += "La traza no tiene servicios seleccionados\n";
             }
 
             if (errorStr.Length == 0)
@@ -120,11 +131,11 @@ namespace ffccSimulacion.ABMTraza
 
                     context.SaveChanges();
 
-                    MessageBox.Show("Traza Guardada");
-
                     cargarTrazas();
 
-                    limpiarFormulario();
+                    limpiarFormularioCrear();
+
+                    MessageBox.Show("Traza Guardada");
                 }
                 catch (Exception exc)
                 {
@@ -149,6 +160,11 @@ namespace ffccSimulacion.ABMTraza
                 errorStr += "Nombre: Incompleto/Incorrecto\n";
             }
 
+            if (clbTraModServicios.CheckedItems.Count == 0)
+            {
+                errorStr += "La traza no tiene servicios seleccionados.\n";
+            }
+
             if (errorStr.Length == 0)
             {
                 try
@@ -168,15 +184,17 @@ namespace ffccSimulacion.ABMTraza
 
                     context.SaveChanges();
 
-                    MessageBox.Show("Traza Guardada");
+                    txtTraModBuscar.Clear();    
+
+                    MessageBox.Show("Las modificaciones han sido guardadas.");
 
                     cargarTrazas();
 
-                    limpiarFormulario();
+                    limpiarFormularioModificar();
                 }
                 catch(Exception exc)
                 {
-                    MessageBox.Show("Traza No Guardada\n\nError\n\n" + exc.Message);
+                    MessageBox.Show("Las modificaciones NO han sido guardadas.\n\nError\n\n" + exc.Message);
                 }
             }
             else
@@ -219,13 +237,21 @@ namespace ffccSimulacion.ABMTraza
 
                     cargarTrazas();
 
-                    limpiarFormulario();
+                    limpiarFormularioCrear();
+
+                    limpiarFormularioModificar();
+
+                    txtTraEliBuscar.Clear();
+
+                    txtTraCreBuscar.Clear();
+
+                    txtTraModBuscar.Clear();
 
                     MessageBox.Show("Traza Eliminada");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    MessageBox.Show("La traza No ha sido eliminada.\n\nError:\n\n" + exc.Message);
                 }
             }
             else
@@ -295,16 +321,24 @@ namespace ffccSimulacion.ABMTraza
             cargarServicios();
         }
 
-        private void limpiarFormulario()
+        private void limpiarFormularioCrear()
         {
             txtTraCreNombre.Clear();
 
-            txtTraModNombre.Clear();
+            txtTraCreBuscar.Clear();
 
             for (int i = 0; i < clbTraCreServicios.Items.Count; i++)
             {
                 clbTraCreServicios.SetItemChecked(i, false);
+            }
+        }
 
+        private void limpiarFormularioModificar()
+        {
+            txtTraCreNombre.Clear();
+
+            for (int i = 0; i < clbTraCreServicios.Items.Count; i++)
+            {
                 clbTraModServicios.SetItemChecked(i, false);
             }
         }
@@ -315,14 +349,16 @@ namespace ffccSimulacion.ABMTraza
             {
                 btnTraAceptar.Enabled = true;
                 btnTraLimpiar.Enabled = true;
+                limpiarFormularioCrear();
             }
-            if (tclTraza.SelectedTab == tabModificarTraza)
+            else if (tclTraza.SelectedTab == tabModificarTraza)
             {
                 btnTraAceptar.Enabled = true;
                 btnTraLimpiar.Enabled = true;
                 deshabilitarModificar();
+                limpiarFormularioModificar();
             }
-            if (tclTraza.SelectedTab == tabEliminarTraza)
+            else
             {
                 btnTraAceptar.Enabled = false;
                 btnTraLimpiar.Enabled = false;
@@ -341,7 +377,6 @@ namespace ffccSimulacion.ABMTraza
                 cargarTrazas();
             }
             deshabilitarModificar();
-            limpiarFormulario();
         }
 
         private void deshabilitarModificar()

@@ -48,7 +48,6 @@ namespace ffccSimulacion.ABMIncidente
             if(tabControl1.SelectedTab == tabCrear)
             {
                 tab_CrearIncidente();
-
             }
             else if (tabControl1.SelectedTab == tabModificar)
             {
@@ -61,7 +60,14 @@ namespace ffccSimulacion.ABMIncidente
          */
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            limpiarFormulario();
+            if (tabControl1.SelectedTab == tabCrear)
+            {
+                limpiarFormularioCrear();
+            }
+            else
+            {
+                limpiarFormularioModificar();
+            }
         }
 
         /*
@@ -136,7 +142,7 @@ namespace ffccSimulacion.ABMIncidente
 
                     cargarIncidentes();
 
-                    limpiarFormulario();
+                    limpiarFormularioCrear();
                     
                     txtIncEliBuscar.Clear();
 
@@ -213,13 +219,13 @@ namespace ffccSimulacion.ABMIncidente
 
                     deshabilitarModificar();
 
-                    limpiarFormulario();
+                    limpiarFormularioModificar();
 
-                    MessageBox.Show("Las modificaciones han sido guardadas.");
+                    MessageBox.Show("Las modificaciones se guardaron exitosamente.");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Incidente No Guardado\n\nError\n\n" + exc.Message);
+                    MessageBox.Show("Las modificaciones NO han sido guardadas.\n\nError\n\n" + exc.Message);
                 }
             }
             else
@@ -259,7 +265,9 @@ namespace ffccSimulacion.ABMIncidente
 
                     cargarIncidentes();
 
-                    limpiarFormulario();
+                    limpiarFormularioCrear();
+
+                    limpiarFormularioModificar();
 
                     txtIncEliBuscar.Clear();
 
@@ -304,7 +312,7 @@ namespace ffccSimulacion.ABMIncidente
         /*
          * Limpiar los TextBox y CheckBoxList de Crear Incidente y Modificar Incidente
          */ 
-        private void limpiarFormulario()
+        private void limpiarFormularioCrear()
         {
             txtIncCreNom.Clear();
 
@@ -314,6 +322,12 @@ namespace ffccSimulacion.ABMIncidente
 
             cbmIncCrePro.SelectedIndex = 0;
 
+            txtIncCreBuscar.Clear();
+        }
+
+
+        private void limpiarFormularioModificar()
+        {            
             txtModNombre.Clear();
 
             txtModDem.Clear();
@@ -322,7 +336,7 @@ namespace ffccSimulacion.ABMIncidente
 
             cmbModProb.SelectedIndex = 0;
         }
-        
+
         /*
          * verifica que el rango sea de hasta 9 cifras
          */ 
@@ -345,7 +359,7 @@ namespace ffccSimulacion.ABMIncidente
                 btnLimpiar.Enabled = true;
                 btnAceptar.Enabled = true;
                 deshabilitarModificar();
-                limpiarFormulario();
+                limpiarFormularioCrear();
             }
             else if (tabControl1.SelectedTab == tabModificar)
             {
@@ -357,7 +371,7 @@ namespace ffccSimulacion.ABMIncidente
                 btnLimpiar.Enabled = false;
                 btnAceptar.Enabled = false;
                 deshabilitarModificar();
-                limpiarFormulario();
+                limpiarFormularioModificar();
                 lstIncMod.SelectedIndex = -1;
             }
         }
@@ -371,13 +385,12 @@ namespace ffccSimulacion.ABMIncidente
             else if (tabControl1.SelectedTab == tabModificar)
             {
                 actualizarListado(txtIncModBuscar, lstIncMod);
+                limpiarFormularioModificar();
             }
             else
             {
                 actualizarListado(txtIncEliBuscar, lstIncEli);
             }
-
-            limpiarFormulario();
         }
 
         private void actualizarListado(TextBox txtBuscar, ListBox resultado)
@@ -391,7 +404,6 @@ namespace ffccSimulacion.ABMIncidente
             {
                 cargarIncidentes();
             }
-            limpiarFormulario();
             deshabilitarModificar();
         }
 

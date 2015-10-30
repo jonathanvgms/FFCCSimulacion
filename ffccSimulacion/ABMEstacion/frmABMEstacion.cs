@@ -78,7 +78,14 @@ namespace ffccSimulacion.ABMEstacion
          */
         private void btnEstLimpiar_Click(object sender, EventArgs e)
         {
-            limpiarFormulario();
+            if (tabControl1.SelectedTab == CrearEstacion)
+            {
+                limpiarFormularioCrear();
+            }
+            else
+            {
+                limpiarFormularioModificar();
+            }
         }
 
         /*
@@ -181,15 +188,15 @@ namespace ffccSimulacion.ABMEstacion
 
                     cargarEstaciones();
 
-                    limpiarFormulario();
+                    limpiarFormularioModificar();
 
                     deshabilitarModificar();
 
-                    MessageBox.Show("Las Modificaciones se guardaron exitosamente.");
+                    MessageBox.Show("Las modificaciones se guardaron exitosamente.");
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Estación No Guardada\n\nError\n\n" + exc.Message);
+                    MessageBox.Show("Las modificaciones NO han sido guardadas.\n\nError\n\n" + exc.Message);
                 }
             }
             else
@@ -265,7 +272,7 @@ namespace ffccSimulacion.ABMEstacion
 
                     cargarEstaciones();
 
-                    limpiarFormulario();
+                    limpiarFormularioCrear();
 
                     MessageBox.Show("Estación Guardada");
                 }
@@ -380,7 +387,7 @@ namespace ffccSimulacion.ABMEstacion
         /*
          * Metodo que limpia los formularios 'Crear Estacion' y 'Modificar Estacion'
          */
-        private void limpiarFormulario()
+        private void limpiarFormularioCrear()
         {
             txtEstCreNombre.Clear();
 
@@ -388,20 +395,29 @@ namespace ffccSimulacion.ABMEstacion
 
             txtEstCreMaximo.Clear();
 
+            cmbEstCreFdp.SelectedIndex = 0;
+
+            for (int i = 0; i < clbModIncidentes.Items.Count; i++)
+            {
+                clbIncidentes.SetItemChecked(i, false);
+            }
+
+            txtEstCreBuscar.Clear();
+        }
+
+        private void limpiarFormularioModificar()
+        {
+
             txtEstModMaximo.Clear();
 
             txtEstModMinimo.Clear();
 
             txtEstModNombre.Clear();
 
-            cmbEstCreFdp.SelectedIndex = 0;
-
             cmbEstModFdp.SelectedIndex = 0;
 
             for (int i = 0; i < clbModIncidentes.Items.Count; i++)
             {
-                clbIncidentes.SetItemChecked(i, false);
-
                 clbModIncidentes.SetItemChecked(i, false);
             }
         }
@@ -413,14 +429,14 @@ namespace ffccSimulacion.ABMEstacion
                 btnEstAceptar.Enabled = true;
                 btnEstLimpiar.Enabled = true;
                 deshabilitarModificar();
-                limpiarFormulario();
+                limpiarFormularioCrear();
             }
             else if (tabControl1.SelectedTab == ModificarEstacion)
             {
                 btnEstAceptar.Enabled = true;
                 btnEstLimpiar.Enabled = true;
                 txtEstacionesModBuscar.Clear();
-                limpiarFormulario();
+                limpiarFormularioModificar();
                 lstModEstaciones.SelectedIndex = -1;
             }
             else
@@ -442,6 +458,7 @@ namespace ffccSimulacion.ABMEstacion
             else if (tabControl1.SelectedTab == ModificarEstacion)
             {
                 actualizarEstaciones(txtEstacionesModBuscar, lstModEstaciones);
+                limpiarFormularioModificar();
             }
             else
             {
@@ -460,7 +477,6 @@ namespace ffccSimulacion.ABMEstacion
             {
                 cargarEstaciones();
             }
-            limpiarFormulario();
             deshabilitarModificar();
         }
 

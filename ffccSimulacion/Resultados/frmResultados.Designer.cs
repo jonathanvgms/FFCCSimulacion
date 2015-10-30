@@ -66,6 +66,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtConsEleKm = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -300,9 +302,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(850, 250);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(30, 15);
+            this.label14.Size = new System.Drawing.Size(24, 15);
             this.label14.TabIndex = 27;
-            this.label14.Text = "[UE]";
+            this.label14.Text = "Kw";
             // 
             // label15
             // 
@@ -310,9 +312,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(850, 287);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(31, 15);
+            this.label15.Size = new System.Drawing.Size(23, 15);
             this.label15.TabIndex = 26;
-            this.label15.Text = "[UD]";
+            this.label15.Text = "Lts";
             // 
             // label16
             // 
@@ -326,6 +328,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.txtCostoDi);
             this.groupBox1.Controls.Add(this.txtCostoEle);
             this.groupBox1.Controls.Add(this.lblCostoDi);
@@ -340,7 +344,7 @@
             // 
             // txtCostoDi
             // 
-            this.txtCostoDi.Location = new System.Drawing.Point(180, 68);
+            this.txtCostoDi.Location = new System.Drawing.Point(96, 68);
             this.txtCostoDi.Name = "txtCostoDi";
             this.txtCostoDi.Size = new System.Drawing.Size(100, 21);
             this.txtCostoDi.TabIndex = 1;
@@ -348,7 +352,7 @@
             // 
             // txtCostoEle
             // 
-            this.txtCostoEle.Location = new System.Drawing.Point(180, 24);
+            this.txtCostoEle.Location = new System.Drawing.Point(96, 24);
             this.txtCostoEle.Name = "txtCostoEle";
             this.txtCostoEle.Size = new System.Drawing.Size(100, 21);
             this.txtCostoEle.TabIndex = 1;
@@ -359,18 +363,18 @@
             this.lblCostoDi.AutoSize = true;
             this.lblCostoDi.Location = new System.Drawing.Point(6, 71);
             this.lblCostoDi.Name = "lblCostoDi";
-            this.lblCostoDi.Size = new System.Drawing.Size(138, 15);
+            this.lblCostoDi.Size = new System.Drawing.Size(42, 15);
             this.lblCostoDi.TabIndex = 0;
-            this.lblCostoDi.Text = "Costo de [unidad diesel]";
+            this.lblCostoDi.Text = "Diesel";
             // 
             // lblCostoEle
             // 
             this.lblCostoEle.AutoSize = true;
             this.lblCostoEle.Location = new System.Drawing.Point(6, 27);
             this.lblCostoEle.Name = "lblCostoEle";
-            this.lblCostoEle.Size = new System.Drawing.Size(151, 15);
+            this.lblCostoEle.Size = new System.Drawing.Size(54, 15);
             this.lblCostoEle.TabIndex = 0;
-            this.lblCostoEle.Text = "Costo de [unidad electrico]";
+            this.lblCostoEle.Text = "Eléctrico";
             // 
             // label19
             // 
@@ -397,9 +401,9 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(850, 212);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(31, 15);
+            this.label20.Size = new System.Drawing.Size(23, 15);
             this.label20.TabIndex = 27;
-            this.label20.Text = "[UD]";
+            this.label20.Text = "Lts";
             // 
             // label21
             // 
@@ -426,9 +430,27 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(850, 174);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(30, 15);
+            this.label22.Size = new System.Drawing.Size(24, 15);
             this.label22.TabIndex = 27;
-            this.label22.Text = "[UE]";
+            this.label22.Text = "Kw";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(202, 71);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(39, 15);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "$ / Lts";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(202, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(40, 15);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "$ / Kw";
             // 
             // frmResultados
             // 
@@ -524,5 +546,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txtConsEleKm;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

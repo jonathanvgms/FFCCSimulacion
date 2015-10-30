@@ -101,9 +101,10 @@ namespace ffccSimulacion.ABMCoche
 
                     context.Coches.Add(nuevoCoche);
                     context.SaveChanges();
-                    lbxCochesBorrar.Items.Add(nuevoCoche);
-                    lbxCochesModificar.Items.Add(nuevoCoche);
+                    //lbxCochesBorrar.Items.Add(nuevoCoche);
+                    //lbxCochesModificar.Items.Add(nuevoCoche);
                     LimpiarTabNuevoCoche();
+                    cargarCochesEnListas();
                     MessageBox.Show("Coche Guardado.");
                 }
                 catch (Exception exc)
@@ -169,8 +170,8 @@ namespace ffccSimulacion.ABMCoche
 
                     context.SaveChanges();
 
-                    lbxCochesModificar.Items.Clear();
-                    lbxCochesBorrar.Items.Clear();
+                    //lbxCochesModificar.Items.Clear();
+                    //lbxCochesBorrar.Items.Clear();
                     cargarCochesEnListas();
                     deshabilitarModificar();
                     MessageBox.Show("Las modificaciones se han guardado exitosamente.\n");
@@ -223,6 +224,7 @@ namespace ffccSimulacion.ABMCoche
             cbxTipoConsumo.Enabled = false;
             txtConsumoMov.Enabled = false;
             txtConsumoParado.Enabled = false;
+            txtCocheCreBuscar.Clear();
         }
 
         private void LimpiarTabModificarCoche()
@@ -281,8 +283,9 @@ namespace ffccSimulacion.ABMCoche
                     /*Se verifica que el coche no pertenezca a ninguna formacion antes de borrarlo*/
                     context.Coches.Remove(unCoche);
                     context.SaveChanges();
-                    lbxCochesBorrar.Items.Remove(unCoche);
-                    lbxCochesModificar.Items.Remove(unCoche);
+                    //lbxCochesBorrar.Items.Remove(unCoche);
+                    //lbxCochesModificar.Items.Remove(unCoche);
+                    cargarCochesEnListas();
                     MessageBox.Show("El Coche ha sido borrado");
                 }
                 catch (Exception exc)
@@ -410,13 +413,12 @@ namespace ffccSimulacion.ABMCoche
             else if (tabControl1.SelectedTab == tabModificar)
             {
                 actualizarCoche(txtCocheModBuscar, lbxCochesModificar);
+                LimpiarTabModificarCoche();
             }
             else
             {
                 actualizarCoche(txtCocheEliBuscar, lbxCochesBorrar);
             }
-            LimpiarTabModificarCoche();
-            LimpiarTabNuevoCoche();
         }
 
         private void actualizarCoche(TextBox buscarCoche, ListBox resultados)
@@ -430,8 +432,6 @@ namespace ffccSimulacion.ABMCoche
             {
                 cargarCochesEnListas();
             }
-            LimpiarTabModificarCoche();
-            LimpiarTabNuevoCoche();
             deshabilitarModificar();
         }
 
