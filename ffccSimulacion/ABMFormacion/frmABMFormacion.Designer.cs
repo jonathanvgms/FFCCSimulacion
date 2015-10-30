@@ -75,7 +75,6 @@
             this.lbxCochesFormacionMod = new System.Windows.Forms.ListBox();
             this.lbxCochesExistentesMod = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.lbxFormacionesModificar = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label23 = new System.Windows.Forms.Label();
@@ -87,6 +86,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pnlFormacion = new System.Windows.Forms.Panel();
+            this.lbxFormacionesModificar = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabCrearFormacion.SuspendLayout();
             this.tabModificarFormacion.SuspendLayout();
@@ -584,18 +584,6 @@
             this.label14.TabIndex = 36;
             this.label14.Text = "Coches Existentes";
             // 
-            // lbxFormacionesModificar
-            // 
-            this.lbxFormacionesModificar.DisplayMember = "NombreFormacion";
-            this.lbxFormacionesModificar.FormattingEnabled = true;
-            this.lbxFormacionesModificar.ItemHeight = 15;
-            this.lbxFormacionesModificar.Location = new System.Drawing.Point(16, 35);
-            this.lbxFormacionesModificar.Name = "lbxFormacionesModificar";
-            this.lbxFormacionesModificar.Size = new System.Drawing.Size(324, 409);
-            this.lbxFormacionesModificar.Sorted = true;
-            this.lbxFormacionesModificar.TabIndex = 17;
-            this.lbxFormacionesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesModificar_SelectedIndexChanged);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -716,6 +704,18 @@
             this.pnlFormacion.Size = new System.Drawing.Size(1193, 544);
             this.pnlFormacion.TabIndex = 4;
             // 
+            // lbxFormacionesModificar
+            // 
+            this.lbxFormacionesModificar.DisplayMember = "NombreFormacion";
+            this.lbxFormacionesModificar.FormattingEnabled = true;
+            this.lbxFormacionesModificar.ItemHeight = 15;
+            this.lbxFormacionesModificar.Location = new System.Drawing.Point(16, 35);
+            this.lbxFormacionesModificar.Name = "lbxFormacionesModificar";
+            this.lbxFormacionesModificar.Size = new System.Drawing.Size(324, 409);
+            this.lbxFormacionesModificar.Sorted = true;
+            this.lbxFormacionesModificar.TabIndex = 17;
+            this.lbxFormacionesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesModificar_SelectedIndexChanged);
+            // 
             // frmABMFormacion
             // 
             this.AcceptButton = this.btnAceptar;
@@ -751,7 +751,6 @@
         private System.Windows.Forms.ListBox lbxCochesExistentes;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabModificarFormacion;
-        private System.Windows.Forms.ListBox lbxFormacionesModificar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCancelar;
@@ -799,5 +798,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ListBox lbxServiciosAsociadosEliminar;
+        private System.Windows.Forms.ListBox lbxFormacionesModificar;
     }
 }

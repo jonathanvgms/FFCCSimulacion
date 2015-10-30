@@ -24,6 +24,8 @@ namespace ffccSimulacion.ABMFormacion
             auxCochesFormacion = new List<Formaciones_X_Coches>();
             CargarListasEstaciones();
             CargarListasFormaciones();
+            btnAgregarFormacion.Enabled = false;
+            btnBorrarCocheFormacion.Enabled = false;
         }
 
         private void CargarListasEstaciones()
@@ -290,6 +292,8 @@ namespace ffccSimulacion.ABMFormacion
             txtCantidadCoches.Text = "";
             txtCantidadCoches.Enabled = true;
             lbxCochesFormacion.SelectedIndex = -1;
+            btnAgregarFormacion.Enabled = true;
+            btnBorrarCocheFormacion.Enabled = true;
         }
 
         private void btnBorrarFormacion_Click(object sender, EventArgs e)
@@ -339,7 +343,7 @@ namespace ffccSimulacion.ABMFormacion
                 lbxCochesExistentesMod.Enabled = true;
                 txtCantidadCochesMod.Enabled = true;
                 lbxCochesFormacionMod.Enabled = true;
-
+                
                 txtCantidadCochesMod.Text = "";
 
                 Formaciones unaFormacion = (Formaciones)lbxFormacionesModificar.SelectedItem;
@@ -363,39 +367,52 @@ namespace ffccSimulacion.ABMFormacion
 
         private void lbxCochesExistentesMod_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbxCochesFormacionMod.SelectedIndex = -1;
-            txtCantidadCochesMod.Text = "";
-            txtCantidadCochesMod.Enabled = true;
+            if (lbxCochesExistentesMod.SelectedIndex > -1)
+            {
+                lbxCochesFormacionMod.SelectedIndex = -1;
+                txtCantidadCochesMod.Text = "";
+                txtCantidadCochesMod.Enabled = true;
+                btnAgregarCocheMod.Enabled = true;
+                btnEliminarCocheMod.Enabled = true;
+            }
         }
 
         private void btnAgregarCocheMod_Click(object sender, EventArgs e)
         {
-            string errorMsj = "";
-            Coches cocheSeleccionado = (Coches)lbxCochesExistentesMod.SelectedItem;
-            Formaciones formacionSeleccionada = (Formaciones)lbxFormacionesModificar.SelectedItem;
-            
-            if (formacionSeleccionada == null)
-                errorMsj += "No se seleccionó ninguna formación para ser modificada.\n";
-            if (cocheSeleccionado == null)
-                errorMsj += "No se seleccionó ningún coche para ser agregado.\n";
-            if (!Util.EsNumerico(txtCantidadCochesMod.Text))
-                errorMsj += "Cantidad de coches: Incompleto/Incorrecto.\n";
-            if (formacionSeleccionada.Formaciones_X_Coches.Where(x => x.Coches.Modelo == cocheSeleccionado.Modelo).Count() != 0)
-                errorMsj += "El coche ya pertenece a la formación.\n";
-            
-            if (string.IsNullOrEmpty(errorMsj))
+            if (lbxCochesExistentesMod.SelectedIndex > -1)
             {
-                Formaciones_X_Coches fc = new Formaciones_X_Coches();
-                fc.Coches = cocheSeleccionado;
-                fc.Id_Coche = cocheSeleccionado.Id;
-                fc.VecesRepetido = Convert.ToInt32(txtCantidadCochesMod.Text);
-                formacionSeleccionada.Formaciones_X_Coches.Add(fc);
-                lbxCochesFormacionMod.Items.Add(fc);
-                txtCantidadCochesMod.Text = "";
-                RecalcularTotalesFormacion();
+                string errorMsj = "";
+                Coches cocheSeleccionado = (Coches)lbxCochesExistentesMod.SelectedItem;
+                Formaciones formacionSeleccionada = (Formaciones)lbxFormacionesModificar.SelectedItem;
+
+                if (formacionSeleccionada == null)
+                    errorMsj += "No se seleccionó ninguna formación para ser modificada.\n";
+                if (cocheSeleccionado == null)
+                    errorMsj += "No se seleccionó ningún coche para ser agregado.\n";
+                if (!Util.EsNumerico(txtCantidadCochesMod.Text))
+                    errorMsj += "Cantidad de coches: Incompleto ó Incorrecto.\n";
+                else if (Convert.ToInt32(txtCantidadCochesMod.Text) == 0)
+                {
+                    errorMsj += "Cantidad de coches: El valor debe ser positivo.\n";
+                }
+                    
+                if (formacionSeleccionada.Formaciones_X_Coches.Where(x => x.Coches.Modelo == cocheSeleccionado.Modelo).Count() != 0)
+                    errorMsj += "El coche ya pertenece a la formación.\n";
+
+                if (string.IsNullOrEmpty(errorMsj))
+                {
+                    Formaciones_X_Coches fc = new Formaciones_X_Coches();
+                    fc.Coches = cocheSeleccionado;
+                    fc.Id_Coche = cocheSeleccionado.Id;
+                    fc.VecesRepetido = Convert.ToInt32(txtCantidadCochesMod.Text);
+                    formacionSeleccionada.Formaciones_X_Coches.Add(fc);
+                    lbxCochesFormacionMod.Items.Add(fc);
+                    txtCantidadCochesMod.Text = "";
+                    RecalcularTotalesFormacion();
+                }
+                else
+                    MessageBox.Show(errorMsj);
             }
-            else
-                MessageBox.Show(errorMsj);
         }
 
         private void btnEliminarCocheMod_Click(object sender, EventArgs e)
@@ -416,7 +433,10 @@ namespace ffccSimulacion.ABMFormacion
                 
                 /*Esto se hace asi en caso de que el objeto todavia no haya sido agregado/guadado en el contexto de la bd*/
                 try { context.Formaciones_X_Coches.Remove(fc); }
-                catch (Exception exc) { }
+                catch (Exception exc) 
+                {
+                    
+                }
 
                 lbxCochesFormacionMod.Items.Remove(fc);
                 RecalcularTotalesFormacion();
@@ -431,13 +451,18 @@ namespace ffccSimulacion.ABMFormacion
             {
                 btnAceptar.Enabled = true;
                 btnLimpiar.Enabled = true;
+                btnAgregarFormacion.Enabled = false;
+                btnBorrarFormacion.Enabled = false;
+                
             }
-            if (tabControl1.SelectedTab == tabModificarFormacion)
+            else if (tabControl1.SelectedTab == tabModificarFormacion)
             {
                 btnAceptar.Enabled = true;
                 btnLimpiar.Enabled = true;
+                btnAgregarCocheMod.Enabled = false;
+                btnEliminarCocheMod.Enabled = false;
             }
-            if (tabControl1.SelectedTab == tabPage3)
+            else
             {
                 btnAceptar.Enabled = false;
                 btnLimpiar.Enabled = false;
