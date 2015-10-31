@@ -75,6 +75,7 @@
             this.lbxCochesFormacionMod = new System.Windows.Forms.ListBox();
             this.lbxCochesExistentesMod = new System.Windows.Forms.ListBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.lbxFormacionesModificar = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label23 = new System.Windows.Forms.Label();
@@ -86,7 +87,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pnlFormacion = new System.Windows.Forms.Panel();
-            this.lbxFormacionesModificar = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabCrearFormacion.SuspendLayout();
             this.tabModificarFormacion.SuspendLayout();
@@ -584,6 +584,18 @@
             this.label14.TabIndex = 36;
             this.label14.Text = "Coches Existentes";
             // 
+            // lbxFormacionesModificar
+            // 
+            this.lbxFormacionesModificar.DisplayMember = "NombreFormacion";
+            this.lbxFormacionesModificar.FormattingEnabled = true;
+            this.lbxFormacionesModificar.ItemHeight = 15;
+            this.lbxFormacionesModificar.Location = new System.Drawing.Point(16, 35);
+            this.lbxFormacionesModificar.Name = "lbxFormacionesModificar";
+            this.lbxFormacionesModificar.Size = new System.Drawing.Size(324, 409);
+            this.lbxFormacionesModificar.Sorted = true;
+            this.lbxFormacionesModificar.TabIndex = 17;
+            this.lbxFormacionesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesModificar_SelectedIndexChanged);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -663,7 +675,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(17, 508);
+            this.btnLimpiar.Location = new System.Drawing.Point(13, 508);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 28);
             this.btnLimpiar.TabIndex = 1;
@@ -703,18 +715,6 @@
             this.pnlFormacion.Name = "pnlFormacion";
             this.pnlFormacion.Size = new System.Drawing.Size(1193, 544);
             this.pnlFormacion.TabIndex = 4;
-            // 
-            // lbxFormacionesModificar
-            // 
-            this.lbxFormacionesModificar.DisplayMember = "NombreFormacion";
-            this.lbxFormacionesModificar.FormattingEnabled = true;
-            this.lbxFormacionesModificar.ItemHeight = 15;
-            this.lbxFormacionesModificar.Location = new System.Drawing.Point(16, 35);
-            this.lbxFormacionesModificar.Name = "lbxFormacionesModificar";
-            this.lbxFormacionesModificar.Size = new System.Drawing.Size(324, 409);
-            this.lbxFormacionesModificar.Sorted = true;
-            this.lbxFormacionesModificar.TabIndex = 17;
-            this.lbxFormacionesModificar.SelectedIndexChanged += new System.EventHandler(this.lbxFormacionesModificar_SelectedIndexChanged);
             // 
             // frmABMFormacion
             // 

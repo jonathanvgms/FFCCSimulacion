@@ -289,11 +289,14 @@ namespace ffccSimulacion.ABMFormacion
 
         private void lbxCochesExistentes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCantidadCoches.Text = "";
-            txtCantidadCoches.Enabled = true;
-            lbxCochesFormacion.SelectedIndex = -1;
-            btnAgregarFormacion.Enabled = true;
-            btnBorrarCocheFormacion.Enabled = true;
+            if (lbxCochesExistentes.SelectedIndex > -1)
+            {
+                txtCantidadCoches.Text = "";
+                txtCantidadCoches.Enabled = true;
+                lbxCochesFormacion.SelectedIndex = -1;
+                btnAgregarFormacion.Enabled = true;
+                btnBorrarCocheFormacion.Enabled = true;
+            }
         }
 
         private void btnBorrarFormacion_Click(object sender, EventArgs e)
@@ -452,7 +455,8 @@ namespace ffccSimulacion.ABMFormacion
                 btnAceptar.Enabled = true;
                 btnLimpiar.Enabled = true;
                 btnAgregarFormacion.Enabled = false;
-                btnBorrarFormacion.Enabled = false;
+                btnBorrarCocheFormacion.Enabled = false;
+                lbxCochesExistentes.SelectedIndex = -1;
                 
             }
             else if (tabControl1.SelectedTab == tabModificarFormacion)

@@ -21,10 +21,5 @@ namespace ffccSimulacion.Ayuda
         {
             pnlAyuda.Controls.Clear();
         }
-
-        private void pnlAyuda_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

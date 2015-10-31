@@ -117,21 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Accesos Directos
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>¿Que es un Incidente?
 
-Ctrl + X = Simulación
-Ctrl + T = Traza
-Ctrl + S = Servicio
-Ctrl + F = Formación
-Ctrl + D = Coche
-Ctrl + E = Estación
-Ctrl + I = Incidente
-Ctrl + A = Ayuda
-Ctrl + Q = Salir
+Un incidente, es cualquier evento que genere una demora
 
+Configuración:
 
+Nombre: Es un identificador que denota al mismo
+Descripción: Es un breve detalle del incidente
+Probabilidad de Ocurrencia: Es la frecuencia que se da en el incidente
+Tiempo de Demora: Es el tiempo que se estima que pueda tener el incidente, se mide en minutos
 
-</value>
+¿Para que sirve un Incidente?
+
+Una estación puede tener asociado uno, muchos o ningun incidente</value>
   </data>
 </root>

@@ -157,7 +157,7 @@ namespace ffccSimulacion.ABMEstacion
             {
                 if (!verificarRangoPersonas(txtEstModMinimo, txtEstModMaximo))
                 {
-                    errorMsj += "Personas en Andén: El Mínimo debe ser menor que el Máximo";
+                    errorMsj += "Distribución de Personas en Andén: El Mínimo debe ser menor que el Máximo";
                 }
             }
 
@@ -224,7 +224,7 @@ namespace ffccSimulacion.ABMEstacion
 
             if (cmbEstCreFdp.SelectedIndex < 0)
             {
-                errorMsj += "Fdp: Falta Seleccionar\n";
+                errorMsj += "Distribución de Personas en Andén: Falta Seleccionar\n";
             }
 
             if(!Util.EsNumerico(txtEstCreMinimo.Text))
@@ -243,7 +243,7 @@ namespace ffccSimulacion.ABMEstacion
             {
                 if (!verificarRangoPersonas(txtEstCreMinimo, txtEstCreMaximo))
                 {
-                    errorMsj += "Personas en Andén: El Mínimo debe ser menor que el Máximo";
+                    errorMsj += "Distribución de Personas en Andén: El Mínimo debe ser menor al Máximo";
                 }
             }
 

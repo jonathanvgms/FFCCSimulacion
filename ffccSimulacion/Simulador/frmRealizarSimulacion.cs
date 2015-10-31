@@ -106,9 +106,13 @@ namespace ffccSimulacion.Simulador
             if (!Util.EsAlfaNumerico(tbSimNombre.Text))
                 errorMsj += "Nombre: incompleto o incorrecto.\n";
             if (!Util.EsNumerico(tbSimFrecuencia.Text))
-                errorMsj += "Frecuencia: incompleto o incorrecta.\n";
+                errorMsj += "Frecuencia: Incompleto ó Incorrecta.\n";
+            else if (int.Parse(tbSimFrecuencia.Text) == 0)
+                errorMsj += "Frecuencia: El valor debe ser positivo.\n";
             if (!Util.EsNumerico(tbSimDuracion.Text))
-                errorMsj += "Duración: incompleto o incorrecta.\n";
+                errorMsj += "Duración: Incompleta ó Incorrecta.\n";
+            else if (int.Parse(tbSimDuracion.Text) == 0)
+                errorMsj += "Duración: El valor debe ser positivo.\n";
             if (trazaSeleccionada == null)
                 errorMsj += "Ninguna traza ha sido seleccionada.\n";
 
