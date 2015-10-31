@@ -31,8 +31,9 @@ namespace ffccSimulacion.Resultados
             this.txtPromDem.Text = resultadoSimulacion.promedioDemoraAtencion.ToString();
             
             this.txtConsEleKm.Text = resultadoSimulacion.consumoElectricoKm.ToString();
-            this.txtConsDiKm.Text = resultadoSimulacion.consumoDieselKm.ToString();
             this.txtConsElePas.Text = resultadoSimulacion.consumoElectricoPasajero.ToString();
+
+            this.txtConsDiKm.Text = resultadoSimulacion.consumoDieselKm.ToString();
             this.txtConsDiPas.Text = resultadoSimulacion.consumoDieselPasajero.ToString();
 
             this.txtCostoEle.Text = "0";
