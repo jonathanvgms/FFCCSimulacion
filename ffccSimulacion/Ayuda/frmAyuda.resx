@@ -118,19 +118,42 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>¿Que es un Incidente?
+    <value>Incidente
 
-Un incidente, es cualquier evento que genere una demora
+En esta sección se realiza la configuración (Agregar, Modificar y/o Eliminar) de los incidentes que pretenden simularse en los diferentes escenarios a simular.
 
-Configuración:
+Un incidente es un suceso que ocurre según una probabilidad de ocurrencia expresada en porcentaje de 0 a100 y que ocasiona  una demora de en el funcionamiento de de un traza. Esta demora también es configurada por el usuario y se expresa en minutos.
 
-Nombre: Es un identificador que denota al mismo
-Descripción: Es un breve detalle del incidente
-Probabilidad de Ocurrencia: Es la frecuencia que se da en el incidente
-Tiempo de Demora: Es el tiempo que se estima que pueda tener el incidente, se mide en minutos
+Estación
 
-¿Para que sirve un Incidente?
+En esta sección se realiza la configuración (Agregar, Modificar y/o Eliminar) de las estaciones que van a formar parte de los diferentes servicios a las cuales van llegando los pasajeros entre un rango de valores y siguiendo una función de densidad de probabilidad determinada.
 
-Una estación puede tener asociado uno, muchos o ningun incidente</value>
+Coche
+
+En esta sección se realiza la configuración (Agregar, Modificar y/o Eliminar) de los Coches (Vagones y Locomotoras) que van a formar parte de las formaciones con sus características relativas al consumo y cantidad de pasajeros.
+
+
+Formación
+
+En esta sección se realiza la configuración (Agregar, Modificar y/o Eliminar) de las formaciones que van a formar parte de los diferentes servicios.
+
+
+Servicio
+
+En esta sección se realiza la configuración (Agregar, Modificar y/o Eliminar) de los servicios que van a formar parte de las diferentes trazas ferroviarias. Un servicio se configura asignándole una serie de estaciones relacionadas que forman en su conjunto el recorrido del servicio y las formaciones que van brindar ese servicio.
+
+
+Traza
+
+En esta sección se realiza la configuración (Agregar, Modificar y/o Eliminar) de las trazas sobre las cuales se puede ejecutar una simulación
+
+
+Simulación
+
+En esta sección se realiza la simulación de un escenario determinado, el cual está conformado por todos los puntos configurados en las secciones anteriores
+
+
+
+</value>
   </data>
 </root>

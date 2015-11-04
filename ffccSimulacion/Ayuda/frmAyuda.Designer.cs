@@ -52,9 +52,12 @@
             this.textBox1.Location = new System.Drawing.Point(178, 74);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(689, 383);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -64,7 +67,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(403, 24);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Bienvenido a la Ayuda de SImuladorFFCC\r\n";
+            this.label2.Text = "Bienvenido a la Ayuda de SimuladorFFCC\r\n";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 

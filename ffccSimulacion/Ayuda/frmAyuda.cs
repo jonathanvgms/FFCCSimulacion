@@ -21,5 +21,15 @@ namespace ffccSimulacion.Ayuda
         {
             pnlAyuda.Controls.Clear();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
