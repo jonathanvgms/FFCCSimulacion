@@ -311,8 +311,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\bin-icon_148805099.jpg" />
-    <None Include="Resources\bin-icon_1488050991.jpg" />
     <None Include="Resources\bin-icon_1488050992.jpg" />
     <Content Include="Resources\Manual.pdf" />
   </ItemGroup>
