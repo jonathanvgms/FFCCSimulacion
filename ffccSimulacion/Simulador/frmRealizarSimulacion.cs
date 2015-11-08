@@ -338,7 +338,7 @@ namespace ffccSimulacion.Simulador
             //Se terminan de calcular porcentajes y promedios.
             resultadoSimulacion.porcentajeSobrecarga = (double)resultadoSimulacion.porcentajeSobrecarga * 100 / (double) totalFormaciones;
             resultadoSimulacion.promedioDemoraIncidentes = (double)resultadoSimulacion.promedioDemoraIncidentes / (double) totalFormaciones;
-            resultadoSimulacion.promedioPasajeros = (double)resultadoSimulacion.promedioPasajeros / (double)totalFormaciones;
+            resultadoSimulacion.promedioPasajeros = Math.Truncate((double)resultadoSimulacion.promedioPasajeros / (double)totalFormaciones);
             resultadoSimulacion.promedioDemoraAtencion = (double)resultadoSimulacion.promedioDemoraAtencion / (double) totalFormaciones;
 
             //La acumulacion de consumo es igual para Km y Pasajeros, luego se divide por los totales correspondientes
@@ -346,10 +346,10 @@ namespace ffccSimulacion.Simulador
             resultadoSimulacion.consumoDieselPasajero = resultadoSimulacion.consumoDieselKm;
 
             //Se dividen los consumos por los totales de Km y Pasajeros
-            resultadoSimulacion.consumoElectricoKm = (double) resultadoSimulacion.consumoElectricoKm / (double) totalKm;
-            resultadoSimulacion.consumoDieselKm = (double)resultadoSimulacion.consumoDieselKm / (double)totalKm;
-            resultadoSimulacion.consumoElectricoPasajero = (double)resultadoSimulacion.consumoElectricoPasajero / (double)totalPasajeros;
-            resultadoSimulacion.consumoDieselPasajero = (double)resultadoSimulacion.consumoDieselPasajero / (double)totalPasajeros;
+            resultadoSimulacion.consumoElectricoKm = Math.Round((double) resultadoSimulacion.consumoElectricoKm / (double) totalKm, 3);
+            resultadoSimulacion.consumoDieselKm = Math.Round((double)resultadoSimulacion.consumoDieselKm / (double)totalKm, 3);
+            resultadoSimulacion.consumoElectricoPasajero = Math.Round((double)resultadoSimulacion.consumoElectricoPasajero / (double)totalPasajeros, 3);
+            resultadoSimulacion.consumoDieselPasajero = Math.Round((double)resultadoSimulacion.consumoDieselPasajero / (double)totalPasajeros, 3);
 
             resultadoSimulacion.nombreSimulacion = tbSimNombre.Text;
 

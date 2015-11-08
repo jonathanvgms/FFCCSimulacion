@@ -108,10 +108,12 @@
             // 
             // txtPorcTrenes
             // 
-            this.txtPorcTrenes.Enabled = false;
-            this.txtPorcTrenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcTrenes.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPorcTrenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPorcTrenes.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPorcTrenes.Location = new System.Drawing.Point(256, 19);
             this.txtPorcTrenes.Name = "txtPorcTrenes";
+            this.txtPorcTrenes.ReadOnly = true;
             this.txtPorcTrenes.Size = new System.Drawing.Size(100, 21);
             this.txtPorcTrenes.TabIndex = 5;
             // 
@@ -187,64 +189,78 @@
             // 
             // txtTiemPro
             // 
-            this.txtTiemPro.Enabled = false;
-            this.txtTiemPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTiemPro.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTiemPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTiemPro.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtTiemPro.Location = new System.Drawing.Point(699, 19);
             this.txtTiemPro.Name = "txtTiemPro";
+            this.txtTiemPro.ReadOnly = true;
             this.txtTiemPro.Size = new System.Drawing.Size(100, 21);
             this.txtTiemPro.TabIndex = 13;
             // 
             // txtPromPasaj
             // 
-            this.txtPromPasaj.Enabled = false;
-            this.txtPromPasaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPromPasaj.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPromPasaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPromPasaj.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPromPasaj.Location = new System.Drawing.Point(256, 73);
             this.txtPromPasaj.Name = "txtPromPasaj";
+            this.txtPromPasaj.ReadOnly = true;
             this.txtPromPasaj.Size = new System.Drawing.Size(100, 21);
             this.txtPromPasaj.TabIndex = 14;
             // 
             // txtPromDem
             // 
-            this.txtPromDem.Enabled = false;
-            this.txtPromDem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPromDem.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPromDem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPromDem.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPromDem.Location = new System.Drawing.Point(699, 73);
             this.txtPromDem.Name = "txtPromDem";
+            this.txtPromDem.ReadOnly = true;
             this.txtPromDem.Size = new System.Drawing.Size(100, 21);
             this.txtPromDem.TabIndex = 15;
             // 
             // txtConsElePas
             // 
-            this.txtConsElePas.Enabled = false;
-            this.txtConsElePas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsElePas.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsElePas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsElePas.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsElePas.Location = new System.Drawing.Point(256, 181);
             this.txtConsElePas.Name = "txtConsElePas";
+            this.txtConsElePas.ReadOnly = true;
             this.txtConsElePas.Size = new System.Drawing.Size(100, 21);
             this.txtConsElePas.TabIndex = 16;
             // 
             // txtCostPorKm
             // 
-            this.txtCostPorKm.Enabled = false;
-            this.txtCostPorKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostPorKm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCostPorKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostPorKm.ForeColor = System.Drawing.Color.Crimson;
             this.txtCostPorKm.Location = new System.Drawing.Point(256, 235);
             this.txtCostPorKm.Name = "txtCostPorKm";
+            this.txtCostPorKm.ReadOnly = true;
             this.txtCostPorKm.Size = new System.Drawing.Size(100, 21);
             this.txtCostPorKm.TabIndex = 17;
             // 
             // txtCostPorPasajero
             // 
-            this.txtCostPorPasajero.Enabled = false;
-            this.txtCostPorPasajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostPorPasajero.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCostPorPasajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostPorPasajero.ForeColor = System.Drawing.Color.Crimson;
             this.txtCostPorPasajero.Location = new System.Drawing.Point(699, 235);
             this.txtCostPorPasajero.Name = "txtCostPorPasajero";
+            this.txtCostPorPasajero.ReadOnly = true;
             this.txtCostPorPasajero.Size = new System.Drawing.Size(100, 21);
             this.txtCostPorPasajero.TabIndex = 18;
             // 
             // txtConsDiPas
             // 
-            this.txtConsDiPas.Enabled = false;
-            this.txtConsDiPas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsDiPas.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsDiPas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsDiPas.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsDiPas.Location = new System.Drawing.Point(699, 181);
             this.txtConsDiPas.Name = "txtConsDiPas";
+            this.txtConsDiPas.ReadOnly = true;
             this.txtConsDiPas.Size = new System.Drawing.Size(100, 21);
             this.txtConsDiPas.TabIndex = 19;
             // 
@@ -364,6 +380,7 @@
             // 
             // txtCostoDi
             // 
+            this.txtCostoDi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostoDi.Location = new System.Drawing.Point(497, 24);
             this.txtCostoDi.Name = "txtCostoDi";
             this.txtCostoDi.Size = new System.Drawing.Size(100, 21);
@@ -372,6 +389,7 @@
             // 
             // txtCostoEle
             // 
+            this.txtCostoEle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostoEle.Location = new System.Drawing.Point(256, 24);
             this.txtCostoEle.Name = "txtCostoEle";
             this.txtCostoEle.Size = new System.Drawing.Size(100, 21);
@@ -408,10 +426,12 @@
             // 
             // txtConsDiKm
             // 
-            this.txtConsDiKm.Enabled = false;
-            this.txtConsDiKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsDiKm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsDiKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsDiKm.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsDiKm.Location = new System.Drawing.Point(699, 127);
             this.txtConsDiKm.Name = "txtConsDiKm";
+            this.txtConsDiKm.ReadOnly = true;
             this.txtConsDiKm.Size = new System.Drawing.Size(100, 21);
             this.txtConsDiKm.TabIndex = 16;
             // 
@@ -437,10 +457,12 @@
             // 
             // txtConsEleKm
             // 
-            this.txtConsEleKm.Enabled = false;
-            this.txtConsEleKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsEleKm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsEleKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConsEleKm.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsEleKm.Location = new System.Drawing.Point(256, 127);
             this.txtConsEleKm.Name = "txtConsEleKm";
+            this.txtConsEleKm.ReadOnly = true;
             this.txtConsEleKm.Size = new System.Drawing.Size(100, 21);
             this.txtConsEleKm.TabIndex = 16;
             // 
@@ -486,6 +508,7 @@
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.txtCostPorKm);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 90);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(865, 272);

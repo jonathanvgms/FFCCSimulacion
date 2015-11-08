@@ -62,24 +62,49 @@
             this.lblModMensajeError = new System.Windows.Forms.Label();
             this.lstIncMod = new System.Windows.Forms.ListBox();
             this.tabEliminar = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
             this.lstIncEliEstaciones = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtIncEliBuscar = new System.Windows.Forms.TextBox();
-            this.btnEliminarIncidente = new System.Windows.Forms.Button();
             this.lstIncEli = new System.Windows.Forms.ListBox();
             this.pnlInicidente = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnEliminarIncidente = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabCrear.SuspendLayout();
             this.tabModificar.SuspendLayout();
             this.tabEliminar.SuspendLayout();
             this.pnlInicidente.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(331, 33);
+            this.label1.Location = new System.Drawing.Point(15, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
@@ -88,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(331, 77);
+            this.label2.Location = new System.Drawing.Point(15, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 15);
             this.label2.TabIndex = 0;
@@ -126,31 +151,31 @@
             "80",
             "90",
             "100"});
-            this.cmbModProb.Location = new System.Drawing.Point(426, 205);
+            this.cmbModProb.Location = new System.Drawing.Point(41, 64);
             this.cmbModProb.Name = "cmbModProb";
             this.cmbModProb.Size = new System.Drawing.Size(111, 23);
             this.cmbModProb.TabIndex = 1;
             // 
             // txtModNombre
             // 
-            this.txtModNombre.Location = new System.Drawing.Point(426, 30);
+            this.txtModNombre.Location = new System.Drawing.Point(110, 27);
             this.txtModNombre.MaxLength = 99;
             this.txtModNombre.Name = "txtModNombre";
-            this.txtModNombre.Size = new System.Drawing.Size(251, 21);
+            this.txtModNombre.Size = new System.Drawing.Size(296, 21);
             this.txtModNombre.TabIndex = 2;
             // 
             // txtModDes
             // 
-            this.txtModDes.Location = new System.Drawing.Point(426, 74);
+            this.txtModDes.Location = new System.Drawing.Point(110, 71);
             this.txtModDes.MaxLength = 499;
             this.txtModDes.Multiline = true;
             this.txtModDes.Name = "txtModDes";
-            this.txtModDes.Size = new System.Drawing.Size(251, 104);
+            this.txtModDes.Size = new System.Drawing.Size(296, 124);
             this.txtModDes.TabIndex = 2;
             // 
             // txtModDem
             // 
-            this.txtModDem.Location = new System.Drawing.Point(426, 260);
+            this.txtModDem.Location = new System.Drawing.Point(41, 160);
             this.txtModDem.MaxLength = 9;
             this.txtModDem.Name = "txtModDem";
             this.txtModDem.Size = new System.Drawing.Size(111, 21);
@@ -158,10 +183,12 @@
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.SlateGray;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(15, 389);
+            this.btnLimpiar.Location = new System.Drawing.Point(15, 548);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 24);
+            this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 3;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -170,10 +197,12 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.SlateGray;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(654, 389);
+            this.btnCancelar.Location = new System.Drawing.Point(916, 548);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 24);
+            this.btnCancelar.Size = new System.Drawing.Size(90, 30);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -182,9 +211,9 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(573, 389);
+            this.btnAceptar.Location = new System.Drawing.Point(820, 548);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 24);
+            this.btnAceptar.Size = new System.Drawing.Size(90, 30);
             this.btnAceptar.TabIndex = 3;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -200,29 +229,23 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(714, 368);
+            this.tabControl1.Size = new System.Drawing.Size(991, 527);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.selecionarPestaña);
             // 
             // tabCrear
             // 
-            this.tabCrear.Controls.Add(this.label10);
-            this.tabCrear.Controls.Add(this.txtIncCreBuscar);
-            this.tabCrear.Controls.Add(this.label13);
-            this.tabCrear.Controls.Add(this.label12);
-            this.tabCrear.Controls.Add(this.lstIncidenteCrear);
+            this.tabCrear.Controls.Add(this.groupBox3);
+            this.tabCrear.Controls.Add(this.groupBox1);
             this.tabCrear.Controls.Add(this.label5);
             this.tabCrear.Controls.Add(this.label6);
-            this.tabCrear.Controls.Add(this.label7);
-            this.tabCrear.Controls.Add(this.label8);
-            this.tabCrear.Controls.Add(this.txtbIncCreTiem);
-            this.tabCrear.Controls.Add(this.cbmIncCrePro);
             this.tabCrear.Controls.Add(this.txtincCreDes);
             this.tabCrear.Controls.Add(this.txtIncCreNom);
+            this.tabCrear.Controls.Add(this.groupBox2);
             this.tabCrear.Location = new System.Drawing.Point(4, 24);
             this.tabCrear.Name = "tabCrear";
             this.tabCrear.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCrear.Size = new System.Drawing.Size(706, 340);
+            this.tabCrear.Size = new System.Drawing.Size(983, 499);
             this.tabCrear.TabIndex = 0;
             this.tabCrear.Text = "Nuevo Incidente";
             this.tabCrear.ToolTipText = "Crea un nuevo incidente que no aparezca en el listado";
@@ -231,15 +254,15 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(402, 32);
+            this.label10.Location = new System.Drawing.Point(19, 25);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 15);
+            this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 17;
-            this.label10.Text = "Buscar Incidente";
+            this.label10.Text = "Nombre";
             // 
             // txtIncCreBuscar
             // 
-            this.txtIncCreBuscar.Location = new System.Drawing.Point(506, 29);
+            this.txtIncCreBuscar.Location = new System.Drawing.Point(119, 25);
             this.txtIncCreBuscar.MaxLength = 99;
             this.txtIncCreBuscar.Name = "txtIncCreBuscar";
             this.txtIncCreBuscar.Size = new System.Drawing.Size(194, 21);
@@ -249,7 +272,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(238, 272);
+            this.label13.Location = new System.Drawing.Point(143, 137);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 15);
             this.label13.TabIndex = 15;
@@ -258,7 +281,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(238, 217);
+            this.label12.Location = new System.Drawing.Point(143, 50);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(18, 15);
             this.label12.TabIndex = 14;
@@ -270,17 +293,17 @@
             this.lstIncidenteCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstIncidenteCrear.FormattingEnabled = true;
             this.lstIncidenteCrear.ItemHeight = 15;
-            this.lstIncidenteCrear.Location = new System.Drawing.Point(405, 57);
+            this.lstIncidenteCrear.Location = new System.Drawing.Point(22, 53);
             this.lstIncidenteCrear.Name = "lstIncidenteCrear";
             this.lstIncidenteCrear.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstIncidenteCrear.Size = new System.Drawing.Size(295, 259);
+            this.lstIncidenteCrear.Size = new System.Drawing.Size(291, 364);
             this.lstIncidenteCrear.Sorted = true;
             this.lstIncidenteCrear.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 32);
+            this.label5.Location = new System.Drawing.Point(40, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 15);
             this.label5.TabIndex = 3;
@@ -289,7 +312,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 75);
+            this.label6.Location = new System.Drawing.Point(40, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 4;
@@ -298,24 +321,24 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 207);
+            this.label7.Location = new System.Drawing.Point(21, 29);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 30);
+            this.label7.Size = new System.Drawing.Size(155, 15);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Probabilidad \r\nDe Ocurencia";
+            this.label7.Text = "Probabilidad De Ocurencia";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 263);
+            this.label8.Location = new System.Drawing.Point(21, 116);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 30);
+            this.label8.Size = new System.Drawing.Size(116, 15);
             this.label8.TabIndex = 6;
-            this.label8.Text = "Tiempo \r\nDe Demora";
+            this.label8.Text = "Tiempo De Demora";
             // 
             // txtbIncCreTiem
             // 
-            this.txtbIncCreTiem.Location = new System.Drawing.Point(119, 269);
+            this.txtbIncCreTiem.Location = new System.Drawing.Point(24, 134);
             this.txtbIncCreTiem.MaxLength = 9;
             this.txtbIncCreTiem.Name = "txtbIncCreTiem";
             this.txtbIncCreTiem.Size = new System.Drawing.Size(113, 21);
@@ -353,65 +376,55 @@
             "80",
             "90",
             "100"});
-            this.cbmIncCrePro.Location = new System.Drawing.Point(119, 214);
+            this.cbmIncCrePro.Location = new System.Drawing.Point(24, 47);
             this.cbmIncCrePro.Name = "cbmIncCrePro";
             this.cbmIncCrePro.Size = new System.Drawing.Size(113, 23);
             this.cbmIncCrePro.TabIndex = 7;
             // 
             // txtincCreDes
             // 
-            this.txtincCreDes.Location = new System.Drawing.Point(119, 72);
+            this.txtincCreDes.Location = new System.Drawing.Point(136, 103);
             this.txtincCreDes.MaxLength = 499;
             this.txtincCreDes.Multiline = true;
             this.txtincCreDes.Name = "txtincCreDes";
-            this.txtincCreDes.Size = new System.Drawing.Size(260, 111);
+            this.txtincCreDes.Size = new System.Drawing.Size(280, 141);
             this.txtincCreDes.TabIndex = 9;
             // 
             // txtIncCreNom
             // 
-            this.txtIncCreNom.Location = new System.Drawing.Point(119, 29);
+            this.txtIncCreNom.Location = new System.Drawing.Point(136, 60);
             this.txtIncCreNom.MaxLength = 99;
             this.txtIncCreNom.Name = "txtIncCreNom";
-            this.txtIncCreNom.Size = new System.Drawing.Size(260, 21);
+            this.txtIncCreNom.Size = new System.Drawing.Size(280, 21);
             this.txtIncCreNom.TabIndex = 10;
             // 
             // tabModificar
             // 
-            this.tabModificar.Controls.Add(this.label16);
-            this.tabModificar.Controls.Add(this.txtIncModBuscar);
-            this.tabModificar.Controls.Add(this.label3);
-            this.tabModificar.Controls.Add(this.label4);
-            this.tabModificar.Controls.Add(this.label14);
-            this.tabModificar.Controls.Add(this.label15);
+            this.tabModificar.Controls.Add(this.groupBox5);
+            this.tabModificar.Controls.Add(this.groupBox6);
+            this.tabModificar.Controls.Add(this.groupBox4);
             this.tabModificar.Controls.Add(this.lblModMensajeError);
-            this.tabModificar.Controls.Add(this.lstIncMod);
-            this.tabModificar.Controls.Add(this.label1);
-            this.tabModificar.Controls.Add(this.label2);
-            this.tabModificar.Controls.Add(this.txtModDem);
-            this.tabModificar.Controls.Add(this.cmbModProb);
-            this.tabModificar.Controls.Add(this.txtModDes);
-            this.tabModificar.Controls.Add(this.txtModNombre);
             this.tabModificar.Location = new System.Drawing.Point(4, 24);
             this.tabModificar.Name = "tabModificar";
             this.tabModificar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabModificar.Size = new System.Drawing.Size(706, 340);
+            this.tabModificar.Size = new System.Drawing.Size(983, 499);
             this.tabModificar.TabIndex = 1;
-            this.tabModificar.Text = "Modificar";
+            this.tabModificar.Text = "       Modificar";
             this.tabModificar.ToolTipText = "Muestra un listado de incidentes para su modificación";
             this.tabModificar.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 33);
+            this.label16.Location = new System.Drawing.Point(19, 30);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 15);
+            this.label16.Size = new System.Drawing.Size(52, 15);
             this.label16.TabIndex = 19;
-            this.label16.Text = "Buscar Incidente";
+            this.label16.Text = "Nombre";
             // 
             // txtIncModBuscar
             // 
-            this.txtIncModBuscar.Location = new System.Drawing.Point(112, 30);
+            this.txtIncModBuscar.Location = new System.Drawing.Point(117, 29);
             this.txtIncModBuscar.MaxLength = 99;
             this.txtIncModBuscar.Name = "txtIncModBuscar";
             this.txtIncModBuscar.Size = new System.Drawing.Size(199, 21);
@@ -421,7 +434,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(551, 263);
+            this.label3.Location = new System.Drawing.Point(158, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 17;
@@ -430,7 +443,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(551, 208);
+            this.label4.Location = new System.Drawing.Point(158, 67);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(18, 15);
             this.label4.TabIndex = 16;
@@ -439,20 +452,20 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(333, 201);
+            this.label14.Location = new System.Drawing.Point(38, 46);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 30);
+            this.label14.Size = new System.Drawing.Size(155, 15);
             this.label14.TabIndex = 7;
-            this.label14.Text = "Probabilidad \r\nDe Ocurencia";
+            this.label14.Text = "Probabilidad De Ocurencia";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(335, 250);
+            this.label15.Location = new System.Drawing.Point(38, 136);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 30);
+            this.label15.Size = new System.Drawing.Size(116, 15);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Tiempo \r\nDe Demora";
+            this.label15.Text = "Tiempo De Demora";
             // 
             // lblModMensajeError
             // 
@@ -467,38 +480,26 @@
             this.lstIncMod.DisplayMember = "Nombre";
             this.lstIncMod.FormattingEnabled = true;
             this.lstIncMod.ItemHeight = 15;
-            this.lstIncMod.Location = new System.Drawing.Point(7, 59);
+            this.lstIncMod.Location = new System.Drawing.Point(22, 58);
             this.lstIncMod.Name = "lstIncMod";
-            this.lstIncMod.Size = new System.Drawing.Size(304, 274);
+            this.lstIncMod.Size = new System.Drawing.Size(294, 364);
             this.lstIncMod.Sorted = true;
             this.lstIncMod.TabIndex = 3;
             this.lstIncMod.SelectedIndexChanged += new System.EventHandler(this.seleccionarIncidente);
             // 
             // tabEliminar
             // 
-            this.tabEliminar.Controls.Add(this.label9);
-            this.tabEliminar.Controls.Add(this.lstIncEliEstaciones);
-            this.tabEliminar.Controls.Add(this.label17);
-            this.tabEliminar.Controls.Add(this.txtIncEliBuscar);
-            this.tabEliminar.Controls.Add(this.btnEliminarIncidente);
-            this.tabEliminar.Controls.Add(this.lstIncEli);
+            this.tabEliminar.Controls.Add(this.groupBox9);
+            this.tabEliminar.Controls.Add(this.groupBox8);
+            this.tabEliminar.Controls.Add(this.groupBox7);
             this.tabEliminar.Location = new System.Drawing.Point(4, 24);
             this.tabEliminar.Name = "tabEliminar";
             this.tabEliminar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEliminar.Size = new System.Drawing.Size(706, 340);
+            this.tabEliminar.Size = new System.Drawing.Size(983, 499);
             this.tabEliminar.TabIndex = 2;
-            this.tabEliminar.Text = "Eliminar";
+            this.tabEliminar.Text = "       Eliminar";
             this.tabEliminar.ToolTipText = "Muestra un listado que incidentes para su eliminación";
             this.tabEliminar.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(438, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 15);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Estaciones Asociadas";
             // 
             // lstIncEliEstaciones
             // 
@@ -506,49 +507,39 @@
             this.lstIncEliEstaciones.Enabled = false;
             this.lstIncEliEstaciones.FormattingEnabled = true;
             this.lstIncEliEstaciones.ItemHeight = 15;
-            this.lstIncEliEstaciones.Location = new System.Drawing.Point(441, 57);
+            this.lstIncEliEstaciones.Location = new System.Drawing.Point(23, 67);
             this.lstIncEliEstaciones.Name = "lstIncEliEstaciones";
             this.lstIncEliEstaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstIncEliEstaciones.Size = new System.Drawing.Size(259, 274);
+            this.lstIncEliEstaciones.Size = new System.Drawing.Size(290, 214);
             this.lstIncEliEstaciones.Sorted = true;
             this.lstIncEliEstaciones.TabIndex = 22;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 33);
+            this.label17.Location = new System.Drawing.Point(19, 41);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 15);
+            this.label17.Size = new System.Drawing.Size(52, 15);
             this.label17.TabIndex = 21;
-            this.label17.Text = "Buscar Incidente";
+            this.label17.Text = "Nombre";
             // 
             // txtIncEliBuscar
             // 
-            this.txtIncEliBuscar.Location = new System.Drawing.Point(110, 30);
+            this.txtIncEliBuscar.Location = new System.Drawing.Point(107, 38);
             this.txtIncEliBuscar.MaxLength = 99;
             this.txtIncEliBuscar.Name = "txtIncEliBuscar";
-            this.txtIncEliBuscar.Size = new System.Drawing.Size(203, 21);
+            this.txtIncEliBuscar.Size = new System.Drawing.Size(222, 21);
             this.txtIncEliBuscar.TabIndex = 20;
             this.txtIncEliBuscar.TextChanged += new System.EventHandler(this.buscarIncidente);
-            // 
-            // btnEliminarIncidente
-            // 
-            this.btnEliminarIncidente.Location = new System.Drawing.Point(319, 57);
-            this.btnEliminarIncidente.Name = "btnEliminarIncidente";
-            this.btnEliminarIncidente.Size = new System.Drawing.Size(116, 26);
-            this.btnEliminarIncidente.TabIndex = 7;
-            this.btnEliminarIncidente.Text = "Borrar Incidente";
-            this.btnEliminarIncidente.UseVisualStyleBackColor = true;
-            this.btnEliminarIncidente.Click += new System.EventHandler(this.btnEliminarIncidente_Click);
             // 
             // lstIncEli
             // 
             this.lstIncEli.DisplayMember = "Nombre";
             this.lstIncEli.FormattingEnabled = true;
             this.lstIncEli.ItemHeight = 15;
-            this.lstIncEli.Location = new System.Drawing.Point(6, 57);
+            this.lstIncEli.Location = new System.Drawing.Point(22, 75);
             this.lstIncEli.Name = "lstIncEli";
-            this.lstIncEli.Size = new System.Drawing.Size(307, 274);
+            this.lstIncEli.Size = new System.Drawing.Size(307, 364);
             this.lstIncEli.Sorted = true;
             this.lstIncEli.TabIndex = 6;
             this.lstIncEli.SelectedIndexChanged += new System.EventHandler(this.estacionesAsociadas);
@@ -561,8 +552,221 @@
             this.pnlInicidente.Controls.Add(this.btnCancelar);
             this.pnlInicidente.Location = new System.Drawing.Point(12, 12);
             this.pnlInicidente.Name = "pnlInicidente";
-            this.pnlInicidente.Size = new System.Drawing.Size(743, 429);
+            this.pnlInicidente.Size = new System.Drawing.Size(1019, 585);
             this.pnlInicidente.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.lstIncidenteCrear);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtIncCreBuscar);
+            this.groupBox1.Location = new System.Drawing.Point(465, 32);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(497, 438);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Buscar Incidente";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(19, 29);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(419, 236);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Incidente";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.txtbIncCreTiem);
+            this.groupBox3.Controls.Add(this.cbmIncCrePro);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(19, 283);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(419, 187);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Configuración";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(224, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 30);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Porcentaje de probabilidad \r\nde que ocurra el incidente";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(224, 116);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(182, 30);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Tiempo en que el servicio \r\nse suspende hasta que restaura\r\n";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(334, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(129, 30);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "Listado de incidentes \r\nactuales en el sistema";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.lstIncMod);
+            this.groupBox4.Controls.Add(this.txtIncModBuscar);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Location = new System.Drawing.Point(17, 30);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(485, 447);
+            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Buscar Incidente";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtModDes);
+            this.groupBox5.Controls.Add(this.txtModNombre);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Location = new System.Drawing.Point(525, 30);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(430, 221);
+            this.groupBox5.TabIndex = 21;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Incidente";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label21);
+            this.groupBox6.Controls.Add(this.label3);
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.cmbModProb);
+            this.groupBox6.Controls.Add(this.txtModDem);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Location = new System.Drawing.Point(525, 271);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(430, 206);
+            this.groupBox6.TabIndex = 21;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Configuración";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(335, 58);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(139, 75);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "Listado de incidentes \r\nactuales en el sistema, \r\nseleccione un incidente \r\npara " +
+    "modificar sus \r\natributos";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(224, 136);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(182, 30);
+            this.label21.TabIndex = 19;
+            this.label21.Text = "Tiempo en que el servicio \r\nse suspende hasta que restaura\r\n";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(224, 46);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(158, 30);
+            this.label22.TabIndex = 18;
+            this.label22.Text = "Porcentaje de probabilidad \r\nde que ocurra el incidente";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label24);
+            this.groupBox7.Controls.Add(this.label17);
+            this.groupBox7.Controls.Add(this.lstIncEli);
+            this.groupBox7.Controls.Add(this.txtIncEliBuscar);
+            this.groupBox7.Location = new System.Drawing.Point(62, 27);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(494, 455);
+            this.groupBox7.TabIndex = 24;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Buscar Incidente";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label23);
+            this.groupBox8.Controls.Add(this.btnEliminarIncidente);
+            this.groupBox8.Location = new System.Drawing.Point(580, 27);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(335, 123);
+            this.groupBox8.TabIndex = 25;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Borrar Configuración";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.label9);
+            this.groupBox9.Controls.Add(this.lstIncEliEstaciones);
+            this.groupBox9.Location = new System.Drawing.Point(580, 171);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(335, 311);
+            this.groupBox9.TabIndex = 26;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Listado de estaciones";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(23, 21);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(222, 30);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Muestra aquellas estaciones en donde \r\nel incidente se ha seleccionado";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(23, 26);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(297, 30);
+            this.label23.TabIndex = 24;
+            this.label23.Text = "Elimina el incidente del sistema, solo se podrán \r\neliminar aquellos que no perte" +
+    "nezcan a una estación";
+            // 
+            // btnEliminarIncidente
+            // 
+            this.btnEliminarIncidente.Image = global::ffccSimulacion.Properties.Resources.bin_icon_1488050992;
+            this.btnEliminarIncidente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminarIncidente.Location = new System.Drawing.Point(165, 75);
+            this.btnEliminarIncidente.Name = "btnEliminarIncidente";
+            this.btnEliminarIncidente.Size = new System.Drawing.Size(150, 30);
+            this.btnEliminarIncidente.TabIndex = 7;
+            this.btnEliminarIncidente.Text = "Borrar Incidente";
+            this.btnEliminarIncidente.UseVisualStyleBackColor = true;
+            this.btnEliminarIncidente.Click += new System.EventHandler(this.btnEliminarIncidente_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(342, 75);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(139, 60);
+            this.label24.TabIndex = 22;
+            this.label24.Text = "Listado de incidentes \r\nactuales en el sistema, \r\nseleccione un incidente \r\npara " +
+    "borrarlo.";
             // 
             // frmABMIncidente
             // 
@@ -570,7 +774,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(768, 452);
+            this.ClientSize = new System.Drawing.Size(1162, 679);
             this.Controls.Add(this.pnlInicidente);
             this.Name = "frmABMIncidente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -581,8 +785,23 @@
             this.tabModificar.ResumeLayout(false);
             this.tabModificar.PerformLayout();
             this.tabEliminar.ResumeLayout(false);
-            this.tabEliminar.PerformLayout();
             this.pnlInicidente.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -626,9 +845,26 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtIncEliBuscar;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox lstIncEliEstaciones;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIncCreBuscar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label24;
     }
 }

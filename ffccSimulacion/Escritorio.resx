@@ -157,7 +157,7 @@
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="simulaciónToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+X</value>
+    <value>F5</value>
   </data>
   <data name="simulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -206,7 +206,7 @@
 </value>
   </data>
   <data name="trazaToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+T</value>
+    <value>F6</value>
   </data>
   <data name="trazaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -249,7 +249,7 @@
 </value>
   </data>
   <data name="servicioToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+S</value>
+    <value>F7</value>
   </data>
   <data name="servicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -297,7 +297,7 @@
     <value>Ctrl + F</value>
   </data>
   <data name="formaciónToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F</value>
+    <value>F8</value>
   </data>
   <data name="formaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -338,7 +338,7 @@
 </value>
   </data>
   <data name="cocheToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+D</value>
+    <value>F9</value>
   </data>
   <data name="cocheToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -381,7 +381,7 @@
 </value>
   </data>
   <data name="estaciónToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+E</value>
+    <value>F10</value>
   </data>
   <data name="estaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -429,7 +429,7 @@
 </value>
   </data>
   <data name="incidenteToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+I</value>
+    <value>F11</value>
   </data>
   <data name="incidenteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>
@@ -476,7 +476,7 @@
 </value>
   </data>
   <data name="ayudaToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+A</value>
+    <value>F1</value>
   </data>
   <data name="ayudaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 94</value>

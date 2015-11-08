@@ -30,10 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyuda));
             this.pnlAyuda = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pnlAyuda.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,11 +41,21 @@
             this.pnlAyuda.Controls.Add(this.linkLabel1);
             this.pnlAyuda.Controls.Add(this.textBox1);
             this.pnlAyuda.Controls.Add(this.label2);
-            this.pnlAyuda.Controls.Add(this.label1);
             this.pnlAyuda.Location = new System.Drawing.Point(1, 3);
             this.pnlAyuda.Name = "pnlAyuda";
             this.pnlAyuda.Size = new System.Drawing.Size(988, 500);
             this.pnlAyuda.TabIndex = 0;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(26, 477);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(61, 13);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Ver Manual";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // textBox1
             // 
@@ -70,29 +79,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Bienvenido a la Ayuda de SimuladorFFCC\r\n";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(26, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 182);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Accesos Directos\n\nCtrl + X = Simulación\nCtrl + T = Traza\nCtrl + S = Servicio\nCtrl" +
-    " + F = Formación\nCtrl + D = Coche\nCtrl + E = Estación\nCtrl + I = Incidente\nCtrl " +
-    "+ A = Ayuda\nCtrl + Q = Salir\n\n\n\n";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(26, 477);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(61, 13);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver Manual";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // frmAyuda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,7 +96,6 @@
         #endregion
 
         public System.Windows.Forms.Panel pnlAyuda;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.LinkLabel linkLabel1;

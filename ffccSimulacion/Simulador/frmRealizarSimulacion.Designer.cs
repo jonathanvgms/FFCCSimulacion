@@ -151,7 +151,7 @@
             // 
             this.tbSimDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbSimDuracion.Location = new System.Drawing.Point(25, 237);
-            this.tbSimDuracion.MaxLength = 9;
+            this.tbSimDuracion.MaxLength = 8;
             this.tbSimDuracion.Name = "tbSimDuracion";
             this.tbSimDuracion.Size = new System.Drawing.Size(149, 21);
             this.tbSimDuracion.TabIndex = 28;
@@ -206,6 +206,7 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(897, 343);
             this.button2.Name = "button2";
