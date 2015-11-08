@@ -63,26 +63,6 @@ namespace ffccSimulacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bin_icon_148805099 {
-            get {
-                object obj = ResourceManager.GetObject("bin-icon_148805099", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bin_icon_1488050991 {
-            get {
-                object obj = ResourceManager.GetObject("bin-icon_1488050991", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap bin_icon_1488050992 {
             get {
                 object obj = ResourceManager.GetObject("bin-icon_1488050992", resourceCulture);
