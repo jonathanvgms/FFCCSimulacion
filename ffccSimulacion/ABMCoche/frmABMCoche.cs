@@ -83,7 +83,7 @@ namespace ffccSimulacion.ABMCoche
                         nuevoCoche.EsLocomotora = 1;
                         nuevoCoche.ConsumoMovimiento = Convert.ToInt32(txtConsumoMov.Text);
                         nuevoCoche.ConsumoParado = Convert.ToInt32(txtConsumoParado.Text);
-                        if (cbxTipoConsumo.SelectedItem == "Electrico")
+                        if (cbxTipoConsumo.SelectedItem == "Eléctrico")
                             nuevoCoche.TipoConsumo = (int)TipoConsumo.Electrico;
                         else
                             nuevoCoche.TipoConsumo = (int)TipoConsumo.Disel;
@@ -123,22 +123,22 @@ namespace ffccSimulacion.ABMCoche
             string errorMsj = "";
 
             if(!Util.EsAlfaNumerico(txtModeloMod.Text))
-                errorMsj += "Modelo: Incompleto/Incorrecto.\n";
+                errorMsj += "Modelo: Incompleto ó Incorrecto.\n";
             if(rdbLocomotoraSiMod.Checked)
             {
                 if (cbxTipoConsumoMod.SelectedItem == "")
-                    errorMsj += "Tipo de consumo: Incompleto/Incorrecto.\n";
+                    errorMsj += "Tipo de consumo: Incompleto ó Incorrecto.\n";
                 if(!Util.EsNumerico(txtConsumoMovimientoMod.Text))
-                    errorMsj += "Consumo en movimiento: Incompleto/Incorrecto.\n";
+                    errorMsj += "Consumo en movimiento: Incompleto ó Incorrecto.\n";
                 if(!Util.EsNumerico(txtConsumoParadoMod.Text))
-                    errorMsj += "Consumo parado: Incompleto/Incorrecto.\n";
+                    errorMsj += "Consumo parado: Incompleto ó Incorrecto.\n";
             }
             if(!Util.EsNumerico(txtCantidadAsientosMod.Text))
-                errorMsj += "Cantidad de asientos: Incompleto/Incorrecto.\n";
+                errorMsj += "Cantidad de asientos: Incompleto ó Incorrecto.\n";
             if(!Util.EsNumerico(txtCapacidadLegalMod.Text))
-                errorMsj += "Capacidad máxima legal: Incompleto/Incorrecto.\n";
+                errorMsj += "Capacidad máxima legal: Incompleto ó Incorrecto.\n";
             if(!Util.EsNumerico(txtCapacidadRealMod.Text))
-                errorMsj += "Capacidad máxima real: Incompleto/Incorrecto.\n";
+                errorMsj += "Capacidad máxima real: Incompleto ó Incorrecto.\n";
             if (string.IsNullOrEmpty(errorMsj))
             {
                 try
@@ -149,7 +149,7 @@ namespace ffccSimulacion.ABMCoche
                     if (rdbLocomotoraSiMod.Checked)
                     {
                         cocheSeleccionado.EsLocomotora = 1;
-                        if (cbxTipoConsumoMod.SelectedItem == "Disel")
+                        if (cbxTipoConsumoMod.SelectedItem == "Diesel")
                             cocheSeleccionado.TipoConsumo = (int)TipoConsumo.Disel;
                         else
                             cocheSeleccionado.TipoConsumo = (int)TipoConsumo.Electrico;

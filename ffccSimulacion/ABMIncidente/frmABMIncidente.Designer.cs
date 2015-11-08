@@ -39,15 +39,6 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabCrear = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtbIncCreTiem = new System.Windows.Forms.TextBox();
-            this.cbmIncCrePro = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.lstIncidenteCrear = new System.Windows.Forms.ListBox();
@@ -58,15 +49,18 @@
             this.txtincCreDes = new System.Windows.Forms.TextBox();
             this.txtIncCreNom = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbmIncCrePro = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtbIncCreTiem = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabModificar = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
             this.lstIncMod = new System.Windows.Forms.ListBox();
@@ -88,11 +82,10 @@
             this.pnlInicidente = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabCrear.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabModificar.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabEliminar.SuspendLayout();
             this.groupBox9.SuspendLayout();
@@ -151,7 +144,7 @@
             "80",
             "90",
             "100"});
-            this.cmbModProb.Location = new System.Drawing.Point(41, 64);
+            this.cmbModProb.Location = new System.Drawing.Point(198, 320);
             this.cmbModProb.Name = "cmbModProb";
             this.cmbModProb.Size = new System.Drawing.Size(111, 23);
             this.cmbModProb.TabIndex = 1;
@@ -170,12 +163,12 @@
             this.txtModDes.MaxLength = 499;
             this.txtModDes.Multiline = true;
             this.txtModDes.Name = "txtModDes";
-            this.txtModDes.Size = new System.Drawing.Size(296, 124);
+            this.txtModDes.Size = new System.Drawing.Size(296, 207);
             this.txtModDes.TabIndex = 2;
             // 
             // txtModDem
             // 
-            this.txtModDem.Location = new System.Drawing.Point(41, 160);
+            this.txtModDem.Location = new System.Drawing.Point(198, 385);
             this.txtModDem.MaxLength = 9;
             this.txtModDem.Name = "txtModDem";
             this.txtModDem.Size = new System.Drawing.Size(111, 21);
@@ -235,7 +228,6 @@
             // 
             // tabCrear
             // 
-            this.tabCrear.Controls.Add(this.groupBox3);
             this.tabCrear.Controls.Add(this.groupBox1);
             this.tabCrear.Controls.Add(this.label5);
             this.tabCrear.Controls.Add(this.label6);
@@ -250,122 +242,6 @@
             this.tabCrear.Text = "Nuevo Incidente";
             this.tabCrear.ToolTipText = "Crea un nuevo incidente que no aparezca en el listado";
             this.tabCrear.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.txtbIncCreTiem);
-            this.groupBox3.Controls.Add(this.cbmIncCrePro);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(19, 283);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(419, 187);
-            this.groupBox3.TabIndex = 20;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Configuración";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(224, 116);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(182, 30);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "Tiempo en que el servicio \r\nse suspende hasta que restaura\r\n";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(224, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(158, 30);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Porcentaje de probabilidad \r\nde que ocurra el incidente";
-            // 
-            // txtbIncCreTiem
-            // 
-            this.txtbIncCreTiem.Location = new System.Drawing.Point(24, 134);
-            this.txtbIncCreTiem.MaxLength = 9;
-            this.txtbIncCreTiem.Name = "txtbIncCreTiem";
-            this.txtbIncCreTiem.Size = new System.Drawing.Size(113, 21);
-            this.txtbIncCreTiem.TabIndex = 8;
-            // 
-            // cbmIncCrePro
-            // 
-            this.cbmIncCrePro.AutoCompleteCustomSource.AddRange(new string[] {
-            "0%",
-            "10%",
-            "20%",
-            "30%",
-            "40%",
-            "50%",
-            "60%",
-            "70%",
-            "80%",
-            "90%",
-            "100%"});
-            this.cbmIncCrePro.FormattingEnabled = true;
-            this.cbmIncCrePro.Items.AddRange(new object[] {
-            "0",
-            "2",
-            "5",
-            "7",
-            "10",
-            "15",
-            "20",
-            "25",
-            "30",
-            "40",
-            "50",
-            "60",
-            "70",
-            "80",
-            "90",
-            "100"});
-            this.cbmIncCrePro.Location = new System.Drawing.Point(24, 47);
-            this.cbmIncCrePro.Name = "cbmIncCrePro";
-            this.cbmIncCrePro.Size = new System.Drawing.Size(113, 23);
-            this.cbmIncCrePro.TabIndex = 7;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(143, 137);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(51, 15);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Minutos";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 116);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(116, 15);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Tiempo De Demora";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(143, 50);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(18, 15);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "%";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 29);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(155, 15);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Probabilidad De Ocurencia";
             // 
             // groupBox1
             // 
@@ -383,11 +259,11 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(334, 25);
+            this.label19.Location = new System.Drawing.Point(333, 53);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(129, 30);
+            this.label19.Size = new System.Drawing.Size(138, 30);
             this.label19.TabIndex = 18;
-            this.label19.Text = "Listado de incidentes \r\nactuales en el sistema";
+            this.label19.Text = "Listado de incidentes \r\nexistentes en el sistema";
             // 
             // lstIncidenteCrear
             // 
@@ -444,7 +320,7 @@
             this.txtincCreDes.MaxLength = 499;
             this.txtincCreDes.Multiline = true;
             this.txtincCreDes.Name = "txtincCreDes";
-            this.txtincCreDes.Size = new System.Drawing.Size(280, 141);
+            this.txtincCreDes.Size = new System.Drawing.Size(280, 184);
             this.txtincCreDes.TabIndex = 9;
             // 
             // txtIncCreNom
@@ -457,17 +333,103 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbmIncCrePro);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.txtbIncCreTiem);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(19, 29);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(419, 236);
+            this.groupBox2.Size = new System.Drawing.Size(419, 441);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Incidente";
             // 
+            // cbmIncCrePro
+            // 
+            this.cbmIncCrePro.AutoCompleteCustomSource.AddRange(new string[] {
+            "0%",
+            "10%",
+            "20%",
+            "30%",
+            "40%",
+            "50%",
+            "60%",
+            "70%",
+            "80%",
+            "90%",
+            "100%"});
+            this.cbmIncCrePro.FormattingEnabled = true;
+            this.cbmIncCrePro.Items.AddRange(new object[] {
+            "0",
+            "2",
+            "5",
+            "7",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100"});
+            this.cbmIncCrePro.Location = new System.Drawing.Point(177, 295);
+            this.cbmIncCrePro.Name = "cbmIncCrePro";
+            this.cbmIncCrePro.Size = new System.Drawing.Size(113, 23);
+            this.cbmIncCrePro.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(21, 288);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(145, 30);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Porcentaje de Ocurencia \r\ndel Incidente\r\n";
+            // 
+            // txtbIncCreTiem
+            // 
+            this.txtbIncCreTiem.Location = new System.Drawing.Point(177, 384);
+            this.txtbIncCreTiem.MaxLength = 9;
+            this.txtbIncCreTiem.Name = "txtbIncCreTiem";
+            this.txtbIncCreTiem.Size = new System.Drawing.Size(113, 21);
+            this.txtbIncCreTiem.TabIndex = 8;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(296, 298);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(18, 15);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "%";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 375);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 30);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Tiempo de Demora \r\ndel Servicio";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(296, 387);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(51, 15);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Minutos";
+            // 
             // tabModificar
             // 
             this.tabModificar.Controls.Add(this.groupBox5);
-            this.tabModificar.Controls.Add(this.groupBox6);
             this.tabModificar.Controls.Add(this.groupBox4);
             this.tabModificar.Controls.Add(this.lblModMensajeError);
             this.tabModificar.Location = new System.Drawing.Point(4, 24);
@@ -481,87 +443,58 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.txtModDes);
             this.groupBox5.Controls.Add(this.txtModNombre);
+            this.groupBox5.Controls.Add(this.cmbModProb);
             this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.txtModDem);
             this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.label14);
             this.groupBox5.Location = new System.Drawing.Point(525, 30);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(430, 221);
+            this.groupBox5.Size = new System.Drawing.Size(430, 447);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Incidente";
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label21);
-            this.groupBox6.Controls.Add(this.label3);
-            this.groupBox6.Controls.Add(this.label22);
-            this.groupBox6.Controls.Add(this.cmbModProb);
-            this.groupBox6.Controls.Add(this.txtModDem);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label4);
-            this.groupBox6.Location = new System.Drawing.Point(525, 271);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(430, 206);
-            this.groupBox6.TabIndex = 21;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Configuración";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(224, 136);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(182, 30);
-            this.label21.TabIndex = 19;
-            this.label21.Text = "Tiempo en que el servicio \r\nse suspende hasta que restaura\r\n";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(158, 163);
+            this.label3.Location = new System.Drawing.Point(315, 388);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "Minutos";
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(224, 46);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(158, 30);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "Porcentaje de probabilidad \r\nde que ocurra el incidente";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(38, 136);
+            this.label15.Location = new System.Drawing.Point(23, 376);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(116, 15);
+            this.label15.Size = new System.Drawing.Size(114, 30);
             this.label15.TabIndex = 8;
-            this.label15.Text = "Tiempo De Demora";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(38, 46);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(155, 15);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Probabilidad De Ocurencia";
+            this.label15.Text = "Tiempo de Demora\r\ndel Servcio";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(158, 67);
+            this.label4.Location = new System.Drawing.Point(315, 323);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(18, 15);
             this.label4.TabIndex = 16;
             this.label4.Text = "%";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(23, 310);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(146, 30);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Porcentaje de Ocurrencia\r\ndel Incidente";
             // 
             // groupBox4
             // 
@@ -574,17 +507,17 @@
             this.groupBox4.Size = new System.Drawing.Size(485, 447);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Buscar Incidente";
+            this.groupBox4.Text = "Buscar Incidente a Modificar";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(335, 58);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(139, 75);
+            this.label20.Size = new System.Drawing.Size(144, 75);
             this.label20.TabIndex = 20;
-            this.label20.Text = "Listado de incidentes \r\nactuales en el sistema, \r\nseleccione un incidente \r\npara " +
-    "modificar sus \r\natributos";
+            this.label20.Text = "Listado de incidentes \r\nexistentes en el sistema, \r\nseleccione un incidente \r\npar" +
+    "a modificar sus \r\natributos";
             // 
             // lstIncMod
             // 
@@ -600,6 +533,8 @@
             // 
             // txtIncModBuscar
             // 
+            this.txtIncModBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIncModBuscar.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtIncModBuscar.Location = new System.Drawing.Point(117, 29);
             this.txtIncModBuscar.MaxLength = 99;
             this.txtIncModBuscar.Name = "txtIncModBuscar";
@@ -647,7 +582,7 @@
             this.groupBox9.Size = new System.Drawing.Size(335, 311);
             this.groupBox9.TabIndex = 26;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Listado de estaciones";
+            this.groupBox9.Text = "Listado de Estaciones";
             // 
             // label9
             // 
@@ -680,7 +615,7 @@
             this.groupBox8.Size = new System.Drawing.Size(335, 123);
             this.groupBox8.TabIndex = 25;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Borrar Configuración";
+            this.groupBox8.Text = "Eliminar Incidente";
             // 
             // label23
             // 
@@ -700,7 +635,7 @@
             this.btnEliminarIncidente.Name = "btnEliminarIncidente";
             this.btnEliminarIncidente.Size = new System.Drawing.Size(150, 30);
             this.btnEliminarIncidente.TabIndex = 7;
-            this.btnEliminarIncidente.Text = "Borrar Incidente";
+            this.btnEliminarIncidente.Text = "Eliminar";
             this.btnEliminarIncidente.UseVisualStyleBackColor = true;
             this.btnEliminarIncidente.Click += new System.EventHandler(this.btnEliminarIncidente_Click);
             // 
@@ -715,17 +650,17 @@
             this.groupBox7.Size = new System.Drawing.Size(494, 455);
             this.groupBox7.TabIndex = 24;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Buscar Incidente";
+            this.groupBox7.Text = "Buscar Incidente a Eliminar";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(342, 75);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(139, 60);
+            this.label24.Size = new System.Drawing.Size(144, 60);
             this.label24.TabIndex = 22;
-            this.label24.Text = "Listado de incidentes \r\nactuales en el sistema, \r\nseleccione un incidente \r\npara " +
-    "borrarlo.";
+            this.label24.Text = "Listado de incidentes \r\nexistentes en el sistema, \r\nseleccione un incidente \r\npar" +
+    "a eliminarlo.";
             // 
             // label17
             // 
@@ -782,16 +717,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tabCrear.ResumeLayout(false);
             this.tabCrear.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabModificar.ResumeLayout(false);
             this.tabModificar.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabEliminar.ResumeLayout(false);
@@ -848,16 +781,10 @@
         private System.Windows.Forms.ListBox lstIncEliEstaciones;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIncCreBuscar;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox9;
