@@ -172,6 +172,14 @@ namespace ffccSimulacion.ABMCoche
 
                     //lbxCochesModificar.Items.Clear();
                     //lbxCochesBorrar.Items.Clear();
+                    txtModeloMod.Text = "";
+                    rdbLocomotoraNoMod.Checked = true;
+                    cbxTipoConsumoMod.SelectedIndex = -1;
+                    txtConsumoMovimientoMod.Text = "";
+                    txtConsumoParadoMod.Text = "";
+                    txtCantidadAsientosMod.Text = "";
+                    txtCapacidadLegalMod.Text = "";
+                    txtCapacidadRealMod.Text = "";
                     cargarCochesEnListas();
                     deshabilitarModificar();
                     MessageBox.Show("Las modificaciones se han guardado exitosamente.\n");
@@ -323,6 +331,9 @@ namespace ffccSimulacion.ABMCoche
                 {
                     rdbLocomotoraNoMod.Checked = true;
                     cbxTipoConsumoMod.SelectedIndex = -1;
+                    cbxTipoConsumoMod.Enabled = false;
+                    txtConsumoMovimientoMod.Enabled = false;
+                    txtConsumoParadoMod.Enabled = false;
                     txtConsumoMovimientoMod.Text = "0";
                     txtConsumoParadoMod.Text = "0";
                 }
