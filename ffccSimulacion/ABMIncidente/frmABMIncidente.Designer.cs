@@ -179,7 +179,7 @@
             this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.SlateGray;
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(15, 548);
+            this.btnLimpiar.Location = new System.Drawing.Point(3, 536);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 3;
@@ -193,7 +193,7 @@
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.SlateGray;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(916, 548);
+            this.btnCancelar.Location = new System.Drawing.Point(904, 536);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 30);
             this.btnCancelar.TabIndex = 3;
@@ -204,7 +204,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(820, 548);
+            this.btnAceptar.Location = new System.Drawing.Point(808, 536);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(90, 30);
             this.btnAceptar.TabIndex = 3;
@@ -218,7 +218,7 @@
             this.tabControl1.Controls.Add(this.tabModificar);
             this.tabControl1.Controls.Add(this.tabEliminar);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(15, 15);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.ShowToolTips = true;
@@ -694,13 +694,14 @@
             // 
             // pnlInicidente
             // 
+            this.pnlInicidente.BackColor = System.Drawing.SystemColors.Control;
             this.pnlInicidente.Controls.Add(this.tabControl1);
             this.pnlInicidente.Controls.Add(this.btnLimpiar);
             this.pnlInicidente.Controls.Add(this.btnAceptar);
             this.pnlInicidente.Controls.Add(this.btnCancelar);
             this.pnlInicidente.Location = new System.Drawing.Point(12, 12);
             this.pnlInicidente.Name = "pnlInicidente";
-            this.pnlInicidente.Size = new System.Drawing.Size(1019, 585);
+            this.pnlInicidente.Size = new System.Drawing.Size(999, 571);
             this.pnlInicidente.TabIndex = 5;
             // 
             // frmABMIncidente
@@ -709,7 +710,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(1162, 679);
+            this.ClientSize = new System.Drawing.Size(1020, 596);
             this.Controls.Add(this.pnlInicidente);
             this.Name = "frmABMIncidente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

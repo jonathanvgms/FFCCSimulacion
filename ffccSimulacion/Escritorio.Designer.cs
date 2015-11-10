@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Escritorio));
             this.menuEscritorio = new System.Windows.Forms.MenuStrip();
-            this.pnlEscritorio = new System.Windows.Forms.Panel();
             this.simulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trazaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.servicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +39,7 @@
             this.incidenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlEscritorio = new System.Windows.Forms.Panel();
             this.menuEscritorio.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,12 +60,6 @@
             this.salirToolStripMenuItem});
             this.menuEscritorio.Name = "menuEscritorio";
             this.menuEscritorio.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            // 
-            // pnlEscritorio
-            // 
-            resources.ApplyResources(this.pnlEscritorio, "pnlEscritorio");
-            this.pnlEscritorio.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlEscritorio.Name = "pnlEscritorio";
             // 
             // simulaciónToolStripMenuItem
             // 
@@ -123,6 +117,12 @@
             resources.ApplyResources(this.salirToolStripMenuItem, "salirToolStripMenuItem");
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // pnlEscritorio
+            // 
+            resources.ApplyResources(this.pnlEscritorio, "pnlEscritorio");
+            this.pnlEscritorio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlEscritorio.Name = "pnlEscritorio";
             // 
             // Escritorio
             // 

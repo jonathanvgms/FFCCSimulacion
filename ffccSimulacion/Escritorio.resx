@@ -527,7 +527,7 @@
     <value>0, 0</value>
   </data>
   <data name="menuEscritorio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1207, 98</value>
+    <value>1344, 98</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuEscritorio.TabIndex" type="System.Int32, mscorlib">
@@ -558,7 +558,7 @@
     <value>0, 98</value>
   </data>
   <data name="pnlEscritorio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1207, 603</value>
+    <value>1344, 631</value>
   </data>
   <data name="pnlEscritorio.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -582,7 +582,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1207, 701</value>
+    <value>1344, 729</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
