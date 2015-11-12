@@ -379,6 +379,7 @@
             "90",
             "100"});
             this.cbmIncCrePro.Location = new System.Drawing.Point(187, 295);
+            this.cbmIncCrePro.MaxLength = 3;
             this.cbmIncCrePro.Name = "cbmIncCrePro";
             this.cbmIncCrePro.Size = new System.Drawing.Size(113, 23);
             this.cbmIncCrePro.TabIndex = 7;

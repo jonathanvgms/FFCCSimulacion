@@ -17,7 +17,7 @@ namespace ffccSimulacion.Modelo
          estacion. Preguntar a Pablo*/
         private Dictionary<int, Estacion_Info> _estaciones_TC = new Dictionary<int, Estacion_Info>();//La clave que se utiliza es el id de la estacion
         private List<ResultadoFormacion> _resultadosFormaciones = new List<ResultadoFormacion>();
-
+        
         public TiempoComprometido(int tiempoInicial, int tiempoFinal,Trazas unaTraza)
         {
             TiempoInicial = tiempoInicial;
@@ -199,6 +199,14 @@ namespace ffccSimulacion.Modelo
             }*/
             siguienteServicio.removerSalida(siguienteSalida); //Al haber usado el horario siguienteSalida lo remuevo del servicio.
         }
+
+        private long calcularIntervalo()
+        {
+            DateTime tiempo = DateTime.Now;
+
+            return tiempo.Hour * tiempo.Minute * tiempo.Second * tiempo.Millisecond;
+        }
+
         #endregion
     }
 }

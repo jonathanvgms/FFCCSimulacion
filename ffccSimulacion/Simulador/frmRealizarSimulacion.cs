@@ -119,27 +119,30 @@ namespace ffccSimulacion.Simulador
             if (string.IsNullOrEmpty(errorMsj))
             {
                 //esto es de Facu
-                simulacion = new Simulaciones();
-                simulacion.Trazas = trazaSeleccionada;
-                simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
-                simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
-                simulacion.EjecutarSimulacion();
-                reportar();
-                //jonahtan
                 //simulacion = new Simulaciones();
                 //simulacion.Trazas = trazaSeleccionada;
-                //simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60; //Paso la duracion de la simulacion a minutos
+                //simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
                 //simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
-                ////simulacion.EjecutarSimulacion(); esto es de Facu
-                //Thread threadSimulacion = new Thread(new ThreadStart(simulacion.EjecutarSimulacion)); // creo el hilo de la simulacion
-                //threadSimulacion.Start(); //arranco el hilo
-                //frmBarraProgreso barra = new frmBarraProgreso(threadSimulacion); //creo la barra de progreso
-                //barra.ShowDialog(); //muestro la barra
-                //threadSimulacion.Join(); //espero a que el hilo termine ya sea porque 1)termino bien 2) o le dieon cancelar               
-                //if (barra.estado) //si la simulacion termino correctamente muestro el reportar
-                //{
-                //    reportar();
-                //}
+                //simulacion.EjecutarSimulacion();
+                //Console.WriteLine("Fin Simulación, reportar");
+                //reportar();
+                //jonahtan
+                simulacion = new Simulaciones();
+                simulacion.Trazas = trazaSeleccionada;
+                simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60; //Paso la duracion de la simulacion a minutos
+                simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
+                //simulacion.EjecutarSimulacion(); esto es de Facu
+                Thread threadSimulacion = new Thread(new ThreadStart(simulacion.EjecutarSimulacion)); // creo el hilo de la simulacion
+                threadSimulacion.Start(); //arranco el hilo
+                frmBarraProgreso barra = new frmBarraProgreso(threadSimulacion, Convert.ToDouble(simulacion.Frecuencia_Salida), Convert.ToDouble(simulacion.Tiempo_Final)); //creo la barra de progreso
+                barra.ShowDialog(); //muestro la barra
+                threadSimulacion.Join(); //espero a que el hilo termine ya sea porque 1)termino bien 2) o le dieon cancelar               
+                Console.WriteLine("Fin Simulación");
+                if (barra.estado) //si la simulacion termino correctamente muestro el reportar
+                {
+                    reportar();
+                    Console.WriteLine("Fin Reportes");                    
+                }
             }
             else
                 MessageBox.Show(errorMsj);
@@ -208,7 +211,6 @@ namespace ffccSimulacion.Simulador
                     context.SaveChanges();
 
                     MessageBox.Show("Simulación Guardada");
-
                 }
                 catch (Exception exc)
                 {
@@ -356,10 +358,6 @@ namespace ffccSimulacion.Simulador
 
             resultadoSimulacion.idTraza = ((Trazas)lBoxSimTrazas.SelectedItem).Id;
 
-            //using (frmResultados frmResultados = new frmResultados(resultadoSimulacion))
-            //{
-            //    frmResultados.ShowDialog();
-            //}
             frmResultados frmResultados = new frmResultados(resultadoSimulacion);
             frmResultados.ShowDialog(this);
         }
