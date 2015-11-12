@@ -119,26 +119,27 @@ namespace ffccSimulacion.Simulador
             if (string.IsNullOrEmpty(errorMsj))
             {
                 //esto es de Facu
-                //simulacion = new Simulaciones();
-                //simulacion.Trazas = trazaSeleccionada;
-                //simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
-                //simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
-                //simulacion.EjecutarSimulacion();
-                //reportar();
                 simulacion = new Simulaciones();
                 simulacion.Trazas = trazaSeleccionada;
-                simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60; //Paso la duracion de la simulacion a minutos
+                simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60;//Paso la duracion de la simulacion a minutos
                 simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
-                //simulacion.EjecutarSimulacion(); esto es de Facu
-                Thread threadSimulacion = new Thread(new ThreadStart(simulacion.EjecutarSimulacion)); // creo el hilo de la simulacion
-                threadSimulacion.Start(); //arranco el hilo
-                frmBarraProgreso barra = new frmBarraProgreso(threadSimulacion); //creo la barra de progreso
-                barra.ShowDialog(); //muestro la barra
-                threadSimulacion.Join(); //espero a que el hilo termine ya sea porque 1)termino bien 2) o le dieon cancelar               
-                if (barra.estado) //si la simulacion termino correctamente muestro el reportar
-                {
-                    reportar();
-                }
+                simulacion.EjecutarSimulacion();
+                reportar();
+                //jonahtan
+                //simulacion = new Simulaciones();
+                //simulacion.Trazas = trazaSeleccionada;
+                //simulacion.Tiempo_Final = Convert.ToInt32(tbSimDuracion.Text) * 60; //Paso la duracion de la simulacion a minutos
+                //simulacion.Frecuencia_Salida = Convert.ToInt32(tbSimFrecuencia.Text);
+                ////simulacion.EjecutarSimulacion(); esto es de Facu
+                //Thread threadSimulacion = new Thread(new ThreadStart(simulacion.EjecutarSimulacion)); // creo el hilo de la simulacion
+                //threadSimulacion.Start(); //arranco el hilo
+                //frmBarraProgreso barra = new frmBarraProgreso(threadSimulacion); //creo la barra de progreso
+                //barra.ShowDialog(); //muestro la barra
+                //threadSimulacion.Join(); //espero a que el hilo termine ya sea porque 1)termino bien 2) o le dieon cancelar               
+                //if (barra.estado) //si la simulacion termino correctamente muestro el reportar
+                //{
+                //    reportar();
+                //}
             }
             else
                 MessageBox.Show(errorMsj);

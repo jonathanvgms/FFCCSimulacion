@@ -84,9 +84,9 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(348, 13);
+            this.groupBox1.Location = new System.Drawing.Point(329, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 170);
+            this.groupBox1.Size = new System.Drawing.Size(422, 170);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Simulación";
@@ -94,7 +94,7 @@
             // tbSimDuracion
             // 
             this.tbSimDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSimDuracion.Location = new System.Drawing.Point(179, 130);
+            this.tbSimDuracion.Location = new System.Drawing.Point(196, 130);
             this.tbSimDuracion.MaxLength = 8;
             this.tbSimDuracion.Name = "tbSimDuracion";
             this.tbSimDuracion.Size = new System.Drawing.Size(149, 21);
@@ -104,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 26);
+            this.label1.Location = new System.Drawing.Point(18, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 17;
@@ -113,17 +113,17 @@
             // tbSimNombre
             // 
             this.tbSimNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSimNombre.Location = new System.Drawing.Point(179, 23);
+            this.tbSimNombre.Location = new System.Drawing.Point(101, 26);
             this.tbSimNombre.MaxLength = 99;
             this.tbSimNombre.Name = "tbSimNombre";
-            this.tbSimNombre.Size = new System.Drawing.Size(149, 21);
+            this.tbSimNombre.Size = new System.Drawing.Size(244, 21);
             this.tbSimNombre.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(334, 133);
+            this.label7.Location = new System.Drawing.Point(351, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 15);
             this.label7.TabIndex = 31;
@@ -132,7 +132,7 @@
             // tbSimFrecuencia
             // 
             this.tbSimFrecuencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSimFrecuencia.Location = new System.Drawing.Point(179, 80);
+            this.tbSimFrecuencia.Location = new System.Drawing.Point(196, 80);
             this.tbSimFrecuencia.MaxLength = 9;
             this.tbSimFrecuencia.Name = "tbSimFrecuencia";
             this.tbSimFrecuencia.Size = new System.Drawing.Size(149, 21);
@@ -142,7 +142,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(334, 83);
+            this.label6.Location = new System.Drawing.Point(351, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 15);
             this.label6.TabIndex = 30;

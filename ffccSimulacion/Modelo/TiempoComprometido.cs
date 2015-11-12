@@ -185,7 +185,6 @@ namespace ffccSimulacion.Modelo
             siguienteServicio = Traza.ServiciosDisponibles[_posServicio];
             _posServicio++;
             siguienteSalida = siguienteServicio.proximoHorarioSalida();
-
             /*Actualiza las variables siguienteSalida y siguienteServicio con los valores del proximo servicio a salir. */
             /*siguienteServicio = Traza.ServiciosDisponibles.First();
             siguienteSalida = siguienteServicio.proximoHorarioSalida();

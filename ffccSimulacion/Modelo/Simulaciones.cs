@@ -39,7 +39,7 @@ namespace ffccSimulacion.Modelo
             Trazas.ConfigurarLosServiciosDeLaTraza();
             //Se crea y asgina la programacion de salida para los servicios
             List<int> programacion1 = new List<int>();
-            for (int i = 0; i < 100; i += Frecuencia_Salida)
+            for (int i = 0; i < Tiempo_Final; i += Frecuencia_Salida)
                 programacion1.Add(i);
 
             foreach (Trazas_X_Servicios ts in Trazas.Trazas_X_Servicios)
@@ -83,6 +83,7 @@ namespace ffccSimulacion.Modelo
                     TiempoComprometido tiempoComprometido = new TiempoComprometido(0, Tiempo_Final, Trazas);
                     tiempoComprometido.EjecutarSimulacion();
                     _resultadosFormacionesSimulacion = tiempoComprometido.ResultadosFormaciones;
+                    //MessageBox.Show("Done !");
                     break;
                 case(1):
                     //Evento a evento
