@@ -76,9 +76,9 @@
             // btnResultadosPdf
             // 
             this.btnResultadosPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResultadosPdf.Location = new System.Drawing.Point(12, 368);
+            this.btnResultadosPdf.Location = new System.Drawing.Point(12, 375);
             this.btnResultadosPdf.Name = "btnResultadosPdf";
-            this.btnResultadosPdf.Size = new System.Drawing.Size(118, 32);
+            this.btnResultadosPdf.Size = new System.Drawing.Size(120, 30);
             this.btnResultadosPdf.TabIndex = 1;
             this.btnResultadosPdf.Text = "Guardar Informe";
             this.btnResultadosPdf.UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@
             // 
             this.btnResultadosCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnResultadosCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResultadosCerrar.Location = new System.Drawing.Point(794, 368);
+            this.btnResultadosCerrar.Location = new System.Drawing.Point(788, 375);
             this.btnResultadosCerrar.Name = "btnResultadosCerrar";
-            this.btnResultadosCerrar.Size = new System.Drawing.Size(84, 32);
+            this.btnResultadosCerrar.Size = new System.Drawing.Size(90, 30);
             this.btnResultadosCerrar.TabIndex = 2;
             this.btnResultadosCerrar.Text = "Cerrar";
             this.btnResultadosCerrar.UseVisualStyleBackColor = true;

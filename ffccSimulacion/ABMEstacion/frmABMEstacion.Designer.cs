@@ -33,13 +33,12 @@
             this.btnEstAceptar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CrearEstacion = new System.Windows.Forms.TabPage();
-            this.txtEstCreBuscar = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.lstCreEstaciones = new System.Windows.Forms.ListBox();
-            this.cmbEstCreFdp = new System.Windows.Forms.ComboBox();
-            this.clbIncidentes = new System.Windows.Forms.CheckedListBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtEstCreNombre = new System.Windows.Forms.TextBox();
+            this.clbIncidentes = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbEstCreFdp = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,16 +46,18 @@
             this.txtEstCreMinimo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtEstCreNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtEstCreBuscar = new System.Windows.Forms.TextBox();
+            this.lstCreEstaciones = new System.Windows.Forms.ListBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.ModificarEstacion = new System.Windows.Forms.TabPage();
-            this.txtEstacionesModBuscar = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbEstModFdp = new System.Windows.Forms.ComboBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.clbModIncidentes = new System.Windows.Forms.CheckedListBox();
-            this.lstModEstaciones = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtEstModNombre = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -64,40 +65,40 @@
             this.txtEstModMinimo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtEstModNombre = new System.Windows.Forms.TextBox();
-            this.EliminarEstacion = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lstEstEliServicios = new System.Windows.Forms.ListBox();
-            this.txtEstEliBuscar = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lstEliEstaciones = new System.Windows.Forms.ListBox();
-            this.btnEstBorrar = new System.Windows.Forms.Button();
-            this.pnlEstacion = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.cmbEstModFdp = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.lstModEstaciones = new System.Windows.Forms.ListBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtEstacionesModBuscar = new System.Windows.Forms.TextBox();
+            this.EliminarEstacion = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.lstEstEliServicios = new System.Windows.Forms.ListBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnEstBorrar = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lstEliEstaciones = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtEstEliBuscar = new System.Windows.Forms.TextBox();
+            this.pnlEstacion = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.CrearEstacion.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.ModificarEstacion.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.EliminarEstacion.SuspendLayout();
-            this.pnlEstacion.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.ModificarEstacion.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.EliminarEstacion.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.pnlEstacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnEstLimpiar
@@ -157,45 +158,38 @@
             this.CrearEstacion.ToolTipText = "Crea un nueva estación";
             this.CrearEstacion.UseVisualStyleBackColor = true;
             // 
-            // txtEstCreBuscar
+            // groupBox4
             // 
-            this.txtEstCreBuscar.Location = new System.Drawing.Point(84, 34);
-            this.txtEstCreBuscar.MaxLength = 99;
-            this.txtEstCreBuscar.Name = "txtEstCreBuscar";
-            this.txtEstCreBuscar.Size = new System.Drawing.Size(220, 21);
-            this.txtEstCreBuscar.TabIndex = 26;
-            this.txtEstCreBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.txtEstCreNombre);
+            this.groupBox4.Controls.Add(this.clbIncidentes);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.cmbEstCreFdp);
+            this.groupBox4.Controls.Add(this.groupBox1);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Location = new System.Drawing.Point(16, 33);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(771, 458);
+            this.groupBox4.TabIndex = 28;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Estación";
             // 
-            // label18
+            // label1
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 37);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 15);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "Nombre";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Nombre";
             // 
-            // lstCreEstaciones
+            // txtEstCreNombre
             // 
-            this.lstCreEstaciones.DisplayMember = "Nombre";
-            this.lstCreEstaciones.FormattingEnabled = true;
-            this.lstCreEstaciones.ItemHeight = 15;
-            this.lstCreEstaciones.Location = new System.Drawing.Point(18, 65);
-            this.lstCreEstaciones.Name = "lstCreEstaciones";
-            this.lstCreEstaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lstCreEstaciones.Size = new System.Drawing.Size(286, 364);
-            this.lstCreEstaciones.Sorted = true;
-            this.lstCreEstaciones.TabIndex = 24;
-            // 
-            // cmbEstCreFdp
-            // 
-            this.cmbEstCreFdp.FormattingEnabled = true;
-            this.cmbEstCreFdp.Items.AddRange(new object[] {
-            "Normal"});
-            this.cmbEstCreFdp.Location = new System.Drawing.Point(187, 323);
-            this.cmbEstCreFdp.Name = "cmbEstCreFdp";
-            this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 23);
-            this.cmbEstCreFdp.TabIndex = 2;
+            this.txtEstCreNombre.Location = new System.Drawing.Point(108, 62);
+            this.txtEstCreNombre.MaxLength = 99;
+            this.txtEstCreNombre.Name = "txtEstCreNombre";
+            this.txtEstCreNombre.Size = new System.Drawing.Size(226, 21);
+            this.txtEstCreNombre.TabIndex = 18;
             // 
             // clbIncidentes
             // 
@@ -207,23 +201,24 @@
             this.clbIncidentes.TabIndex = 19;
             this.clbIncidentes.SelectedIndexChanged += new System.EventHandler(this.seleccionarIncidentes);
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Nombre";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(372, 34);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(197, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Incidentes existentes en el sistema";
             // 
-            // label3
+            // cmbEstCreFdp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 316);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 30);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Distribución de Arribo \r\nde Personas al Andén";
+            this.cmbEstCreFdp.FormattingEnabled = true;
+            this.cmbEstCreFdp.Items.AddRange(new object[] {
+            "Normal"});
+            this.cmbEstCreFdp.Location = new System.Drawing.Point(187, 323);
+            this.cmbEstCreFdp.Name = "cmbEstCreFdp";
+            this.cmbEstCreFdp.Size = new System.Drawing.Size(147, 23);
+            this.cmbEstCreFdp.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -292,22 +287,66 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Mínimo";
             // 
-            // txtEstCreNombre
+            // label3
             // 
-            this.txtEstCreNombre.Location = new System.Drawing.Point(108, 62);
-            this.txtEstCreNombre.MaxLength = 99;
-            this.txtEstCreNombre.Name = "txtEstCreNombre";
-            this.txtEstCreNombre.Size = new System.Drawing.Size(226, 21);
-            this.txtEstCreNombre.TabIndex = 18;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 316);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 30);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Distribución de Arribo \r\nde Personas al Andén";
             // 
-            // label2
+            // groupBox3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(372, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 15);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Incidentes existentes en el sistema";
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.txtEstCreBuscar);
+            this.groupBox3.Controls.Add(this.lstCreEstaciones);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Location = new System.Drawing.Point(807, 33);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(480, 458);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Buscar Estación";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(324, 65);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(138, 30);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Listado de estaciones\r\nexistentes en el sistema";
+            // 
+            // txtEstCreBuscar
+            // 
+            this.txtEstCreBuscar.Location = new System.Drawing.Point(84, 34);
+            this.txtEstCreBuscar.MaxLength = 99;
+            this.txtEstCreBuscar.Name = "txtEstCreBuscar";
+            this.txtEstCreBuscar.Size = new System.Drawing.Size(220, 21);
+            this.txtEstCreBuscar.TabIndex = 26;
+            this.txtEstCreBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
+            // 
+            // lstCreEstaciones
+            // 
+            this.lstCreEstaciones.DisplayMember = "Nombre";
+            this.lstCreEstaciones.FormattingEnabled = true;
+            this.lstCreEstaciones.ItemHeight = 15;
+            this.lstCreEstaciones.Location = new System.Drawing.Point(18, 65);
+            this.lstCreEstaciones.Name = "lstCreEstaciones";
+            this.lstCreEstaciones.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lstCreEstaciones.Size = new System.Drawing.Size(286, 364);
+            this.lstCreEstaciones.Sorted = true;
+            this.lstCreEstaciones.TabIndex = 24;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 37);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 15);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "Nombre";
             // 
             // ModificarEstacion
             // 
@@ -322,42 +361,30 @@
             this.ModificarEstacion.ToolTipText = "Muestra un listado de estaciones para su modificación";
             this.ModificarEstacion.UseVisualStyleBackColor = true;
             // 
-            // txtEstacionesModBuscar
+            // groupBox6
             // 
-            this.txtEstacionesModBuscar.Location = new System.Drawing.Point(119, 28);
-            this.txtEstacionesModBuscar.MaxLength = 99;
-            this.txtEstacionesModBuscar.Name = "txtEstacionesModBuscar";
-            this.txtEstacionesModBuscar.Size = new System.Drawing.Size(190, 21);
-            this.txtEstacionesModBuscar.TabIndex = 23;
-            this.txtEstacionesModBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this.clbModIncidentes);
+            this.groupBox6.Controls.Add(this.txtEstModNombre);
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.groupBox2);
+            this.groupBox6.Controls.Add(this.cmbEstModFdp);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Location = new System.Drawing.Point(522, 27);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(765, 459);
+            this.groupBox6.TabIndex = 25;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Estación";
             // 
-            // label17
+            // label7
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(18, 31);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(52, 15);
-            this.label17.TabIndex = 22;
-            this.label17.Text = "Nombre";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(24, 325);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(127, 30);
-            this.label13.TabIndex = 21;
-            this.label13.Text = "Distribución de Arribo \r\nde Personas al Andén";
-            // 
-            // cmbEstModFdp
-            // 
-            this.cmbEstModFdp.FormattingEnabled = true;
-            this.cmbEstModFdp.Items.AddRange(new object[] {
-            "Normal"});
-            this.cmbEstModFdp.Location = new System.Drawing.Point(174, 332);
-            this.cmbEstModFdp.Name = "cmbEstModFdp";
-            this.cmbEstModFdp.Size = new System.Drawing.Size(166, 23);
-            this.cmbEstModFdp.TabIndex = 2;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(368, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(197, 15);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Incidentes existentes en el sistema";
             // 
             // clbModIncidentes
             // 
@@ -369,26 +396,22 @@
             this.clbModIncidentes.TabIndex = 20;
             this.clbModIncidentes.SelectedIndexChanged += new System.EventHandler(this.seleccionarIncidentes);
             // 
-            // lstModEstaciones
+            // txtEstModNombre
             // 
-            this.lstModEstaciones.DisplayMember = "Nombre";
-            this.lstModEstaciones.FormattingEnabled = true;
-            this.lstModEstaciones.ItemHeight = 15;
-            this.lstModEstaciones.Location = new System.Drawing.Point(21, 59);
-            this.lstModEstaciones.Name = "lstModEstaciones";
-            this.lstModEstaciones.Size = new System.Drawing.Size(288, 379);
-            this.lstModEstaciones.Sorted = true;
-            this.lstModEstaciones.TabIndex = 11;
-            this.lstModEstaciones.SelectedIndexChanged += new System.EventHandler(this.seleccionarEstacion);
+            this.txtEstModNombre.Location = new System.Drawing.Point(114, 63);
+            this.txtEstModNombre.MaxLength = 99;
+            this.txtEstModNombre.Name = "txtEstModNombre";
+            this.txtEstModNombre.Size = new System.Drawing.Size(226, 21);
+            this.txtEstModNombre.TabIndex = 7;
             // 
-            // label6
+            // label13
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 15);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Nombre";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(24, 325);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(127, 30);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Distribución de Arribo \r\nde Personas al Andén";
             // 
             // groupBox2
             // 
@@ -457,13 +480,77 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Mínimo";
             // 
-            // txtEstModNombre
+            // cmbEstModFdp
             // 
-            this.txtEstModNombre.Location = new System.Drawing.Point(114, 63);
-            this.txtEstModNombre.MaxLength = 99;
-            this.txtEstModNombre.Name = "txtEstModNombre";
-            this.txtEstModNombre.Size = new System.Drawing.Size(226, 21);
-            this.txtEstModNombre.TabIndex = 7;
+            this.cmbEstModFdp.FormattingEnabled = true;
+            this.cmbEstModFdp.Items.AddRange(new object[] {
+            "Normal"});
+            this.cmbEstModFdp.Location = new System.Drawing.Point(174, 332);
+            this.cmbEstModFdp.Name = "cmbEstModFdp";
+            this.cmbEstModFdp.Size = new System.Drawing.Size(166, 23);
+            this.cmbEstModFdp.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Nombre";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.lstModEstaciones);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.txtEstacionesModBuscar);
+            this.groupBox5.Location = new System.Drawing.Point(20, 27);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(480, 459);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Buscar Estación a Modificar";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(323, 59);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(144, 75);
+            this.label20.TabIndex = 28;
+            this.label20.Text = "Listado de estaciones\r\nexistentes en el sistema, \r\nseleccione una estación\r\npara " +
+    "modificar sus \r\natributos";
+            // 
+            // lstModEstaciones
+            // 
+            this.lstModEstaciones.DisplayMember = "Nombre";
+            this.lstModEstaciones.FormattingEnabled = true;
+            this.lstModEstaciones.ItemHeight = 15;
+            this.lstModEstaciones.Location = new System.Drawing.Point(21, 59);
+            this.lstModEstaciones.Name = "lstModEstaciones";
+            this.lstModEstaciones.Size = new System.Drawing.Size(288, 379);
+            this.lstModEstaciones.Sorted = true;
+            this.lstModEstaciones.TabIndex = 11;
+            this.lstModEstaciones.SelectedIndexChanged += new System.EventHandler(this.seleccionarEstacion);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(18, 31);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(52, 15);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Nombre";
+            // 
+            // txtEstacionesModBuscar
+            // 
+            this.txtEstacionesModBuscar.Location = new System.Drawing.Point(119, 28);
+            this.txtEstacionesModBuscar.MaxLength = 99;
+            this.txtEstacionesModBuscar.Name = "txtEstacionesModBuscar";
+            this.txtEstacionesModBuscar.Size = new System.Drawing.Size(190, 21);
+            this.txtEstacionesModBuscar.TabIndex = 23;
+            this.txtEstacionesModBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
             // 
             // EliminarEstacion
             // 
@@ -479,14 +566,16 @@
             this.EliminarEstacion.ToolTipText = "Muestra un listado de estaciones para su eliminación";
             this.EliminarEstacion.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // groupBox9
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 26);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(150, 30);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Muestra los servicios a los\r\nque pertenece la estación";
+            this.groupBox9.Controls.Add(this.lstEstEliServicios);
+            this.groupBox9.Controls.Add(this.label12);
+            this.groupBox9.Location = new System.Drawing.Point(749, 168);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(321, 320);
+            this.groupBox9.TabIndex = 30;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Servicios Asociados";
             // 
             // lstEstEliServicios
             // 
@@ -501,23 +590,70 @@
             this.lstEstEliServicios.Sorted = true;
             this.lstEstEliServicios.TabIndex = 26;
             // 
-            // txtEstEliBuscar
+            // label12
             // 
-            this.txtEstEliBuscar.Location = new System.Drawing.Point(108, 30);
-            this.txtEstEliBuscar.MaxLength = 99;
-            this.txtEstEliBuscar.Name = "txtEstEliBuscar";
-            this.txtEstEliBuscar.Size = new System.Drawing.Size(235, 21);
-            this.txtEstEliBuscar.TabIndex = 25;
-            this.txtEstEliBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(19, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(224, 30);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Muestra los servicios a los\r\nque pertenece la estación seleccionada";
             // 
-            // label11
+            // groupBox8
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 33);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 15);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "Nombre";
+            this.groupBox8.Controls.Add(this.label23);
+            this.groupBox8.Controls.Add(this.btnEstBorrar);
+            this.groupBox8.Location = new System.Drawing.Point(749, 25);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(321, 124);
+            this.groupBox8.TabIndex = 29;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Eliminar Estación";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(18, 33);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(285, 30);
+            this.label23.TabIndex = 25;
+            this.label23.Text = "Elimina la estación del sistema, solo se podrán \r\neliminar aquellas que no perten" +
+    "ezcan a un servicio";
+            // 
+            // btnEstBorrar
+            // 
+            this.btnEstBorrar.Image = global::ffccSimulacion.Properties.Resources.bin_icon_1488050992;
+            this.btnEstBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstBorrar.Location = new System.Drawing.Point(151, 78);
+            this.btnEstBorrar.Name = "btnEstBorrar";
+            this.btnEstBorrar.Size = new System.Drawing.Size(150, 30);
+            this.btnEstBorrar.TabIndex = 13;
+            this.btnEstBorrar.Text = "Eliminar";
+            this.btnEstBorrar.UseVisualStyleBackColor = true;
+            this.btnEstBorrar.Click += new System.EventHandler(this.btnEstBorrar_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label24);
+            this.groupBox7.Controls.Add(this.lstEliEstaciones);
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.txtEstEliBuscar);
+            this.groupBox7.Location = new System.Drawing.Point(225, 25);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(502, 463);
+            this.groupBox7.TabIndex = 28;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Buscar Estación a Eliminar";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(349, 57);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(144, 60);
+            this.label24.TabIndex = 26;
+            this.label24.Text = "Listado de estaciones\r\nexistentes en el sistema, \r\nseleccione una estación\r\npara " +
+    "eliminarla.";
             // 
             // lstEliEstaciones
             // 
@@ -531,17 +667,23 @@
             this.lstEliEstaciones.TabIndex = 14;
             this.lstEliEstaciones.SelectedIndexChanged += new System.EventHandler(this.serviciosAsociadas);
             // 
-            // btnEstBorrar
+            // label11
             // 
-            this.btnEstBorrar.Image = global::ffccSimulacion.Properties.Resources.bin_icon_1488050992;
-            this.btnEstBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstBorrar.Location = new System.Drawing.Point(151, 78);
-            this.btnEstBorrar.Name = "btnEstBorrar";
-            this.btnEstBorrar.Size = new System.Drawing.Size(150, 30);
-            this.btnEstBorrar.TabIndex = 13;
-            this.btnEstBorrar.Text = "Eliminar";
-            this.btnEstBorrar.UseVisualStyleBackColor = true;
-            this.btnEstBorrar.Click += new System.EventHandler(this.btnEstBorrar_Click);
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(20, 33);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 15);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Nombre";
+            // 
+            // txtEstEliBuscar
+            // 
+            this.txtEstEliBuscar.Location = new System.Drawing.Point(108, 30);
+            this.txtEstEliBuscar.MaxLength = 99;
+            this.txtEstEliBuscar.Name = "txtEstEliBuscar";
+            this.txtEstEliBuscar.Size = new System.Drawing.Size(235, 21);
+            this.txtEstEliBuscar.TabIndex = 25;
+            this.txtEstEliBuscar.TextChanged += new System.EventHandler(this.buscarEstaciones);
             // 
             // pnlEstacion
             // 
@@ -556,136 +698,6 @@
             this.pnlEstacion.Size = new System.Drawing.Size(1325, 582);
             this.pnlEstacion.TabIndex = 5;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.txtEstCreBuscar);
-            this.groupBox3.Controls.Add(this.lstCreEstaciones);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Location = new System.Drawing.Point(807, 33);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(480, 458);
-            this.groupBox3.TabIndex = 27;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Buscar Estación";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.txtEstCreNombre);
-            this.groupBox4.Controls.Add(this.clbIncidentes);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.cmbEstCreFdp);
-            this.groupBox4.Controls.Add(this.groupBox1);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(16, 33);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(771, 458);
-            this.groupBox4.TabIndex = 28;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Estación";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(324, 65);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(138, 30);
-            this.label19.TabIndex = 27;
-            this.label19.Text = "Listado de estaciones\r\nexistentes en el sistema";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.lstModEstaciones);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.txtEstacionesModBuscar);
-            this.groupBox5.Location = new System.Drawing.Point(20, 27);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(480, 459);
-            this.groupBox5.TabIndex = 24;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Buscar Estación a Modificar";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.clbModIncidentes);
-            this.groupBox6.Controls.Add(this.txtEstModNombre);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.groupBox2);
-            this.groupBox6.Controls.Add(this.cmbEstModFdp);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Location = new System.Drawing.Point(522, 27);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(765, 459);
-            this.groupBox6.TabIndex = 25;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Estación";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(323, 59);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(144, 75);
-            this.label20.TabIndex = 28;
-            this.label20.Text = "Listado de estaciones\r\nexistentes en el sistema, \r\nseleccione una estación\r\npara " +
-    "modificar sus \r\natributos";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(197, 15);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Incidentes existentes en el sistema";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.lstEliEstaciones);
-            this.groupBox7.Controls.Add(this.label11);
-            this.groupBox7.Controls.Add(this.txtEstEliBuscar);
-            this.groupBox7.Location = new System.Drawing.Point(256, 25);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(471, 463);
-            this.groupBox7.TabIndex = 28;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Buscar Estación a Eliminar";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.label23);
-            this.groupBox8.Controls.Add(this.btnEstBorrar);
-            this.groupBox8.Location = new System.Drawing.Point(749, 25);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(321, 124);
-            this.groupBox8.TabIndex = 29;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Eliminar Estación";
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.lstEstEliServicios);
-            this.groupBox9.Controls.Add(this.label12);
-            this.groupBox9.Location = new System.Drawing.Point(749, 168);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(321, 320);
-            this.groupBox9.TabIndex = 30;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Listado de Servicios";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(18, 33);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(285, 30);
-            this.label23.TabIndex = 25;
-            this.label23.Text = "Elimina la estación del sistema, solo se podrán \r\neliminar aquellas que no perten" +
-    "ezcan a un servicio";
-            // 
             // frmABMEstacion
             // 
             this.AcceptButton = this.btnEstAceptar;
@@ -698,27 +710,27 @@
             this.Text = "Estación";
             this.tabControl1.ResumeLayout(false);
             this.CrearEstacion.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ModificarEstacion.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.EliminarEstacion.ResumeLayout(false);
-            this.pnlEstacion.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.ModificarEstacion.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.EliminarEstacion.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.pnlEstacion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -781,5 +793,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
     }
 }

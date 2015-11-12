@@ -43,13 +43,13 @@
             this.pnlAyuda.Controls.Add(this.label2);
             this.pnlAyuda.Location = new System.Drawing.Point(1, 3);
             this.pnlAyuda.Name = "pnlAyuda";
-            this.pnlAyuda.Size = new System.Drawing.Size(988, 500);
+            this.pnlAyuda.Size = new System.Drawing.Size(1036, 600);
             this.pnlAyuda.TabIndex = 0;
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(26, 477);
+            this.linkLabel1.Location = new System.Drawing.Point(22, 572);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(61, 13);
             this.linkLabel1.TabIndex = 5;
@@ -59,13 +59,14 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(153, 49);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(822, 441);
+            this.textBox1.Size = new System.Drawing.Size(870, 536);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -83,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 505);
+            this.ClientSize = new System.Drawing.Size(1048, 613);
             this.Controls.Add(this.pnlAyuda);
             this.Name = "frmAyuda";
             this.Text = "frmAyuda";

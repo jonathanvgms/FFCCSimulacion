@@ -97,9 +97,13 @@ namespace ffccSimulacion.ABMServicio
             }
 
             if (!Util.EsNumerico(txtDistanciaRelacionCrear.Text))
-                errorMsj += "Distancia entre estaciones: Incompleto/Incorrecto.\n";
+                errorMsj += "Distancia entre estaciones: Incompleto ó Incorrecto.\n";
+            else if (int.Parse(txtDistanciaRelacionCrear.Text) == 0)
+                errorMsj += "Distancia: El valor debe ser positivo.\n";
             if(!Util.EsNumerico(txtVelocidadRelacionCrear.Text))
-                errorMsj += "Velocidad: Incompleto/Incorrecto.\n";
+                errorMsj += "Velocidad: Incompleto ó Incorrecto.\n";
+            else if (int.Parse(txtVelocidadRelacionCrear.Text) == 0)
+                errorMsj += "Velocidad: El valor debe ser positivo.\n";
             if (BuscarRelacion(estacionOrigen.Id, estacionDestino.Id) != null)
                 errorMsj += "Esa relación ya existe en el servicio.\n";
             if (estacionDestino.Id == estacionOrigen.Id)
@@ -427,9 +431,13 @@ namespace ffccSimulacion.ABMServicio
             if (servicioSeleccionado == null)
                 errorMsj += "No se ha seleccionado ningún servicio para ser modificado.\n";
             if (!Util.EsNumerico(txtDistanciaRelacionMod.Text))
-                errorMsj += "Distancia entre estaciones: Incompleto/Incorrecto.\n";
+                errorMsj += "Distancia entre estaciones: Incompleto ó Incorrecto.\n";
+            else if (int.Parse(txtDistanciaRelacionMod.Text) == 0)
+                errorMsj += "Distancia: El valor debe ser positivo.\n";
             if (!Util.EsNumerico(txtVelocidadRelacionMod.Text))
-                errorMsj += "Velocidad: Incompleto/Incorrecto.\n";
+                errorMsj += "Velocidad: Incompleto ó Incorrecto.\n";
+            else if (int.Parse(txtVelocidadRelacionMod.Text) == 0)
+                errorMsj += "Velocidad: El valor debe ser positivo.\n";
             if (estacionOrigen == null)
                 errorMsj += "Debe seleccionar una estación de origen.\n";
             if (estacionDestino == null)
@@ -477,7 +485,7 @@ namespace ffccSimulacion.ABMServicio
             List<string> nombreDeServicios = context.Servicios.Where(x => x.Id != servicioSeleccionado.Id).Select(x => x.Nombre).ToList<string>();
 
             if (!Util.EsAlfaNumerico(txtNombreServicioMod.Text))
-                errorMsj += "Nombre de servicio: Incompleto/Incorrecto.\n";
+                errorMsj += "Nombre de servicio: Incompleto ó Incorrecto.\n";
             else if (nombreDeServicios.Contains(txtNombreServicioMod.Text))
                 errorMsj += "Nombre de servicio: ya existe un servicio con el mismo nombre.\n";
 

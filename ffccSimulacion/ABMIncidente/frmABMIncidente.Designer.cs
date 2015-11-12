@@ -582,7 +582,7 @@
             this.groupBox9.Size = new System.Drawing.Size(335, 311);
             this.groupBox9.TabIndex = 26;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Listado de Estaciones";
+            this.groupBox9.Text = "Estaciones Asociadas";
             // 
             // label9
             // 

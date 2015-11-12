@@ -312,6 +312,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Resources\bin-icon_1488050992.jpg" />
+    <None Include="Resources\icono.flecha.derecha.png" />
+    <None Include="Resources\icono.flecha.izquierda.png" />
     <Content Include="Resources\Manual.pdf" />
   </ItemGroup>
   <ItemGroup>
