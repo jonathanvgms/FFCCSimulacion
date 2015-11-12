@@ -877,7 +877,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCocheNuevoCancelar;
-            this.ClientSize = new System.Drawing.Size(1382, 771);
+            this.ClientSize = new System.Drawing.Size(1075, 607);
             this.Controls.Add(this.pnlCoche);
             this.Name = "frmABMCoche";
             this.Text = "Coche";

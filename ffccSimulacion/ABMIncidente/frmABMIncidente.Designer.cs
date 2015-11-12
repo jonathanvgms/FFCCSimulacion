@@ -378,7 +378,7 @@
             "80",
             "90",
             "100"});
-            this.cbmIncCrePro.Location = new System.Drawing.Point(177, 295);
+            this.cbmIncCrePro.Location = new System.Drawing.Point(187, 295);
             this.cbmIncCrePro.Name = "cbmIncCrePro";
             this.cbmIncCrePro.Size = new System.Drawing.Size(113, 23);
             this.cbmIncCrePro.TabIndex = 7;
@@ -388,13 +388,13 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(21, 288);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 30);
+            this.label7.Size = new System.Drawing.Size(160, 30);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Porcentaje de Ocurencia \r\ndel Incidente\r\n";
+            this.label7.Text = "Probabilidad de Ocurrencia \r\ndel Incidente\r\n";
             // 
             // txtbIncCreTiem
             // 
-            this.txtbIncCreTiem.Location = new System.Drawing.Point(177, 384);
+            this.txtbIncCreTiem.Location = new System.Drawing.Point(187, 384);
             this.txtbIncCreTiem.MaxLength = 9;
             this.txtbIncCreTiem.Name = "txtbIncCreTiem";
             this.txtbIncCreTiem.Size = new System.Drawing.Size(113, 21);
@@ -403,7 +403,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(296, 298);
+            this.label12.Location = new System.Drawing.Point(306, 298);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(18, 15);
             this.label12.TabIndex = 14;
@@ -421,7 +421,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(296, 387);
+            this.label13.Location = new System.Drawing.Point(306, 387);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 15);
             this.label13.TabIndex = 15;
@@ -492,9 +492,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(23, 310);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(146, 30);
+            this.label14.Size = new System.Drawing.Size(157, 30);
             this.label14.TabIndex = 7;
-            this.label14.Text = "Porcentaje de Ocurrencia\r\ndel Incidente";
+            this.label14.Text = "Probabilidad de Ocurrencia\r\ndel Incidente";
             // 
             // groupBox4
             // 

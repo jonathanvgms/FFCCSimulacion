@@ -108,7 +108,7 @@
             // 
             // txtPorcTrenes
             // 
-            this.txtPorcTrenes.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPorcTrenes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtPorcTrenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPorcTrenes.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPorcTrenes.Location = new System.Drawing.Point(256, 19);
@@ -189,7 +189,7 @@
             // 
             // txtTiemPro
             // 
-            this.txtTiemPro.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTiemPro.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtTiemPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTiemPro.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtTiemPro.Location = new System.Drawing.Point(699, 19);
@@ -200,7 +200,7 @@
             // 
             // txtPromPasaj
             // 
-            this.txtPromPasaj.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPromPasaj.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtPromPasaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPromPasaj.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPromPasaj.Location = new System.Drawing.Point(256, 73);
@@ -211,7 +211,7 @@
             // 
             // txtPromDem
             // 
-            this.txtPromDem.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPromDem.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtPromDem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPromDem.ForeColor = System.Drawing.Color.SteelBlue;
             this.txtPromDem.Location = new System.Drawing.Point(699, 73);
@@ -222,7 +222,7 @@
             // 
             // txtConsElePas
             // 
-            this.txtConsElePas.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsElePas.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtConsElePas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsElePas.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsElePas.Location = new System.Drawing.Point(256, 181);
@@ -233,7 +233,7 @@
             // 
             // txtCostPorKm
             // 
-            this.txtCostPorKm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCostPorKm.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtCostPorKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostPorKm.ForeColor = System.Drawing.Color.Crimson;
             this.txtCostPorKm.Location = new System.Drawing.Point(256, 235);
@@ -244,7 +244,7 @@
             // 
             // txtCostPorPasajero
             // 
-            this.txtCostPorPasajero.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCostPorPasajero.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtCostPorPasajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostPorPasajero.ForeColor = System.Drawing.Color.Crimson;
             this.txtCostPorPasajero.Location = new System.Drawing.Point(699, 235);
@@ -255,7 +255,7 @@
             // 
             // txtConsDiPas
             // 
-            this.txtConsDiPas.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsDiPas.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtConsDiPas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsDiPas.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsDiPas.Location = new System.Drawing.Point(699, 181);
@@ -426,7 +426,7 @@
             // 
             // txtConsDiKm
             // 
-            this.txtConsDiKm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsDiKm.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtConsDiKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsDiKm.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsDiKm.Location = new System.Drawing.Point(699, 127);
@@ -457,7 +457,7 @@
             // 
             // txtConsEleKm
             // 
-            this.txtConsEleKm.BackColor = System.Drawing.SystemColors.Window;
+            this.txtConsEleKm.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txtConsEleKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConsEleKm.ForeColor = System.Drawing.Color.Crimson;
             this.txtConsEleKm.Location = new System.Drawing.Point(256, 127);
