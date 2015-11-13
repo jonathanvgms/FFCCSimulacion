@@ -53,7 +53,7 @@ namespace ffccSimulacion.Simulador
                 progressBar1.Value = des;
                 Console.WriteLine("\nBarra Progreso = {0} %", cont);
                 //Console.WriteLine(hilo.IsAlive);
-                if (!hilo.IsAlive)
+                /*if (!hilo.IsAlive)
                 {
                     timer1.Stop();
                     progressBar1.Value = 100;
@@ -61,7 +61,7 @@ namespace ffccSimulacion.Simulador
                     Thread.Sleep(1000);
                     estado = true;
                     Close();
-                }
+                }*/
             }
             else
             {
