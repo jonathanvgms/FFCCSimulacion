@@ -131,7 +131,7 @@ namespace ffccSimulacion.Modelo
             switch (TipoFDP)
             {
                 case 0:
-                    _genteEsperando = Fdp.Normal(PersonasEsperandoMin, PersonasEsperandoMax);
+                    _genteEsperando = Fdp.Normal(PersonasEsperandoMin, PersonasEsperandoMax)*(tiempoActual - _ultimaAtencion);
                     break;
                 case 1:
                     //TODO calculo el delta en horas
