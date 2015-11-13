@@ -123,7 +123,7 @@ namespace ffccSimulacion.Modelo
 
                     int demoraPorAccidentesEnViaje = relacionSiguiente.demoraPorAccidentes(); //Calculo el tiempo de demora en el viaje.
 
-                    int tiempoLlegadaProximoNodo = tiempoViaje + demoraPorAccidentesEnViaje; //Llego al proximo nodo al sumar el tiempo de viaje y las demoras.
+                    int tiempoLlegadaProximoNodo = tiempoViaje + demoraPorAccidentesEnViaje + tiempoFormacionActual; //Llego al proximo nodo al sumar el tiempo de viaje y las demoras.
 
                     int tiempoInicioAtencion = tiempoLlegadaProximoNodo; //Si no hay demoras en la estacion, el tiempo de atencion sera el de llegada, si hay demoras se actualiza.
                                         
