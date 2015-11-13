@@ -16,7 +16,7 @@ namespace ffccSimulacion.Modelo
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     public partial class Estaciones
     {
         //private List<Relaciones> _anteriores = new List<Relaciones>();
@@ -32,13 +32,13 @@ namespace ffccSimulacion.Modelo
             this.Relaciones1 = new HashSet<Relaciones>();
             this.Estaciones_X_Incidentes = new HashSet<Estaciones_X_Incidentes>();
         }
-    
+
         public int Id { get; set; }
         public string Nombre { get; set; }
         public int PersonasEsperandoMin { get; set; }
         public int PersonasEsperandoMax { get; set; }
         public int TipoFDP { get; set; }
-    
+
         public virtual ICollection<Relaciones> Relaciones { get; set; }
         public virtual ICollection<Relaciones> Relaciones1 { get; set; }
         public virtual ICollection<Estaciones_X_Incidentes> Estaciones_X_Incidentes { get; set; }
@@ -110,12 +110,14 @@ namespace ffccSimulacion.Modelo
             //ATIENDO LOS PASAJEROS
             actualizarGenteEsperando(tiempoLlegada);
 
+            //CALCULO EL TIEMPO DE ATENCION
+            int tiempoAtencionActual = tiempoAtencion(_genteEsperando, formacion.capacidadMaxima(), formacion.TotalPasajerosEnFormacion());
+
             Flujo_Pasajeros fp = formacion.recibir(_genteEsperando);
             _pasajerosQueSubieronAlTren = fp.pasajerosQueSubieronAlTren;
             _genteEsperando = fp.pasajerosQueNoSubieronAlTren;
 
             //ACTUALIZO EL TIEMPO COMPROMETIDO Y LA ULTIMA ATENCION
-            int tiempoAtencionActual = tiempoAtencion();
             _tiempoComprometido += tiempoAtencionActual;
             _ultimaAtencion = _tiempoComprometido; //Por ahora son iguales.
 
@@ -131,7 +133,8 @@ namespace ffccSimulacion.Modelo
             switch (TipoFDP)
             {
                 case 0:
-                    _genteEsperando = Fdp.Normal(PersonasEsperandoMin, PersonasEsperandoMax)*(tiempoActual - _ultimaAtencion);
+                    _genteEsperando = Fdp.Normal(PersonasEsperandoMin, PersonasEsperandoMax) * diferenciaUltimaAtencion(tiempoActual);
+
                     break;
                 case 1:
                     //TODO calculo el delta en horas
@@ -146,12 +149,35 @@ namespace ffccSimulacion.Modelo
             }
         }
 
+        private int diferenciaUltimaAtencion(int tiempoActual)
+        {
+            if (_ultimaAtencion == 0 && (tiempoActual - _ultimaAtencion) > 15)
+                return 15;
+            else
+                return tiempoActual - _ultimaAtencion;
+        }
+
         /*Retorna el tiempo que lo toma a la estacion para atener al tren y despacharlo en minutos*/
-        private int tiempoAtencion()
+        private int tiempoAtencion(int genteEsperando, int capacidadMaximaFormacion, int pasajerosEnFormacion)
         {
             //Calculo del tiempo de atencion en la estacion.
-            int segundosEspera = Fdp.Normal(30, 120);
-            return segundosEspera / 60;
+            if ((double)genteEsperando < (double)capacidadMaximaFormacion * 0.25)
+            {
+                int segundosEspera = Fdp.Normal(30, 120);
+                return segundosEspera / 60;
+            }
+            else if ((double)genteEsperando >= (double)capacidadMaximaFormacion * 0.25 && (double)genteEsperando < (double)capacidadMaximaFormacion * 0.75)
+            {
+                int segundosEspera = Fdp.Normal(120, 180);
+                return segundosEspera / 60;
+            }
+            else
+            {
+                int segundosEspera = Fdp.Normal(180, 240);
+                return segundosEspera / 60;
+            }
+
+
         }
     }
 }
