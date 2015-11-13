@@ -365,13 +365,13 @@ namespace ffccSimulacion.ABMCoche
         {
             if (cbxTipoConsumo.SelectedItem == "Diesel")
             {
-                lblConsumoMovCrear.Text = "(por km)";
-                lblConsumoParadoCrear.Text = "(por km)";
+                lblConsumoMovCrear.Text = "L / Km";
+                lblConsumoParadoCrear.Text = "L / Km";
             }
             else//Si no es diesel es electrico
             {
-                lblConsumoMovCrear.Text = "(por tiempo)";
-                lblConsumoParadoCrear.Text = "(por tiempo)";
+                lblConsumoMovCrear.Text = "KW / H";
+                lblConsumoParadoCrear.Text = "KW / H";
             }
         }
 
@@ -379,13 +379,13 @@ namespace ffccSimulacion.ABMCoche
         {
             if (cbxTipoConsumoMod.SelectedItem == "Diesel")
             {
-                lblConsumoMovMod.Text = "(por km)";
-                lblConsumoParadoMod.Text = "(por km)";
+                lblConsumoMovMod.Text = "L / Km";
+                lblConsumoParadoMod.Text = "L / Km";
             }
             else//Si no es diesel es electrico
             {
-                lblConsumoMovMod.Text = "(por tiempo)";
-                lblConsumoParadoMod.Text = "(por tiempo)";
+                lblConsumoMovMod.Text = "KW / H";
+                lblConsumoParadoMod.Text = "KW / H";
             }
         }
 

@@ -320,9 +320,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(362, 184);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(24, 15);
+            this.label14.Size = new System.Drawing.Size(26, 15);
             this.label14.TabIndex = 27;
-            this.label14.Text = "Kw";
+            this.label14.Text = "KW";
             // 
             // label15
             // 
@@ -330,9 +330,9 @@
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(805, 184);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 15);
+            this.label15.Size = new System.Drawing.Size(37, 15);
             this.label15.TabIndex = 26;
-            this.label15.Text = "Lts";
+            this.label15.Text = "Litros";
             // 
             // label16
             // 
@@ -365,18 +365,18 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(603, 27);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(39, 15);
+            this.label17.Size = new System.Drawing.Size(47, 15);
             this.label17.TabIndex = 2;
-            this.label17.Text = "$ / Lts";
+            this.label17.Text = "$ / Litro";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(362, 27);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(40, 15);
+            this.label18.Size = new System.Drawing.Size(42, 15);
             this.label18.TabIndex = 3;
-            this.label18.Text = "$ / Kw";
+            this.label18.Text = "$ / KW";
             // 
             // txtCostoDi
             // 
@@ -441,9 +441,9 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(805, 130);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(23, 15);
+            this.label20.Size = new System.Drawing.Size(37, 15);
             this.label20.TabIndex = 27;
-            this.label20.Text = "Lts";
+            this.label20.Text = "Litros";
             // 
             // label21
             // 
@@ -472,9 +472,9 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(362, 130);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(24, 15);
+            this.label22.Size = new System.Drawing.Size(26, 15);
             this.label22.TabIndex = 27;
-            this.label22.Text = "Kw";
+            this.label22.Text = "KW";
             // 
             // groupBox2
             // 

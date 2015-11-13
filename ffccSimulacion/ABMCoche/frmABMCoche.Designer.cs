@@ -419,18 +419,18 @@
             this.lblConsumoMovCrear.AutoSize = true;
             this.lblConsumoMovCrear.Location = new System.Drawing.Point(315, 113);
             this.lblConsumoMovCrear.Name = "lblConsumoMovCrear";
-            this.lblConsumoMovCrear.Size = new System.Drawing.Size(53, 15);
+            this.lblConsumoMovCrear.Size = new System.Drawing.Size(42, 15);
             this.lblConsumoMovCrear.TabIndex = 12;
-            this.lblConsumoMovCrear.Text = "(por km)";
+            this.lblConsumoMovCrear.Text = "L / Km";
             // 
             // lblConsumoParadoCrear
             // 
             this.lblConsumoParadoCrear.AutoSize = true;
             this.lblConsumoParadoCrear.Location = new System.Drawing.Point(315, 159);
             this.lblConsumoParadoCrear.Name = "lblConsumoParadoCrear";
-            this.lblConsumoParadoCrear.Size = new System.Drawing.Size(53, 15);
+            this.lblConsumoParadoCrear.Size = new System.Drawing.Size(42, 15);
             this.lblConsumoParadoCrear.TabIndex = 13;
-            this.lblConsumoParadoCrear.Text = "(por km)";
+            this.lblConsumoParadoCrear.Text = "L / Km";
             // 
             // cbxTipoConsumo
             // 
